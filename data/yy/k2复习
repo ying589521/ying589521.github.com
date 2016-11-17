@@ -1,0 +1,1102 @@
+一、事件：
+date1、
+	1.用户的操作(如：点击、鼠标移入移出、拖拽、键盘按下)
+	2.获取元素的方法
+		1）document.getElementById(id名);
+			在文档中通过id获取一个元素
+		2）document.getElementsByTagName(标签名);
+			在文档中通过标签名获取一组元素
+		3）document.getElementsByClassName(类名)
+			在文档中通过类名获取一组元素
+	3.js什么样式都能修改
+	4.事件加给谁？
+		操作谁就加给谁
+	5.函数
+		函数的定义：
+			function 函数名(){
+				函数体;
+			};
+		函数的调用
+			函数名();
+		完整的函数：
+			具有返回值
+				return 要返回的值；
+			谁调用这个函数，就把返回值给谁
+		***看见等号，后面加分号
+		js的属性、样式都可以修改
+		所有的属性多可以加事件
+		在html、css中怎么写
+		js中就怎么写
+		获取body:
+			document.body
+		js玩的是行间样式
+
+date2
+	1.传参
+		function 函数名(){
+			执行的代码;
+		};
+		函数名();
+		1）定义函数写参数只是占位
+		2）参数的个数根据需求来定
+		3）传参什么时候用
+			可变的
+	2.传参的另一种方式
+		1） .       可以操作属性
+		2） []       既可以操作属性，也可以操作变量
+			oDiv.style[name] = value;
+				name  value 都是参数
+		区别：
+			.可以操作已有属性，不可以放变量
+			[]可以放变量
+			***点可以做到的方括号一定能做到
+			方括号能做到的，点不一定能做到
+	3.变量和字符串
+		1）变量是可以变的
+		2）变量没有单引号，字符串有单引号
+	4.获取行间样式
+		行为 样式 结果三者分离
+	5.循环
+		1）while循环
+			初始值
+			条件
+			自增
+			语句
+
+			初始值
+			while(条件){
+				语句;
+				自增自减;
+			}
+		2）for循环
+			for(初始值;条件;自增自减){
+				语句;
+			}
+	6.选项卡
+		this   调用函数的所属者
+		循环中加事件，事件中的i不能用，所以要加this
+		前奏
+			按钮与内容要放在不同的div中
+		思想：
+			1）先清除所有
+				按钮身上的class
+				内容(div)身上的样式
+			2）当前的按钮加上class
+				当前的内容显示
+	选项卡的封装函数tab()
+	源代码如下：
+	function tab(oBtnboxId,oDivboxId){
+			var oBtnbox = document.getElementById(oBtnboxId);
+			var oDivbox = document.getElementById(oDivboxId);
+			var aBtn =oBtnbox.getElementsByTagName('li');
+			var aDiv =oDivbox.getElementsByTagName('div');
+			//给每一个按钮加事件
+			for(var i=0;i<aBtn.length;i++){
+				aBtn[i].index = i;
+				aBtn[i].onmouseover = function(){
+					for(var i=0;i<aBtn.length;i++){
+						aBtn[i].className = '';
+						aDiv[i].className = 'tabs_item'
+					}
+					this.className = 'active';
+					aDiv[this.index].className = 'tabs_item show';
+				};
+			}
+		};
+
+
+	注：
+		1）有名字的函数
+			没有名字的函数(匿名函数,事件函数)
+		2）以后写JS
+			window.onload 
+			获取元素
+			加事件
+		3）只要操作一组元素，就要for循环
+
+date3
+	1.获取值得方法
+		表单元素：value
+		非表单元素：innerHTML
+		eg:oDiv.innerHTML
+	2.字符串跟变量的拼接
+		两个单引号中间两个加号'+要拼进去的+'
+		eg:
+			oTxt.innerHTML = '<h2>'+(this.index+1)+'</h2>'
+	3.调试工具
+		F12
+		软调试
+			1）alert(1)
+			2）console.log()
+		打断点：
+			source
+	4.作用域
+		1）全局变量
+			在哪里都可以
+		2）局部变量
+			只有在他的函数里面能用
+		3）闭包
+			子函数可以使用父函数的局部变量
+		4）
+		number%1
+			一种情况
+		number%2
+			两种情况
+		number%3
+			三种情况
+	5.命名规范
+		命名前缀+内容描述
+		oDiv	object 		对象
+		aDiv	array		数组
+		iCount 	integer		整数
+		sValue	string		字符串
+		bLock	boolean 	布尔值
+		fNumber float 		浮点数
+		fnShow	function 	函数
+		reEmail RegExp 		正则表达式
+		vName 	variant		变体变量
+
+		*必须遵守的
+			o a
+		可以用
+			s fn b
+	6.运算符
+		6.1
+		赋值运算符
+			=
+			>=
+			<=
+			==
+			!=
+			===    严格的比较，是不是不相等，先看数据类型一样不一样（值相等，数据类型相等,才相等）
+			!==	
+
+		6.2
+		逻辑运算符  或 且 非
+
+		或（||）
+			a||b
+				两者之间有一个成立就都成立
+		且（&&）
+			a&&b
+				两者之间有一个不成立就都不成立
+		非（！）
+			！a
+				取反
+
+		6.3
+		条件运算符
+			if else
+		switch
+		三目运算符
+			条件?条件成立运行的语句:条件不成立执行的语句
+
+		用在循环里
+			break		中断	结束整个循环
+			continue	继续	跳出当前循环，执行下面的语句
+		if简写
+			1）三目运算符
+				条件？语句一：语句二；
+			2）
+				if(a)
+					alert(1);
+			3）
+				条件&&语句
+	7.什么是真什么是假？
+		真：true 非0数字 object(对象) 非空字符串 function
+		假：false 0 null 空格字符串 undefined NaN
+
+		数据类型：
+			function Number string boolean object undefined
+	8.获取非行间样式
+		getComPutedStyle(obj,false).样式
+			chrome  FF  ie9+
+		obj.currentStyle.样式;
+			//数据类型是undefined
+			IE低版本
+
+		解决兼容问题;
+		function getStyle(obj,name){
+			if(obj.currentStyle){
+				return obj.currentStyle[name];
+			}else{
+				return getComputedStyle(obj,false)[name];
+			}
+		}
+	9.随机数
+		Math.random()  0-1之间的随机小数 不包括1
+		parseInt(Math.random()*(m-n)+n) 
+			n-m之间的随机整数
+		封装随机数函数
+			function rnd(n,m){
+				return parseInt(Math.random()*(m-n)+n);
+			}
+
+date4
+	1.eval()  处理字符串(把字符串解析成js能懂的代码)
+		eval 注入
+
+一、数据类型
+	typeof  查看数据类型
+
+	number		数字
+	string		字符串
+	undefined   未定义
+	object		对象
+	boolean     布尔值（true false）
+	function    函数
+
+	基本数据类型：
+		不可分的
+			number string
+	复合数据类型
+		可分的
+			obj oDiv
+				可分为 width height background...
+
+	数据类型转换（显示转换）：
+		1）parseInt()  把字符串转换成整型
+			12 -> 12
+			12abc ->12
+			从左边开始看，当遇到第一个不是数字的停止
+			如果第一个数不是数字，就返回NaN
+		2）parseFloat() 把字符串转换成浮点型
+			12.5 ->12.5
+			12.5abc -> 12.5
+			从左边开始看，当遇到第一个不是数字的停止
+			如果第一个数就不是数字，就返回NaN
+		3）Number()
+			12 -> 12
+			12.5 -> 12.5
+			12abc -> NaN
+			从左边开始看，看见不是数字的就返回NaN
+
+			*NaN not a number 
+				1）typeof number
+				2）NaN跟任何东西都不相等，包括它本身（NaN不等于NaN）
+				3）isNaN
+					可以检测是不是NaN，是就返回true，不是就返回false
+	隐式转换
+		- * / % ==(比较)
+
+
+二、定时器
+	1、setInterval(函数,时间);
+	函数：名字不能加括号
+	时间：毫秒
+
+	设置定时器
+		setInterval(函数,时间)
+	关闭定时器
+		clearInterval(定时器的名字)
+
+	1.补0
+			function toDou(n){
+				return n<10?'0'+n:''+n;
+			};
+		2.暂停
+			clearInterval(定时器的名字);  clearInterval(timer);
+			给定时器起名字：  var timer = null;
+		3.单击后过一秒才执行定时器（卡了一下）；
+			定时器里的函数 拎出来 执行一次
+			解决方法：先执行一下函数 sTopwatch();
+		4.多次点击开始按钮，多次执行定时器（点击开始越来越快）
+			解决方法：在点击事件之后清除一下定时器  clearInterval(timer);
+
+	2、另一种定时器
+		设置：
+			setTimeout(函数,时间);
+			隔一段时间执行一次
+			只执行一次
+		清除：
+			clearTimeout(定时器的名字);
+		定时器中的this不能用
+
+	时间对象Date
+	1.从哪来的？
+		var oDate = new Date(); 日期对象
+		小时
+			oDate.getHours()
+		分钟
+			oDate.getMinutes()
+		秒
+			oDate.getSeconds()
+		毫秒
+			oDate.getMilliseconds();
+		年
+			oDate.getFullYear();  
+		月
+			oDate.getMonth()    +1  获取当前月份加1 
+		日
+			oDate.getDate()         
+		星期
+		    oDate.getDay()       0 - 6
+
+	2.开定时器不断获取时间
+
+	例子1：倒计时
+		1.未来的截止时间
+			oDate.getTime();   //未来的时间戳  
+				1970年1月1日0点0分0秒0毫秒到 现在的 毫秒数
+			设置时间
+				年月日
+				oDate.setFullYear(年，月，日);
+				时分秒毫秒
+					oDate.setHouse(小时，分钟，秒，毫秒);
+		2.现在的时间戳
+		3.未来的时间戳减去现在的时间戳
+		4.开启定时器  不断获取现在时间 不断用现在的时间做差
+			卡了一下  领出来调用
+		5.秒转换成时间  天 小时 分钟 秒   %；
+		6.字符串拼接
+	源代码如下：
+	window.onload=function(){
+            var oDiv =document.getElementById('div1');
+            var oFDate = new Date();
+            //设置未来时间
+            oFDate.setFullYear(2016,9,27);
+            oFDate.setHours(0,0,0,0);
+            //alert(oFDate);
+            //获取未来时间戳
+            var future = oFDate.getTime();
+            function countDown(){
+                //获取现在的时间戳
+                var oNDate = new Date();
+                var now = oNDate.getTime();
+                //未来时间减去现在的时间
+                var s = parseInt((future-now)/1000);
+                var d = parseInt(s/86400);
+                s%=86400;
+                var h = parseInt(s/3600);
+                s%=3600;
+                var m = parseInt(s/60);
+                s%=60;
+                oDiv.innerHTML='还有'+d+'天'+h+'小时'+m+'分'+s+'秒';
+            }
+            countDown();
+            setInterval(countDown,1000);
+        };
+
+	例子2：图片时钟
+		1.时间
+		2.有个字符串  让图片的每一个src 等于 字符串的每一个
+		var str='123456'
+			str.charAt(0) -> 1
+			str.charAt(4) -> 5
+		3.把字符串变成当前时间
+		4.加定时器
+	例子3：自动播放选项卡
+		1.普通选项卡
+		2.添加按钮
+		3.Inow  点右边++  点左边 --  限制范围
+		4.重复的部分简化提取  tab()
+		5.自动播放
+			定时器 自动执行 向右点击的代码
+					移入box 清除定时器
+					移出box 开启定时器
+
+三、字符串的一些方法
+	1.str.charAt(位置)  //返回指定位置的字符串
+		例子：
+			var str = 'abcdef';
+			alert(str.charAt(1));  //返回b
+	2.str.indexOf('小字符串');  //区分大小写
+		从左向右找，找到第一个，就返回指定字符串的位置(下标)   找不到，就返回-1
+	3.str.lastIndexOf('小字符串');
+		从右向左找，找到第一个，就返回指定字符串的位置(下标)   找不到，就返回-1
+		例子：
+			var str = 'welcome';
+			alert(str.lastIndexOf('e'));
+			返回 6
+	4.str.substring(起始位置,结束位置);  包括起始位置，不包括结束位置
+	例子：
+		var str = 'welcome';
+		alert(str.substring(3,6));
+		返回：com
+	5.str.split('用字符串中有的字符切割');  分割字符串（可以将字符串转换成数组）
+		例子：
+			var str = 'welcom-to-zns';
+			alert(str.split('-'));
+			返回welcome,to,znz
+		注：字符串转数组的一种方法
+
+		split('');
+			切碎字符串
+		例子：
+			var str='welcome-to-zns';
+	        alert(str.split(''));  //返回 w,e,l,c,o,m,e,-,t,o,-,z,n,s
+	6.大小写转换：
+		转大写：str.toUpperCase();
+			例子：
+				var str = 'welcome';
+        		alert(str.toUpperCase());  //返回WELCOME
+		转小写：str.toLowerCase();
+			例子：
+					var str = 'WELCOME';
+	        		alert(str.toLowerCase());  //返回welcome
+
+四、数组：
+	arr 一种有序的集合
+	新建一个数组：
+		var arr = [];
+		var arr = new Array();
+	小差别：
+		var arr = [10];
+		arr.length ->1;
+
+		var arr = new Array(10)
+		arr.length ->10
+
+***	数组的方法：
+	1.添加：
+		arr.push();  
+			在数组的后面添加一个元素
+		arr.unshift();
+			在数组的前面添加一个元素
+	2.删除
+		arr.pop();
+			在数组的后面删除一个元素
+		arr.shift();
+			在数组的前面删除一个元素
+	3.万能
+		arr.splice(开始位置(删除位置),删除个数,元素1,元素2....);
+
+		添加：
+			模仿push (后面添加)
+				arr.splice(arr.length,0,要添加的元素)
+				   因为要添加，所有删除个数为0
+			模仿unshift (前面添加)
+				arr.splice(0,0,添加元素1,添加元素2)
+
+		删除：（都是删除一个）
+			模仿pop(后面删除一个元素)
+				arr.splice(arr.length-1,1)
+			模仿shift(前面删除一个元素)
+				arr.splice(0,1)  //从第0个删除，删除一个
+		替换：
+			arr.splice(开始位置,修改的个数,替换的元素1，替换的元素2);
+	4.拼接
+		arr.join('连接的符号');
+				用什么连接符号，将数组的每一项连接成字符串
+	5.数组连接
+		arr1.concat(arr2);
+
+		例子：
+			var arr1=[1,2,3]
+	        var arr2=[3,4,5]
+	        var arr3=arr1.concat(arr2)
+	        alert(arr3)   //返回1,2,3,3,4,5
+
+	6.数组倒叙
+		var arr = [1,2,3,4,5] -> [5,4,3,2,1]
+		arr.reverse();
+
+	7.数组排序
+		arr.sort();
+			字母排序 	 按字典序;
+			数字排序	 按字典序;
+		sort的高级用法：
+			从小到大
+			arr.sort(function(n1,n2){
+				return n1-n2;
+			})
+
+			从大到小
+			arr.sort(function(n1,n2){
+				return n2-n1;
+			})
+	8.清空数组
+		1.arr.length = 0;
+		2.arr = [];
+		3.while
+		4.splice(0,arr.length);
+
+注：
+	1.将字符串转换成数组：用字符串切割 str.split('字符串中的字符')；
+
+	2.将数组转换成字符串：用arr.join('连接的字符') 用什么连接符号，将数组的每一项连接成字符串
+
+
+
+arguments  所有函数中都有
+	实参 参数数组
+
+例子：
+	function sum(){
+            var res = 0;
+            for(var i=0;i<arguments.length;i++){
+                res+=arguments[i];
+            }
+            return res;
+        };
+    document.write(sum(1,2,3,4,5));
+
+五、json
+	存放数据的东东   相当于一个变量的集合
+
+	var json = {name:value,name2:value2,name3:value3};
+	var json = {a:1,b:2,c:3}
+		alert(json.a)   返回1
+
+	name不能相同
+
+	类型是 对象
+
+		数组 			json
+
+下标	arr[i]          arr['name'] 加单引号
+
+length  有 				undefined
+
+操作     普通循环       for in循环
+
+顺序     有序 			无序
+
+添加      arr.push      json.name = value
+
+删除  	 arr.pop(arr.shift)	       delete  json.name
+
+
+json 真正的标准写法
+	var json = {"a":1,"b":2,"c":3}
+	var json = {"a":"小美","b":"韩梅梅"};
+
+	不可以有重复的出现
+
+新的循环：
+	for in  它是给(json)对象用的
+
+
+	例子：
+		var json = {
+            a:['a','b','c'],
+            b:{
+                name:'hhh',
+                name2:['bbb','cccc',{name3:'dddd'}]
+            },
+            c:3
+        };
+        //一个json里面有三个name分别为：a,b,c  a的value是一个数组   b的value是一个json(里面包括两个name，分别为name,name2              name的value是hhh,name2的value是一个数组，数组里面有bbb,cccc,和一个json(json里面包括一个name3，name3的value是dddd))   c的value是3
+        alert(json.b.name2[2].name3);   //返回dddd
+    json删除：
+    	例子：
+    		 var json={a:1,b:2,c:3};
+		        delete json.c
+		        console.log(json);  
+										2
+	json循环：
+		例子：
+			var json = {a:1,b:2,c:3};
+		        for(var name in json){
+		            alert(json[name]);
+		        }   //分别弹1 2 3
+	json添加：
+		例子：
+			var json={a:1,b:2,c:3}
+		        json.d=4;
+		        console.log(json)   //a:1,b:2,c:3,d:4		
+
+
+六、Math方法
+	1.Math.random();  0-1随机小数
+	2.Math.abs();     绝对值
+	3.Math.max();     最大值
+	4.Math.min();     最小值
+	5.Math.pow(谁,几次幂);
+	6.Math.sqrt()      开平方
+	7.Math.ceil()      向上取整
+		Math.ceil(12.1)  13
+	8.Math.floor()     向下取整
+		Math.floor(12.9)  12
+	9.Math.round()     四舍五入
+		Math.round(12.4)  12
+
+eval
+	跟字符串     
+
+	eval  json的时候有问题，需要加括号
+
+	var str = '({a:1,b:2,c:3})';
+	alert(eval(str).a)
+
+	或：
+	var str = '{a:1,b:2,c:3}';
+	alert(eval('('+str+')').a)
+
+
+七、封闭空间(命名空间,函数的立即调用、自执行函数)
+	1.重名问题：
+		解决方法：封闭空间
+		(function(){
+
+			})();
+			原理：将全局变量变成了局部变量
+	2.i值问题：
+		2.1
+		选项卡中的i值问题   //循环中加事件，事件中的i不能用。
+		解决方法：
+			1.自定义属性
+			2.封闭空间
+				原理：
+				1）//循环中加事件，事件中的i不能用。所以将事件用封闭空间。
+				2）因为循环跑的太快了，所以不等事件的触发，循环就跑完了
+					(function(index){})(i) 将外面的i传进去
+		2.2
+		for循环中加定时器，定时器中的i值问题     //因为定时器中有延迟时间，for循环不会等，早就已经执行完了
+		解决方法：
+			封闭空间
+				原理：
+				1）//循环中加定时器，定时器中的i不能用。所以将定时器用封闭空间。
+				2）因为循环跑的太快了，所以不等定时器的时间，循环就跑完了
+					(function(index){})(i) 将外面的i传进去
+
+
+八、预解析 编码等
+	1.预解析
+		预先解析的一些东西
+			变量、函数、预解析
+		变量：会把变量的声明提升到本作用域的最上面，值保留在原地
+		函数内的变量（声明）：
+			如果跟全局变量重复  使用函数内的  --变量遮蔽
+			把声明的变量发在使用之后   --预解析  undefined    
+			预解析范围：函数内部
+
+		if for 中加函数 会直接将if for去掉 只执行函数
+		为什么要预解析？
+			事先把变量准备好
+
+	2.引用
+		1、只有在对象身上才会出现(数组，json,oDate是个对象)  
+		2.指的是同一个内存 
+
+	3.字符串 
+		str.charCodeAt(索引)  返回的是十进制的编码
+			eg:str.charCodeAt('a')  返回97
+			
+		String.fromCharCode('0x9fa5');   根据编码返回字
+	for(var i=0x4e00;i<=0x9fa5;i++){
+		document.write(String.fromCharCode(i);)
+	}
+
+	十六进制编码：
+		0x4e00 第一个字：一
+		0x9fa5 最后一个字：龥  yu
+	Unicode    Unicode转换器
+			utf-8
+			gbk
+			gb2312
+		alert('\u4e00')  弹 一
+	获取字符串字节
+		a 1    一个字节
+		中文   两个字节   gbk  gb2312 
+		中文   三个字节   utf-8 
+
+	getByLength 函数  
+		var str = '123abc啊啊啊'; 
+	        function getByLength(str,type){
+	            var len = 0;
+	            for(var i=0;i<str.length;i++){
+	                //看str的每一个是否是汉字  汉字范围  \u4e00 - \u9fa5
+	                if(str.charAt(i)>='\u4e00' && str.charAt(i)<='\u9fa5'){
+	                    //判断type的类型
+	                    if(type=='gbk' || type=='gb2312'){
+	                        len+=2;    //gbk gb2312 中文两个字节
+	                    }else{
+	                        len+=3;    //utf-8 中文3个字节
+	                    }
+	                }else{
+	                    len++;    //字母、数字 一个字节
+	                }
+	            }
+	            return len; 
+	        }  
+	        alert(getByLength(str)); 
+
+	4.如何判断json中是否拥有某个属性？ 
+		in	判断某个对象是否拥有某个属性 
+		例如： 
+			var json = {a:1,b:2} 
+			alert('c' in json);   //返回false 
+
+	5.关于全局的东西 
+		全局的东西都属于window 
+
+
+	5.异常捕获：
+		try{ 
+			//尝试执行的代码 
+		}catch(e){     //错误信息对象 
+			//尝试执行的报错  会执行catch 
+		} 
+		优点： 
+			1）屏蔽报错 
+			2）当判断用 
+		缺点： 
+			代码运行缓慢，性能差 
+	***获取非行间样式 
+	1.if(obj.currentStyle) 
+		obj.currentStyle 
+			高版本浏览器中 undefined 
+			低版本浏览器中 object 
+	2.if简写  
+		||  第一个是真的就返回第一个 
+		从左往右找  找到第一个是真的就返回  找不到就返回最后一个
+		如果都是假的，就返回最后一个
+
+	==================================
+
+	var  a=b=c=d=1;  连等   ->  var a = 1; b=1;c=1;d=1;
+		声明变量不加var 会变成全局变量
+
+	==================================
+
+	, 作为运算符的时候，只看右边
+
+	==================================
+
+	严格模式：
+		作者：布莱登 艾克
+		开启方式： 'use strict'
+		1.禁止在if for while等语句中声明函数；（预解析还是在的）
+		2.声明变量必须加var
+	作用范围：
+		1.script标签
+		2.函数内部
+		3.js文件内部
+
+
+九、DOM操作 js组成
+	1）js组成
+		ECMAScript    js核心解释器  解析一些语法、词法
+			for(){} while(){} if() var
+			arr.push();
+			arr.pop()
+			兼容性：基本都兼容  ECMAScript4
+		DOM   
+			Document Object Model   文档对象类型 
+			跟页面（HTML）打交道的
+			document.getElementById
+			document.getElementsByClassName
+			兼容性：大部分兼容 不兼容的可以处理
+		BOM　
+			Browser Object Model  浏览器对象模型
+			兼容性：没有兼容性问题　都不兼容 处理不了
+
+2）DOM操作
+标签-元素-节点
+DOM
+	DOM树：根元素（HTML） 直观的表现出节点之间的关系
+		已知一个节点 求出任意节点
+	获取一层（一级）子元素
+   		父级.children
+  	获取父级元素 一层
+		obj.parentNode;
+		获取body的父级
+			document.body.parentNode;
+	childNode
+	父级.childNodes  相比父级.children  会获取文本节点
+
+
+	兄弟元素之间的：
+		下一个兄弟节点：  obj(谁的)
+			obj.nextSibling
+				chrome ff ie9+   为[object Text]
+		 		ie8-             为正确的（[object HTMLLIElement]）
+  			obj.nextElementSibling
+  			chrome  ie9+      为正确的([object HTMLLIElement])
+  			ie7 ie8  为undefined  
+  		解决方法：
+  		 	 var oNext = obj.nextElementSibling||obj.nextSibling;
+		上一个兄弟节点：
+			obj.previousSibling
+		解决方法：
+		var oNext = obj.previousElementSibling||obj.previousSibling;
+
+总结
+//获取一层（一级）子元素
+    父级.children
+//获取一层（一级）父元素
+    obj.parentNode
+//获取body的父级
+    document.body.parentNode
+//下一个兄弟节点
+    var oNext =  obj.nextElementSibling||obj.nextSibling;
+//上一个兄弟节点
+    var oPre = obj.previousElementSibling||obj.previousSibling;
+//获取首节点
+    父级.firstChild
+    var oFirst = obj.firstElementChild||obj.firstChild
+    或者 var oFirst = obj.children[0]
+//获取尾节点
+    父级.lastChild
+    var oLast = obj.lastElementChild||obj.lastChild
+    或者 var oLast = obj.children[obj.children.length-1];
+
+
+DOM创建 添加 删除元素
+
+//动态创建元素
+    var obj = document.createElement('标签名');
+//添加
+    父级.appendChild(要添加的);   往后面添加
+    父级.insertBefore(要添加的,谁的前面);    往前面添加
+//删除
+    父级.removeChild(要删除的)
+
+	appendChild insertBefore
+		相当于剪切的功能
+
+练习：简易留言板
+	oBtn.onclick = function(){
+        //添加一个新的标签
+        var oLi = document.createElement('li');
+        if(oUl.children.length){
+            //如果oUl的下面有东西，就在第一个标签前面添加
+            //父级.insertBefore(要添加的标签，添加到哪)
+            oUl.insertBefore(oLi,oUl.children[0]);
+        }else{
+            //如果oUl的下面没有东西（即oUl的length等于0），就直接在后面添加
+            oUl.appendChild(oLi);
+        }
+        //往oLi里面添加内容
+        oLi.innerHTML = '内容：'+oTxt.value+'<a href="javascript:;">删除</a>';
+        oTxt.value = '';
+        var oA = oLi.children[0];   //获取a标签
+        oA.onclick = function(){
+            oUl.removeChild(oLi);    //父级.removeChild(要删的元素)
+        };
+    }
+
+
+3）BOM
+	Browser Object Model
+	浏览器对象模型
+	跟浏览器打交道
+	兼容性：完全不兼容
+	alert()   
+	打开窗口：window.open(url地址,打开方式);
+	打开方式： '_blank' '_self' 默认新窗口打开
+		chrome ff 拦截      
+		IE        打开了
+	用户体验
+	事件中：
+		当用户操作让window.open打开的时候 浏览器不会拦截
+		***window.open有返回值 返回值是下一个页面的window对象
+
+	关闭窗口：
+		window.close();
+		chrome   好使
+		FF       不好使
+		IE       选择框
+		可以关闭window.open打开的
+	about:blank空页面
+
+window.location     typeof 为object
+完整的地址：
+http://localhost:63342/%E3%80%902016-8-15JavaScript%E3%80%91/2016-8-31/code/window.location.html ？ a=1&b=2#1
+alert(window.location.href)  //当前页面的URL
+
+1、window.location.href     获取当前页面的URL地址 （可以赋值）
+
+2、window.location.search   获取当前页面？后面的数据（可以赋值）
+
+3、window.location.hash   获取当前页面中的锚点（可以赋值）
+
+4、window.location.reload    刷新页面
+
+
+历史记录
+	window.history
+	1.window.history.forward()  前进
+	2.window.history.back()     后退
+	3.window.histotr.go(数字)   
+		正数就是前进  负数就是后退 是几就进一个页面
+
+
+
+4）各种距离 宽 高 left top
+右下角悬浮窗：
+top = 可视区高度 - div高度 + 滚动条滚动距离   
+	1.滚动条滚动距离   
+		body html  
+		document.body.scrollTop  滚动距离  
+			chrome  正常 
+			ff IE   不好使  
+		document.documentElement.scrollTop 
+			chrome  不好使 
+			ff IE   正常 
+		body 简写：document.body 
+		html 简写: document.documentElement  
+		最终距离：（纵向）
+			var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+		最终距离：（横向）
+			var scrollLeft = document.documentElement.scrollLeft || document.body.scrollLeft;
+	2.可视区高度
+		高：
+			document.documentElement.clientHeight;
+		宽：
+			document.documentElement.clientWidth;
+	3.div高度（物体的高度，盒子模型的高度）
+		obj.offsetHeight   obj物体的高
+		obj.offsetWidth   obj物体的宽
+					生效的样式的值
+						offsetWidth     getStyle
+数据类型				number          string
+对于display:none的元素	0                200px(原样式的值)
+
+
+onload 		 当浏览器加载完毕的时候
+onresize     当浏览器缩放的时候
+onscroll     当滚动条滚动的时候 
+
+offsetWidth  盒子模型的宽
+offsetHeight 盒子模型的高
+
+obj.offsetLeft  距离定位父级左边的距离
+obj.offsetTop  距离定位父级上边的距离
+
+父级：
+	parentNode   结构上的父级
+	offsetParent 定位父级(最高到body)
+
+图片延迟加载（图片懒加载）  网站优化
+	1.图片开始没加载
+	2.某个时机图片才加载
+		时机：
+			1）scrollTop + clientHeight >= img绝对距离的top
+
+5）
+自定义属性
+	获取自定义属性：
+		obj.getAttribute('属性');
+	设置自定义属性
+		obj.setAttribute('属性','值')  obj的属性等于值
+	删除自定义属性
+		obj.removeAttribute('属性');
+***不光可以设置自定义属性，还可以设置已有属性
+
+自定义属性：
+	用obj.setAttribute(属性,值)  设置的
+	必须用 obj.getAttribute(属性) 获取
+
+6）焦点
+	当获得焦点的时候   
+		onfocus  
+	当失去焦点的时候  
+		onblur 
+		obj.focus()	强制使obj获得焦点  
+		obj.blur()	强制使obj失去焦点
+
+7）img的事件  
+	onload  当图片加载成功的时候
+	onerror 当图片加载失败的时候
+
+		var oImg = new Image();
+            oImg.src='img3/1.jpg';
+            document.body.appendChild(oImg);
+
+图片预加载
+	偷偷的加载  看不见
+表单：
+	向后台提交数据
+		提交：submit
+		action：提交地址
+		name: 名字
+		method： 提交方式
+			get    不安全（最多可以提交32k）  有缓存的
+			post   相对安全(最多可以提交1g)    没有缓存
+
+缓存：
+	同一个url地址 只访问一次
+
+分享：
+	get  	方便分享
+	post 	不可以分享
+
+
+关于事件：
+	 定位祖宗（定位上的根元素）
+	 	body
+	 结构祖宗(结构上的根元素)
+	 	document
+
+	 ***	parentNode		结构上的父级 
+			offsetParent	定位父级（最高到body）
+事件：
+事件对象： 
+	存储了（描述了）事件更加详细的信息  
+  
+	event    事件  
+		chrome IE系列  好使  
+		FF 不好使上  
+	事件函数的参数： 
+		chrome  FF  IE8+都好使  
+	var oEvent = ev || event  
+		oEvent.clientX    横坐标  
+		oEvent.clientY    纵坐标  
+
+事件冒泡：  
+	给元素添加事件，元素会一层一层向上找  
+	如果父级有 同样的事件 也会被触发，如果没有继续往上找  
+	一直找到document  
+解决方法（阻止事件冒泡） 
+	oEvent.cancelBubble = true; 
+
+
+9月2号
+
+
+关于undefined
+	1.函数没有返回值 返回undefined  return之后的代码不执行
+	2.有return，但是不写东西时，返回undefined
+	3.声明变量不赋值，返回undefined
+	4.访问一个不存在的属性，返回undefined
+
+关于样式
+	设置样式
+		1. class 类名
+		2.obj.style.width = '';
+		3.obj.style.cssText = 'width:100px;height:100px;background:red;'   //批量设置样式
+
+关于函数
+	1.事件后面函数不加括号(加括号，就会执行一次函数，不给函数返回值，就会返回undefined)
+		加括号 写法复杂
+	2.定时器中的函数不加括号
+		***show();  看见函数就执行一次
+
+工作中的问题：
+	1.重名
+		解决方法：封闭空间（命名空间，函数立即调用、自执行函数）
+		;(function(){
+
+		})();
+			好处：
+				1.解决命名冲突  //把全局变量变成了局部变量
+				2.i的问题
+	2.i值问题
+		选项卡中的i有问题（循环中加事件，事件中的i不能用）
+		解决方法：
+			1.自定义属性
+			2.封闭空间
+	3.判断浏览器信息
+		window.navigator.userAgent
+
+	4.请用json描述一下这个人
+	有个人，他叫小明  家住杭州 今年15岁 是一个学生 他有两个姐姐 一个叫小美 是一个护士 今年21岁 另一个姐姐
+	叫韩梅梅 是一个空姐 今年25;
+
+		var 小明 = {
+				地址：杭州
+				年龄：15
+				工作：学生
+				亲属：{
+					小美：{工作：护士，年龄：21}
+					韩梅梅：{工作：空姐，年龄：25}
+				}
+		}
+
+
+
+
+
+

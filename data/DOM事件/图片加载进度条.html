@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #box{
+            width: 500px;
+            height: 50px;
+            margin: 100px auto;
+            background: #CCCCCC;
+        }
+        #item{
+            width: 0;
+            height: 100%;
+            background: pink;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            var oBox = document.getElementById('box');
+            var oItem = document.getElementById('item');
+            var oSpan = oBox.children[1];
+            var n=0;
+            for(var i=0;i<51;i++){
+                var oImg = new Image();
+                oImg.src='img3/'+i+'.jpg';
+                oImg.onload = function(){
+                    n++;
+                    var scale = n/51;
+                    oSpan.innerHTML = parseInt(scale*100)+'%';
+                    oItem.style.width = scale*oBox.offsetWidth+'px';
+                };
+            }
+        }
+    </script>
+</head>
+<body>
+<div id="box">
+    <div id="item"></div>
+    <span></span>
+</div>
+</body>
+</html>

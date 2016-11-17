@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        window.onload = function(){
+            var oDiv = document.getElementById('box');
+            var oBtn = document.getElementById('btn');
+            var aBtn = oDiv.getElementsByTagName('input');
+            oBtn.onclick = function(){
+                if(oBtn.checked==true){
+                    for(var i=0;i<aBtn.length;i++){
+                        aBtn[i].checked = true;
+                        n=aBtn.length;   //当点击oBtn的时候，下面的aBtn全选，n=4.
+                    }
+                }else{
+                    for(var i=0;i<aBtn.length;i++){
+                        aBtn[i].checked = false;
+                        n=0;
+                    }
+                }
+            };
+            var n = 0;
+            for(var i=0;i<aBtn.length;i++){
+                aBtn[i].onclick = function(){
+                    if(this.checked==true){
+                        n++;
+                    }else{
+                        n--;
+                    }
+                    if(n==aBtn.length){
+                        oBtn.checked = true;
+                    }else{
+                        oBtn.checked = false;
+                    }
+                };
+            }
+        };
+    </script>
+</head>
+<body>
+    <input type="checkbox" value="" id="btn"/>
+<hr>
+    <div id="box">
+        <input type="checkbox" value=""/>
+        <input type="checkbox" value=""/>
+        <input type="checkbox" value=""/>
+        <input type="checkbox" value=""/>
+    </div>
+</body>
+</html>

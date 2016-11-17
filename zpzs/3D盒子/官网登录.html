@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin:0;
+            padding: 0;
+        }
+        html,body{
+            overflow: hidden;
+        }
+        #box{
+            width: 360px;
+            height: 360px;
+            border-radius: 10px;
+            margin: 100px auto;
+            text-align: center;
+            line-height: 25px;
+            padding: 20px;
+            background: rgba(250,0,0,0.5);
+            -webkit-transition: 1s all ease;
+            -webkit-transform: scale(4,4);
+            opacity: 0;
+            display: none;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            var oBox = document.querySelector('#box');
+            var oLog = document.querySelector('.login_btn');
+            var oClose = document.querySelector('.close_btn');
+            oLog.onclick = function(){
+                oBox.style.display = 'block';
+                setTimeout(function(){
+                    oBox.style.opacity = 1;
+                    oBox.style.WebkitTransform = 'scale(1,1)';
+                },5)
+            };
+            oClose.onclick = function(){
+                oBox.style.opacity = 0;
+                oBox.style.WebkitTransform = 'scale(4,4)';
+                function transEnd(){
+                    oBox.removeEventListener('transitionend',transEnd,false);
+                    oBox.style.display = 'none';
+                };
+                oBox.addEventListener('transitionend',transEnd,false);
+            };
+        };
+    </script>
+</head>
+<body>
+<a href="javascript:;" class="login_btn">登录</a>
+<div id="box">
+    kjhjkhajkhsdjkhjk<br />
+    kjhjkhajkhsdjkhjk<br />
+    kjhjkhajkhsdjkhjk<br />
+    kjhjkhajkhsdjkhjk<br />
+    <a href="javascript:;" class="close_btn">X</a>
+</div>
+</body>
+</html>

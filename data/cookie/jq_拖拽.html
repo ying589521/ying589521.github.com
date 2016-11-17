@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: greenyellow;
+        }
+    </style>
+    <script src="../js/cookie.js"></script>
+    <script src="../js/jquery.min.js"></script>
+    <script>
+        $(function(){
+            if(getCookie('x')||getCookie('y')){
+                $('div').css({left:parseInt(getCookie('x')),top:parseInt(getCookie('y'))});
+            }
+            var l=0;
+            var t=0;
+            $('div').mousedown(function(ev){
+                var disX = ev.clientX - $(this).position().left;
+                var disY = ev.clientY - $(this).position().top;
+                $(document).mousemove(function(ev){
+                    l = ev.clientX - disX;
+                    t = ev.clientY - disY;
+                    if(l<0){
+                        l=0;
+                    }
+                    if(l>$(document).width()-$('div').width()){
+                        l=$(document).width()-$('div').width()
+                    }
+                    if(t<0){
+                        t=0;
+                    }
+                    if(t>$(document).height()-$('div').height()){
+                        t=$(document).height()-$('div').height()
+                    }
+                    $('div').css({left:l,top:t});
+                });
+                $(document).mouseup(function(){
+                    $(document).off('mousemove');
+                    $(document).off('mouseup');
+                    setCookie('x',l,1);
+                    setCookie('y',t,1);
+                });
+                return false;
+            })
+        })
+    </script>
+</head>
+<body>
+<div id="box"></div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

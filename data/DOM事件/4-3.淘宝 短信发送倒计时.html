@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+
+    </style>
+    <script>
+        window.onload = function () {
+            var oBtn=document.getElementById('btn1');
+            var n=60;
+            var timer=null;
+            var bFlag=true;
+            oBtn.onclick=function(){
+                if(bFlag==false){
+                    return;
+                }else{
+                    bFlag=false;
+                    dao();
+                    timer=setInterval(dao,1000);
+                }
+
+
+            };
+            function dao(){
+                oBtn.value=n+'秒后可重新发送';
+                n--;
+                if(n==0){
+                    clearInterval(timer);
+                    bFlag=true;
+                }
+            }
+        };
+    </script>
+</head>
+<body>
+<input type="button" value="免费获取验证码" id="btn1">
+</body>
+</html>

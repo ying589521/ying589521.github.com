@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #box{
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: rgba(23, 255, 1, .5);
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            var oBox = document.getElementById('box');
+            oBox.onmousedown = function(ev){
+                var oEvent = ev||event;
+                //鼠标距离div的位置
+                var disX = oEvent.clientX - oBox.offsetLeft;
+                var disY = oEvent.clientY - oBox.offsetTop;
+                document.onmousemove = function(ev){
+                    var oEvent = ev||event;
+                    //鼠标的位置减去鼠标距离div的位置就是oBox的left值
+                    oBox.style.left = oEvent.clientX - disX+'px';
+                    oBox.style.top = oEvent.clientY - disY+'px';
+                };
+                document.onmouseup = function(){
+                    document.onmousemove = null;
+                    document.onmouseup = null;
+                };
+            }
+        };
+    </script>
+</head>
+<body>
+<div id="box"></div>
+</body>
+</html>

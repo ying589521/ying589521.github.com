@@ -1,0 +1,91 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>倒计时 - 智能社 - www.zhinengshe.com</title>
+<!--[if lte IE 6]>
+<script src="js/DD_belatedPNG_0.0.8a.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        DD_belatedPNG.fix('a');
+    </script>
+<![endif]-->
+
+<link href="style/zns_style.css" rel="stylesheet" type="text/css" />
+<script>
+    window.onload = function(){
+        var oDiv = document.getElementById('zhinengshe');
+        var oDiv1 = document.getElementById('fill_in');
+        var oDiv2 = document.getElementById('date');
+        var oGo = document.getElementById('go');
+        var oText1 = document.getElementById('text1');
+        var oText2 = document.getElementById('text2');
+        var oText3 = document.getElementById('text3');
+        var oP = document.getElementById('target');
+        var timer = null;
+        function toDou(num){
+            return num<10?'0'+num:''+num;
+        };
+        oGo.onclick = function(){
+            clearInterval(timer);
+            var t1 = parseInt(oText1.value);
+            var t2 = parseInt(oText2.value);
+            var t3 = parseInt(oText3.value);
+            oP.innerHTML = '现在距离 - <strong>'+oText1.value+'年'+oText2.value+'月'+oText3.value+'日</strong> - 还剩：';
+            //未来的时间
+            var oFDate = new Date();
+            oFDate.setFullYear(t1,t2-1,t3);
+            oFDate.setHours(0,0,0);
+            var future = oFDate.getTime();
+            function tab(){
+                //现在的时间
+                var oNDate = new Date();
+                var now = oNDate.getTime();
+                //差值
+                var s = parseInt((future-now)/1000);
+                var day = parseInt(s/86400);   //天
+                s%=86400;
+                var xs = parseInt(s/3600);    //小时
+                s%=3600;
+                var f = parseInt(s/60);     //分钟
+                s%=60;   //秒
+                oDiv2.innerHTML = '<p id="day">'+toDou(day)+'</p> <p id="hour">'+toDou(xs)+'</p><p id="min">'+toDou(f)+'</p><p id="sec">'+toDou(s)+'</p>';
+            };
+            tab();
+            timer = setInterval(tab,1000);
+        };
+
+    };
+</script>
+</head>
+<body>
+
+<div id="zhinengshe">
+    <div id="fill_in">
+        <span class="title">请输入：</span>
+        <input type="text" class="long_text" id="text1" value="2016" />
+        <span class="space1">年</span>
+        <input type="text" class="text" id="text2" value="6" />
+        <span class="space2">月</span>
+        <input type="text" class="text" id="text3" value="1" />
+        <span class="space3">日</span>
+    </div>
+
+    <a href="javascript:;" id="go" class="go"></a>
+
+    <p id="target">
+        现在距离 -
+        <strong>2016年6月1日</strong>
+        - 还剩：
+    </p>
+
+    <div id="date">
+        <p id="day">00</p>
+        <p id="hour">00</p>
+        <p id="min">00</p>
+        <p id="sec">00</p>
+    </div>
+
+    <h1 title="智能社-www.zhinengshe.com"><a href="http://www.zhinengshe.com"></a></h1>
+</div>
+</body>
+</html>

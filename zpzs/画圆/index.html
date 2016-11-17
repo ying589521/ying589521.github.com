@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background: url("246b1657c7de4f9cb98d7084c711ee27.jpg") no-repeat;
+            background-size: 100%;
+        }
+        #box{
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            border: 1px solid #000000;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin-left: -150px;
+            margin-top: -150px;
+        }
+        span{
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            position: absolute;
+            left: 50%;
+            top: 0;
+            margin-left:-25px;
+            margin-top: -25px;
+        }
+    </style>
+    <script>
+        function d2a(d){
+            return d*Math.PI/180;
+        }
+        function rnd(n,m){
+            return Math.floor(Math.random()*(m-n)+n);
+        }
+        window.onload = function(){
+            var oBox = document.getElementById('box');
+            var R = oBox.offsetWidth/2;
+            var N = 20;
+            for(var i=0;i<N;i++){
+                var oS = document.createElement('span');
+                oBox.appendChild(oS);
+                oS.style.background = 'rgb('+rnd(0,256)+','+rnd(0,256)+','+rnd(0,256)+')';
+            }
+            var aS = oBox.children;
+            var bOk = true;
+            oBox.onclick = function(){
+                //如果是true就顺时针出来
+                if(bOk){
+                    for(var i=0;i<aS.length;i++){
+                        move(aS[i],360/N*i);
+                    }
+                }else{   //如果是false就逆时针回去
+                    for(var i=0;i<aS.length;i++){
+                        move(aS[i],0);
+                    }
+                }
+                bOk = !bOk;
+            };
+            //obj是运动的对象   ITarget是运动的最终位置
+            function move(obj,iTarget){
+                //起始位置
+                var start = obj.a||0;
+                //总路程
+                var dis = iTarget-start;
+                //总次数=总时间/每次运动的时间
+                var count = Math.floor(1000/30);
+                //当前运动多少次
+                var n = 0;
+                clearInterval(obj.timer);
+                obj.timer = setInterval(function(){
+                    n++;
+                    var a = 1 - n/count;     //不懂
+                    var cur = start + dis*(1-Math.pow(a,3));   //不懂
+                    obj.a = cur;     //不懂
+                    var x = R + R*Math.sin(d2a(cur));
+                    var y = R - R*Math.cos(d2a(cur));
+                    obj.style.left = x+'px';
+                    obj.style.top = y+'px';
+                    if(n==count){
+                        clearInterval(obj.timer);
+                    }
+                },30)
+            }
+        };
+    </script>
+</head>
+<body>
+<div id="box">
+</div>
+</body>
+</html>

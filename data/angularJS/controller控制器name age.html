@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html ng-app="index">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="angular.min.js"></script>
+    <script>
+        //获取模块
+        var mk = angular.module('index',[]);
+        //创建控制器
+        mk.controller('main',function($scope){
+            $scope.arr = [
+                {name:'张三',age:19},
+                {name:'李四',age:20},
+                {name:'王二',age:18}
+            ];
+        })
+    </script>
+</head>
+<body ng-controller="main">
+<ul>
+    <li ng-repeat="item in arr">我叫{{item.name}},今年{{item.age}}岁</li>
+</ul>
+</body>
+</html>

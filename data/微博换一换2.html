@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            color: #000;
+        }
+        ul{
+            width: 300px;
+        }
+        li{
+            overflow: hidden;
+            height: 30px;
+            line-height: 30px;
+            border-bottom:2px dashed #c0c0c0;
+        }
+        li a{
+            text-decoration: none;
+            float:left;
+        }
+        li strong{
+            float: right;
+        }
+    </style>
+    <!--只能用ajax2.js-->
+    <script src="js/ajax2.js"></script>
+    <script>
+        window.onload = function(){
+            var oBtn = document.getElementById('btn');
+            var oUl = document.getElementsByTagName('ul')[0];
+            function createLi(){
+                ajax("data.txt",
+                    function(res){
+                        var arr = eval('('+res+')');
+                        oUl.innerHTML = '';
+                        arr.sort(function(){
+                            return Math.random()-0.5;
+                        });
+                        for(var i=0;i<6;i++){
+                            var oLi = document.createElement('li');
+                            oLi.innerHTML = '<a href="'+arr[i].href+'">'+arr[i].name+'</a><strong>'+arr[i].count+'</strong>';
+                            oUl.appendChild(oLi);
+                        }
+                    },
+                    function(){
+                        alert('错误');
+                    }
+                )
+            };
+            oBtn.onclick = function(){
+                createLi();
+            };
+            createLi();
+        };
+    </script>
+</head>
+<body>
+<input type="button" value="换一换" id="btn"/>
+<ul>
+
+</ul>
+</body>
+</html>

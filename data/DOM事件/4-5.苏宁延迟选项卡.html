@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>智能社--http://www.zhinengshe.com</title>
+    <style>
+        #box input.active{
+            background: pink;
+        }
+        #box div{
+            width: 200px;
+            height: 200px;
+            border: 1px solid #CCCCCC;
+            display: none;
+        }
+        #box div.active{
+            display: block;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var oBox=document.getElementById('box');
+            var aBtn=oBox.getElementsByTagName('input');
+            var aDiv=oBox.getElementsByTagName('div');
+
+            var timer=null;
+            for(var i=0; i<aBtn.length; i++){
+                aBtn[i].index=i;
+                aBtn[i].onmouseover=function(){
+                    var _this=this;   //定时器中的this不能用
+                    function tab(){
+                        for(var i=0; i<aBtn.length; i++){
+                            aBtn[i].className='';
+                            aDiv[i].className='';
+                        }
+                        _this.className='active';
+                        aDiv[_this.index].className='active';
+                    }
+                    timer=setTimeout(tab,600);
+                };
+                aBtn[i].onmouseout=function(){
+                    clearInterval(timer);
+                };
+            }
+        };
+    </script>
+</head>
+<body>
+    <div id="box">
+        <input class="active" type="button" value="aaa">
+        <input type="button" value="bbb">
+        <input type="button" value="ccc">
+
+        <div class="active">111</div>
+        <div>222</div>
+        <div>333</div>
+    </div>
+</body>
+</html>

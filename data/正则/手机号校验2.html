@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        window.onload = function(){
+            var oTxt = document.getElementById('txt');
+            var oBtn = document.getElementById('btn');
+            oBtn.onclick = function(){
+                var result = /^1[34578]\d{9}$/.test(oTxt.value);
+                alert(result);
+            };
+        };
+    </script>
+</head>
+<body>
+<input type="text" id="txt"/>
+<input type="button" value="手机号校验" id="btn"/>
+</body>
+</html>

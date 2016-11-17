@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+        *{margin:0; padding:0;}
+        body{ background:#000; text-align:center;}
+        canvas{ background:#fff;}
+    </style>
+    <script>
+        window.onload = function(){
+            var oC = document.querySelector('#c1');
+            var gd = oC.getContext('2d');
+
+            var oImg = new Image();
+            oImg.src = '20110222_14.png';
+            oImg.onload = function(){
+                var sx = 0;
+                var dy = 0;
+                setInterval(function(){
+                    gd.clearRect(0,0,oC.width,oC.height);
+                    gd.drawImage(
+                            oImg,
+                            (sx+=40)%160,0,40,55,
+                            200,dy+=5,80,110
+                    );
+                },150);
+            }
+        };
+    </script>
+</head>
+
+<body>
+<canvas id="c1" width="800" height="600"></canvas>
+</body>
+</html>
+

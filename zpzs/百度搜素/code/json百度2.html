@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin:0;
+            padding: 0;
+            list-style: none;
+        }
+        h1{
+            width: 300px;
+            margin: 10px auto;
+        }
+        h1 img{
+            width: 100%;
+        }
+        .seach_list{
+            width: 576px;
+            height: 33px;
+            margin: 10px auto;
+            margin-bottom: 0;
+            overflow: hidden;
+        }
+        .inp{
+            width: 485px;
+            height: 31px;
+            border: 1px solid #b8b8b8;
+            border-right: none;
+            float: left;
+        }
+        .seach_list a{
+            float: right;
+            width: 90px;
+            height: 33px;
+            font-size: 14px;
+            background: #3385ff;
+            color: #fff;
+            text-decoration: none;
+            text-align: center;
+            line-height: 33px;
+        }
+        .down_list{
+            width: 576px;
+            margin: 0 auto;
+            display: none;
+        }
+        .down_list ul{
+            width: 485px;
+            border: 1px solid #CCCCCC;
+        }
+        .down_list li{
+            height: 30px;
+            line-height: 30px;
+            text-indent: 10px;
+
+        }
+        .down_list li:hover{
+            background: #CCCCCC;
+            cursor: pointer;
+        }
+    </style>
+    <script src="../js/jsonp.js"></script>
+    <script>
+        window.onload = function(){
+            var oInp = document.getElementById('inp');
+            var oBtn = document.getElementsByTagName('a')[0];
+            var oDown = document.getElementById('down_list');
+            var oUl = oDown.children[0];
+            oInp.onkeyup = function(){
+                jsonP({
+                    "url":"https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su",
+                    data:{
+                        "wd":this.value
+                    },
+                    success:function(res){
+                        var arr = res.s;
+                        oUl.innerHTML = '';
+                        if(arr.length==0){
+                            oDown.style.display = 'none';
+
+                        }else{
+                            oDown.style.display = 'block';
+                            for(var i=0;i<arr.length;i++){
+                                var oLi = document.createElement('li');
+                                oLi.innerHTML = arr[i];
+                                oUl.appendChild(oLi);
+                            }
+                        }
+                    },
+                    error:function(err){
+                        console.log('错误'+err);
+                    }
+                })
+            };
+            oUl.onclick = function(ev){
+                var oEvent = ev||event;
+                var oSrc = oEvent.srcElement||oEvent.target;
+                if(oSrc.tagName!='LI')return;
+                window.open('https://www.baidu.com/s?wd='+oSrc.innerHTML,'_self');
+                oInp.value = '';
+            };
+            oBtn.onclick = function(){
+                if(oInp.value=='')return;
+                window.open('https://www.baidu.com/s?wd='+oInp.value,'_self')
+            };
+        };
+    </script>
+</head>
+<body>
+<h1>
+    <img src="logo.png" alt=""/>
+</h1>
+<div class="seach_list" id="seach_list">
+    <input type="text" id="inp" class="inp"/>
+    <a href="javascript:;">百度一下</a>
+</div>
+<div id="down_list" class="down_list">
+    <ul>
+
+    </ul>
+</div>
+</body>
+</html>

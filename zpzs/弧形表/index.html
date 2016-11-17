@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin:0;
+            padding: 0;
+        }
+        body{
+            background: #fff;
+            text-align: center;
+        }
+        canvas{
+            background:url("lb1.jpg") no-repeat 390px 50px;
+            /*background-position: ;*/
+        }
+    </style>
+    <script>
+        function d2a(n){
+            return n*Math.PI/180;
+        }
+        function toDou(n){
+            return n<10?'0'+n:''+n;
+        }
+        window.onload = function(){
+            var oC = document.getElementById('c1');
+            var gd = oC.getContext('2d');
+            var cx = oC.width/ 2,
+                cy = oC.height/2;
+            function clock(){
+                gd.clearRect(0,0,oC.width,oC.height);
+                var oDate = new Date();
+                var H = oDate.getHours()%12;
+                var M = oDate.getMinutes();
+                var S = oDate.getSeconds();
+                var MS = oDate.getMilliseconds();
+                drawArc(60,0,(H*30+M/60*30),'orange');
+                drawArc(80,0,(M*6+S/60*6),'pink');
+                drawArc(100,0,(S*6+MS/1000*6),'aqua');
+                var str = ''+toDou(H)+':'+toDou(M)+':'+toDou(S)+'';
+                gd.font = '20px 微软雅黑';
+                gd.textAlign ='center';
+                gd.textBaseline = 'middle';
+                gd.fillText(str,cx,cy);
+            };
+            clock();
+            setInterval(clock,1);
+            function drawArc(r,s,e,color){
+                gd.beginPath();
+                color = color||'black';
+                gd.arc(cx,cy,r,d2a(s-90),d2a(e-90),false);
+                gd.strokeStyle = color;
+                gd.lineWidth = 20;
+                gd.stroke();
+                gd.closePath();
+            }　
+        };
+    </script>
+</head>
+<body>
+<canvas id="c1" width="1399" height="630"></canvas>
+</body>
+</html>

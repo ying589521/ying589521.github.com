@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body{
+            text-align: center;
+            background: maroon;
+            color: #ffffff;
+        }
+    </style>
+    <script>
+        function toDou(n){
+            return n<10?'0'+n:''+n;
+        }
+        window.onload = function(){
+            var oBox = document.getElementById('box');
+            //未来的时间
+            var oFDate = new Date;
+            oFDate.setFullYear(2016,9,8);
+            oFDate.setHours(0,0,0);
+            var future = oFDate.getTime();
+            function tab(){
+                //现在的时间
+                var oNDate = new Date();
+                var now = oNDate.getTime();
+                //做差
+                var s = parseInt((future-now)/1000);
+                var d = parseInt(s/86400);
+                s%=86400;
+                var h = parseInt(s/3600);
+                s%=3600;
+                var m = parseInt(s/60);
+                s%=60;
+                oBox.innerHTML = '还有：'+toDou(d)+'天'+toDou(h)+'小时'+toDou(m)+'分钟'+toDou(s)+'秒';
+            }
+            tab();
+            setInterval(tab,1000);
+
+        };
+    </script>
+</head>
+<body>
+<div>到2016年10月9号</div>
+<div id="box"></div>
+</body>
+</html>

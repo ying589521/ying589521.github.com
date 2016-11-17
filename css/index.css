@@ -1,0 +1,673 @@
+#mySelf{
+    width: 100%;
+    height: 680px;
+    background: url("../img/hh2.jpg") no-repeat #ecc6cd;
+    background-size:100%;
+    position: relative;
+}
+#mySelf .nav{
+    width: 600px;
+    height: 70px;
+    position: absolute;
+    margin-left: 600px;
+}
+#mySelf .nav ul{
+    width: 100%;
+    height: 100%;
+    margin-top: 10px;
+}
+#mySelf .nav li{
+    width: 200px;
+    height: 65px;
+    float: left;
+    position: relative;
+    /*background: -webkit-linear-gradient(-45deg,red,pink,orange);*/
+    -webkit-background-clip: text;
+    /*color: rgba(0, 0, 0, 0);*/
+    font-weight: bold;
+}
+
+#mySelf .nav a{
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    line-height: 73px;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bold;
+    position: absolute;
+    left: -3px;
+}
+#mySelf .nav .span1{
+    background:-webkit-linear-gradient(-45deg,red,greenyellow,deeppink,aqua,orange,blue,brown);
+    -webkit-background-clip:text;
+    color: rgba(0, 0, 0, 0);
+    background-position: -40px 0;
+}
+#mySelf .nav li:first-child{
+    background: url("../img/nav-1.png") no-repeat right;
+    background-size:80%;
+}
+#mySelf .nav li:nth-child(2){
+
+    background: url("../img/nav-2.png") no-repeat right;
+    background-size:85%;
+}
+#mySelf .nav li:nth-child(3){
+    background: url("../img/nav-3.png") no-repeat right;
+    background-size:90%;
+}
+
+
+/* main左边的 自我介绍 */
+#mySelf .main{
+    position: relative;
+
+}
+#mySelf .zwjs{
+    width: 360px;
+    height: 550px;
+    background: url("../img/lb2.png") no-repeat top;
+    background-size: 100%;
+    position: absolute;
+    left: 0;
+    top: 50px;
+}
+#mySelf .zwjs span{
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    left: 20px;
+    top: -50px;
+    background: url("../img/dw3.png") no-repeat;
+    background-size: 100%;
+    text-align: center;
+    line-height: 150px;
+    color: rgba(18,234,255,.8);
+    -webkit-transition: 1s all ease;
+    -webkit-transform:rotate(-15deg);
+    -webkit-animation:demo 1s linear infinite;
+}
+@-webkit-keyframes demo {
+    0%{ -webkit-transform: rotate(-15deg);}
+    25%{ -webkit-transform: rotate(15deg);}
+    50%{ -webkit-transform: rotate(-15deg);}
+    75%{ -webkit-transform: rotate(15deg);}
+    100%{ -webkit-transform: rotate(-15deg);}
+}
+#mySelf .zwjs a{
+    width: 90px;
+    height: 90px;
+    overflow: hidden;
+    position: absolute;
+    border-radius: 50%;
+    left: 140px;
+    top: 78px;
+    background: url("../img/psb.jpg") no-repeat;
+    background-size: 100%;
+
+}
+#mySelf .zwjs ul{
+    position: absolute;
+    left: 50px;
+    top: 240px;
+    height: 500px;
+    opacity: 1;
+    background: -webkit-repeating-linear-gradient(orange 0,orange 30px,aqua 30px,aqua 60px,deeppink 60px,deeppink 90px);
+    -webkit-background-clip: text;
+    color: rgba(0,0,0,0);
+}
+#mySelf .zwjs ul:hover{
+    color: #000;
+    font-size: 50px;
+}
+#mySelf .zwjs li{
+    height: 30px;
+    line-height: 30px;
+
+}
+#mySelf .zwjs h3{
+    font-size: 20px;
+    float: left;
+    font-weight: bold;
+
+}
+#mySelf .zwjs strong{
+    font-size: 16px;
+    float: left;
+    margin-left: 20px;
+
+}
+/* 穿墙效果的技术介绍 右浮动 */
+#mySelf .main-right{
+    width: 700px;
+    height: 700px;
+    margin-top: 100px;
+    margin-right: 50px;
+    position: absolute;
+    left: 45%;
+    top: 20px;
+}
+@-webkit-keyframes demo2 {
+    from{
+        width: 100px;
+    }
+    to{
+        width: 200px;
+    }
+}
+#mySelf .main-right li{
+    width: 150px;
+    height: 150px;
+    /*border-radius:0 82% 18% 81%;*/
+    background: no-repeat;
+    float: left;
+    margin-right: 35px;
+    margin-bottom: 35px;
+    position: relative;
+    overflow: hidden;
+
+    text-align: center;
+    line-height: 110px;
+    background-size: 100%;
+    -webkit-transition: 1s all ease;
+    -webkit-transform:rotate(-15deg);
+    /*-webkit-animation:demo 1s linear infinite;*/
+}
+
+#mySelf .main-right a{
+    width: 100%;
+    height: 100%;
+    /*border-radius:0 82% 18% 81%;*/
+    background: no-repeat;
+    background-size: 100%;
+    position: absolute;
+    left: -185px;
+    top: 0;
+    z-index: 200;
+}
+/* 花边*/
+#bk,#bk1{
+    width: 100%;
+    height: 13px;
+    background: url("../img/bg_bottom.png") repeat-x;
+    position: absolute;
+    left: 0;
+    top: 680px;
+}
+#bk1{
+    width: 100%;
+    height: 13px;
+    background: url("../img/bg_bottom.png") repeat-x;
+    position: absolute;
+    left: 0;
+    top: 1353px;
+}
+#bk2{
+    width: 100%;
+    height: 13px;
+    background: url("../img/bg_bottom.png") repeat-x;
+    position: absolute;
+    left: 0;
+    top: 2046px;
+    z-index: 99;
+}
+
+/*专业技能*/
+#works .skill{
+    width: 600px;
+    height: 600px;
+    position: absolute;
+    left: 10px;
+    top: 30px;
+
+}
+#works .skill ul{
+    width: 629px;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+#works .skill li{
+    width: 100px;
+    height: 50px;
+    float: left;
+    margin-right: 5px;
+    position: relative;
+}
+#works .skill li img{
+    width: 50px;
+    height: 50px;
+    margin: 0 auto;
+}
+#works .skill li p{
+    width: 200px;
+    height: 210px;
+    /*border: 1px solid #000;*/
+    font-size: 12px;
+    background: url("../img/wenzi.png") no-repeat;
+    background-size:100%;
+    font-weight: bold;
+    opacity: 0;
+    text-align: center;
+    line-height: 25px;
+}
+@-webkit-keyframes demo3{
+    from{
+        opacity: 0;  
+        height: 0;
+    }
+    to{
+        opacity: 1;
+        height: 210px;
+    }
+}
+
+#works .skill li:nth-child(3):hover p{
+    position: absolute;
+    left: -30px;
+    top: 70px;
+    opacity: 1;
+    -webkit-transition: 1s all ease;
+    /*-webkit-transform:scale(1.7,1.7);*/
+    /*background-size: 150%;*/
+    -webkit-animation:demo3 1s linear 1;
+}
+#works .skill li:nth-child(11):hover p{
+    position: absolute;
+    left: 150px;
+    top: 10px;
+    opacity: 1;
+    -webkit-transition: 1s all ease;
+    /*-webkit-transform:translate(10px,0) rotate(80deg) scale(1.7,1.7);*/
+    -webkit-animation:demo3 1s linear 1;
+}
+#works .skill li:nth-child(15):hover p{
+    position: absolute;
+    left: -260px;
+    top: -20px;
+    opacity: 1;
+    -webkit-transition: 1s all ease;
+    /*-webkit-transform:rotate(90deg) scale(1.7,1.7);*/
+    -webkit-animation:demo3 1s linear 1;
+}
+/*#works .skill li:nth-child(27) p{*/
+    /*position: absolute;*/
+    /*left: 20px;*/
+    /*top: -180px;*/
+    /*opacity: 1;*/
+    /*-webkit-transition: 1s all ease;*/
+    /*/!*-webkit-transform:rotate(90deg) scale(1.7,1.7);*!/*/
+    /*-webkit-animation:demo3 1s linear 1;*/
+/*}*/
+#works .skill li:nth-child(27):hover p{
+    position: absolute;
+    left: 20px;
+    top: -170px;
+    opacity: 1;
+    -webkit-transition: 1s all ease;
+    /*-webkit-transform:rotate(90deg) scale(1.7,1.7);*/
+    -webkit-animation:demo3 1s linear 1;
+}
+#works .skill li:nth-child(29):hover p{
+    position: absolute;
+    left: -100px;
+    top: -200px;
+    opacity: 1;
+    -webkit-transition: 1s all ease;
+    /*-webkit-transform:rotate(90deg) scale(1.7,1.7);*/
+    -webkit-animation:demo3 1s linear 1;
+}
+
+
+/*works 相册展示 */
+#works{
+    width: 100%;
+    height: 660px;
+    position: relative;
+    background: url("../img/39z58PICfG8_1024.jpg") no-repeat;
+    background-size:100%;
+    margin: 13px auto;
+    overflow: hidden;
+}
+
+#works .pic{
+    list-style: none;
+    position: absolute;
+    left:0;
+    bottom:0;
+}
+
+#works .pic .images{
+    width:200px;
+    height:200px;
+    position: absolute;
+    left:0; bottom:-250px;
+    border:1px solid white;
+    -webkit-box-shadow:0 0 25px white;
+    -moz-box-shadow:0 0 25px white;
+    box-shadow: 0 0 25px white;
+    filter:alpha(opacity:30);
+    opacity: 0.3;
+    cursor: pointer;
+}
+
+#works .bigshow{
+    width:500px;
+    height:500px;
+    /*margin:50px auto;*/
+    position: absolute;
+    left: 50%;
+    top: 20px;
+    /*z-index: 10000;*/
+    border:3px solid #fff;
+    -webkit-box-shadow:10px 10px 25px #fff;
+    -moz-box-shadow:10px 10px 25px #fff;
+    box-shadow: 10px 10px 25px #fff;
+    filter:alpha(opacity:0);
+    opacity:0;
+}
+
+#works .show{
+    width:800px;
+    height:600px;
+    margin:100px auto;
+    border:3px solid white;
+}
+
+.foot_bm a,p,p a{font-size:12px;color:#666;}
+
+/*相册展示 end */
+
+
+
+
+
+
+
+
+
+
+
+
+/* 小火箭css */
+#gotop1 {
+    width: 80px;
+    position: fixed;
+    bottom: 90px;
+    cursor: pointer;
+    z-index: 99998;
+    right: 50%;
+    margin-right: -620px;
+}
+
+/* 小火箭悬停特效 */
+
+#gotop1:hover {
+    animation: rubberBand 1s;
+}
+
+@keyframes rubberBand {
+    from {
+        transform: scale3d(1, 1, 1);
+    }
+
+    30% {
+        transform: scale3d(1.25, 0.75, 1);
+    }
+
+    40% {
+        transform: scale3d(0.75, 1.25, 1);
+    }
+
+    50% {
+        transform: scale3d(1.15, 0.85, 1);
+    }
+
+    65% {
+        transform: scale3d(.95, 1.05, 1);
+    }
+
+    75% {
+        transform: scale3d(1.05, .95, 1);
+    }
+
+    to {
+        transform: scale3d(1, 1, 1);
+    }
+}
+
+/* end 小火箭 */
+
+
+
+/*作品展示*/
+#zp{
+    width: 100%;
+    height:680px;
+    background: url("../img/246b1657c7de4f9cb98d7084c711ee27.jpg") no-repeat #f3f0e9;
+    background-size: 100%;
+    position: relative
+}
+#zp .con{
+    width:1200px;
+    height: 400px;
+    /*border: 1px dashed #62E7D9;*/
+    position: absolute;
+    top:50%;
+    margin-top: -200px;
+    left:50%;
+    margin-left:-600px;
+    overflow: hidden;
+}
+#zp .con ul{
+    height:200px;
+    position: absolute;
+    top:50%;
+    left:0;
+    margin-top: -100px;
+}
+#zp ul li{
+    width:400px;
+    height:200px;
+    float: left;
+    position: relative;
+}
+#zp ul li img{
+    width:400px;
+    height:400px;
+    opacity: 0.9;
+}
+#zp ul li span{
+    color: #000000;
+    width:400px;
+    height:400px;
+    position: absolute;
+    top:50%;
+    left:50%;
+    margin-left: -200px;
+    margin-top: -200px;
+    font-size: 80px;
+    text-align: center;
+    line-height: 400px;
+    background:-webkit-linear-gradient(45deg,deeppink,antiquewhite,blueviolet,aqua,orange,skyblue,salmon);
+    -webkit-background-clip:text;
+    color: rgba(0, 0, 0, 0);
+}
+
+
+
+
+
+
+
+
+
+/* 3d盒子*/
+#box{
+    width:240px;
+    height:240px;
+    position:absolute;
+    z-index: 1000;
+    left: 50%;
+    top: 20%;
+    /*-webkit-transform-style:preserve-3d;*/
+    /*-webkit-transform: perspective(800px) rotateY(0deg) rotateX(0deg);*/
+    /*-webkit-transition:10s all ease;*/
+}
+#box h1{
+    position: absolute;
+    top: -110px;
+    left: -1px;
+    background:-webkit-linear-gradient(-45deg,red,greenyellow,deeppink,aqua,orange,blue,brown);
+    -webkit-background-clip:text;
+    color: rgba(0, 0, 0, 0);
+    font-size: 25px;
+    /*color: #000;*/
+}
+#box .box{
+    width: 240px;
+    height: 240px;
+    -webkit-transform-style:preserve-3d;
+    -webkit-transform: perspective(800px) rotateY(50deg) rotateX(-80deg);
+    -webkit-transition:10s all ease;
+    font-size: 40px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 200px;
+    margin:10px auto;
+}
+#box .box div{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    /*border-radius: 50%;*/
+}
+#box .box div img{
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    border-radius: 50%;
+    -webkit-transform: scale(-1,1);
+}
+#box .forward{
+    transform: translateZ(120px);
+    background:rgba(255,0,255,0.6);
+}
+#box .after{
+    transform: translateZ(-120px);
+    background:rgba(255,0,0,0.6);
+
+}
+#box .left{
+    background:rgba(0,255,0,0.6);
+
+    transform: translateX(-120px) rotateY(90deg);
+}
+#box .right{
+    background:rgba(0,0,255,0.6);
+
+    transform:  translateX(120px) rotateY(90deg);
+}
+#box .top{
+    background:rgba(255,255,0,0.6);
+
+    transform:translateY(120px) rotateX(90deg);
+}
+#box .bottom{
+    background:rgba(0,255,255,0.6);
+    transform:translateY(-120px) rotateX(-90deg);
+}
+#box .box:active{
+    -webkit-transform: perspective(800px) rotateY(360deg) rotateX(360deg);
+}
+
+
+
+
+.personal{
+    width: 100%;
+    height: 500px;
+    position: relative;
+    overflow: hidden;
+    background:url("../img/wq.jpg") no-repeat;
+}
+
+
+.personal .templatemo_twitter {
+    clear: both;
+    width: 650px;
+    height: 50px;
+    padding: 25px 25px 25px 145px;
+    font-size: 18px;
+    line-height: 24px;
+    color: #333;
+    position: absolute;
+    left: 12%;
+    /*margin-left: -385px;*/
+    bottom: 0;
+    background: url(../img/twitter.png) no-repeat;
+}
+
+
+.personal .photo{
+    width: 300px;
+    height: 300px;
+    position: absolute;
+    left: 0;
+    top: 20px;
+}
+
+.personal #bar{
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: url(../img/yinyue.png) no-repeat;
+    background-size: 100% 100%;
+}
+.personal .yinyue{
+    animation:3s yinyue linear infinite;
+}
+@keyframes yinyue {
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+.personal .show{
+    width: 160px;
+    height: 100px;
+    background: url(../img/yinyue1.png) no-repeat;
+    background-size: 100% 100%;
+    position: absolute;
+    left: 35px;
+    top: 163px;
+    display: none;
+}
+.personal .apply{
+    position: absolute;
+    right: 16px;
+    top: 0px;
+    width: 100px;
+    height: 240px;
+    background: url(../img/appy.png) no-repeat;
+    background-size: 100% 100%;
+    transform-origin: top right;
+    transition: .5s;
+    transform: rotate(-30deg);
+}
+
+.personal .audio{
+    position: absolute;
+    z-index: 99;
+    bottom: -4px;
+}
+

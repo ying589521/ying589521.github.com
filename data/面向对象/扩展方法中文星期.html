@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        Date.prototype.getCnDay = function(){
+            return '星期'+('日一二三四五六'.charAt(oDate.getDay()));
+        };
+        var oDate = new Date();
+        document.write(oDate.getCnDay());
+    </script>
+</head>
+<body>
+
+</body>
+</html>

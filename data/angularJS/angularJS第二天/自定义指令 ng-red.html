@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            background: pink;
+        }
+    </style>
+    <script src="angular.js"></script>
+    <script>
+        var app = angular.module('app',[]);
+        //znsRed是随意起的名字
+        app.directive('znsRed',function(){
+            return function(scope,element,attr){
+                //scope         ng域
+                //element       angular.element
+                //attr          属性
+                scope.a = 12;
+                element.css('background','red');
+                alert(attr.id);
+            };
+        });
+    </script>
+</head>
+<body>
+{{a}}
+<div zns-red id="box"></div>
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        ul{
+            width: 300px;
+            height: 300px;
+            position: relative;
+            margin: 100px auto;
+            -webkit-transform-style: preserve-3d;
+            -webkit-transform:perspective(800px) translateZ(0) rotateY(0deg);
+            -webkit-transition: 1s all ease;
+        }
+        li{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: greenyellow;
+            border: 1px solid #000000;
+            font-size: 50px;
+            text-align: center;
+            line-height: 300px;
+            opacity: 0;
+        }
+        .l2{
+            opacity: 0;
+            z-index: 3;
+            -webkit-transform: translate(-280px) rotateY(45deg);
+        }
+        .l1{
+            opacity: 1;
+            z-index: 3;
+            -webkit-transform:translateX(-220px) rotateY(45deg);
+        }
+        .cur{
+            opacity: 1;
+            z-index: 4;
+            -webkit-transform: perspective(800px) translateZ(10px);
+        }
+        .r1{
+            opacity: 1;
+            z-index: 3;
+            -webkit-transform: translateX(220px) rotateY(-45deg);
+        }
+        .r2{
+            opacity: 0;
+            z-index: 3;
+            -webkit-transform: translate(280px) rotateY(-45deg);
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            var oPre = document.querySelector('#pre');
+            var oNext = document.querySelector('#next');
+            var aLi = document.querySelectorAll('ul li');
+            var aClass = [];
+            var bOK = false;
+            for(var i=0;i<aLi.length;i++){
+                aClass[i] = aLi[i].className;
+            }
+            oNext.onclick = function(){
+                if(bOK)return;
+                bOK = true;
+                aClass.unshift(aClass.pop());
+                change();
+            };
+            oPre.onclick = function(){
+                if(bOK)return;
+                bOK = true;
+                aClass.push(aClass.shift());
+                change();
+            };
+            function change(){
+                for(var i=0;i<aClass.length;i++){
+                    aLi[i].style.WebkitTransition = '.5s all ease';
+                    aLi[i].className = aClass[i];
+                }
+                var oCur = document.querySelector('.cur');
+                function tranEnd(){
+                    oCur.removeEventListener('transitionend',tranEnd,false);
+                    bOK = false;
+                }
+                oCur.addEventListener('transitionend',tranEnd,false);
+            };
+
+        };
+    </script>
+</head>
+<body>
+<input type="button" value="←" id="pre"/>
+<input type="button" value="→" id="next"/>
+<ul>
+    <li class="l2">0</li>
+    <li class="l1">1</li>
+    <li class="cur">2</li>
+    <li class="r1">3</li>
+    <li class="r2">4</li>
+    <li>5</li>
+    <li>6</li>
+    <li>7</li>
+    <li>8</li>
+    <li>9</li>
+    <li>10</li>
+    <li>11</li>
+</ul>
+</body>
+</html>

@@ -1,0 +1,459 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>小米网站</title>
+<style>
+	*{ margin:0; padding:0;}
+	li{ list-style:none;}
+	.clearfix:after{ display:block; content:''; clear:both;}
+	.clearfix{ zoom:1;}
+	.topmain{ width:1366px; height:37px; background-color:#fafafa; border-bottom:1px solid #dfdfdf; color:#8c8c8c; font-size:12px; }
+	.top{width:930px; height:36px; margin:0 auto;}
+	.header{ width:930px; height:85px; margin:0 auto; padding-top:25px; }
+	.top-left{ width:540px; line-height:36px; float:left;}
+	.top-right{ width:80px; text-align:center; line-height:36px; float:right;}
+	a{ text-decoration:none; color:#8c8c8c; text-indent:-999em;}
+	.sep{ color:#dfdfdf;}
+	.logo .logo1{ background:url(img/logo.png)  no-repeat; display:block; width:70px; height:70px; text-indent:-999em; }
+	.logo{ float:left;}
+	.header-right{ float:right; width:560px; height:75px; }
+	
+	.main{ width:932px; height:640px; margin:0 auto; }
+	.left{ width:248px; height:642px; margin:0 auto; float:left;}
+	
+	.left .l1{ width:228px; height:20px; background-color:#ff4a00; color:#fff; line-height:30px; padding-top:15px; padding-bottom:15px; border:hidden;}
+	.left li{ height:52px; width:226px; border:1px solid #dfdfdf; padding-left:20px; padding-top:20px; }
+	.l2{ border-top:hidden;}
+	.red{ font-size:14px; color:#ff8200; margin-bottom:10px; font-weight:bold;}
+	.p2{ font-size:12px; color:#6d6d6d;}
+	.right{ float:right; width:684px;}
+	.right .nav{ background-color:#404144; color:#fff; width:684px;}
+	.right .nav li{ float:left; height:50px;}
+	.right .nav li a { padding:14px;  height:50px; 
+	line-height:52px; color:#fff; font-family:'微软雅黑'; font-size:14px;}
+	.right .nav li a:hover{ background-color:#000; height:49px; border:20px;}
+	.topmain .top .top-left a:hover{ color:#000;  font-weight:bold;}
+	
+	.xiaomi{ height:60px; width:930px; margin:0 auto; margin-bottom:4px; background:url(img/xiaomi/1.png) no-repeat center right;}
+	.xiaomi .xp{ font-size:18px; line-height:60px; float:left; }
+	.xiaomi .xp span{ height:18px; font-size:12px; color:#6d6d6d; line-height:60px; margin-left:10px;}
+	.mingxing{ width:928px; height:308px; border:1px solid #dfdfdf; margin:0 auto; overflow:hidden;}
+	.mingxing li{ list-style:none; float:left; width:308px; height:308px;}
+	.mingxing .m1{ background:url(img/xiaomi/3-1.png) no-repeat center 30px; border-right:1px solid #dfdfdf;}
+	.mingxing .m2{ background:url(img/xiaomi/3-2.png) no-repeat center 90px; border-right:1px solid #dfdfdf;}
+	.mingxing .m3{ background:url(img/xiaomi/3-3.png) no-repeat center 45px;}
+	.m1 p,.m2 p,.m3 p{ width:212px; height:34px; margin-left:49px; margin-top:245px; font-size:15px; text-align:center; line-height:23px;}
+	.m1 p span,.m2 p span,.m3 p span{ font-size:12px; color:#8c8c8c;}
+	
+	.xinpin{ width:930px;  margin:0 auto; font-size:19px; padding-top:30px; padding-bottom:15px;}
+	
+	.xinpin .xin-left{ float:left; font-size:19px;  }
+	.xinpin .xin-right{ float:right;  font-size:14px;  line-height:25px; }
+    
+	
+	
+	
+	.healith{ width:928px; height:928px; border:1px solid #dfdfdf; margin:0 auto;}
+	.h-left{ width:619px; border-right:1px solid #dfdfdf; height:928px; float:left; }
+	.l-1{ width:619px; height:309px; background-image:url(img/xiaomi/4-1.png); border-bottom:1px solid #dfdfdf; }
+	.healith .c{ width:619px; height:309px; border-bottom:1px solid #dfdfdf; }
+	.c-l{ width:279px; height:279px; float:left; border-right:1px solid #dfdfdf; background:url(img/xiaomi/4-2.png) no-repeat center 90px; padding-left:30px; padding-top:30px; font-size:12px;}
+	.c-r{ float:right; height:309px; width:309px;}
+	.c-r-1{width:279px; height:124px; border-bottom:1px solid #dfdfdf; background: url(img/xiaomi/4-3.png) no-repeat 200px center; padding-left:30px; padding-top:30px; font-size:12px;}
+	.c-r-2{width:279px; height:124px; background:url(img/xiaomi/4-4.png) no-repeat 183px center; padding-left:30px; padding-top:30px; font-size:12px;}
+	.bottom{ width:619px; height:309px;}
+	.bottom .l-2{ width:279px; height:279px; border-right:1px solid #dfdfdf; background:url(img/xiaomi/4-5.png) no-repeat 60px 89px; float:left; padding:30px 0 0 30px; font-size:12px;}
+	.bottom .r-2{ width:279px; height:279px; background:url(img/xiaomi/4-6.png) no-repeat center 90px; float:right; padding:30px 0 0 30px; font-size:12px;}
+	
+	
+	.h-right{ float:right; background-color:#fafafa;}
+	.h-right li{ width:308px; height:126px; border-bottom:1px solid #dfdfdf; list-style:none; line-height:25px;}
+	.h-right .t1{ float:left; margin-left:28px; margin-top:35px; width:143px; height:65px;}
+	.h-right img{ float:right; margin-top:13px; margin-right:16px;}
+	.h-right a{ font-size:16px; color:#000; font-weight:bold;}
+	.t1 .s1{ font-size:12px; color:#f44a53;}
+	.h-right .t1 .s2{ margin-left:5px; font-size:12px; color:#a2a2a2; text-decoration: line-through;}
+	.t1 .s3{ font-size:12px; color:#a2a2a2;}
+	.h-right .hua{ width:308px; height:279px;}
+	.hua .hf .s1{ font-size:19px; }
+	.hf .hf1{ margin-top:15px;}
+	.hua .hf{ width:250px; height:220px; margin:30px;}
+	.hf .hf1,.hf .hf2{ width:231px; height:38px; border:1px solid #dfdfdf; background-color:#fff; margin-bottom:10px; font-size:14px; color:#a9a9a9; padding-left:15px; line-height:38px;}
+	.hf .hf2{ background:url(img/xiaomi/huafei.png) no-repeat 224px center; background-color:#fff; margin-bottom:20px;}
+	.hf .hf3{ width:248px; height:40px; background-color:#dcdee4; color:#fff; line-height:40px; text-align:center; margin-top:20px;}
+	.hf .s2{ font-size:14px; color:#6d6d6d; margin-top:20px; margin-bottom:20px;}
+	.bot{ width:308px; height:267px; background-color:#fafafa;  border-bottom:1px solid #dfdfdf;}
+	.bot ul li{ width:245px; height:45px; margin-bottom:10px; background:url(img/xiaomi/222-1.png) no-repeat right center; list-style:disc;}
+	.bot ul{ margin:30px;}
+	.bot ul .ll1{ border-bottom:none;}
+	.bot ul .ll2{ border-bottom:none; font-weight:bold; background:none; list-style:none;}
+	
+	.tx{ width:928px; height:618px; border:1px solid #dfdfdf; margin:0 auto;}
+	.t-left{ width:618px; height:618px; border-right:1px solid #dfdfdf;  float:left; }
+	.t-right{ float:right; height:618px; }
+	.t-1{ width:618px; height:309px; background-image:url(img/xiaomi/qingcangt.jpg); border-bottom:1px solid #dfdfdf; }
+	.tom{ height:309px;}
+	.tom .t-2{ width:278px; height:279px; border-right:1px solid #dfdfdf; background: url(img/xiaomi/T1mUhTBvZT1RXrhCrK.jpg) no-repeat 60px 70px; float:left; padding:30px 0 0 30px; font-size:12px;}
+	.tom .t-3{width:279px; height:279px; background: url(img/xiaomi/T1xHW_BKbT1RXrhCrK.jpg) no-repeat center 80px; float:right; padding:30px 0 0 30px; font-size:12px;}
+	.hot h2{ width:273px; height:63px; border-bottom:1px solid #dfdfdf; font-size:26px; padding-left:25px; padding-top:40px;}
+	.hot h2 span{ font-size:26px; color:#F63;}
+	.hot li{ width:308px; height:102px; border-bottom:1px solid #dfdfdf;}
+	.ng{  float:left;  height:35px; margin-left:30px; margin-top:35px;}
+	.hot img{ float:right; margin:20px 40px 10px 0;}
+	.hot p{ font-size:12px; color:#333; height:35px; padding-left:15px; float:right;}
+	.ong{font-size:30px; font-weight:bold; color:#ff4a00; float:left;}
+	.long{font-size:30px; font-weight:bold; color:#6d6d6d; float:left;}
+	
+	.sss{ font-size:12px; margin-left:30px; margin-top:30px;}
+	
+	.renping{ width:928px; height:408px; border:1px solid #dfdfdf; margin:0 auto;}
+	.le,.ce{ width:309px; height:408px; border-right:1px solid #dfdfdf; float:left;  font-size:12px;}
+	.ri{ width:308px; height:408px; float:right;  font-size:12px;}
+	.le{ background:url(img/xiaomi/T1qUCTByCT1RXrhCrK.jpg) no-repeat center 140px;}
+	.ce{ background:url(img/xiaomi/T11txTBTKT1RXrhCrK.jpg) no-repeat center 140px;}
+	.ri{ background:url(img/xiaomi/T1nmhTBTKT1RXrhCrK.jpg) no-repeat center 140px;}
+	.renping .le .lll,.renping .ce .ccc,.renping .ri .rrr{ width:265px; height:35px; background:#f3f3f3; margin-top:335px; margin-left:10px; padding-top:15px;  font-size:12px; padding-left:15px; color:#7f7f7f;}
+	
+	
+	.tj{ width:928px; height:309px; border:1px solid #dfdfdf; margin:0 auto;}
+	.tj1,.tj2{ width:279px; height:279px; border-right:1px solid #dfdfdf; float:left; padding:30px 0 0 30px; }
+	.tj3{ width:278px; height:279px; float:right; padding:30px 0 0 30px; }
+	.tj1{ background: url(img/xiaomi/T1ByZTBjJT1RXrhCrK.jpg) no-repeat center 103px;}
+	.tj2{ background: url(img/xiaomi/T1rpDgBKVT1RXrhCrK.jpg) no-repeat center 103px;}
+	.tj3{ background: url(img/xiaomi/T1lRhTB7dT1RXrhCrK.jpg) no-repeat center 90px;}
+	
+	.ts{ width:928px; height:410px; border:1px solid #dfdfdf; margin:0 auto;}
+	.lef,.cen{ width:309px; height:408px; border-right:1px solid #dfdfdf; float:left; }
+	.rig{ width:308px; height:408px; float:right; }
+	.lef{ background: url(img/xiaomi/cygs.jpg) no-repeat center 140px;}
+	.cen{ background: url(img/xiaomi/wwmxds.jpg) no-repeat center 140px;}
+	.rig{ background: url(img/xiaomi/xqzkmns.jpg) no-repeat center 140px;}
+	.ts .llll{ width:265px; height:35px; background:#f3f3f3; margin-top:300px; margin-left:10px; padding-top:15px;  font-size:12px; padding-left:15px; color:#7f7f7f;}
+	.miui{ width:928px; height:335px; border:1px solid #dfdfdf; margin:0 auto; margin-bottom:65px;}
+	.le1,.ce1{ width:279px; height:305px; border-right:1px solid #dfdfdf; float:left; padding:30px 0 0 30px; font-size:12px;}
+	.ri1{ width:278px; height:305px; float:right; padding:30px 0 0 30px; font-size:12px;}
+	.le1{ background: url(img/xiaomi/gg.png) no-repeat center 103px;}
+	.ce1{ background: url(img/xiaomi/wsbn.png) no-repeat center 103px;}
+	.ri1{ background: url(img/xiaomi/6s.png) no-repeat center 103px;}
+	.bt-bot{ width:100%; height:500px; background-color:#fafafa;}
+	.bt-bot{  margin:0 auto;}
+	.bot-top{ height:154px; width:932px; border-bottom:1px solid #dfdfdf; margin:0 auto;}
+	.bot-top li{ width:185px; height:155px; float:left;}
+	.bot-top .bot1{ width:185px; height:155px; background:url(img/xiaomi/5-1.png) no-repeat center 50px;}
+	.bot-top .bot2{ width:185px; height:155px; background:url(img/xiaomi/5-2.png) no-repeat center 50px;}
+	.bot-top .bot3{ width:185px; height:155px; background:url(img/xiaomi/5-3.png) no-repeat center 50px;}
+	.bot-top .bot4{ width:185px; height:155px; background:url(img/xiaomi/5-4.png) no-repeat center 50px;}
+	.bot-top .bot5{ width:185px; height:155px; background:url(img/xiaomi/5-5.png) no-repeat center 50px;}
+	.bot-top li p{ text-align:center; position:relative; left:center; top:95px; font-size:14px; color:#000;}
+	.bot-cen{ height:196px; width:932px; border-bottom:1px solid #dfdfdf; margin:0 auto;}
+	.bot-cen ul{ height:120px; width:146px; margin:40px 0 40px 0; line-height:25px; font-size:14px; color:#3c3c3c; text-align:center; border-right:1px solid #dfdfdf; float:left;}
+	.bot-cen .bot-1{ margin-bottom:15px; font-size:18px; color:#3c3c3c;}
+	.bot-cen .bot-2{ font-size:19px; color:#000; font-weight:bold; margin-left:15px;}
+	.bt-bot .bott{ border-right:none;}
+	.bott .bot-5{ width:120px; height:30px; background-color:#ff4a00; color:#fff; margin-left:25px;}
+	.bot-3,.bot-4{ font-size:12px; margin-left:12px;}
+	.bt-boto{ height:196px; width:934px;  margin:0 auto; font-size:12px;}
+	.boto-1{ width:934px; height:44px; line-height:20px; margin-top:30px;}
+	.boto-2{ width:188px; height:38px; background-color:#fff; border:1px solid #dfdfdf; color:#8c8c8c; float:right; line-height:38px; padding-left:10px;}
+	.boto-3{ width:670px; height:44px; float:left;}
+	.bt-boto img{ margin-top:25px;}
+</style>  
+</head>
+
+<body>
+<div class="topmain">
+    <div class="top clearfix">
+    	<div class="top-left">
+        	<a href="#">小米网</a>
+            <span class="sep">|</span>
+            <a href="#">MIUI</a>
+            <span class="sep">|</span>
+            <a href="#">米聊</a>
+            <span class="sep">|</span>
+            <a href="#">游戏</a>
+            <span class="sep">|</span>
+            <a href="#">多看阅读</a>
+            <span class="sep">|</span>
+            <a href="#">云服务</a>
+            <span class="sep">|</span>
+            <a href="#">小米网移动版</a>
+            <span class="sep">|</span>
+            <a href="#"  class="S">Select region</a>
+        </div>
+        <div class="top-right">
+        	<a href="#">登录</a>
+            <span class="sep">|</span>                    
+            <a href="#">注册</a>
+        </div>
+    </div>
+</div>
+<div class="header clearfix">
+	<div class="logo"><a class="logo1" href="#" title="小米网">小米网</a></div>
+    <div class="header-right">	
+	<img src="img/b.png" >
+    </div>
+</div>
+<div class="main clearfix">
+	<div class="left">
+    	<ul>
+        	<li class="l1">全部商品分类</li>
+            <li class="l2"><p class="red">购买手机</p><p class="p2">小米4&nbsp;小米3&nbsp;红米&nbsp;红米note</p></li>
+            <li><p class="red">购买手机</p><p class="p2">小米4&nbsp;小米3&nbsp;红米&nbsp;红米note</p></li>
+            <li><p class="red">购买手机</p><p class="p2">小米4&nbsp;小米3&nbsp;红米&nbsp;红米note</p></li>
+            <li><p class="red">购买手机</p><p class="p2">小米4&nbsp;小米3&nbsp;红米&nbsp;红米note</p></li>
+            <li><p class="red">购买手机</p><p class="p2">小米4&nbsp;小米3&nbsp;红米&nbsp;红米note</p></li>
+            <li><p class="red">购买手机</p><p class="p2">小米4&nbsp;小米3&nbsp;红米&nbsp;红米note</p></li>
+            <li><p class="red">购买手机</p><p class="p2">小米4&nbsp;小米3&nbsp;红米&nbsp;红米note</p></li>
+             <li><p class="red">购买手机</p><p class="p2">小米4&nbsp;小米3&nbsp;红米&nbsp;红米note</p></li>
+        </ul>   	
+    </div>
+    <div class="right">
+    	<ul class="nav clearfix">
+        	<li><a class="i1"  href="#">首页</a></li>
+            <li><a href="#">小米手机</a></li>
+            <li><a href="#">红米</a></li>
+            <li><a href="#">小米平板</a></li>
+            <li><a href="#">小米电视</a></li>
+            <li><a href="#">盒子</a></li>
+            <li><a href="#">路由器</a></li>
+            <li><a href="#">合约机</a></li>
+            <li><a href="#">服务</a></li>
+            <li><a href="#">社区</a></li>
+        </ul>
+        <img src="img/12-1.png">
+     </div>
+</div>
+<div class="xiaomi clearfix">
+	<p class="xp">小米明星单品<span>根据机型选配件</span></p>
+</div>
+<div class="mingxing">
+	<ul class="clearfix">
+    	<li class="m1">
+        	<p>10400mAh小米移动电源<br>
+            <span>全铝合金金属外壳，LG/三星等优质电芯</span>
+            </p>
+        </li>
+        <li class="m2">
+        	<p>10400mAh小米移动电源<br>
+            <span>全铝合金金属外壳，LG/三星等优质电芯</span>
+            </p>
+        </li>
+        <li class="m3">
+        	<p>10400mAh小米移动电源<br>
+            <span>全铝合金金属外壳，LG/三星等优质电芯</span>
+            </p>
+        </li>
+    </ul>
+</div>
+<div class="xinpin clearfix">
+	<span class="xin-left">新品上架</span>
+    <span class="xin-right"><a  href="#">更多&gt;</a></span>
+</div>
+	<div class="healith clearfix">
+    	<div class="h-left">
+        	<div class="l-1"></div>
+            <div class="c clearfix">
+            	<div class="c-l">大人物米兔圆领套头卫衣<br>99元&nbsp;129元</div>
+                <div class="c-r">
+                	<div class="c-r-1">QCY运动蓝牙耳机<br>129元</div>
+                    <div class="c-r-2">小米手机二合一镜头<br>59元</div>
+                </div> 
+            </div>
+            <div class="bottom clearfix">
+                <div class="l-2">铁三角CLR100耳机<br>118元</div>
+                <div class="r-2">红米至简翻盖支架保护套<br>49元</div>
+            </div>
+        </div>
+        <div class="h-right">
+        	<ul>
+            	<li class="clearfix">
+                	<div class="t1">
+                    	<a href="#">红米3D月球系列...</a>
+                        <br>
+                        <span class="s1">29元<span class="s2">39元</span></span>
+                        <br>
+                        <span class="s3">上午十点 开始秒杀</span>
+                    </div>
+                    <img src="img/xiaomi/4-7.png">
+                </li>
+                <li class="clearfix">
+                	<div class="t1">
+                    	<a href="#">特惠配件套装</a><br>
+                        <span class="s3">手机必备配件组合购买<br>实惠更优惠</span>
+                    </div>
+                    <img src="img/xiaomi/4-8.png">
+                </li>
+                <li class="clearfix">
+                	<div class="t1">
+                    	<a href="#">我爱酷玩</a><br>
+                        <span class="s3">邂逅炫酷的电子产品<br>结交趣味相投的朋友</span>
+                    </div>
+                    <img src="img/xiaomi/4-9.png">
+                </li>
+                <li class="hua">
+                	<div class="hf">
+                    	<span class="s1">话费充值</span>
+                        <div class="hf1">请输入手机号</div>
+                        <div class="hf2">100元</div>
+                        <span class="s2">实付价格：98.4元起</span>
+                        <div class="hf3">立即充值</div>
+                    </div>
+                    
+                    <div class="bot">
+                    	<ul>
+                        	<li class="ll2">新闻公告</li>
+                            <li>企业用户采购通道</li>
+                            <li>小米手机防伪查询</li>
+                            <li>小米手机官翻版</li>
+                            <li class="ll1">小米3（ 64GB ）购机用户补偿</li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+<div class="xinpin clearfix">
+	<span class="xin-left">大家都喜欢</span>
+</div>
+<div class="tx clearfix">
+	<div class="t-left">
+        	<div class="t-1"></div>
+            <div class="tom clearfix">
+                <div class="t-2">先锋SE-MJ512折叠式头戴耳机<br>168元</div>
+                <div class="t-3">红米高透防划贴膜（单片装）<br>9.9元</div>
+            </div>
+    </div>
+    <div class="t-right">
+    	<div class="hot">
+        	<h2><span>HOT</span>热销商品排行</h2>
+            <ul>
+            	<li class="clearfix">
+                	<div class="ng clearfix">
+                    	<strong class="ong">1</strong>
+                    	<p>5200mAh移动电源<br>49元</p>
+                    </div>
+                    <img src="img/xiaomi/images/mi_03.png">
+                </li>
+                <li class="clearfix">
+                	<div class="ng clearfix">
+                    	<strong class="ong">2</strong>
+                    	<p>5200mAh移动电源<br>49元</p>
+                    </div>
+                    <img src="img/xiaomi/images/mi_06.png">
+                </li>
+                <li class="clearfix">
+                	<div class="ng clearfix">
+                    	<strong class="ong">3</strong>
+                    	<p>5200mAh移动电源<br>49元</p>
+                    </div>
+                    <img src="img/xiaomi/images/mi_08.png">
+                </li>
+                <li class="clearfix">
+                	<div class="ng clearfix">
+                    	<strong class="long">4</strong>
+                    	<p>5200mAh移动电源<br>49元</p>
+                    </div>
+                    <img src="img/xiaomi/images/mi_10.png">
+                </li>
+                <li class="clearfix">
+                	<div class="ng clearfix">
+                    	<strong class="long">5</strong>
+                    	<p>5200mAh移动电源<br>49元</p>
+                    </div>
+                    <img src="img/xiaomi/images/mi_12.png">
+                </li>
+            </ul>
+        </div>
+    </div>       
+</div>
+<div class="xinpin clearfix">
+	<span class="xin-left">热评产品</span>
+</div>
+<div class="renping clearfix">
+	<div class="le">红米色彩主题后盖<div class="lll">后盖图案非常好看，不愧是官方出品，和机型严 丝合缝很赞！</div></div>
+    <div class="ce">遥控飞行球<div class="ccc">后盖图案非常好看，不愧是官方出品，和机型严 丝合缝很赞！ 拷贝</div></div>
+    <div class="ri">小米商务真皮钱包<div class="rrr">后盖图案非常好看，不愧是官方出品，和机型严 丝合缝很赞！ 拷贝</div></div>   
+</div>
+<div class="xinpin clearfix">
+	<span class="xin-left">特价产品</span>
+</div>
+<div class="tj clearfix">
+	<div class="tj1">SanDisk  32GB储存卡<br>89元&nbsp;100元</div>
+    <div class="tj2">红米保护套装<br>40元&nbsp;68元</div>
+    <div class="tj3">大电池全能套装<br>129元&nbsp;178元</div>   
+</div>
+<div class="xinpin clearfix">
+	<span class="xin-left">多看图书</span>
+</div>
+<div class="ts clearfix">
+	<div class="lef"><p>《参与感：小米口碑营销内部手册》<br>黎万强（小米联合创始人）<br>9.99元</p><div class="llll">后盖图案非常好看，不愧是官方出品，和机型严 丝合缝很赞！</div></div>
+    <div class="cen">《万万没想到：生活才是喜剧》<br>有时右逝 叫兽易小星<br>3.99元<div class="llll">后盖图案非常好看，不愧是官方出品，和机型严 丝合缝很赞！</div></div>
+    <div class="rig">《雪球专刊：美女为何爱渣男》<br>雪球用户<br>免费<div class="llll">后盖图案非常好看，不愧是官方出品，和机型严 丝合缝很赞！</div></div>   
+</div>
+<div class="xinpin clearfix">
+	<span class="xin-left">MIUI主题</span>
+</div>
+<div class="miui clearfix">
+	<div class="le1">光棍节想脱单吗？告白字体0元起<br>6米币</div>
+    <div class="ce1">无所不能<br>6米币</div>
+    <div class="ri1">6色<br>6米币</div>   
+</div>
+
+<div class="bt-bot">
+	<div class="bot-top">
+    	<ul>
+        	<li class="bot1"><p>1小时快修服务</p></li>
+            <li class="bot2"><p>7天无理由退货</p></li>
+            <li class="bot3"><p>15天免费换货</p></li>
+            <li class="bot4"><p>满150元包邮</p></li>
+            <li class="bot5"><p>520余家售后网点</p></li>
+        </ul>
+    </div>
+    <div class="bot-cen clearfix">
+    	<ul>
+        	<li class="bot1" ><p class="bot-1">帮助中心</p></li>
+            <li class="bot2"><p>购物指南</p></li>
+            <li class="bot3"><p>支付方式</p></li>
+            <li class="bot4"><p>配送方式</p></li>
+        </ul>
+        <ul>
+        	<li class="bot1" ><p class="bot-1">帮助中心</p></li>
+            <li class="bot2"><p>购物指南</p></li>
+            <li class="bot3"><p>支付方式</p></li>
+            <li class="bot4"><p>配送方式</p></li>
+        </ul>
+        <ul>
+        	<li class="bot1" ><p class="bot-1">帮助中心</p></li>
+            <li class="bot2"><p>购物指南</p></li>
+            <li class="bot3"><p>支付方式</p></li>
+            <li class="bot4"><p>配送方式</p></li>
+        </ul>
+        <ul>
+        	<li class="bot1" ><p class="bot-1">帮助中心</p></li>
+            <li class="bot2"><p>购物指南</p></li>
+            <li class="bot3"><p>支付方式</p></li>
+            <li class="bot4"><p>配送方式</p></li>
+        </ul>
+        <ul>
+        	<li class="bot1" ><p class="bot-1">帮助中心</p></li>
+            <li class="bot2"><p>购物指南</p></li>
+            <li class="bot3"><p>支付方式</p></li>
+            <li class="bot4"><p>配送方式</p></li>
+        </ul>
+        <ul class="bott">
+        	<li class="bot1" ><p class="bot-2">400-100-5678</p></li>
+            <li class="bot2"><p class="bot-3">周一至周日8：00-18：00</p></li>
+            <li class="bot3"><p class="bot-4">(仅收市话)</p></li>
+            <li class="bot4"><p class="bot-5">24小时在线客服</p></li>
+        </ul>
+    </div>
+    <div class="bt-boto">
+<div class="boto-1 clearfix"><div class="boto-3">小米旗下下网站：小米网|MIUI|米聊|多看书城|小米路由器|小米后院|小米天猫店|小米淘宝直营店|小米网盟|问题反馈|Sele<br>©mi.com 京ICP证110507号 京ICP备10046444号 京公网安备1101080212535号 京网文[201</div>
+		<div class="boto-2">简体中文</div>
+	
+    </div>
+    <img src="img/xiaomi/999.png">
+</div>
+</body>
+</html>

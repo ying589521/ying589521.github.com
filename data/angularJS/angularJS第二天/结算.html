@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="angular.js"></script>
+    <script>
+        var app = angular.module('app',[]);
+        app.controller('main',function($scope){
+            $scope.arr = [{name:'阿拉斯加',price:20000,count:0},{name:'金毛',price:1000,count:0},{name:'拉布拉多',price:500,count:0}];
+            $scope.sum = function(){
+                var sum = 0;
+                angular.forEach($scope.arr,function(value,key){
+                    sum+=value.price*value.count;
+                });
+                return sum;
+            };
+        })
+    </script>
+</head>
+<body ng-controller="main">
+<dl ng-repeat="item in arr track by $index">
+    <dt>品种:{{item.name}}</dt>
+    <dd>单价:{{item.price|currency:'¥'}}</dd>
+    <dd>数量:<input type="number" ng-model="item.count" /></dd>
+    <dd>小计:{{item.count*item.price|currency:'¥'}}</dd>
+</dl>
+<p>总计:<strong>{{sum()|currency:'¥'}}</strong></p>
+</body>
+</html>

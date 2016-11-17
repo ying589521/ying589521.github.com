@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        li a{
+            padding-right: 10px;
+        }
+    </style>
+    <script src="../js/ajax.js"></script>
+    <script>
+        window.onload = function(){
+            var oList = document.getElementById('list');
+            ajax({
+                url:'baidu.txt',
+                success:function(res){
+
+                    var arr = eval('('+res+')');
+                    for(var i=0;i<arr.length;i++){
+                        var oLi = document.createElement('li');
+                        oLi.innerHTML = '<h2><a href="'+arr[i].href+'">'+arr[i].tit+'</a></h2>';
+                        var arr2 = arr[i].child;
+                        for(var j=0;j<arr2.length;j++){
+                            var oA = document.createElement('a');
+                            oA.innerHTML = arr2[j].tit;
+                            oA.href = arr2[j].href;
+                            oLi.appendChild(oA);
+                        }
+                        oList.appendChild(oLi);
+                    }
+                },
+                error:function(err){
+                    console.log('错误:'+err)
+                }
+            })
+        };
+    </script>
+</head>
+<body>
+<ul id="list">
+    <li>
+        <h2><a href=""></a></h2>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+    </li>
+</ul>
+</body>
+</html>

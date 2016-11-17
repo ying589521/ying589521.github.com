@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../js/cookie.js"></script>
+    <script>
+        window.onload = function(){
+            var oTxt = document.getElementsByTagName('input')[0];
+            if(getCookie('yhm')){
+                oTxt.value = getCookie('yhm');
+            }
+            oTxt.onkeyup = function(){
+                setCookie('yhm',oTxt.value,1);
+            };
+        };
+    </script>
+</head>
+<body>
+用户名：<input type="text"/>
+</body>
+</html>

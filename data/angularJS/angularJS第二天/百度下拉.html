@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="angular.js"></script>
+    <script>
+        var app = angular.module('app',[]);
+        app.controller('main',function($scope,$http){
+            $scope.wd = '';
+            $scope.arr = [];
+            $scope.change = function(){
+                $http.jsonp(
+                    'https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su',
+                    {params:{
+                        wd:$scope.wd,
+                        cb:'JSON_CALLBACK'
+                    }}
+                ).success(function(res){
+                       $scope.arr = res.s;
+                }).error(function(){
+                    alert('失败')
+                })
+            };
+        });
+    </script>
+</head>
+<body ng-controller="main">
+<input type="text" ng-model="wd" ng-change="change()"/>
+<ul>
+    <li ng-repeat="item in arr track by $index">{{item}}</li>
+</ul>
+</body>
+</html>

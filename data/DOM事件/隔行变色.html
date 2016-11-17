@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div{
+            width: 200px;
+            height: 50px;
+            margin: 10px auto;
+            background:#c1c1c1;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            var aDiv = document.getElementsByTagName('div');
+            for(var i=0;i<aDiv.length;i++){
+                if(i%2==1){
+                    aDiv[i].style.background = 'red';
+                }else{
+                    aDiv[i].style.background = 'pink';
+                }
+            }
+        };
+    </script>
+</head>
+<body>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+</body>
+</html>

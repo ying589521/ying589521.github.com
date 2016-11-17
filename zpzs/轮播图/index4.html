@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+<meta charset="UTF-8">
+<title></title>
+<style>
+    *{
+        margin:0;
+        padding: 0;
+    }
+    .bj{
+        width: 610px;
+        height: 610px;
+        background: url("img/lb3.jpg") no-repeat;
+        margin: 100px auto;
+        position: relative;
+        z-index: 3;
+    }
+    .bj .lbt{
+        width: 200px;
+        height: 200px;
+        overflow: hidden;
+        position: absolute;
+        left: 330px;
+        top: 60px;
+    }
+    .lbt ul{
+        position:absolute;
+        left:0; top:0;
+    }
+    .lbt ul li{
+        float:left;
+        width:200px;
+        height:200px;
+        border-radius: 20px;
+        overflow: hidden;
+    }
+    .lbt ul li img{
+        width: 100%;
+        height:100%;
+        display: block;
+        border-radius: 20px;
+        -webkit-transform:skew(-8deg);
+    }
+
+    .lbt a{
+        transition:.2s all ease;
+    }
+    .lbt ol{
+        position:absolute;
+        width:120px;
+        left:50%;
+        margin-left:-60px;
+        bottom:10px;
+    }
+    .lbt ol li{
+        width:15px;
+        height:15px;
+        background:#f60;
+        float:left;
+        margin:2px;
+        text-align:center;
+        text-indent:-9999px;
+        border-radius:50%;
+    }
+    .lbt ol li.active{
+        background:#fff;
+    }
+
+    .lbt a{
+        transition:.2s all ease;
+    }
+    .lbt .prev,.lbt .next{
+        position:absolute;
+        top:50%; z-index:2;
+        height:80px;
+        line-height:80px;
+        background:rgba(0,0,0,0.6);
+        color:#fff; width:80px;
+        text-align:center;
+        margin-top:-40px;
+        display:none;
+    }
+    .lbt .prev{
+        left:0;
+    }
+    .lbt .next{
+        right:0;
+    }
+    .lbt a:hover{
+        background:rgba(255,0,0,0.4);
+    }
+</style>
+<script src="js/jquery.min.js"></script>
+<script>
+    $(function(){
+        var aBtn = $('ol li');
+        var oUl = $('ul');
+        oUl.append('<li><img src="img/1.jpg"></li>');
+        oUl.width($('ul li').width()*$('ul li').length);
+        var iNow = 0;
+        var timer = null;
+        //封装版的改变left值的函数
+        function setL(iNow){
+            aBtn.removeClass('active');
+            aBtn.eq(iNow%5).addClass('active');
+            oUl.stop().animate({left:'-'+$("ul li").eq(0).width()*iNow},function(){
+                if (iNow==5) {
+                    oUl.css('left','0')
+                }
+            });
+        };
+        //按钮点击
+        aBtn.each(function(i){
+            $(this).click(function(){
+                iNow = i;
+                setL(iNow);
+            })
+        });
+
+        //自动播放
+        timer = setInterval(function(){
+            iNow++;
+            setL(iNow);
+            if (iNow==aBtn.length) {
+                iNow=0
+            }
+        },1000);
+        //加 清定时器
+        $('.lbt').hover(function(){
+
+            clearInterval(timer);
+            $('.prev').css({display:block});
+            $('.next').css({display:block});
+        },function(){
+            timer = setInterval(function(){
+                iNow++;
+                setL(iNow);
+                if (iNow==aBtn.length) {
+                    iNow=0
+                }
+            },1000);
+        })
+
+        //左
+        $('.prev').click(function(){
+            iNow--;
+            if(iNow<0){
+                iNow=aBtn.length-1;
+                oUl.css({left:($('ul li').length-1)*-$('ul li').eq(0).width()});
+            }
+            setL(iNow);
+        });
+        //右
+
+        $('.next').click(function(){
+            iNow++;
+            setL(iNow);
+            if(iNow==aBtn.length){
+                iNow=0;
+                oUl.css('left',0);
+            }
+
+        });
+    });
+</script>
+</head>
+<body>
+<div class="bj">
+    <div class="lbt">
+        <a href="javascript:;" class="prev">prev</a>
+        <a href="javascript:;" class="next">next</a>
+        <ul>
+            <li><img src="img/1.jpg"/></li>
+            <li><img src="img/2.jpg"/></li>
+            <li><img src="img/3.jpg"/></li>
+            <li><img src="img/4.jpg"/></li>
+            <li><img src="img/5.jpg"/></li>
+        </ul>
+        <ol>
+            <li class="active">0</li>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+        </ol>
+    </div>
+</div>
+</body>
+</html>

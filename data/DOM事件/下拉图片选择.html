@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        window.onload = function(){
+            var oBox = document.getElementById('box');
+            var oDiv = document.getElementById('div1');
+            var oS =   document.getElementById('sel');
+            oS.onchange = function(){
+                var s = this.value;
+                oDiv.innerHTML = '图片'+s;
+                oBox.innerHTML = '<img src="img/'+s+'.png">';
+            };
+        };
+    </script>
+</head>
+<body>
+<div id="box">
+    <img src="img/1.png">
+</div>
+<div id="div1">图片1</div>
+<select id="sel">
+    <option value="1">图片1</option>
+    <option value="2">图片2</option>
+    <option value="3">图片3</option>
+    <option value="4">图片4</option>
+    <option value="5">图片5</option>
+    <option value="6">图片6</option>
+    <option value="7">图片7</option>
+    <option value="8">图片8</option>
+</select>
+</body>
+</html>

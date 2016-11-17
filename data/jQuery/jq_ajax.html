@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            color: #000;
+        }
+        ul{
+            width: 300px;
+        }
+        li{
+            overflow: hidden;
+            height: 30px;
+            line-height: 30px;
+            border-bottom:2px dashed #c0c0c0;
+        }
+        li a{
+            text-decoration: none;
+            float:left;
+        }
+        li strong{
+            float: right;
+        }
+    </style>
+    <script src="../js/jquery.min.js"></script>
+    <script>
+        $(function(){
+            function getData(){
+                $.ajax({
+                    url:"data.txt",
+                    success:function(res){
+                        var arr = eval('('+res+')');
+                        $.each(arr.splice(6,arr.length-6),function(i){
+                            var str = '<li><a href="'+arr[i].href+'">'+arr[i].name+'</a><strong>'+arr[i].count+'</strong></li>';
+                            $('ul').append(str);
+                        })
+                    },
+                    error:function(){
+                        alert('错误');
+                    }
+                })
+            };
+            getData();
+        })
+    </script>
+</head>
+<body>
+<input type="button" value="换一换" id="btn"/>
+<ul></ul>
+</body>
+</html>

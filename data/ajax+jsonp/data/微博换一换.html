@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin:0;
+            padding: 0;
+            list-style: none;
+        }
+        ul{
+            width: 300px;
+        }
+        li{
+            line-height: 30px;
+            height: 30px;
+            border-bottom: 1px dashed red;
+        }
+        li a{
+            float: left;
+        }
+        li strong{
+            float: right;
+        }
+    </style>
+    <script src="../js/ajax2.js"></script>
+    <script>
+        window.onload = function() {
+            var oBtn = document.getElementById('btn');
+            var oList = document.getElementById('list');
+            function getDate(){
+                ajax('date.txt',function(res){
+                    oList.innerHTML = '';
+                    var arr = eval('('+res+')');
+                    arr.sort(function(){
+                        return Math.random()-0.5;
+                    });
+                    for(var i=0;i<6;i++){
+                        var oLi = document.createElement('li');
+                        oLi.innerHTML = '<a href="'+arr[i].href+'">'+arr[i].title+'</a><strong>'+arr[i].count+'</strong>';
+                        oList.appendChild(oLi);
+                    }
+                })
+            };
+            getDate();
+            oBtn.onclick = function(){
+                getDate();
+            };
+        }
+    </script>
+</head>
+<body>
+<input type="button" value="换一换" id="btn"/>
+<ul id="list">
+    <!--<li>-->
+        <!--<a href=""></a>-->
+        <!--<strong></strong>-->
+    <!--</li>-->
+</ul>
+</body>
+</html>

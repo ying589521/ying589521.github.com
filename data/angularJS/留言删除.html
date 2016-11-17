@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html ng-app="index">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="angular.js"></script>
+    <script>
+        //获取模块
+        var index = angular.module('index',[]);
+        //创建控制器
+        index.controller('main',function($scope){
+            $scope.content = '';
+            $scope.arr = [];
+            $scope.send = function(){
+                //$scope.arr.push($scope.content);
+                $scope.arr.unshift($scope.content);   //新留言在上面
+                $scope.content = '';
+            };
+            $scope.remove = function(n){
+                $scope.arr.splice(n,1);
+            };
+        });
+    </script>
+</head>
+<body ng-controller="main">
+<input type="text" ng-model="content"/>
+<input type="button" value="留言" ng-click="send()"/>
+<ul>
+    <li ng-repeat="item in arr track by $index">{{item}}<a href="javascript:;" ng-click="remove($index)">删除</a> </li>
+</ul>
+</body>
+</html>

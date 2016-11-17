@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body{
+            background: khaki;
+        }
+    </style>
+    <link rel="stylesheet" href=""/>
+    <script src="../js/cookie.js"></script>
+    <script>
+        window.onload = function(){
+            var oBtn1 = document.getElementById('btn1');
+            var oBtn2 = document.getElementById('btn2');
+            var oBtn3 = document.getElementById('btn3');
+            var oLink = document.getElementsByTagName('link')[0];
+            if(getCookie('pf')){
+                oLink.href = getCookie('pf');
+            }
+            oBtn1.onclick = function(){
+                oLink.href = '../css/fu1.css';
+                setCookie('pf',oLink.href,1);
+            };
+            oBtn2.onclick = function(){
+                oLink.href = '../css/fu2.css';
+                setCookie('pf',oLink.href,1);
+            };
+            oBtn3.onclick = function(){
+                oLink.href = '../css/fu3.css';
+                setCookie('pf',oLink.href,1);
+            };
+        };
+    </script>
+</head>
+<body>
+<input type="button" value="换粉色" id="btn1"/>
+<input type="button" value="换红色" id="btn2"/>
+<input type="button" value="换黄色" id="btn3"/>
+</body>
+</html>

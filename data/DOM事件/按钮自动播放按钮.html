@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        a{text-decoration: none;
+            font-size: 17px;
+            color: #ffffff;
+        }
+        #box{
+            width: 220px;
+            height: 250px;
+            background: pink;
+            float: left;
+        }
+        #box div{
+            width: 200px;
+            height: 200px;
+            display: none;
+            border: 1px solid #CCCCCC;
+        }
+        .on{
+            background: red;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            var oBox = document.getElementById('box');
+            var aBtn = document.getElementsByTagName('input');
+            var aDiv = oBox.getElementsByTagName('div');
+            var oL = document.getElementById('left');
+            var oR = document.getElementById('right');
+            var iNow = 0;
+            var timer = null;
+            function tab(){
+                for(var i=0;i<aBtn.length;i++){
+                    aBtn[i].className = '';
+                    aDiv[i].style.display = 'none';
+                }
+                aBtn[iNow].className = 'on';
+                aDiv[iNow].style.display = 'block';
+            };
+            for(var i=0;i<aBtn.length;i++){
+                aBtn[i].index = i;
+                aBtn[i].onclick = function(){
+                    iNow = this.index;
+                    tab();
+                };
+            }
+            oL.onclick = function(){
+                iNow--;
+                if(iNow<0){
+                    iNow=aBtn.length-1;
+                }
+                tab();
+            };
+            oR.onclick = function(){
+                iNow++;
+                if(iNow>aBtn.length-1){
+                    iNow=0;
+                }
+                tab();
+            };
+            oBox.onmouseover = function(){
+                clearInterval(timer,1000);
+            };
+            oBox.onmouseout = function(){
+                timer = setInterval(function(){
+                    iNow++;
+                    if(iNow>aBtn.length-1){
+                        iNow=0;
+                    }
+                    tab();
+                },800)
+            };
+        };
+    </script>
+</head>
+<body>
+<div id="box">
+    <a href="javascript:;" id="left">&lt;</a>
+    <input type="button" value="电视" class="on"/>
+    <input type="button" value="电影"/>
+    <input type="button" value="动漫"/>
+    <a href="javascript:;" id="right">&gt;</a>
+    <div style="display: block;">111</div>
+    <div>222</div>
+    <div>333</div>
+</div>
+</body>
+</html>

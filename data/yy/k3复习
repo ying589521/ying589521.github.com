@@ -1,0 +1,1845 @@
+紧急
+一、requireJS\seaJS
+	模块化
+		a).解决变量名冲突
+		b).降低代码耦合
+		c).不用手动引入很多js
+		d).解决js之间的依赖关系
+
+seajs  遵循的是CMD
+	定义模块：
+		define(function(require,exports,module){
+			require  //引入、加载文件
+			exports //吐出一个
+			module  //吐出多个
+		});
+		eg:
+		define(function(require,exports,module){
+			var move = require('move.js').move;   //引入move.js中的move方法
+
+			exports.tab = function(){
+				//函数体
+			};
+		});
+	引用：
+		seajs.use('tab.js',function(obj){
+			obj.tab();  //条用tab.js中的tab函数
+		})
+
+requireJS
+	遵循的是AMD（异步模块定义）
+
+	定义模块
+		define(function(require,exports,module){
+			//require   加载文件
+			//exports   吐出一个文件
+			//module    吐出多个文件
+		})
+	引用
+		window.onload = function(){
+			requirejs.use(['tab.js'],function(obj){
+				obj.tab();
+			})
+		};
+
+二、cookie
+ 	存储数据
+ 	浏览器中保存网站数据的一个小屋子
+
+ 	上网、登录 保存用户的状态
+
+ 	cookie 默认的过期时间 session(会话)
+ 	会话：浏览器的会话：从开到关掉完成一次会话
+
+ 	特点：
+		a).不能跨域 在服务器环境下是以域为单位的（随着域名）
+		b).特别珍贵 容量小:4KB
+		c).不安全
+		d).不能重复 名字是唯一
+		e).有生命周期:默认是session
+		f).不能跨浏览器
+
+	1.设置cookie
+		document.cookie = 'key=value'  格式
+		1）设置过期时间：
+			var oDate =  new Date();
+			oDate.setDate(oDate.getDate()+iDay);
+			oDate.setHours(0,0,0,0);
+
+			document.cookie = name+'='+val+'; path=/; expires='+oDate;
+		2）path 路径
+			path=/  根目录
+		注意
+			设置cookie需要设置三个值
+				name=val;
+				path=/;
+				expires = oDate;(过期时间)
+	封装函数：
+		function setCookie(name,val,iDay){
+			if(iDay){
+				var oDate = new Date();
+				oDate.setDate(oDate.getDate()+iDay);
+				oDate.setHours(0,0,0,0);
+			}
+			document.cookie = name+'='+val+'; path=/; expires='+oDate;
+		};
+	2.获取cookie
+		document.cookie
+
+		多条;
+			'name=1; name2=2; name3=3'
+		封装函数：
+			function getCookie(name){
+				var arr = document.cookie.split('; ');
+				for(var i=0;i<arr.length;i++){
+					var arr2 = arr[i].split('=');
+					if(arr[0]==name){
+						return arr[1];
+					}
+				} 
+			};
+	3.删除cookie
+		设置过期时间是之前的日子
+		封装函数：
+			function removeCookie(name){
+				setCookie(name,'hh',-1);
+			}
+
+例子：
+	1.记住用户名
+		window.onload =  function(){
+            var oTxt = document.getElementById('txt');
+            if(getCookie('yhm')){
+                oTxt.value = getCookie('yhm');
+            }
+            oTxt.onkeyup = function(){
+                setCookie('yhm',oTxt.value,1);
+            };
+        };
+    2.选项卡，记住所选的按钮
+    	window.onload =function(){
+            var aBtn = document.getElementsByTagName('input');
+            var aDiv = document.getElementsByTagName('div');
+            if(getCookie('hh')){
+                for(var i=0;i<aBtn.length;i++){
+                    aBtn[i].className = '';
+                    aDiv[i].className = '';
+                }
+                aBtn[getCookie('hh')].className = 'on';
+                aDiv[getCookie('hh')].className = 'on';
+            }
+            for(var i=0;i<aBtn.length;i++){
+                aBtn[i].index = i;
+                aBtn[i].onclick = function(){
+                    setCookie('hh',this.index,1);
+                    for(var i=0;i<aBtn.length;i++){
+                        aBtn[i].className = '';
+                        aDiv[i].className = '';
+                    }
+                    aDiv[this.index].className = 'on';
+                    aBtn[this.index].className = 'on';
+                };
+            }
+        };
+    jq_选项卡
+    	$(function(){
+            if(getCookie('xxk')){
+                $('input,div').removeClass('on');
+                $('div').eq(getCookie('xxk')).addClass('on');
+                $('input').eq(getCookie('xxk')).addClass('on');
+            }
+            $('input').click(function(){
+                $('input,div').removeClass('on');
+                $(this).addClass('on');
+                $('div').eq($(this).index()).addClass('on');
+                setCookie('xxk',$(this).index(),1);
+            })
+        })
+    3.jq_拖拽
+    	$(function(){
+            if(getCookie('x')||getCookie('y')){
+                $('div').css({left:parseInt(getCookie('x')),top:parseInt(getCookie('y'))});
+            }
+            var l=0;
+            var t=0;
+            $('div').mousedown(function(ev){
+                var disX = ev.clientX - $(this).position().left;
+                var disY = ev.clientY - $(this).position().top;
+                $(document).mousemove(function(ev){
+                    l = ev.clientX - disX;
+                    t = ev.clientY - disY;
+                    if(l<0){
+                        l=0;
+                    }
+                    if(l>$(document).width()-$('div').width()){
+                        l=$(document).width()-$('div').width()
+                    }
+                    if(t<0){
+                        t=0;
+                    }
+                    if(t>$(document).height()-$('div').height()){
+                        t=$(document).height()-$('div').height()
+                    }
+                    $('div').css({left:l,top:t});
+                });
+                $(document).mouseup(function(){
+                    $(document).off('mousemove');
+                    $(document).off('mouseup');
+                    setCookie('x',l,1);
+                    setCookie('y',t,1);
+                });
+                return false;
+            })
+        })
+
+
+eval()  字符串 =》 js可执行的代码
+字符串转数组  eval(str);
+字符串转json  eval('('+str+')');
+
+
+三、JQuery
+	库 	帮助我们快速开发
+	强大之处？
+		a).选择器
+		b).扩展性
+	1.
+	move(obj,{width:100,height:200},{duration:1000,easing:'linear',complete:function(){
+		//运动完毕时执行
+	}});
+
+选择器：
+	浏览器都跟着它改
+
+	$('#id')     只能选择一个对象
+
+	$('.class')  可以选择多个对象 不用循环
+
+	$('div')     获取一组元素 不用循环
+
+	$('div','p','span','.class') 群组选择器
+
+	$('oParBox oBox')  包含选择器
+
+	css: div > p 直接子级选择器
+
+
+
+	$('label+input') 兄弟选择器
+
+	$("form ~ input") 同辈元素选择器
+
+	:first 
+	:last
+
+	$('div:not(.box)')  否定选择器
+
+	$("input[type='checkbox']") 属性选择器
+
+--------------------------------------------------
+css
+
+属性：
+	$(this).attr('title');   获取属性
+	$(this).attr('title','我不是Div'); 设置属性
+	$(this).attr('aaa','我是新增的内容');
+	$(this).removeAttr('abc'); 删除属性
+
+	多个属性设置
+	$(this).attr({
+		'title':'来一个',
+		'style':'width:300px;',
+		'class':'bigBox'	
+	});
+
+class操作：
+	$(this).addClass('box'); 添加一个class
+
+	$(this).addClass('box box2 box3'); 添加多个class
+
+	$(this).removeClass('oldbox'); 删除一个class
+
+	$(this).removeClass(); 删除所有class
+
+	$(this).hasClass('box') 判断是否存在这个class
+
+	alert($(this).hasClass('box a')); 多个class判断
+
+	$(this).toggleClass('box'); 切换class
+
+
+------------------------------------------------------
+设置HTML	
+	$('div').html('<p>这是一段文字</p>');
+
+获取html
+	$('div').html()
+
+设置文本：
+	$(obj).text();
+
+获取文本：
+	$('div').text()
+
+表单元素
+	
+	获取value
+	$(this).val()
+
+	设置value
+	$('#txt').val('请输入用户名');
+
+----------------------------------------------------------
+筛选：
+	eq(索引值); 获取一组元素中的某一个
+
+	first() 获取一组中的第一个元素
+
+	last()  获取一组中的最后一个元素
+
+	chidlren('筛选条件') 获取一组子元素/如果有参数，筛选其中的某一个
+
+	parent(); 父级 获取一个元素
+
+
+
+	find("#box") 筛选子级其中的某些/某个元素
+
+	next(); 获取元素的下一个兄弟节点
+
+	prev(); 获取元素的上一个兄弟节点
+
+	siblings(); 获取元素的同级元素
+
+	contents() 获取文本对象
+
+	.end() 找回原本的dom节点
+-----------------------------------------------------
+节点 元素 对象 标签 
+
+文档处理
+	$('p').append 添加子节点
+
+	$('div').prepend(oP);  向前添加
+
+	after() 在某个元素之后添加
+
+	before() 在某个元素之前添加
+
+	$('p').appendTo('div'); 将谁添加到谁之内
+
+	$('p').prependTo($('span')); 向前添加 将谁添加到谁之内
+
+	insertBefore(); 将谁放到谁之前
+
+	insertAfter(); 将谁放到谁之后
+
+	clone();  克隆节点
+
+-------------------------------------------------------
+css 操作
+	$("p").css("color"); 获取样式 结果样式
+
+	offset 自身位置的描述
+
+		x  $('div').offset().left
+		y  $('div').offset().top
+
+	设置位置：
+	$('div').offset({
+			left:200,
+			top:50	
+		});
+
+	一定要记得加绝对定位：position:absolute;
+
+
+	position() 获取相对于参照父级的位置
+	scrollTop
+
+	$(document).scrollTop() 获取滚动条上部的距离
+
+	$(document).scrollLeft() 获取滚动条左部的距离
+
+	$('div').width();  
+
+	$('div').height();
+
+	$('div').outerHeight(); 包含盒子的border在内
+
+-----------------------------------------------
+事件绑定
+	加事件用绑定 
+
+	jquery:	 .on(fn);
+
+	事件解绑定 必须得是命名函数
+	$('input').off('click',fn2);
+
+事件委托
+	委托：让别人帮你做事
+	on 有两个功能：
+		1.事件绑定：
+			$('div').on('click',function(){
+				$(this).css('background','yellow');
+			});
+		2.事件委托：
+			$(document).on('click','div',function(){
+				$(this).css('background','yellow');
+			})
+
+jQuery下的ajax:
+	ajax:
+		做数据交互的
+			数据交互：
+				数据：
+					数组/json/str/number...都是数据
+				交互：
+					和后台服务器保持联系
+					后台服务器：
+						电脑/计算机/笔记本/敲代码的机器
+							服务器：
+								存数据的地方，供别人访问
+	数据交互：
+		json/数组操作
+
+	异步数据加载：
+		异步：
+			同时进行多个操作，互不影响
+		同步：
+			同时只能执行一个操作，阻塞加载
+
+	ajax  必须是在服务器环境下运行
+		wamp  本地虚拟服务器环境
+
+		访问：localhost  / 127.0.0.1
+
+	接口：
+		接口地址：
+			如：http://www.zhinengshe.com/data/1.php
+		ajax 去调取接口里面的数据
+
+	后台把接口给咱们：
+		接口：
+			路径 存数据的地址
+		404错误  路径找不到
+
+	调用ajax：
+		$.ajax({
+			url:'2.txt'  //文件路径（接口地址），必写
+			success:function(str){
+				//获取成功
+				$('div').html(str);
+			},
+			error:function(str){
+				//获取失败
+				alert(str.status);
+			}
+		})
+
+	$.each(arr,function(key,val){
+		var str = '.......';
+		$('标签名').append(str);
+	})
+
+	eval：
+		把字符串转换成js能解析的数据
+		var arr = eval(str);
+		var json = eval('('+str+')')
+	注：
+		ajax获取的是json数据 在eval的时候 必须左右添加括号 不论什么数据
+		undefined ！= null
+		未定义        空
+对象互转：
+	js转jq:(加$即可)
+		var oBtn = document.getElementById('box');
+		$(oBtn).css('background','yellow');	
+	jq转js:
+		$('#box')[0].style.background='yellow';
+		或
+		$('#box').get(0).style.background='yellow';
+
+插件：
+	声明一个插件：
+		$.fn.drag(插件名) = function(){
+
+		}
+	调用插件：
+		$(function(){
+			$('p').drag();
+			$('div').drag();
+		})
+	声明多个插件：
+		$.fn.extend({
+			drag:function(){},
+			drag1:function(){},...
+		})
+
+
+四、正则表达式：
+	Regular Expression
+
+	var re = new RegExp();
+
+	简写：/规则/选项
+
+	注意：只要涉及到变量和参数，就必须用原始的方法: var re = new RegExp();
+	eg:var re = new RegExp('\\b'+hello+'\\b');
+
+	规则表达式：
+		不用正则可以，但是用正则就是为了方便
+	作用：
+		a）校验字符串
+		b）表单校验
+	正则：校验、减轻服务器压力	
+
+字符串新方法：
+	str.search(re)   
+		搜索 查看规则在字符串中的位置
+
+	str.match(re)
+		匹配、获取
+		eg:str.match(/\d+/g)  
+			获取所有的数字
+
+	str.replace(str/re,str|fn)
+		替换
+		eg:
+		oBtn.onclick = function(){
+			oTxt2.value = oTxt1.value.replace(/亿|过|今天/g,function(str){
+				var tmp = '';
+				for(var i=0;i<str.length;i++){
+					tmp+='*';
+				}
+				return tmp;
+			});
+		};
+
+1.操作字符串：
+
+	正则特点：
+		1.懒
+			选项：
+				g  global
+				全局 
+					全局匹配
+		2.笨：
+			量词
+				13个苹果
+				苹果{13}
+
+				模糊：
+					若干
+					苹果+
+		3.贪婪
+
+替换：
+	str.replace(str/re,str);
+	str.replace(str/re,str/fn);
+
+	str.replace(str/re,function(str){
+		//str  被替换的字符串操作
+		return   xxx;
+	})
+修饰：
+	^       行首
+	$		行尾
+
+	单行模式：
+		整个文本只有一个行首，一个行尾
+	多行模式：
+		以回车分行，有多个行首和多个行尾
+选项：
+	i	iGnore   	忽略大小写
+	m 	muti-line	多行模式
+	g   global      全局模式
+
+例子：小说格式整理(行首两个空格(js中的4个空格),行尾回车)
+	oTxt.value = oTxt.value.replace(/^/gm,'    ').replace(/$/gm,'\n');
+
+
+	量词：
+		{n}      n个
+		{n,m}    最少n个，最多m个
+		{n,}     最少n个，最多不限
+
+		? ->{0,1}   
+			没有或有一个
+		+ ->{1,}
+			最少一个，最多不限
+		* ->{0,}
+			可有可无，没有上限
+
+	[]
+		任选一个
+			[abc] a b c
+		范围
+			[a-z]
+			[0-9]
+			[A-Z]
+			[a-zA-Z0-9]  所有的英文数字
+			[14-79]  145679任选一个
+		排除
+			[^a-z]  除了小写字母
+			[^A-Z]
+			[^0-9]
+			[^a-zA-Z0-9]
+	转义
+		\d       所有数字
+		\w       所有英文，数字，_
+		\s       所有空白符号
+
+		\D       除了数字
+		\W       除了英文,数字,_
+		\S       除了空白符号
+
+		.        所有的字符(包括英文,数字...)
+		\b       单词边界
+		\\       \
+		\\\\     \\	
+练习：
+	/[13-59]/
+		[13459]  任选一个
+	/(ab)+/
+		ababababab...
+	去掉首尾空格，并将中间的多个空格替换成一个空格
+		var str = '   box  on  active   '
+		str = str.replace(/^\s+|\s+$/g,'').replace(/\s+/,' ');
+
+2.表单校验
+	re.str(str);
+	re.test(str);
+	写校验简单，分段写
+
+	>邮箱
+		名字
+			英文字母下划线 若干
+				\w+
+				+   最少一次
+		@
+			@
+		域名
+			英文数字- 若干
+				[a-zA-Z0-9\-]+
+		域名后缀
+			.英文
+			最少两位，最多六位
+			最少一份，最多两份
+			(\.[a-zA-Z]{2,6}){1,2}
+		test校验的时候正则必须加上行首行尾
+		整合写法：
+			/^\w+@[a-zA-Z0-9\-]+(\.[a-zA-Z]{2,6}){1,2}$/
+	完整写法：
+	var oTxt = document.getElementById('txt');
+    var oBtn = document.getElementById('btn');
+    oBtn.onclick = function(){
+        var result = /^\w+@[a-zA-Z0-9\-]+(\.[a-zA-Z]{2,6}){1,2}$/.test(oTxt.value);
+        alert(result);
+    };
+
+	>固定电话：
+		区号  3-4位数字
+			第一位必须是0
+			第二位必须不是0
+
+			0[1-9]\d{1,2}
+		-
+			\-
+		座机号码
+			7-8位数字
+				第一位必须不是0
+				[1-9]\d{6,7}
+		整合写法：
+			/^0[1-9]\d{1,2}\-[1-9]\d{6,7}$/
+	完整写法:
+		oBtn.onclick = function(){
+                var result = /^0[1-9]\d{1,2}\-[1,9]\d{6,7}$/.test(oTxt.value);
+                alert(result);
+            };
+    >年龄
+    	婚恋网站
+    		18-100
+
+    		18-19
+    			1[8-9]
+    		20-99
+    			[2-9]\d
+    		100
+    			100
+    	整合写法：
+    		/^((1[8-9])|([2-9]\d)|(100))$/
+    完整写法：
+    	oBtn.onclick = function(){
+                var result = /^((1[8-9])|([2-9]\d)|(100))$/.test(oTxt.value);
+                alert(result);
+            };
+    >手机号
+    	11位手机号
+    		第一位一定是1
+    		第二位3 4 5 7 8
+    	整合写法：
+    		/^1[34578]\d{9}$/
+    完整写法：
+    	oBtn.onclick = function(){
+                var result = /^1[34578]\d{9}$/.test(oTxt.value);
+                alert(result);
+            };
+    >身份证号
+    	15或18位
+    		第一位必须不是0
+    			[1-9]
+    		中间
+    			\d{13}|\d{16}
+    		最后一位有可能是X(x)
+    	整合写法：
+    		/^[1-9]\d{13}((0-9Xx)|(\d{3}[0-9xX]))$/
+    		或
+    		/^[1-9]((\d{13})|(\d{16}))[0-9xX]$/
+练习：
+	1.限制一个输入框中只能输入数字
+		/^\d+$/.test(oInp.value);
+
+	2.首字母大写
+		var str = 'i love js';
+		str = str.replace(/\w+/,function(str){
+			return str.charAt(0).toUpperCase()+str.substring(1);
+		})
+	3.域名 正则写，下面的都可以成功跳转
+	baidu.com 
+	www.baidu.com
+	www.baidu.com/ 
+	http://www.baidu.com
+	https://www.baidu.com
+	ued.baidu.com
+	xxx.ued.bbs.baidu.com
+
+	协议;
+		可以出现也可以不出现
+			(http(s)?\:\/\/)?
+	子域名
+		([a-zA-Z0-9\-]+\.)*
+			*  {0,}
+	一级域名
+		([a-zA-Z0-9\-])+
+	域名后缀
+		(\.[a-zA-Z]{2,6}){1-2}
+	目录
+		(\/)?
+
+	最终版：
+	/^(http(s)?\:\/\/)?([a-zA-Z0-9\-]+\.)*[a-zA-Z0-9\-]+(\.[a-zA-Z]{2,6}){1,2}(\/)?$/
+
+	4.如何将var str = '20151125',利用正则转换成2015年11月25日
+		var str = '20151125';
+		str.replace(/2015/,'2015年').replace(/11/,/11月/).replace(/25/,/25日/);
+	5.编写trim方法
+		function trim(str){
+			return str.replace(/^\s+|\s+$/g,'');
+		};
+
+五、交互
+	ajax
+	jsonp
+
+
+
+
+
+
+
+问题：
+	1.jsonp为什么与ajax不一样？
+		因为jsonp走的不是XMLHttpRequest对象
+	2.ajax与jsonp的区别？
+		ajax不能跨域，本质走的是XMLHttpRequest对象，jsonp可以跨域，本质走的是利用script能异步调用后台的脚本
+	区别：
+	a)ajax不能跨域，jsonp可以跨域
+	b)
+		ajax:使用XMLHttpRequest进行交互
+		jsonp：利用script标签可以跨域调用资源的特性，来动态的创建script标签执行服务端提供的脚本语句,实现跨域。
+
+
+
+
+六、面向对象
+	原理不清楚，但是不影响使用
+
+	类      人类
+	对象    张三
+
+	对象由上面组成？
+		属性
+		方法
+
+	属性和变量的区别？
+		变量谁也不属于，属性属于某个对象
+	方法和函数的区别？
+		函数谁也不属于，方法属于某个对象
+
+构造函数
+	帮助我们创建对象的
+
+	规范：
+		首字母必须大写
+
+	希望找到一个空白的对象
+		new Object();
+		基本上是废的
+
+	问题
+		1.没有new
+		2.方法不相等
+**** new只有两个功能
+		1.在前面加上
+			this = new Object;
+		2.在后面加上
+			return this;
+
+**** 属性给构造函数加
+	 方法要给构造函数的原型加
+	 	构造函数原型：
+	 		构造函数.prototype;
+例如：
+	Person类
+		属性：
+			name age
+		方法：
+			showName();
+			showAge();
+写法如下：
+	function Person(name,age){
+		this.name = name;
+		this.age = age;
+	}
+	function showName(){
+		return this.name;
+	}
+	function showAge(){
+		return this.age;
+	}
+
+构造函数的原型：构造函数.prototype
+	作用：扩展系统函数
+
+	arr.indexOf()
+		数组有indexOf方法，但是不兼容
+		源代码如下：
+			Array.prototype.indexOf = function(item){
+				for(var i=0;i<this.length;i++){
+					if(this[i]==item){
+						return i;
+					}
+				}
+				return -1;
+			};
+			var arr = ['a','b','c','d'];
+			document.write(arr.indexOf('c'));
+	str.trim()  去掉首尾空格
+		字符串有trim方法，但是不兼容
+		源代码如下：
+			String.prototype.trim = function(){
+				return this.replace(/^\s+|\s+$/g,'');
+			};
+			var str = '    hh    ';
+			document.write('|'+str.trim()+'|');
+
+	oDate.getCnDay() 获取中文星期
+		源代码如下：
+			Date.prototype.getCnDay = function(){
+				return '星期'+('日一二三四五六'.charAt(oDate.getDay()));
+			};
+			var oDate = new Date();
+			document.write(oDate.getCnDay());
+
+this
+	具体是什么需要调用
+
+	a)调用有不同方式，有优先级。
+		高
+			new        object
+			定时器     window
+			事件       触发事件的元素
+			方法       方法属于的那个元素
+			正常调用   window||undefined
+		低
+	b)定时器、事件只管一层
+
+	c)一定要看最后一次调用
+
+面向对象
+	封装   提取事物的核心 然后封装
+
+查看数据类型
+	typeof  检测基本数据类型
+		string number boolean undefined function object
+
+	instanceof  检测符合数据类型
+		arr instanceof Array
+			返回true
+	constructor  检测构造函数
+		arr.constructor==Array
+			返回true
+		json.constructor==Object
+			返回true
+
+	isString()
+	isArray()
+	isJson()
+
+function isString(str){
+	if(typeof str=='string'||str instanceof String){
+		return true;
+	}else{
+		return false;
+	}
+};
+
+function isArray(arr){
+	if(arr instanceof Array){
+		return true;
+	}else{
+		return false;
+	}
+};
+
+function isJson(obj){
+	if(obj.constructor==Object){
+		return true;
+	}else{
+		return false;
+	}
+};
+
+诡异
+	诡异一
+	Object instanceof Function 			true
+	Function instanceof Object 			true
+	Object instanceof Object 			true
+	Function instanceof Function 		true
+
+	诡异二
+	arr instanceof Array 			true
+	Array instanceof Function 		true
+	arr instanceof Function 		false
+
+	诡异三
+	Object.prototype.a = 12;
+	var a = 5;
+	alert(a.a); 						12
+	alert(a instanceof Object); 		false
+
+
+	Object.prototype.a = 12;
+	var a = new Number(5);
+	alert(a.a); 						12
+	alert(a instanceof Object); 		true
+
+原型链：
+	操作任何属性和方法时，先在对象身上找，如果找不到找构造函数，如果构造函数找不到，就找父类，一直往上找
+
+作用域链
+	先在自身在，如果找不到，找父函数，如果父函数找不到，就找父函数的父函数，以此类推，一直往上找。直到找到全局，如果全局有就用，没有就报错
+
+
+七、AngularJS
+	MVVM框架
+
+	致力于解决交互带来的痛苦
+
+	面向数据：数据就是一切
+
+	官网：https://angularjs.org
+
+	版本：
+		主版本.次版本.修订号
+		1.7.2
+		AngularJS
+				1.x.x
+					1.2.x
+					1.3.x   √
+				2.x.x
+
+1.function  angular自带的方法
+	
+	1.angular.bind(this是谁,fn,arguments);   矫正this
+	例子：
+		function show(a,b){
+			alert('this->'+this+',a->'+a+',b->'+b);
+		};
+		var fn = angular.bind(12,show,7,5);
+		fn();
+		返回：  this->12,a->7,b->5
+
+	2.angular.copy()   克隆复制对象
+	例子：
+		var arr = [1,2,3,4,5];
+		var arr2 = angular.copy(arr);
+		arr2.push(6);
+		document.write(arr+'<br />');
+		document.write(arr2);
+		返回：1,2,3,4,5
+			  1,2,3,4,5,6
+
+	3.angular.element  小jQuery
+	例子：
+		window.onload = function(){
+			var oBox = document.getElementById('box');
+
+			angular.element(oBox).on('click',function(){
+				angular.element(oBox).css('background','green');
+			});
+		};
+
+	4.angular.equals(a,b)  判断a,b是否相等  缺点：NaN等于NaN
+	例子：
+		var a = NaN,b=NaN;
+		var result = angular.equals(a,b);
+		alert(result);
+		返回true
+
+	5.angular.forEach(对象本身,function(value,key){
+		key  下标、名字
+		value 值
+	})   遍历
+	例子：遍历数组
+		 var arr = ['张三','李四','王二','赵五'];
+        angular.forEach(arr,function(value,key){
+            document.write(key+':'+value+'<br />');
+        })	
+        返回：
+        	0:张三
+			1:李四
+			2:王二
+			3:赵五
+	例子：遍历json
+		var json = {name:'张三',age:10,gender:'男'};
+        angular.forEach(json,function(value,key){
+            document.write(key+':'+value+'<br />');
+        })
+        返回：
+        	name:张三
+			age:10
+			gender:男
+
+	6.angular.isArray()   查看是否是数组
+	例子：
+		var arr = [];
+		var res = angular.isArray(arr);
+		alert(res);
+		返回true
+
+	7.angular.isDate()  查看是否是日期
+
+	8.angular.lowercase()  转小写
+	例子：
+		var str = 'nkjajdSLannsaSKJADHJ';
+        var res = angular.lowercase(str);
+        alert(res);
+        返回：
+        	nkjajdslannsaskjadhj
+
+	9.angular.uppercase()   转大写
+
+***	10.angular.module()  应用模块
+
+2.directive   指令  ng
+	
+	ng-app
+		确定angular生效的范围
+			注：ng-app在整个页面中只能出现一次，要想多次使用(可以将其放入html标签中)
+
+	数据从哪里来
+		ng-model
+	数据到哪里去
+		ng-bind    不能操作input
+
+	单项绑定
+		ng-model
+		ng-bind
+		例子：
+			<input type="text" ng-model="aaa"/>
+			<div ng-bind="aaa"></div>
+			或：
+			<input type="text" ng-model="aaa">
+			<div>{{aaa}}</div>
+			下面div中的内容与上面输入的一样
+			注：html标签中必须加ng-app
+	双向绑定
+		ng-model
+		ng-model
+		例子：
+		<input type="text" ng-model="aaa"/>
+		<input type="text" ng-model="aaa"/>
+		下面的value与上面的一样
+
+	{{}}  ng-bind 的替代
+
+	例子：
+		<input type="text" ng-model="a"/>
+		<div style="{{a}}"></div>    <!--直接在text中输入样式-->
+		或：
+		<input type="text" ng-model="a" />
+		<div class="{{a}}"></div>
+		直接输入class名即可,但该class必须在上面有样式
+
+	1.1 ng-model   输入
+		例子：
+			<input type="text" ng-model="a"/>
+			<input type="text" ng-model="b"/>
+			{{a*b}}   
+			<!-- 一开始是NaN，因为text中的值是字符串-->
+
+	1.2 ng-bind    输出
+		不能操作input
+
+	1.3 ng-init 初始化(也就是默认值)
+		例子：
+		<body ng-init="a=0;b=0">
+			<input type="text" ng-model="a" />
+			<input type="text" ng-model="b" />
+			{{a+b}}
+		</body>
+			如果不初始化：<!-- 一开始是NaN，因为text中的值是字符串-->
+
+		例子2：arr
+		<body ng-init="arr=['张三','李四','王二']">
+		<div>{{arr[2]}}</div>
+		例子3：
+		<body ng-init="name='yy';age=16">
+			<input type="text" ng-model="name" />
+			<input type="text" ng-model="age" />
+			<div>我叫{{name}},今年{{age}}岁</div>
+		</body>
+
+
+	1.4 ng-repeat  重复
+	写法：ng-repeat="item in arr track by $index"
+		例子1：arr
+		<body ng-init="arr=['张三','李四','王二','狗蛋'];">
+			<ul>
+			    <li ng-repeat="item in arr">{{item}}</li>
+			</ul>
+		</body>	
+		返回：创建arr.length个li内容是arr中的每一项
+				张三
+				李四
+				王二
+				狗蛋
+
+		例子2：json
+		<body ng-init="arr=[{name:'yy',age:19},{name:'hh',age:10},{name:'ll',age:18}]">
+			<ul>
+			    <li ng-repeat="item in arr">我叫{{item.name}},今年{{item.age}}岁</li>
+			</ul>
+		</body>
+		返回：
+			我叫yy,今年19岁
+			我叫hh,今年10岁
+			我叫ll,今年18岁
+
+	1.5 ng-show    是否显示 true显示 false不显示
+
+	1.6 ng-hide    是否隐藏 true隐藏 false不隐藏
+		例子：
+		<body ng-init="a=true">
+			<input type="button" value="显示隐藏" ng-click='a=!a'>
+			<div ng-show="a"></div>
+		<body>
+		点击 显示隐藏切换
+
+	1.7 ng-click   点击
+		例子：同上
+
+两个环境
+	原生环境
+	ng环境      指令
+
+	注：原生环境和ng不互通
+
+AngularJS的特点：
+	双向绑定，依赖注入
+		依赖注入
+			只关心写法，不关心顺序
+
+控制器：controller 
+	不可以压缩，因为会把$scope变成a b c之类的字符
+
+	//获取模块  模块名为ng-app的值
+	var mk= angular.module('mk',[]);
+
+	//创建控制器 main是下面 ng-controller的值
+	mk.controller('main',function($scope){
+		$scope 参数必须不能改字母
+	})
+
+	例子：
+	var mk = angular.module('index',[]);
+        mk.controller('main1',function($scope){
+            $scope.a1 = 12;
+            $scope.alert = function(n1){
+                alert(n1);
+            };
+        })
+    <body>
+    	<div ng-controller="main1">
+    		<input type="button" value="第一弹" ng-click="alert(a1)"/>
+		</div>
+	</body>
+
+另一种控制器：可以压缩
+	//获取模块 模块名为ng-app的值
+	var mk = angular.module('mk',[])
+
+	//创建控制器 main是下面ng-controller的值
+	mk.controller('main',['$scope',function(abc){
+		abc.a = 12;
+	}]);
+
+	例子：
+	<!DOCTYPE html>
+	<html ng-app="index">
+	<head lang="en">
+	    <meta charset="UTF-8">
+	    <title></title>
+	    <script src="angular.js"></script>
+	    <script>
+	        var mk = angular.module('index',[]);
+	        mk.controller('main',function($scope){
+	            $scope.content = '';
+	            $scope.arr = [];
+	            $scope.send = function(){
+	                $scope.arr.unshift($scope.content);  //unshift   在数组前面添加一个元素；
+	                $scope.content = '';
+	            };
+	            $scope.remove = function(n){
+	                $scope.arr.splice(n,1);
+	            };
+	        })
+	    </script>
+	</head>
+	<body ng-controller="main">
+	<input type="text" ng-model="content"/>
+	<input type="button" value="留言" ng-click="send()"/>
+	<ul>
+	    <li ng-repeat="item in arr track by $index">{{item}}<a href="javascript:;" ng-click="remove($index)">删除</a> </li>
+	</ul>
+	</body>
+	</html>
+
+父子控制器之间的数据传递
+	子级给父级传递数据
+		发送
+			$scope.emit(名字,数据);
+		接收
+			$scope.on(名字,function(even,data){});
+
+	例子：
+	var app = angular.module('app',[]);
+		//父级	
+		app.controller('aaa',function($scope){
+			$scope.a = 0;
+			$scope.$on('num',function(even,data){
+			$scope.a = data;
+		});
+	});
+	//子级
+	app.controller('bbb',function($scope){
+		$scope.a = 0;
+		$scope.change = function(){
+			$scope.$emit('num',$scope.a);
+		};
+	})
+
+	布局：
+	<!--父级有{{a}}-->
+	<div ng-controller="aaa">
+	    <!--子级有{{a}}-->
+	    父级：{{a}}
+	    <div ng-controller="bbb">
+	        子级：
+	        <input type="number" ng-model="a" ng-change="change()" />
+	        {{a}}
+	    </div>
+	</div>
+
+
+	父级给子级传递数据
+		发送
+			$scope.broadcast(名字,数据);
+		接收
+			$scope.on(名字,function(even,data){});
+
+连接在一起的例子：
+	var app = angular.module('app',[]);
+        //父级
+        app.controller('aaa',function($scope){
+            $scope.a = 0;
+            //接收
+            $scope.$on('num',function(event,data){
+                $scope.a = data+1;
+            })
+        });
+        //子级
+        app.controller('bbb',function($scope){
+            $scope.a = 0;
+            $scope.change = function(){
+                //发送给父级
+                $scope.$emit('num',$scope.a);
+                //发送给子级
+                $scope.$broadcast('num_list',$scope.a)
+            };
+        });
+        //子级的子级
+        app.controller('ccc',function($scope){
+            $scope.a = 0;
+            //接收数据
+            $scope.$on('num_list',function(event,data){
+                $scope.a = data-1;
+            })
+        });
+
+    布局：
+	<div ng-controller="aaa">
+	    父级:{{a}}
+	    <div ng-controller="bbb">
+	        子级:
+	        <input type="number" ng-model="a" ng-change="change()" />
+	        {{a}}
+	        <div ng-controller="ccc">
+	            子级的子级:
+	            {{a}}
+	        </div>
+	    </div>
+	</div>
+
+控制器写法：
+	app.controller(name,function($scope){
+		$scope.a = 12;
+	});
+
+	另一种写法：
+		避免压缩代码带来的变量改变
+		app.controller(name,['$scope',function(abc){
+			abc.a = 12;
+		}])
+
+service     服务
+	$scope   服务
+脏检查
+	var a = 12;
+	setInterval(funciton(){
+		$scope.$apply(function(){
+			$scope.a++;
+		})  
+	},1000)
+
+	人民币¥  
+	日元￥
+
+
+
+
+过滤器   filter		
+	过滤我们的数据
+
+	currency    货币
+	data		日期
+		yyyy   年
+		MM     月
+		dd     日
+	json        json标准写法
+	limitTo     限制条数、字数
+
+	{{value|过滤器:参数 }}
+
+自定义过滤器；
+	app.filter('过滤器的名字',function(){
+		return function(input){
+			//input就是传进来的东西
+			需要过滤的东西
+		}
+	})
+
+	例子：
+	首字母大写
+	var app = angular.module('app',[]);
+        app.filter('cap',function(){
+            return function(input){
+                return input.replace(/\w+/g,function(str){
+                    return str.charAt(0).toUpperCase()+str.substring(1);
+                })
+            }
+        });
+        app.controller('main',function($scope){
+            $scope.a = 'welcome to zhinengshe';
+        })
+
+    获取中文星期
+    var app = angular.module('app',[]);
+        app.filter('getCnDay',function(){
+            return function(input,a){
+                var oDate = new Date(input);
+                if(a){
+                    return '星期'+('日一二三四五六'.charAt(oDate.getDay()))
+                }else{
+                    return '星期'+(oDate.getDay()||7);
+                }
+            }
+        });
+        app.controller('main',function($scope){
+            $scope.d = Date.now();
+        })
+
+自定义指令：
+	app.directive(指令,function(){
+		return function(scope,element,attr){
+			scope      ng域
+			element    angular.element
+			attr       属性
+		}
+	})
+		例子
+		var app = angular.module('app',[]);
+		app.directive('ngRed',function(){
+            return function(scope,element,attr){
+                element.css('background','red');
+            }
+        })
+
+        或者
+         var app = angular.module('app',[]);
+        app.directive('ngRed',function(){
+            return {
+                link:function(scope,element,attr){
+                    element.css('background','red');
+                }
+            }
+        })
+
+交互
+$http.get(url,{params:{}}).success(fn).error(fn);
+
+百度接口
+https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su
+
+例子：
+百度下拉
+var app = angular.module('app',[]);
+app.controller('main',function($scope,$http){
+	$scope.wd = '';
+	$scope.arr = [];
+	$scope.getBDData = function(){
+		$http.jsonp(
+			'https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su',
+			{params:{
+				wd:$scope.wd,
+				cb:'JSON_CALLBACK'
+			}}
+		).success(function(res){
+			$scope.arr = res.s;
+		}).error(function(){
+			alert('失败');
+		});
+	};
+});
+
+
+====================================================================
+非紧急
+一、SVN git
+	代码管理工具
+
+1.
+集中式代码管理工具
+	1.只能在公司用
+	2.相对简单
+SVN
+	官网：https://tortoisesvn.net/
+	安装：无限下一步
+	验证是否安装成功
+		鼠标右键：有SVN的图标
+
+需要一个SVN的服务器
+	SinaApp
+	官网：http://sinaapp.com/
+
+	以上服务在公司不需要你负责，有能用的，让你用
+
+把服务器上的代码下载下来
+	鼠标右键  checkout    
+
+保证代码最新
+	updata
+上传
+	updata
+	commit
+
+使用方法：
+	1.鼠标右键  checkout    
+	2.会下载下来一个文件夹，点进去，将你要存放的页面拉进去，右键单击，点击updata(代码更新)，再点击commit，输入用户名（邮箱名），密码，点OK
+	3.在新浪云中的操作
+	控制台->云应用SAE->点击应用管理中的应用信息(如：ying.com)然后跳转，在应用中选择代码管理->点击编辑代码即可->右击html文件可以通过URL访问
+	注：先右击checkout现在文件夹，更新一次，需要updata一下，commit一下
+
+==================================================================
+2.git
+分布式代码管理工具
+	1.在哪都能用
+	2.比较难
+git:
+	官网：http://msysgit.github.io
+	安装:无限下一步
+	如何验证是否安装成功
+		右键有git
+	玩git有两种方式
+		Git GUI   图形界面
+		Git Bash  命令行    √
+
+打开git bash
+	输入
+	git --version
+		检测git的版本
+
+
+GitHub     git服务器
+	管理我们的代码
+网址：https://github.com/
+提前准备
+	两个邮箱
+		一个新浪邮箱
+		一个qq邮箱
+
+	注册
+		用户名  必须英文字母开头
+		邮箱    填写sina邮箱
+		密码    英文+数字
+
+		点击Sign up for Github
+
+	配置邮箱
+		点击头像-》点击settings
+			点击emails
+			登录sina邮箱
+				打开github发送的邮件，点击里面的连接
+			跳转到新的github页面
+ 
+	从新添加另一个邮箱
+		点击头像-》点击settings
+			点击emails
+			添加另一个邮箱
+			点击add
+				打开qq邮箱
+				点击里面的连接
+			跳转到新的github页面
+
+	添加SSH Key    秘钥
+		生成一个秘钥
+		打开命令行
+			ssh-keygen -t rsa -C "主邮箱"    
+				如： ssh-keygen -t rsa -C "15512259612@sina.cn"
+					 ssh-keygen -t rsa -C "15512259612@sina.cn"
+					 ssh-keygen -t rsa -C "15512259612@sina.cn"
+					 ssh-keygen -t rsa -C "15512259612@sina.cn"
+				一路回车
+		需要找到生成的秘钥
+			在用户目录下有一个.ssh的文件夹
+				c盘->用户->.ssh文件夹
+				里面有两个文件
+					id_rsa
+					id_rsa.pub   √
+		不能使用任何编辑器打开这个文件
+		只能通过记事本打开此文件
+			把里面的内容全选，复制
+
+		点击头像-》点击settings-》点击SSH and GPG keys ->点击New SSH key
+			输入两个东西
+				title
+					用户名
+				key
+					粘贴
+		点击-》Add SSH key
+
+配置信息
+	邮箱和用户名
+		git config -l   查看有哪些配置
+		用户名
+			git config --global user.name "用户名"（一定要跟sshkey的名字保持一致）
+		邮箱
+			git config --global user.email "主邮箱"
+
+
+
+点击头像-》点击your profile
+	查看关注与被关注人数
+
+========================================================
+LInux命令
+	clear		清屏
+	exit		退出
+
+	cd e:       切换盘符(cd 目标)
+
+	ls			查看文件夹内容
+	cat 文件    查看文件内容
+     
+	vi 文件    文件操作
+		模式 阅读模式（默认）
+			i   进入编辑模式
+			ESC   退出
+				不保存退出  
+					:q!     回车
+				保存退出
+					:wq!	回车
+
+GitHub     git服务器
+	管理代码
+
+	官网：https://github.com/
+		注册
+			提前准备
+				两个邮箱
+					新浪邮箱
+					qq邮箱
+		用户名：	必须英文字母开头
+		邮箱：		填写新浪邮箱
+		密码：		英文+数字
+
+		配置：
+			点击头像-》
+
+
+		添加SSH Key秘钥
+			生成一个秘钥
+				ssh-keygen -t rsa -C "主邮箱"   
+					一路回车
+				需要找到生成的秘钥
+					在用户目录下有一个.ssh文件夹
+					有两个文件
+						id_rsa
+						id_rsa.pub  √
+
+				***不能使用任何编辑器打开此文件
+					只能通过记事本打开
+					把里面的内容全选，复制
+				点击头像->点击settings->点击SSH and GPG keys ->点击->New SSH key
+
+				输入两个东西
+					title
+						用户名
+					key
+						粘贴
+				点击Add SSH key
+
+		翻墙
+
+		配置：
+			git config -l           查看有哪些配置
+			用户名
+				git config --global user.name "用户名"（一定要跟SSH Key的名字保持一致）
+			邮箱
+				git config --global user.email "主邮箱"（git Hub的主邮箱）;
+
+
+3.代码自动构建工具
+Grunt
+官网：https://gruntjs.com
+中文官网：gruntjs.net
+基于nodejs的
+	检测node是否有
+	node --version
+	npm --version
+
+node就是js文件
+	执行  node文件
+
+	1.需要安装grunt的命令行环境：
+		npm install -g grunt-cli
+	2.检测是否安装成功
+		grunt --version
+	
+	想玩grunt，需要两个文件
+		Gruntfile.js        构建主文件     
+		package.json	工程文件		
+
+	编写Gruntfile.js
+		module.exports = function(grunt){
+			//引入模块
+			grunt.loadNpmTasks('grunt-contrib-uglify');
+			grunt.loadNpmTasks('grunt-contrib-concat');
+			grunt.loadNpmTasks('grunt-contrib-clean');
+			//初始化
+			grunt-initConfig({
+				uglify:{
+					yal:{
+						src:"src/a.txt",
+						dest:"dest/a.min.txt"
+					},
+					yal2:{
+						src:"src/b.txt",
+						dest:"dest/b.min.txt"
+					}
+				}
+			})
+			//注册默认任务
+			grunt.registerTask('default',['concat','uglify',clean]);
+		}
+	安装模块
+		grunt模块
+			npm install grunt
+		grunt-contrib-uglify  	模块
+			npm install grunt-contrib-uglify
+		grunt-contrib-concat
+			npm install grunt-contrib-concat
+		grunt-contrib-clean
+			npm install grunt-contrib-clean
+
+
+	package.json	
+		npm stall -g grunt-cli
+		npm install 模块名 --save-dev
+
+=======================================================
+Grunt和Gulp的区别？
+	Grunt      走文件流
+	Glup       走二进制    快
+4.Gulp
+	官网：https://gulpjs.com
+
+	安装：
+		npm stall --global gulp-cli
+
+	验证是否安装成功
+		gulp --version
+	需要两个文件
+		gulpfile.js
+		package.json
+
+	安装：npm stall 模块名
+		npm stall gulp
+	
+二、语言特性+性能优化
+
+	
+二、php+mysql+nodejs
+1.PHP	
+	在js中
+		+				加法运算、字符串拼接
+		.				操作属性    obj.change();
+	在PHP中
+		+				加法运算
+		.				字符串拼接
+		->				操作属性    obj->change();
+
+	变量
+		js
+			var a = 12;
+		php
+			$a=12;
+	函数
+		php
+			function sum($a,$b){
+				return $a+$b;
+			};
+			$result = sum(12,5);
+			echo $result;
+
+	PHP    98%↑都是操作数据
+
+		接收前端请求的数据
+			get
+				$_GET()
+			post
+				$_POST()
+2.mysql
+	库：
+		管理表的		本身不能存数据
+	表：
+		存数据的
+		行：
+			某一条数据
+		列：
+			某一项数据
+	操作数据库：
+		1.命令行
+		2.可视化操作（）
+		3.Web形式操作
+			数据库管理可视化
+
+	1.创建数据库：
+
+	2.创建一个表：
+		输入表名，输入列数，点击执行
+			字段
+				这一列字段的名字
+			类型
+				INT				整数
+				float			单精度浮点数   1.1 12.5
+				double			双精度浮点数   多位小数
+				char			字符
+				varchar			字符串
+				text			文本/大字符串
+			长度
+				能写几位
+		3.给表插入数据
+
+PHP操作MySQL数据库
+	1.建立连接
+	2.选择数据库
+	3.执行SQL语句
+	4.遍历数据
+
+操作数据：只有四种
+	增删改查
+
+SQL是一种语言
+	SELECT * FROM  表名
+
+限制范围：
+	SELECT * FROM 表名 LIMIT start,count
+
+3.nodejs
+
+window+R
+	exit   退出
+	cls    清屏
+	e:     切换盘符
+	dir    查看所文件
+	cd     切换目录
+	..     回到上一级目录
+
+搭建服务器环境
+
+var http = require('http');
+var fs = require('fs');
+var server = http.createServer(function(request,response){
+	fs.readFile('www'+request.url,function(err,data){
+		if(err){
+			response.write('404');
+		}else{
+			response.write(data);
+		}
+		response.end();
+	});
+});
+
+MVC
+	M 	model			数据层 		
+	V   view    		视图层		
+	C   Controller		控制层		
+
+前端
+MVC
+	M 	model			数据层 		数据交互
+	V   view    		视图层		DOM创建
+	C   Controller		控制层		逻辑控制
+	
+	
+库和框架的区别？
+库：jQuery
+	辅助程序员开发
+	程序员占主导位置
+框架：angularjs
+	限制程序员开发的
+	框架占主导位置
+三、高级运动
+四、算法+数据结构

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #div-box{
+            width: 360px;
+            height: 200px;
+            border-top: 7px solid #d6d6d6;
+            border-left: 7px solid #d6d6d6;
+            overflow: hidden;
+        }
+        #div1{
+            width:100px;
+            height: 100px;
+            background: #ff0000;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            var oDiv = document.getElementById('div1');
+            var oBk = document.getElementById('bk');
+            var oBg = document.getElementById('bg');
+            var oBs = document.getElementById('bs');
+            var oYc = document.getElementById('yc');
+            var oXs = document.getElementById('xs');
+            var oYd = document.getElementById('yd');
+            oBk.onclick = function(){
+                oDiv.style.width = '300px';
+            };
+            oBg.onclick = function(){
+                oDiv.style.height = '300px';
+            };
+            oBs.onclick = function(){
+                oDiv.style.background = 'pink';
+            };
+            oYc.onclick = function(){
+                oDiv.style.display = 'none';
+            };
+            oXs.onclick = function(){
+                oDiv.style.display = 'block';
+            };
+            oYd.onclick = function(){
+                oDiv.style.marginLeft = '300px';
+            };
+        };
+    </script>
+</head>
+<body>
+<div id="div-box">
+    <input type="button" value="变宽" id="bk"/>
+    <input type="button" value="变高" id="bg" />
+    <input type="button" value="变色" id="bs" />
+    <input type="button" value="隐藏" id="yc" />
+    <input type="button" value="显示" id="xs" />
+    <input type="button" value="往右移动300px" id="yd" />
+    <div id="div1"></div>
+</body>
+</html>

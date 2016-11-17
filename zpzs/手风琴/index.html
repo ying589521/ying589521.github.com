@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="move.js"></script>
+    <link href="css/index.css" rel="stylesheet" />
+    <script>
+        window.onload = function() {
+            var oUl = document.getElementById('ul1');
+            var aLi = oUl.children;
+            var W = 50;
+            for (var i = 1; i < aLi.length; i++) {
+                aLi[i].style.left = aLi[0].offsetWidth + (i - 1) * W + 'px';
+            }
+            for (var i = 0; i < aLi.length; i++) {
+                aLi[i].index = i;
+                aLi[i].onmouseover = function() {
+                    for (var i = 1; i < aLi.length; i++) {
+                        if (i <= this.index) {
+                            move(aLi[i], {
+                                left: i * W
+                            });
+                        } else {
+                            move(aLi[i], {
+                                left: aLi[0].offsetWidth + (i - 1) * W
+                            });
+                        }
+                    }
+                };
+            }
+        };
+    </script>
+</head>
+
+<body>
+<ul id="ul1">
+    <li><img src="img/1.jpg"></li>
+    <li><img src="img/2.jpg"></li>
+    <li><img src="img/3.jpg"></li>
+    <li><img src="img/4.jpg"></li>
+    <li><img src="img/5.jpg"></li>
+</ul>
+</body>
+
+</html>

@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+	<meta charset="UTF-8">
+	<title>My Blog</title>
+	<link rel="stylesheet" href="css/index.css" type="text/css" />
+	<style>
+		#wrapper,#wrapper1{
+			width: 550px;
+			height: 200px;
+			position: relative;
+			overflow: hidden;
+		}
+	</style>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/TweenMax.min.js"></script>
+	<script src="js/ScrollToPlugin.min.js"></script>
+	<script src="js/top.js"></script>
+	<script src="js/jsonp.js"></script>
+	<script src="js/baidu.js"></script>
+	<script src="js/iscroll.js"></script>
+	<script>
+		$(function(){
+			$('#nav li').mouseover(function(){
+				$('#nav li').removeClass('current');
+				$(this).addClass('current');
+			})
+		})
+	</script>
+</head>
+
+<body>
+<!-- wrap starts here -->
+<div id="wrap">
+
+	<!--header -->
+	<div id="header">
+
+		<h1 id="logo-text"><a href="index.html" title="">JavaScript</a></h1>
+		<p id="slogan">Welcome To My Blog</p>
+
+
+		<!--header ends-->
+	</div>
+
+	<!-- navigation starts-->
+	<div  id="nav">
+		<ul>
+			<li class="current"><a href="index.html">主页</a></li>
+			<li><a href="javascript.html">JavaScript</a></li>
+		</ul>
+		<!-- navigation ends-->
+	</div>
+
+	<!-- content starts -->
+	<div id="content">
+
+		<div id="main">
+
+			<a name="ajax"></a>
+			<h2><a href="index.html" title="">ajax</a></h2>
+
+			<p class="post-info">ajax <a href="#">ajax</a> | Filed under <a href="index.html">templates</a>, <a href="index.html">internet</a></p>
+
+			<p><strong>ajax:</strong> Asynchronous Javascript And XML 异步JavaScript和xml<br /> <strong><br />一、特性:</strong><br /><br />1.必须在服务器环境下运行  <br /> 	2.无刷新从页面取数据.  <br />   3.获取到的所有的数据都是字符串 <br />    4.	编码要统一： 推荐用utf-8  <br />   5.不关心后缀名  <br />   6.缓存问题	访问同一个地址会触发 <br /> 解决方法：改变地址：
+				http://www.a.com/1.html?t=1 <br />
+				http://www.a.com/1.html?t=2 <br />
+
+				推荐用：
+				http://www.a.com/1.html??=Math.random(); <br />
+
+				随机排序：
+				arr.sort(function(){
+				return Math.random()-0.5;
+				})<br /><br /> <strong>二、创建一个ajax对象:</strong><br /><br />var oAjax = new XMLHttpRequest();
+				不兼容：IE6<br />
+				在IE6下用：
+				new ActiveXObject('Microsoft.XMLHTTP');
+				不兼容，只兼容IE6 7 8<br />
+				兼容写法：<br />
+				if(window.XMLHttpRequest){<br />
+				&nbsp;&nbsp;var oAjax = new XMLHttpRequest();<br />
+				}else{<br />
+				&nbsp;&nbsp;var oAjax = new ActiveXObject('Microsoft.XMLHTTP');<br />
+				}
+			</p>
+
+			<p>
+				<strong>三、打开连接：</strong><br /><br />
+				oAjax.open(交互类型,url，是否异步)
+				交互类型		必须大写<br />
+				oAjx.open('GET','a.txt',true);<br />
+
+				&nbsp;&nbsp;&nbsp;&nbsp;现实&nbsp;&nbsp;&nbsp;&nbsp;程序<br />
+				同步 	同时做多件事 		只能做一件事<br />
+				异步 	同时只能做一件事 	同时能做多件事
+
+			</p>
+			<p>
+				<strong>四、发送数据：</strong><br /><br />
+				oAjax.send();
+
+			</p>
+			<p>
+				<strong>五、接收数据：</strong><br /><br />
+				oAjax.onreadystatechange = function(){
+				//判断state状态
+				if(oAjax.readyState==4){
+				//判断http状态
+				if(oAjax.status>=200&&oAjax.status<300||oAjax.status==304){
+				alert(oAjax.responseText);
+				}else{
+				alert('失败了')
+				}
+				}
+				};
+				<h5>注：ajax状态：<br />
+			0	准备成功，未发送
+			1	发送成功
+			2 	接收原始数据完成
+			3 	解析原始数据完成
+			4 	完成</h5>
+			</p>
+			<div id="wrapper">
+				<ul>
+					<li>
+						function json2url(json){<br />
+						&nbsp;&nbsp;json.t = Math.random();<br />
+						&nbsp;&nbsp;var arr = [];<br />
+						&nbsp;&nbsp;for(var name in json){<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;arr.push(name+'='+encodeURIComponent(json[name]));<br />
+						&nbsp;&nbsp;}<br />
+						&nbsp;&nbsp;return arr.join('&');<br />
+						}<br />
+						//url,data,type,success,error<br />
+						function ajax(json){<br />
+						&nbsp;&nbsp;if(!json.url){<br />&nbsp;&nbsp;return;<br />}<br />
+						&nbsp;&nbsp;json = json||{};<br />
+						&nbsp;&nbsp;json.type = json.type||'GET';<br />
+						&nbsp;&nbsp;json.data = json.data||{};<br />
+						&nbsp;&nbsp;json.timeout = json.timeout||10000;<br />
+						&nbsp;&nbsp;//1.创建对象<br /><br/>
+						&nbsp;&nbsp;if(window.XMLHttpRequest){<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;//chrome FF<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;var oAjax = new XMLHttpRequest();<br />
+						&nbsp;&nbsp;}else{<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;//IE低版本<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;var oAjax = new ActiveXObject('Microsoft.XMLHTTP');<br />
+						&nbsp;&nbsp;}<br /><br/>
+						&nbsp;&nbsp;switch(json.type.toLowerCase()){<br />
+						&nbsp;&nbsp;case 'get':<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;//2.建立连接  //是否异步<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;oAjax.open('GET',json.url+'?'+json2url(json.data),true);<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;//3.发送<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;oAjax.send();<br />
+						&nbsp;&nbsp;break;<br />
+						&nbsp;&nbsp;case 'post':<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;oAjax.open('POST',json.url,true);<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;oAjax.setRequestHeader('Content-Type',<br/>'application/x-www-form-urlencoded');<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;oAjax.send(json2url(json.data));<br />
+						&nbsp;&nbsp;break;<br />
+						&nbsp;&nbsp;}<br /><br/>
+						&nbsp;&nbsp;json.loading&&json.loading();<br />
+						//超过json.timeout 后认为失败 不在请求<br />
+						&nbsp;&nbsp;var timer = setTimeout(function(){<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;json.error&&json.error();<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;json.complete&&json.complete();<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;oAjax.onreadystatechange = null;<br />
+						&nbsp;&nbsp;},json.timeout);<br /><br/>
+
+						&nbsp;&nbsp;//4.接收<br />
+						&nbsp;&nbsp;//当网络状态改变的时候<br />
+						&nbsp;&nbsp;oAjax.onreadystatechange = function(){<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;//网络状态<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;if(oAjax.readyState == 4){<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;//http状态<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(oAjax.status>=200&&oAjax.status<300<br/>||oAjax.status==304){<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//服务器返回的数据<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;clearTimeout(timer);<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;json.success&&json.success(oAjax.responseText);<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;json.complete&&json.complete();<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}else{<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;clearTimeout(timer);<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;json.error&&json.error(oAjax.status);<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;json.complete&&json.complete();<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;};<br />
+						&nbsp;&nbsp;}<br />
+
+					</li>
+				</ul>
+			</div>
+			<script>
+				new IScroll('#wrapper',{
+					mouseWheel:true,
+					scrollbars:true,
+					interactiveScrollbars:true,
+					fadeScrollbars:true,
+					shrinkScrollbars:'scale'
+				});
+			</script>
+
+			<p class="post-footer">
+				<a href="index.html" class="readmore">Read more</a> |
+				<a href="index.html" class="comments">Comments (3)</a> |
+				<span class="date">30/10/2016</span>
+
+			</p>
+
+			<h2><a href="http://msysgit.github.io">jsonp</a></h2>
+
+			<h3>跨域进行数据交互</h3>
+			<p><strong>一、jsonp的本质</strong><br /><br />本质走的是利用script能异步调用后台的脚本<br/>利用script标签可以跨域调用资源的特性，来动态的创建script标签执行服务端提供的脚本语句,实现跨域。
+				<br /><br /><br />
+				<strong>二、百度接口分析</strong><br /><br />
+				https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd=a&cb=show<br />wd 		word 		关键词
+				<br />cb 		callback 	回调函数的名字<br /><br />
+				<strong>三、注意：</strong><br /><br />1.回调函数必须是全局的<br/>2.script标签是一次性的，每次输入的时候都要重新创建一个script标签
+			</p>
+
+			<div id="wrapper1">
+				<ul>
+					<li>
+						function json2url(json){<br />
+						&nbsp;&nbsp;json.t = Math.random();<br />
+						&nbsp;&nbsp;var arr = [];<br />
+						&nbsp;&nbsp;for(var name in json){<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;arr.push(name+'='+encodeURIComponent(json[name]));<br />
+						&nbsp;&nbsp;}<br />
+						&nbsp;&nbsp;return arr.join('&');<br />
+						}<br />
+
+						function jsonP(json){<br />
+						json = json||{};<br />
+						if(!json.url) return;<br />
+						json.data = json.data||{};<br /><br />
+						//超时时间<br />
+						json.timeout = json.timeout||15000;<br />
+						json.cbName = json.cbName||'cb';<br /><br />
+
+						//回调函数的名字加了一个随机数  处理缓存问题<br />
+						json.data[json.cbName] = 'show'+Math.random();<br /><br />
+						//把回调函数中的.去掉<br />
+						json.data[json.cbName] = json.data[json.cbName].replace('.','');<br /><br />
+
+						//网络超时<br />
+						json.timer = setTimeout(function(){<br />
+						window[json.data[json.cbName]] = function(){};<br />
+						&nbsp;&nbsp;oHead.removeChild(oS);<br />
+						&nbsp;&nbsp;json.error&&json.error('亲，网络超时');
+						<br />},json.timeout);<br />
+
+						//定义回调函数（全局的）<br />
+						window[json.data[json.cbName]] = function(result){<br />
+						&nbsp;&nbsp;//把网络超时清掉<br />
+						&nbsp;&nbsp;clearTimeout(json.timer);<br />
+						&nbsp;&nbsp;//需要把script删除<br />
+						&nbsp;&nbsp;oHead.removeChild(oS);<br />
+						&nbsp;&nbsp;//执行成功的回调函数<br />
+						&nbsp;&nbsp;json.success&&json.success(result);<br />
+						};<br />
+
+						&nbsp;&nbsp;//获取head标签<br />
+						&nbsp;&nbsp;var oHead = document.getElementsByTagName('head')[0];<br />
+						&nbsp;&nbsp;//动态创建script标签<br />
+						&nbsp;&nbsp;var oS = document.createElement('script');<br />
+						&nbsp;&nbsp;oS.src = json.url+'?'+json2url(json.data);<br />
+						&nbsp;&nbsp;oHead.appendChild(oS);<br />
+						}<br />
+					</li>
+				</ul>
+			</div>
+			<script>
+				new IScroll('#wrapper1',{
+					mouseWheel:true,
+					scrollbars:true,
+					interactiveScrollbars:true,
+					fadeScrollbars:true,
+					shrinkScrollbars:'scale'
+				});
+			</script>
+
+			<p>
+
+			</p>
+			<h3><a href="https://github.com/">Git Hub</a></h3>
+			<p><strong>一、配置信息</strong><br /><br />邮箱和用户名
+				git config -l   查看有哪些配置<br />
+				用户名
+				git config --global user.name "用户名"（一定要跟sshkey的名字保持一致）<br />
+				邮箱
+				git config --global user.email "主邮箱"
+				<strong><br /><br />二、本地创建了一个项目，需要上传到github中</strong><br /><br />1).本地向创建一个空的项目<br />
+				2).在github中也创建一个一模一样的项目
+				点击头像左边的加号-》点击new repository
+				>填写项目名称（需要跟本地项目名称一样）<br />
+				>填写项目描述<br />
+				>两个选项
+				public  公开的
+				private 私有的<br />
+				>点击create repository
+				推荐每一个项目都有转向格文件
+				readme			声明文档
+				license			开源与可证
+				.gitignore      忽略<br />
+				在本地项目中创建ＲＥＡＤＭＥ文件<br />
+				需要在本地项目目录中执行一下代码<br />
+				git init
+				git add README.txt
+				git commit -m "first commit"
+				git remote add origin https://github.com/ying589521/demo.git
+				git push -u origin master
+				提示输入用户名
+				最好输入主邮箱
+				提示输入密码(github的密码)
+				在Linux中，输入密码看不到<br />
+
+				上传文件
+				玩github一定要学会问
+				git status<br />
+
+				添加新文件
+				git add 文件名
+				git commit -m "备注"
+				git push
+				输入主邮箱
+				输入密码
+				添加文件夹
+				git add .      ( . 代表所有文件)
+				同上<br />
+				删除文件
+				git add --all
+				同上<br />
+				<strong><br /><br />三、github中已有的项目下载到本地</strong><br /><br />
+				点击clone or download
+				把链接复制下来
+
+				git clone 链接<br />
+
+				开发之前拉去最新
+				git pull<br />
+
+				工作流程<br />
+				git pull
+				操作
+				git add
+				git commit -m "备注"
+				git push<br />
+				<strong><br /><br />四、创建个人站</strong><br /><br />项目名：
+				用户名.github.com
+				> 描述
+				尽量靠谱
+				> 点击settings
+				> 点击Launch automatic page generator
+				> 点击Continue to layouts
+				> 选择你喜欢的模板
+				点击
+				<strong><br /><br />五、下载个人站</strong><br /><br />
+				1.
+				复制链接<br />
+				在本地你想要存放的文件夹中右击，打开git bash 输入git clone 链接<br />
+				2.
+				删除里面的文件（除params.json README.md）
+				右击git bash
+				在里面输入 git add --all
+				git commit -m "hh"
+				git push<br />
+				3.
+				将你的文件复制进去
+				右击git bash
+				在里面输入 git add .
+				git commit -m "this is Web"
+				git push
+				去github网站中刷新页面
+				访问https://ying589521.github.io/
+
+
+				<strong><br /><br />六、忽略文件上传</strong><br /><br />
+				.gitignore
+				新建一个.gitignore文件
+				vi .gitignore
+				i    编辑内容  在里面写你要忽略的文件
+				esc   :wq!保存
+				git add .
+				git commit -m "注释"
+				git push
+			</p>
+
+			<p>
+
+			</p>
+
+			<h2><a href="https://tortoisesvn.net/">SVN</a></h2>
+
+			<h3>集中式代码管理工具</h3>
+			<p>
+				<strong>一、安装</strong><br /><br />无限下一步
+				验证是否安装成功
+				鼠标右键：有SVN的图标<br /><br />
+				<strong>二、需要一个SVN的服务器 <a href="http://sinaapp.com/">SinaApp</a></strong><br /><br />
+				<strong>三、使用方法:</strong><br /><br />
+				1.鼠标右键  checkout<br />
+				2.会下载下来一个文件夹，点进去，将你要存放的页面拉进去，右键单击，点击updata(代码更新)，再点击commit，输入用户名（邮箱名），密码，点OK<br />
+				3.在新浪云中的操作<br />
+				控制台->云应用SAE->点击应用管理中的应用信息(如：ying.com)然后跳转，在应用中选择代码管理->点击编辑代码即可->右击html文件可以通过URL访问<br /><br />
+			<h5>注：先右击checkout现在文件夹，更新一次，需要updata一下，commit一下</h5>
+
+			</p>
+
+			<!-- main ends -->
+		</div>
+
+
+		<div id="sidebar">
+			<h3>百度一下</h3>
+
+			<form id="qsearch" action="index.html" method="get" >
+				<p>
+					<label for="qsearch">Search:</label>
+					<input class="tbox" type="text" name="qsearch" value="Search this site..." />
+					<input class="btn" alt="Search" type="image" name="searchsubmit" title="Search" src="images/search.gif" />
+				<div id="down_list" class="down_list">
+					<ul>
+
+					</ul>
+				</div>
+				</p>
+
+			</form>
+
+			<h3>移动端</h3>
+
+			<p>
+				<a href="index.html"><img src="images/gravatar.jpg" width="40" height="40" alt="image" class="float-left" /></a>
+				<br />
+				处理各个机型的尺寸<br />
+				<strong>1.定宽:</strong>
+				定最小宽min-width  定最大宽max-width<br />
+				流体:
+				左右宽度一定，中间自适应<br />
+				<strong>2.弹性:</strong>
+				display:-webkit-box;       			开启弹性布局<br />
+				-webkit-box-flex:系数;     			每个元素占的比例<br />
+				-webkit-box-orient:vertical   		纵向排列<br />
+				<strong>3.响应式:</strong>一套页面在不同的设备上，使用不同的css样式<br />
+				比较适合用于一些简单的网站<br />
+				缺点：看不到的也会加载<br />
+
+				媒体查询：
+				@media<br />
+				手机    0-400
+				pad     401-800
+				pc		800+<br />
+				一、
+				<(\style>
+				@media screen and (min-width:401px) and(max-width:800px){
+				div{ background:red;}
+				}
+				<\style><br />
+				二、
+				<\link rel="stylesheet" href="路径" media="screen and (max-width:400px)" /><br />
+
+				三、
+				@import url() screen and 条件<br />
+
+				<strong>4.rem布局:</strong><br />
+				em      字体大小 就近<br />
+				rem     单位 根(root)字体(html字体)的大小  听html的<br />
+				<em>玩移动端必须设置视口:</em><br /><\meta name="viewport" content="width=device-width,user-scalable=no" /><br /><br />
+				二倍图	 量的数值/2/rem<br />
+				当页面重新加载时，要修改rem(html的字体大小)<br />
+				20/320 = ?/document.documentElement.clientW<br />idth<br />
+				新的rem = 20/320*document.documentElement.cl<br />ientWidth<br />
+			<h5>注意：不能操作行元素</h5>
+			</p>
+
+
+
+			<h3>菜单</h3>
+			<ul class="sidemenu">
+				<li><a href="index.html">主页</a></li>
+				<li><a href="index.html#CSS3">CSS3</a></li>
+				<li><a href="javascript.html">JavaScript</a></li>
+				<li><a href="ja.html">jQuery And AngularJS</a></li>
+				<li><a href="h5c3.html" >html5/css3</a></li>
+			</ul>
+
+
+
+
+			<!-- sidebar ends -->
+		</div>
+
+		<!-- content ends-->
+	</div>
+
+	<!-- footer starts -->
+	<div id="footer">
+
+
+
+		<!-- footer ends-->
+	</div>
+
+	<!-- wrap ends here -->
+</div>
+
+
+<div id="shangxia2">
+    <span id="gotop1">
+        <img src="images/huojian.svg" alt="返回顶部小火箭">
+    </span>
+</div>
+</body>
+</html>

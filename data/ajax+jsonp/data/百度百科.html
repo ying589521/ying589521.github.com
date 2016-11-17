@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        #box{
+            width: 520px;
+            height: 250px;
+            margin: 10px auto;
+            border: 1px solid #CCCCCC;
+        }
+        #list{
+            margin: 15px;
+        }
+        li{
+            width: 500px;
+            overflow: hidden;
+            padding-bottom: 10px;
+        }
+        li img{
+            width: 100px;
+            height: 100px;
+            float: left;
+        }
+        li div{
+            width: 390px;
+            float: right;
+        }
+        #list li div span{
+            margin-top: 5px;
+            text-indent: 2em;
+        }
+    </style>
+    <script src="../js/ajax2.js"></script>
+    <script>
+        window.onload = function(){
+            var oList = document.getElementById('list');
+            ajax('baidubaike.txt',function(res){
+                var arr = eval('('+res+')');
+                for(var i=0;i<arr.length;i++){
+                    var oLi = document.createElement('li');
+                    oLi.innerHTML = '<img src="'+arr[i].src+'" alt=""/><div><a href="'+arr[i].href+'">'+arr[i].name+'</a><br><span>'+arr[i].count+'</span></div>';
+                    oList.appendChild(oLi);
+                }
+            })
+        };
+    </script>
+</head>
+<body>
+<div id="box">
+    <ul id="list">
+
+    </ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="angular.js"></script>
+    <script>
+        function show(){
+            alert(this);
+        }
+        var fn = angular.bind(12,show);
+        fn();
+    </script>
+</head>
+<body>
+
+</body>
+</html>

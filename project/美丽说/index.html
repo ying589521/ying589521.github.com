@@ -1,0 +1,1975 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>美丽说</title>
+<style>
+	*{ margin:0; padding:0;}
+	li{ list-style:none;}
+	.clearfix:after{ display:block; content:''; clear:both;}
+	.clearfix{ zoom:1;}
+	.fl{ float:left;}
+	.fr{ float:right;}
+	a{ text-decoration:none; color:#000;}
+	.header{ width:100%; height:40px; background-color:#f5f5f5; margin:0 auto; line-height:40px; border-bottom:1px solid #eee;}
+	.header-main{ width:1200px; height:100%; margin:0 auto;}
+	.main-top{ font-size:15px; }
+	.main-top li{ float:left;  text-align:center;}
+	.main-top a{border-right:1px dashed #ccc; padding-right:14px; padding-left:20px;}
+	.wx{ background:url(img/img/i_wx_single.png) no-repeat;}
+	.qq{ background: url(img/img/qq.png) no-repeat; margin-left:20px;}
+	.car{ background: url(img/img/car.png) no-repeat; margin-left:15px;}
+	.dd{ background: url(img/img/dd.png) no-repeat ; margin-left:15px;}
+	.app{ background: url(img/img/app.png) no-repeat ; margin-left:15px;}
+	.seach{ width:1200px; margin:0 auto; position:relative; margin-top:17px; margin-bottom:15px;}
+	.seach h1 a{ background:url(img/img/logo_n4.png) no-repeat; text-indent:-999em; width:110px; height:43px; display:block;}
+	.seach img{ position:relative; left:-400px; }
+	.nav{ width:100%; height:40px;  background-color:#ff6599;}
+	.nav-main{ width:948px; height:100%; margin:0 auto;}
+	.nav-main li{ float:left; line-height:40px; }
+	.nav li a{ color:#fff; padding:13px 15px 11px 15px;  background-color:#ff6599; font-size:14px;}
+	.nav li a:hover{ background-color:#ed3577; }
+	.yf{ position:relative; z-index:100;}
+	.yf ul{ display:none; width:60px; height:110px; position:absolute; left:0px; top:39px; border:1px solid #ff6599; background-color:#fff; }
+	.yf:hover ul{ display:block;}
+	.yf ul li{ text-align:center;}
+	.yf ul li a{ text-align:center; color:#ff6599; background-color:#fff; padding:0; padding-left:15px; font-weight:bold;}
+	
+	.club{ position:relative; z-index:100;}
+	.club ul{ display:none; width:120px; height:110px; position:absolute; left:0px; top:39px; border:1px solid #ff6599; background-color:#fff;}
+	.club:hover ul{ display:block;}
+	.club ul li{ text-align:center;}
+	.club ul li a{ text-align:center; color:#ff6599; background-color:#fff; padding:0; padding-left:10px; font-weight:bold; display:block; }
+	.main{ width:1200px; height:574px; margin:0 auto; position:relative;}
+	.left{ width:238px; height:572px; border:1px solid #e6e6e6; border-right:none; position:absolute; left:0; top:0; z-index:999;}
+	.left-m{ width:238px; height:115px; border-right:1px solid #e6e6e6;}
+	.left-1{ width:200px; height:115px; border-bottom:1px dashed #e6e6e6; margin:0 auto; position:relative;}
+	.left-1 .bj{ background: url(img/img/main-left_03.png) no-repeat; width:60px; height:25px; display:block; padding-top:10px; margin-bottom:4px;}
+	.left-1 a{ line-height:25px; font-size:13px; padding-right:12px; color:#666;}
+	.left-1 .red{ color:#ff6699;}
+	.left-1 ul{ width:280px; height:285px; border:1px solid #e6e6e6; position:absolute; left:218px; top:-1px; padding-left:20px; padding-top:15px; display:none; background-color:#fff; }
+	.hh a{ font-size:16px; font-weight:bold;}
+	.left-m:hover ul{ display:block; border-left:none;}
+	.left-m:hover{ border-right:none; }
+	.left-n{ width:238px; height:115px; border-right:1px solid #e6e6e6;}
+	.left-2{ width:200px; height:115px; border-bottom:1px dashed #e6e6e6; margin:0 auto; position:relative;}
+	.left-2 .bj{ background: url(img/img/main-left_03.png) no-repeat; width:60px; height:25px; display:block; padding-top:10px; margin-bottom:4px;}
+	.left-2 a{ line-height:25px; font-size:13px; padding-right:12px; color:#666;}
+	.left-2 .red{ color:#ff6699;}
+	.left-2 ul{ width:280px; height:285px; border:1px solid #e6e6e6; position:absolute; left:218px; top:-1px; padding-left:20px; padding-top:15px; display:none; background-color:#fff; }
+	.hh a{ font-size:16px; font-weight:bold;}
+	.left-n:hover ul{ display:block; border-left:none;}
+	.left-n:hover{ border-right:none; }
+	.left-o{ width:238px; height:115px; border-right:1px solid #e6e6e6;}
+	.left-3{ width:200px; height:115px; border-bottom:1px dashed #e6e6e6; margin:0 auto; position:relative;}
+	.left-3 .bj{ background: url(img/img/main-left_03.png) no-repeat; width:60px; height:25px; display:block; padding-top:10px; margin-bottom:4px;}
+	.left-3 a{ line-height:25px; font-size:13px; padding-right:12px; color:#666;}
+	.left-3 .red{ color:#ff6699;}
+	.left-3 ul{ width:280px; height:285px; border:1px solid #e6e6e6; position:absolute; left:218px; top:-1px; padding-left:20px; padding-top:15px; display:none; background-color:#fff; }
+	.hh a{ font-size:16px; font-weight:bold;}
+	.left-o:hover ul{ display:block; border-left:none;}
+	.left-o:hover{ border-right:none; }
+	.left-p{ width:238px; height:115px; border-right:1px solid #e6e6e6;}
+	.left-4{ width:200px; height:115px; border-bottom:1px dashed #e6e6e6; margin:0 auto; position:relative;}
+	.left-4 .bj{ background: url(img/img/main-left_03.png) no-repeat; width:60px; height:25px; display:block; padding-top:10px; margin-bottom:4px;}
+	.left-4 a{ line-height:25px; font-size:13px; padding-right:12px; color:#666;}
+	.left-4 .red{ color:#ff6699;}
+	.left-4 ul{ width:280px; height:285px; border:1px solid #e6e6e6; position:absolute; left:218px; top:-1px; padding-left:20px; padding-top:15px; display:none; background-color:#fff; }
+	.hh a{ font-size:16px; font-weight:bold;}
+	.left-p:hover ul{ display:block; border-left:none;}
+	.left-p:hover{ border-right:none; }
+	.left-q{ width:238px; height:113px; border-right:1px solid #e6e6e6;}
+	.left-5{ width:200px; height:115px; margin:0 auto; position:relative;}
+	.left-5 .bj{ background: url(img/img/main-left_03.png) no-repeat; width:60px; height:25px; display:block; padding-top:10px; margin-bottom:4px;}
+	.left-5 a{ line-height:25px; font-size:13px; padding-right:12px; color:#666;}
+	.left-5 .red{ color:#ff6699;}
+	.left-5 ul{ width:280px; height:285px; border:1px solid #e6e6e6; position:absolute; left:218px; top:-1px; padding-left:20px; padding-top:15px; display:none; background-color:#fff; }
+	.hh a{ font-size:16px; font-weight:bold;}
+	.left-q:hover ul{ display:block; border-left:none;}
+	.left-q:hover{ border-right:none; }	
+	.center{ width:760px; height:420px; position:absolute; left:239px; top:0;}
+	.center a{ height:420px; display:block;}
+	.center ul{ width:960px; height:152px;}
+	.center ul li{ height:142px; float:left; margin-top:10px; margin-left:10px; border:1px solid #e6e6e6;}
+	.right{ width:200px; height:418px; position:absolute; top:0; left:1000px;}
+	.right img{ border-bottom:1px solid #e6e6e6; display:block;}
+	.wrap-1{ width:1200px; height:810px; margin:0 auto;}
+	.wrap-top{ width:1200px; height:32px; margin:0 auto; margin-top:20px; border-bottom:1px solid #e6e6e6; font-size:14px; background:url(img/img/wel_ico2.png) 0 0 no-repeat;}
+	.list{  height:757px; padding-top:15px; list-style:none; margin-right:-24px;}
+	.list li{ width:180px; margin-right:24px; float:left; font-size:13px;}
+	.list .txt{ width:100%; height:36px; margin:6px 0 5px; font-size:13px; color:#666;}
+	.list .price{ height:27px; width:100%; padding-bottom:8px; margin-bottom:8px; border-bottom:1px dashed #ccc;}
+	.red{ font-size:16px; color:#ff7dc8;}
+	.black{ font-size:12px; text-decoration:line-through; color:#999; padding-left:5px;}
+	
+	.wrap-2{ width:1200px; height:459px; margin:0 auto;}
+	.wrap2-top{ width:1200px; height:32px; margin:0 auto; margin-top:20px; border-bottom:1px solid #e6e6e6; font-size:14px; background:url(img/img/wel_ico2.png) 0 -240px no-repeat;}
+	.list2{  height:390px; padding-top:15px; list-style:none; margin-right:-24px;}
+	.list2 li{ width:180px; margin-right:24px; float:left; font-size:13px;}
+	.list2 .txt{ width:100%; height:36px; margin:6px 0 5px; font-size:13px; color:#666;}
+	.list2 .price{ height:27px; width:100%; padding-bottom:8px; margin-bottom:8px; border-bottom:1px dashed #ccc;}
+	.red{ font-size:16px; color:#ff7dc8;}
+	.black{ font-size:12px; text-decoration:line-through; color:#999; padding-left:5px;}
+	.wrap2-top a{ float:right; font-size:15px; color:#999;}
+	
+	.mlj{ width:1200px; height:100px; margin:0 auto;}
+	.wrap-3{ width:1200px; height:645px; border-bottom:1px solid #e6e6e6; margin:0 auto;}
+	.wrap3-top{ width:1200px; height:32px; margin:0 auto; margin-top:20px; border-bottom:1px solid #e6e6e6; font-size:14px; background:url(img/img/wel_ico2.png) 0 -44px no-repeat;}
+	.wrap3-top a{ float:right; font-size:15px; color:#999;}
+	.wrap3-top .s1{ font-size:16px; color:#999; line-height:32px;   margin-left:90px;}
+	.wrap3-top .s2{ color:#666; font-weight:bold; }
+	.wrap3-main{ width:1200px; height:611px; margin:0 auto;}
+	.wrap3-left{ width:940px; height:611px; border-right:1px solid #e6e6e6; float:left;}
+	.ul1{ width:940px;  padding-top:20px; margin-right:-5px;}
+	.ul1 li{ margin-right:5px; margin-top:5px; float:left;}
+	.ul2{ width:940px; padding-top:18px; padding-bottom:16px;}
+	.ul2 li{ border-right:1px dashed #e6e6e6; width:300px; padding-left:12px;}
+	.ul2 .qunzi{ border-right:none;}
+	.ul2 p{ width:250px; line-height:22px;}
+	.ul2 h3 { font-size:16px; color:#ff6699; line-height:44px; width:50px;}
+	.ul2 a{ margin-right:10px; float:left; font-size:12px; color:#666;}
+	
+	.wrap3-shop{ width:239px; height:583px; padding-left:20px; padding-top:20px; float:right;}
+	.shop-top{ height:21px; width:239px;}
+	.shop-top h3{ font-size:18px; display:inline; float:left;}
+	.shop-top a{ font-size:14px; color:#999;}
+	.wrap3-shop li{ height:34px; width:100%; padding-top:14px; padding-bottom:14px; border-bottom:1px dashed #ccc; color:#999; line-height:20px;}
+	.wrap3-shop .ll{ border-bottom:none;}
+	.wrap3-shop .yj{ color:#666; font-size:13px;}
+	.wrap3-shop li p{ font-size:13px; color:#999;}
+	.wrap3-shop li img{ margin-right:10px;}
+	
+	
+	.wrap-4{ width:1200px; height:645px; border-bottom:1px solid #e6e6e6; margin:0 auto;}
+	.wrap4-top{ width:1200px; height:32px; margin:0 auto; margin-top:20px; border-bottom:1px solid #e6e6e6; font-size:14px; background:url(img/img/wel_ico2.png) 0 -44px no-repeat;}
+	.wrap4-top a{ float:right; font-size:15px; color:#999;}
+	.wrap4-top .s1{ font-size:16px; color:#999; line-height:32px;   margin-left:90px;}
+	.wrap4-top .s2{ color:#666; font-weight:bold; }
+	.wrap4-main{ width:1200px; height:611px; margin:0 auto;}
+	.wrap4-left{ width:940px; height:611px; border-right:1px solid #e6e6e6; float:left;}
+	.ul1{ width:940px;  padding-top:20px; margin-right:-5px;}
+	.ul1 li{ margin-right:5px; margin-top:5px; float:left;}
+	.ul2{ width:940px; padding-top:18px; padding-bottom:16px;}
+	.ul2 li{ border-right:1px dashed #e6e6e6; width:300px; padding-left:12px;}
+	.ul2 .qunzi{ border-right:none;}
+	.ul2 p{ width:250px; line-height:22px;}
+	.ul2 h3 { font-size:16px; color:#ff6699; line-height:44px; width:50px;}
+	.ul2 a{ margin-right:10px; float:left; font-size:12px; color:#666;}
+	
+	.wrap4-shop{ width:239px; height:583px; padding-left:20px; padding-top:20px; float:right;}
+	.shop-top{ height:21px; width:239px;}
+	.shop-top h3{ font-size:18px; display:inline; float:left;}
+	.shop-top a{ font-size:14px; color:#999;}
+	.wrap4-shop li{ height:34px; width:100%; padding-top:14px; padding-bottom:14px; border-bottom:1px dashed #ccc; color:#999; line-height:20px;}
+	.wrap4-shop .ll{ border-bottom:none;}
+	.wrap4-shop .yj{ color:#666; font-size:13px;}
+	.wrap4-shop li p{ font-size:13px; color:#999;}
+	.wrap4-shop li img{ margin-right:10px;}
+	
+
+	.wrap-5{ width:1200px; height:645px; border-bottom:1px solid #e6e6e6; margin:0 auto;}
+	.wrap5-top{ width:1200px; height:32px; margin:0 auto; margin-top:20px; border-bottom:1px solid #e6e6e6; font-size:14px; background:url(img/img/wel_ico2.png) 0 -44px no-repeat;}
+	.wrap5-top a{ float:right; font-size:15px; color:#999;}
+	.wrap5-top .s1{ font-size:16px; color:#999; line-height:32px;   margin-left:90px;}
+	.wrap5-top .s2{ color:#666; font-weight:bold; }
+	.wrap5-main{ width:1200px; height:611px; margin:0 auto;}
+	.wrap5-left{ width:940px; height:611px; border-right:1px solid #e6e6e6; float:left;}
+	.ul1{ width:940px;  padding-top:20px; margin-right:-5px;}
+	.ul1 li{ margin-right:5px; margin-top:5px; float:left;}
+	.ul2{ width:940px; padding-top:18px; padding-bottom:16px;}
+	.ul2 li{ border-right:1px dashed #e6e6e6; width:300px; padding-left:12px;}
+	.ul2 .qunzi{ border-right:none;}
+	.ul2 p{ width:250px; line-height:22px;}
+	.ul2 h3 { font-size:16px; color:#ff6699; line-height:44px; width:50px;}
+	.ul2 a{ margin-right:10px; float:left; font-size:12px; color:#666;}
+	
+	.wrap5-shop{ width:239px; height:583px; padding-left:20px; padding-top:20px; float:right;}
+	.shop-top{ height:21px; width:239px;}
+	.shop-top h3{ font-size:18px; display:inline; float:left;}
+	.shop-top a{ font-size:14px; color:#999;}
+	.wrap5-shop li{ height:34px; width:100%; padding-top:14px; padding-bottom:14px; border-bottom:1px dashed #ccc; color:#999; line-height:20px;}
+	.wrap5-shop .ll{ border-bottom:none;}
+	.wrap5-shop .yj{ color:#666; font-size:13px;}
+	.wrap5-shop li p{ font-size:13px; color:#999;}
+	.wrap5-shop li img{ margin-right:10px;}
+	
+	
+	.wrap-6{ width:1200px; height:645px; border-bottom:1px solid #e6e6e6; margin:0 auto;}
+	.wrap6-top{ width:1200px; height:32px; margin:0 auto; margin-top:20px; border-bottom:1px solid #e6e6e6; font-size:14px; background:url(img/img/wel_ico2.png) 0 -44px no-repeat;}
+	.wrap6-top a{ float:right; font-size:15px; color:#999;}
+	.wrap6-top .s1{ font-size:16px; color:#999; line-height:32px;   margin-left:90px;}
+	.wrap6-top .s2{ color:#666; font-weight:bold; }
+	.wrap6-main{ width:1200px; height:611px; margin:0 auto;}
+	.wrap6-left{ width:940px; height:611px; border-right:1px solid #e6e6e6; float:left;}
+	.ul1{ width:940px;  padding-top:20px; margin-right:-5px;}
+	.ul1 li{ margin-right:5px; margin-top:5px; float:left;}
+	.ul2{ width:940px; padding-top:18px; padding-bottom:16px;}
+	.ul2 li{ border-right:1px dashed #e6e6e6; width:300px; padding-left:12px;}
+	.ul2 .qunzi{ border-right:none;}
+	.ul2 p{ width:250px; line-height:22px;}
+	.ul2 h3 { font-size:16px; color:#ff6699; line-height:44px; width:50px;}
+	.ul2 a{ margin-right:10px; float:left; font-size:12px; color:#666;}
+	
+	.wrap6-shop{ width:239px; height:583px; padding-left:20px; padding-top:20px; float:right;}
+	.shop-top{ height:21px; width:239px;}
+	.shop-top h3{ font-size:18px; display:inline; float:left;}
+	.shop-top a{ font-size:14px; color:#999;}
+	.wrap6-shop li{ height:34px; width:100%; padding-top:14px; padding-bottom:14px; border-bottom:1px dashed #ccc; color:#999; line-height:20px;}
+	.wrap6-shop .ll{ border-bottom:none;}
+	.wrap6-shop .yj{ color:#666; font-size:13px;}
+	.wrap6-shop li p{ font-size:13px; color:#999;}
+	.wrap6-shop li img{ margin-right:10px;}
+	
+	.zz{ width:1200px;  margin:0 auto; margin-bottom:20px;}
+	.zz-top{ width:1200px; height:32px; margin:0 auto; margin-top:20px;  font-size:14px; background:url(img/img/wel_ico2.png) 0 -44px no-repeat;}
+	.zz-top a{ float:right; font-size:15px; color:#999;}
+	.zz-top .s1{ font-size:16px; color:#999; line-height:32px;   margin-left:90px;}
+	.zz-top .s2{ color:#666; font-weight:bold; }
+	.zz-main{ height:286px; margin-right:-15px;}
+	.zz-main li{ width:226px; height:284px; border:1px solid #ddd; margin-right:15px; float:left;}
+	.zz-main li h3 a{ padding:13px 13px 13px; display:block; width:140px; height:18px; font-size:15px;}
+	.zz-main li img{ margin-left:15px;}
+	.zz-main .fx{ width:200px; height:20px; margin:13px;}
+	.zz-main .fx a{ height:20px; width:65px; color:#fff; font-size:14px; line-height:20px; text-align:center; background-color:#ff6699; float:right;}
+	.zz-main .fx span{ color:#999; font-size:13px; float:left; line-height:20px;}
+	
+	.fotter{ width:100%; height:309px; border-top:1px solid #ddd; background-color:#f5f5f5;}
+	.fotter .f-main{ width:1200px; height:100%; margin:0 auto;}
+	.dh{ width:190px; height:70px; margin-left:0; margin-top:30px; background:url(img/img/fotter.png) 0 5px no-repeat;}
+	.dh p{ padding-left:50px; line-height:20px;}
+	.dh p span{ font-size:18px; font-weight:bold;}
+	.dh p a{ font-size:12px;}
+	.yh h3 a{ font-size:18px; }
+	.yh h3{ margin-bottom:12px;}
+	.yh{ margin-left:60px; margin-top:30px;}
+	.yh ul li a{ font-size:14px; color:#666;}
+	.yh ul li{ margin-bottom:8px;}
+	.yh .l1{ background:url(img/img/x.png) no-repeat; }
+	.yh .l2{ background:url(img/img/qqkj.png) no-repeat;}
+	.yh .l3{ background:url(img/img/xx.png) no-repeat;}
+	.yh .l1 a{ padding-left:20px;}
+	.yh .l2 a{ padding-left:20px;}
+	.yh .l3 a{ padding-left:20px;}
+	.yh a img{ width:116px; height:116px;}
+	
+	.lj{ height:30px; width:1200px;  border-bottom:1px solid #dfdfdf; padding-top:210px; }
+	.f-main .lj a{ padding-left:10px; font-size:13px; color:#666; line-height:30px;}
+	.lj p{ height:20px; line-height:15px; border-top:1px solid #dfdfdf;}
+	.p{ width:1200px; height:30px; line-height:30px; font-size:13px; color:#666; padding-top:13px;}
+	.p p a{ color:#666;}
+</style>
+</head>
+<body>
+<div class="header">
+	<div class="header-main">
+    	<ul class="main-top fr clearfix">
+        	<li>
+            	<a href="#" class="wx">微信登录</a>
+            </li>
+            <li>
+            	<a href="#" class="qq">QQ登录</a>
+            </li>
+            <li>
+            	<a href="#" class="dl">登录</a>
+            </li>
+            <li>
+            	<a href="#" class="zc">注册</a>
+            </li>
+            <li>
+            	<a href="#" class="car">我的购物车</a>
+            </li>
+            <li>
+            	<a href="#" class="dd">我的订单</a>
+            </li>
+            <li>
+            	<a href="#" class="app">下载APP</a>
+            </li>
+            <li>
+            	<a href="#" class="kf">客户服务</a>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="seach clearfix">
+	<h1 class="fl">
+    	<a href="#">美丽说</a>
+    </h1>
+    <img class="fr" src="img/img/ss.png">
+</div>
+<div class="nav">
+	<div class="nav-main">
+    	<ul class="clearfix">
+        	<li>
+            	<a href="#">首页</a>
+            </li>
+            <li>
+            	<a href="#">今日最热</a>
+            </li>
+            <li class="yf">
+            	<a href="#">衣服</a>
+                <ul>
+                	<li><a href="#">上衣</a></li>
+                    <li><a href="#">裙子</a></li>
+                    <li><a href="#">裤子</a></li>
+                </ul>
+            </li>
+            <li>
+            	<a href="#">鞋子</a>
+                <ul>
+                	<li></li>
+                </ul>
+            </li>
+            <li>
+            	<a href="#">包包</a>
+            </li>
+            <li>
+            	<a href="#">配饰</a>
+            </li>
+            <li>
+            	<a href="#">美妆</a>
+            </li>
+            <li>
+            	<a href="#">特卖</a>
+            </li>
+            <li>
+            	<a href="#">团购</a>
+            </li>
+            <li>
+            	<a href="#">好店</a>
+            </li>
+            <li>
+            	<a href="#">杂志</a>
+            </li>
+            <li class="club">
+            	<a href="#">爱美丽club</a>
+            <ul>
+                	<li><a href="#">达人</a></li>
+                    <li><a href="#">福利社</a></li>
+                    <li><a href="#">EXO-M粉丝专区</a></li>
+            </ul>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="main ">
+	<div class="left">
+    	<div class="left-m">
+    		<div class="left-1">
+        		<a href="#" class="bj"></a>
+                    <p>
+                        <a href="#">冬季新品</a>
+                        <a href="#" class="red">毛衣</a>
+                        <a href="#">活力运动鞋</a>
+                        <a href="#">连衣裙</a>
+                        <a href="#" class="red">新款靴子</a>
+                        <a href="#">单肩包</a>
+                        <a href="#">暖冬美裤</a>
+                        <a href="#">外套</a>
+                        <a href="#" class="red">入冬打底裤</a>
+                    </p>
+                    <ul>
+                        <li>
+                            <h2 class="hh"><a href="#">本季最in风尚</a></h2>
+                            <p>
+                                <a href="#">冬季新品</a>
+                                <a href="#">毛衣</a>
+                                <a href="#">连衣裙</a>
+                                <a href="#">冬季新品</a>
+                                <a href="#">毛衣</a>
+                                <a href="#">连衣裙</a>
+                                <a href="#">冬季新品</a>
+                                <a href="#">毛衣</a>
+                                <a href="#">连衣裙</a>
+                                <a href="#">冬季新品</a>
+                                <a href="#">毛衣</a>
+                                <a href="#">连衣裙</a>
+                            </p>
+                        </li>
+                        <li>
+                            <h2 class="hh"><a href="#">最受欢迎大集合</a></h2>
+                            <p>
+                                <a href="#">冬季新品</a>
+                                <a href="#">毛衣</a>
+                                <a href="#">连衣裙</a>
+                                <a href="#">冬季新品</a>
+                                <a href="#">毛衣</a>
+                                <a href="#">连衣裙</a>
+                                <a href="#">冬季新品</a>
+                                <a href="#">毛衣</a>
+                                
+                            </p>
+                        </li>
+                        <li>
+                            <h2 class="hh"><a href="#">百变@风格</a></h2>
+                            <p>
+                                <a href="#">冬季新品</a>
+                                <a href="#">毛衣</a>
+                                <a href="#">连衣裙</a>
+                                <a href="#">冬季新品</a>
+                                <a href="#">毛衣</a>
+                                <a href="#">连衣裙</a>
+                                <a href="#">冬季新品</a>
+                                <a href="#">毛衣</a>
+                                <a href="#">连衣裙</a>
+                                <a href="#">冬季新品</a>
+                                <a href="#">毛衣</a>
+                                <a href="#">连衣裙</a>
+                            </p>
+                	    </li>
+            	</ul>
+        	</div>
+         </div>
+        <div class="left-n">
+    		<div class="left-2">
+        		<a href="#" class="bj"></a>
+                    <p>
+                        <a href="#">冬季新品</a>
+                        <a href="#" class="red">毛衣</a>
+                        <a href="#">活力运动鞋</a>
+                        <a href="#">连衣裙</a>
+                        <a href="#" class="red">新款靴子</a>
+                        <a href="#">单肩包</a>
+                        <a href="#">暖冬美裤</a>
+                        <a href="#">外套</a>
+                        <a href="#" class="red">入冬打底裤</a>
+                    </p>
+                    <ul>
+                        <li>
+                            <h2 class="hh"><a href="#">本季最in风尚</a></h2>
+                            <p>
+                                <a href="#">冬季新品</a>
+                                <a href="#">毛衣</a>
+                                <a href="#">连衣裙</a>
+                                <a href="#">冬季新品</a>
+                                <a href="#">毛衣</a>
+                                <a href="#">连衣裙</a>
+                                <a href="#">冬季新品</a>
+                                <a href="#">毛衣</a>
+                                <a href="#">连衣裙</a>
+                                <a href="#">冬季新品</a>
+                                <a href="#">毛衣</a>
+                                <a href="#">连衣裙</a>
+                            </p>
+                        </li>
+                        <li>
+                            <h2 class="hh"><a href="#">最受欢迎大集合</a></h2>
+                            <p>
+                                <a href="#">冬季新品</a>
+                                <a href="#">毛衣</a>
+                                <a href="#">连衣裙</a>
+                                <a href="#">冬季新品</a>
+                                <a href="#">毛衣</a>
+                                <a href="#">连衣裙</a>
+                                <a href="#">冬季新品</a>
+                                <a href="#">毛衣</a>
+                                
+                            </p>
+                        </li>
+                        <li>
+                            <h2 class="hh"><a href="#">百变@风格</a></h2>
+                            <p>
+                                <a href="#">冬季新品</a>
+                                <a href="#">毛衣</a>
+                                <a href="#">连衣裙</a>
+                                <a href="#">冬季新品</a>
+                                <a href="#">毛衣</a>
+                                <a href="#">连衣裙</a>
+                                <a href="#">冬季新品</a>
+                                <a href="#">毛衣</a>
+                                <a href="#">连衣裙</a>
+                                <a href="#">冬季新品</a>
+                                <a href="#">毛衣</a>
+                                <a href="#">连衣裙</a>
+                            </p>
+                	</li>
+            	</ul>
+        	</div>
+         </div> 
+        <div class="left-o">
+    		<div class="left-3">
+        		<a href="#" class="bj"></a>
+                    <p>
+                        <a href="#">冬季新品</a>
+                        <a href="#" class="red">毛衣</a>
+                        <a href="#">活力运动鞋</a>
+                        <a href="#">连衣裙</a>
+                        <a href="#" class="red">新款靴子</a>
+                        <a href="#">单肩包</a>
+                        <a href="#">暖冬美裤</a>
+                        <a href="#">外套</a>
+                        <a href="#" class="red">入冬打底裤</a>
+                    </p>
+                    <ul>
+                        <li>
+                            <h2 class="hh"><a href="#">本季最in风尚</a></h2>
+                            <p>
+                                <a href="#">冬季新品</a>
+                                <a href="#">毛衣</a>
+                                <a href="#">连衣裙</a>
+                                <a href="#">冬季新品</a>
+                                <a href="#">毛衣</a>
+                                <a href="#">连衣裙</a>
+                                <a href="#">冬季新品</a>
+                                <a href="#">毛衣</a>
+                                <a href="#">连衣裙</a>
+                                <a href="#">冬季新品</a>
+                                <a href="#">毛衣</a>
+                                <a href="#">连衣裙</a>
+                            </p>
+                        </li>
+                        <li>
+                            <h2 class="hh"><a href="#">最受欢迎大集合</a></h2>
+                            <p>
+                                <a href="#">冬季新品</a>
+                                <a href="#">毛衣</a>
+                                <a href="#">连衣裙</a>
+                                <a href="#">冬季新品</a>
+                                <a href="#">毛衣</a>
+                                <a href="#">连衣裙</a>
+                                <a href="#">冬季新品</a>
+                                <a href="#">毛衣</a>
+                                
+                            </p>
+                        </li>
+                        <li>
+                            <h2 class="hh"><a href="#">百变@风格</a></h2>
+                            <p>
+                                <a href="#">冬季新品</a>
+                                <a href="#">毛衣</a>
+                                <a href="#">连衣裙</a>
+                                <a href="#">冬季新品</a>
+                                <a href="#">毛衣</a>
+                                <a href="#">连衣裙</a>
+                                <a href="#">冬季新品</a>
+                                <a href="#">毛衣</a>
+                                <a href="#">连衣裙</a>
+                                <a href="#">冬季新品</a>
+                                <a href="#">毛衣</a>
+                                <a href="#">连衣裙</a>
+                            </p>
+                	</li>
+            	</ul>
+        	</div>
+         </div> 
+        <div class="left-p">
+    		<div class="left-4">
+        		<a href="#" class="bj"></a>
+                    <p>
+                        <a href="#">冬季新品</a>
+                        <a href="#" class="red">毛衣</a>
+                        <a href="#">活力运动鞋</a>
+                        <a href="#">连衣裙</a>
+                        <a href="#" class="red">新款靴子</a>
+                        <a href="#">单肩包</a>
+                        <a href="#">暖冬美裤</a>
+                        <a href="#">外套</a>
+                        <a href="#" class="red">入冬打底裤</a>
+                    </p>
+                    <ul>
+                        <li>
+                            <h2 class="hh"><a href="#">本季最in风尚</a></h2>
+                            <p>
+                                <a href="#">冬季新品</a>
+                                <a href="#">毛衣</a>
+                                <a href="#">连衣裙</a>
+                                <a href="#">冬季新品</a>
+                                <a href="#">毛衣</a>
+                                <a href="#">连衣裙</a>
+                                <a href="#">冬季新品</a>
+                                <a href="#">毛衣</a>
+                                <a href="#">连衣裙</a>
+                                <a href="#">冬季新品</a>
+                                <a href="#">毛衣</a>
+                                <a href="#">连衣裙</a>
+                            </p>
+                        </li>
+                        <li>
+                            <h2 class="hh"><a href="#">最受欢迎大集合</a></h2>
+                            <p>
+                                <a href="#">冬季新品</a>
+                                <a href="#">毛衣</a>
+                                <a href="#">连衣裙</a>
+                                <a href="#">冬季新品</a>
+                                <a href="#">毛衣</a>
+                                <a href="#">连衣裙</a>
+                                <a href="#">冬季新品</a>
+                                <a href="#">毛衣</a>
+                                
+                            </p>
+                        </li>
+                        <li>
+                            <h2 class="hh"><a href="#">百变@风格</a></h2>
+                            <p>
+                                <a href="#">冬季新品</a>
+                                <a href="#">毛衣</a>
+                                <a href="#">连衣裙</a>
+                                <a href="#">冬季新品</a>
+                                <a href="#">毛衣</a>
+                                <a href="#">连衣裙</a>
+                                <a href="#">冬季新品</a>
+                                <a href="#">毛衣</a>
+                                <a href="#">连衣裙</a>
+                                <a href="#">冬季新品</a>
+                                <a href="#">毛衣</a>
+                                <a href="#">连衣裙</a>
+                            </p>
+                	</li>
+            	</ul>
+        	</div>
+         </div> 
+        <div class="left-q">
+    		<div class="left-5">
+        		<a href="#" class="bj"></a>
+                    <p>
+                        <a href="#">冬季新品</a>
+                        <a href="#" class="red">毛衣</a>
+                        <a href="#">活力运动鞋</a>
+                        <a href="#">连衣裙</a>
+                        <a href="#" class="red">新款靴子</a>
+                        <a href="#">单肩包</a>
+                        <a href="#">暖冬美裤</a>
+                        <a href="#">外套</a>
+                        <a href="#" class="red">入冬打底裤</a>
+                    </p>
+                    <ul>
+                        <li>
+                            <h2 class="hh"><a href="#">本季最in风尚</a></h2>
+                            <p>
+                                <a href="#">冬季新品</a>
+                                <a href="#">毛衣</a>
+                                <a href="#">连衣裙</a>
+                                <a href="#">冬季新品</a>
+                                <a href="#">毛衣</a>
+                                <a href="#">连衣裙</a>
+                                <a href="#">冬季新品</a>
+                                <a href="#">毛衣</a>
+                                <a href="#">连衣裙</a>
+                                <a href="#">冬季新品</a>
+                                <a href="#">毛衣</a>
+                                <a href="#">连衣裙</a>
+                            </p>
+                        </li>
+                        <li>
+                            <h2 class="hh"><a href="#">最受欢迎大集合</a></h2>
+                            <p>
+                                <a href="#">冬季新品</a>
+                                <a href="#">毛衣</a>
+                                <a href="#">连衣裙</a>
+                                <a href="#">冬季新品</a>
+                                <a href="#">毛衣</a>
+                                <a href="#">连衣裙</a>
+                                <a href="#">冬季新品</a>
+                                <a href="#">毛衣</a>
+                                
+                            </p>
+                        </li>
+                        <li>
+                            <h2 class="hh"><a href="#">百变@风格</a></h2>
+                            <p>
+                                <a href="#">冬季新品</a>
+                                <a href="#">毛衣</a>
+                                <a href="#">连衣裙</a>
+                                <a href="#">冬季新品</a>
+                                <a href="#">毛衣</a>
+                                <a href="#">连衣裙</a>
+                                <a href="#">冬季新品</a>
+                                <a href="#">毛衣</a>
+                                <a href="#">连衣裙</a>
+                                <a href="#">冬季新品</a>
+                                <a href="#">毛衣</a>
+                                <a href="#">连衣裙</a>
+                            </p>
+                	</li>
+            	</ul>
+        	</div>
+         </div> 
+    </div>
+    <div class="center ">
+    	<a href="#"><img src="img/img/zl.jpg"></a>
+        <ul>
+        	<li>
+            	<a href="#"><img src="img/美丽说，发现、收藏、分享我的美丽点滴,让改变发生_files/e4563da0edb81d3d0e558306a5e8_175_142.cg.jpg"></a>
+            </li>
+            <li>
+            	<a href="#"><img src="img/美丽说，发现、收藏、分享我的美丽点滴,让改变发生_files/f878a1fea7aa29e493bdaad44324_175_142.cf.jpg"></a>
+            </li>
+            <li>
+            	<a href="#"><img src="img/美丽说，发现、收藏、分享我的美丽点滴,让改变发生_files/134808f537c26dcdb9faf67662b6_175_142.cg.jpg"></a>
+            </li>
+            <li>
+            	<a href="#"><img src="img/美丽说，发现、收藏、分享我的美丽点滴,让改变发生_files/7a2b7f45d813c0ccbe840e086c87_175_142.cf.jpg"></a>
+            </li>
+            <li>
+            	<a href="#"><img src="img/美丽说，发现、收藏、分享我的美丽点滴,让改变发生_files/98495ea9f28135426810ac6c263b_198_142.ch.jpg"></a>
+            </li>
+        </ul>
+    </div>
+   	<div class="right">
+        	<ul>
+            	<li>
+                	<a href="#">
+                    	<img src="img/美丽说，发现、收藏、分享我的美丽点滴,让改变发生_files/5f8663325e2869e65bf2722db221_200_139.cg.jpg">
+                    </a>
+                </li>
+                <li>
+                	<a href="#">
+                    	<img src="img/美丽说，发现、收藏、分享我的美丽点滴,让改变发生_files/c8ef6839d95786830ebf46c5d7b6_200_139.cf.jpg">
+                    </a>
+                </li>
+                <li>
+                	<a href="#">
+                    	<img src="img/美丽说，发现、收藏、分享我的美丽点滴,让改变发生_files/63ca018fb1b5a17a64118d45df5a_200_139.cf.jpg">
+                    </a>
+                </li>
+            </ul>
+        </div>        
+</div>
+<div class="wrap-1">
+	<div class="wrap-top">
+    </div>
+    <ul class="list clearfix">
+    	<li>
+        	<div class="img">
+            	<a href="#">
+                	<img src="img/美丽说，发现、收藏、分享我的美丽点滴,让改变发生_files/267778da94332bcf9572ededaddc_640_900.cf.jpg_d3639f8a_s2_180_255.jpg">
+                </a>
+            </div>
+            <p class="txt">
+            	<a href="#">美丽无极限&nbsp;不到50元</a>
+            </p>
+            <p class="price">
+            	<span class="red">￥49元</span>
+                <span class="black">￥189元</span>
+            </p>
+            <p>1885人以购买</p>	
+        </li>
+        <li>
+        	<div class="img">
+            	<a href="#">
+                	<img src="img/美丽说，发现、收藏、分享我的美丽点滴,让改变发生_files/675d4d54bc96d9b6892336bc6d6f_650_975.cc.jpg_37369464_s2_180_255.jpg">
+                </a>
+            </div>
+            <p class="txt">
+            	<a href="#">美丽无极限&nbsp;不到50元</a>
+            </p>
+            <p class="price">
+            	<span class="red">￥49元</span>
+                <span class="black">￥189元</span>
+            </p>
+            <p>1885人以购买</p>	
+        </li>
+        <li>
+        	<div class="img">
+            	<a href="#">
+                	<img src="img/美丽说，发现、收藏、分享我的美丽点滴,让改变发生_files/8a6098460645ded183aa1a6d9077_640_900.cf.jpg_ab011515_s2_180_255.jpg">
+                </a>
+            </div>
+            <p class="txt">
+            	<a href="#">美丽无极限&nbsp;不到50元</a>
+            </p>
+            <p class="price">
+            	<span class="red">￥49元</span>
+                <span class="black">￥189元</span>
+            </p>
+            <p>1885人以购买</p>	
+        </li>
+          <li>
+        	<div class="img">
+            	<a href="#">
+                	<img src="img/美丽说，发现、收藏、分享我的美丽点滴,让改变发生_files/605e8673b7f79df6cd1fcaa483bd_502_709.ch.jpg_da623016_s2_180_255.jpg">
+                </a>
+            </div>
+            <p class="txt">
+            	<a href="#">美丽无极限&nbsp;不到50元</a>
+            </p>
+            <p class="price">
+            	<span class="red">￥49元</span>
+                <span class="black">￥189元</span>
+            </p>
+            <p>1885人以购买</p>	
+        </li>
+        <li>
+        	<div class="img">
+            	<a href="#">
+                	<img src="img/美丽说，发现、收藏、分享我的美丽点滴,让改变发生_files/2f7f7de25e1a2d8f34b3d98299fa_640_900.cc.jpg_0e8a693f_s2_180_255.jpg">
+                </a>
+            </div>
+            <p class="txt">
+            	<a href="#">美丽无极限&nbsp;不到50元</a>
+            </p>
+            <p class="price">
+            	<span class="red">￥49元</span>
+                <span class="black">￥189元</span>
+            </p>
+            <p>1885人以购买</p>	
+        </li>
+        <li class="last1">
+        	<div class="img">
+            	<a href="#">
+                	<img src="img/美丽说，发现、收藏、分享我的美丽点滴,让改变发生_files/522931625b5df7051f90c157b36c_640_960.cg.jpg_f8771cbf_s2_180_255.jpg">
+                </a>
+            </div>
+            <p class="txt">
+            	<a href="#">美丽无极限&nbsp;不到50元</a>
+            </p>
+            <p class="price">
+            	<span class="red">￥49元</span>
+                <span class="black">￥189元</span>
+            </p>
+            <p>1885人以购买</p>	
+        </li>
+        
+        <li>
+        	<div class="img">
+            	<a href="#">
+                	<img src="img/美丽说，发现、收藏、分享我的美丽点滴,让改变发生_files/7dc62984bdb80bdb0aa665812f55_640_900.c8.jpg_c0c5c696_s2_180_255.jpg">
+                </a>
+            </div>
+            <p class="txt">
+            	<a href="#">美丽无极限&nbsp;不到50元</a>
+            </p>
+            <p class="price">
+            	<span class="red">￥49元</span>
+                <span class="black">￥189元</span>
+            </p>
+            <p>1885人以购买</p>	
+        </li>
+        <li>
+        	<div class="img">
+            	<a href="#">
+                	<img src="img/美丽说，发现、收藏、分享我的美丽点滴,让改变发生_files/7b52f050ad604f8eecc682aaec32_640_900.c6.jpg_4a2267ea_s2_180_255.jpg">
+                </a>
+            </div>
+            <p class="txt">
+            	<a href="#">美丽无极限&nbsp;不到50元</a>
+            </p>
+            <p class="price">
+            	<span class="red">￥49元</span>
+                <span class="black">￥189元</span>
+            </p>
+            <p>1885人以购买</p>	
+        </li>
+        <li>
+        	<div class="img">
+            	<a href="#">
+                	<img src="img/美丽说，发现、收藏、分享我的美丽点滴,让改变发生_files/c95fb4423a3bb24b94a87b281544_640_832.cf.jpg_21edab6f_s2_180_255.jpg">
+                </a>
+            </div>
+            <p class="txt">
+            	<a href="#">美丽无极限&nbsp;不到50元</a>
+            </p>
+            <p class="price">
+            	<span class="red">￥49元</span>
+                <span class="black">￥189元</span>
+            </p>
+            <p>1885人以购买</p>	
+        </li>
+        <li>
+        	<div class="img">
+            	<a href="#">
+                	<img src="img/美丽说，发现、收藏、分享我的美丽点滴,让改变发生_files/e73ca368bee3a640c89e82c6e7c8_640_900.c8.jpg_aa2c3c34_s2_180_255.jpg">
+                </a>
+            </div>
+            <p class="txt">
+            	<a href="#">美丽无极限&nbsp;不到50元</a>
+            </p>
+            <p class="price">
+            	<span class="red">￥49元</span>
+                <span class="black">￥189元</span>
+            </p>
+            <p>1885人以购买</p>	
+        </li>
+        <li>
+        	<div class="img">
+            	<a href="#">
+                	<img src="img/美丽说，发现、收藏、分享我的美丽点滴,让改变发生_files/8f189f9cfbbd144f9a229819ff17_640_900.cc.jpg_29725157_s2_180_255.jpg">
+                </a>
+            </div>
+            <p class="txt">
+            	<a href="#">美丽无极限&nbsp;不到50元</a>
+            </p>
+            <p class="price">
+            	<span class="red">￥49元</span>
+                <span class="black">￥189元</span>
+            </p>
+            <p>1885人以购买</p>	
+        </li>
+        <li class="last1">
+        	<div class="img">
+            	<a href="#">
+                	<img src="img/美丽说，发现、收藏、分享我的美丽点滴,让改变发生_files/c9aff7dc940bb716c66fddd0cc01_640_832.cf.jpg_f4023743_s2_180_255.jpg">
+                </a>
+            </div>
+            <p class="txt">
+            	<a href="#">美丽无极限&nbsp;不到50元</a>
+            </p>
+            <p class="price">
+            	<span class="red">￥49元</span>
+                <span class="black">￥189元</span>
+            </p>
+            <p>1885人以购买</p>	
+        </li>
+    </ul>
+</div>
+
+<div class="wrap-2">
+	<div class="wrap2-top">
+    	<a href="#">查看所有团购&gt;</a>
+    </div>
+    <ul class="list2 clearfix">
+    	<li>
+        	<div class="img">
+            	<a href="#">
+                	<img src="img/美丽说，发现、收藏、分享我的美丽点滴,让改变发生_files/ffaf5416e4ecb51f79413b20fd4e_640_832.cc.jpg_04e0a2b5_s2_180_255.jpg">
+                </a>
+            </div>
+            <p class="txt">
+            	<a href="#">美丽无极限&nbsp;不到50元</a>
+            </p>
+            <p class="price">
+            	<span class="red">￥49元</span>
+                <span class="black">￥189元</span>
+            </p>
+            <p>1885人以购买</p>	
+        </li>
+        <li>
+        	<div class="img">
+            	<a href="#">
+                	<img src="img/美丽说，发现、收藏、分享我的美丽点滴,让改变发生_files/ff591cdb463fd28af5af2fef6001_640_900.ch.jpg_ae011f38_s2_180_255.jpg">
+                </a>
+            </div>
+            <p class="txt">
+            	<a href="#">美丽无极限&nbsp;不到50元</a>
+            </p>
+            <p class="price">
+            	<span class="red">￥49元</span>
+                <span class="black">￥189元</span>
+            </p>
+            <p>1885人以购买</p>	
+        </li>
+        <li>
+        	<div class="img">
+            	<a href="#">
+                	<img src="img/美丽说，发现、收藏、分享我的美丽点滴,让改变发生_files/bf38eea4d89c4483b46afca76e97_640_900.ch.jpg_01e9db14_s2_180_255.jpg">
+                </a>
+            </div>
+            <p class="txt">
+            	<a href="#">美丽无极限&nbsp;不到50元</a>
+            </p>
+            <p class="price">
+            	<span class="red">￥49元</span>
+                <span class="black">￥189元</span>
+            </p>
+            <p>1885人以购买</p>	
+        </li>
+        <li>
+        	<div class="img">
+            	<a href="#">
+                	<img src="img/美丽说，发现、收藏、分享我的美丽点滴,让改变发生_files/0ee115d65a61831c540e5630c3d2_640_842.cg.jpg_7b7865d4_s2_180_255.jpg">
+                </a>
+            </div>
+            <p class="txt">
+            	<a href="#">美丽无极限&nbsp;不到50元</a>
+            </p>
+            <p class="price">
+            	<span class="red">￥49元</span>
+                <span class="black">￥189元</span>
+            </p>
+            <p>1885人以购买</p>	
+        </li>
+        <li>
+        	<div class="img">
+            	<a href="#">
+                	<img src="img/美丽说，发现、收藏、分享我的美丽点滴,让改变发生_files/f70cf473e26bf57d33f28ee04cfe_640_960.cg.jpg_28bebea1_s2_180_255.jpg">
+                </a>
+            </div>
+            <p class="txt">
+            	<a href="#">美丽无极限&nbsp;不到50元</a>
+            </p>
+            <p class="price">
+            	<span class="red">￥49元</span>
+                <span class="black">￥189元</span>
+            </p>
+            <p>1885人以购买</p>	
+        </li>
+        <li class="last1">
+        	<div class="img">
+            	<a href="#">
+                	<img src="img/美丽说，发现、收藏、分享我的美丽点滴,让改变发生_files/bfe6da839a60eac1e20bb4f79b5f_640_900.ch.jpg_ee608ff2_s2_180_255.jpg">
+                </a>
+            </div>
+            <p class="txt">
+            	<a href="#">美丽无极限&nbsp;不到50元</a>
+            </p>
+            <p class="price">
+            	<span class="red">￥49元</span>
+                <span class="black">￥189元</span>
+            </p>
+            <p>1885人以购买</p>	
+        </li>
+    </ul>
+</div>
+
+<div class="mlj">
+	<a href="#">
+    	<img src="img/img/mlj.jpg" />
+    </a>
+</div>
+
+<div class="wrap-3">
+	<div class="wrap3-top">
+    	<span class="s1">今日上新<span class="s2">4098</span>件</span>
+    	<a href="#">查看所有衣服&gt;</a>
+    </div>
+	<div class="wrap3-main clearfix">
+        <div class="wrap3-left fl">
+            <ul class="ul1 clearfix">
+                <li>
+                    <a href="">
+                        <img src="img/img/美丽说，发现、收藏、分享我的美丽点滴,让改变发生_03.png">
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <img src="img/img/美丽说，发现、收藏、分享我的美丽点滴,让改变发生_03-02.png">
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <img src="img/img/美丽说，发现、收藏、分享我的美丽点滴,让改变发生_03-03.png">
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <img src="img/img/美丽说，发现、收藏、分享我的美丽点滴,让改变发生_03-02.png">
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <img src="img/img/美丽说，发现、收藏、分享我的美丽点滴,让改变发生_03-05.png">
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="">
+                        <img src="img/img/美丽说，发现、收藏、分享我的美丽点滴,让改变发生_03-06.png">
+                    </a>
+                </li>
+               <li>
+                    <a href="">
+                        <img src="img/img/美丽说，发现、收藏、分享我的美丽点滴,让改变发生_03-02.png">
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <img src="img/img/美丽说，发现、收藏、分享我的美丽点滴,让改变发生_03-08.png">
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <img src="img/img/美丽说，发现、收藏、分享我的美丽点滴,让改变发生_03-09.png">
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <img src="img/img/美丽说，发现、收藏、分享我的美丽点滴,让改变发生_03-10.png">
+                    </a>
+                </li>
+            </ul>
+            <ul class="ul2 clearfix">
+                <li class="fl">
+                    <h3 class="fl">上新</h3>
+                    <p class="fl">
+                        <a href="#">背心</a>
+                        <a href="#">针织衫</a>
+                        <a href="#">打底衫</a>
+                        <a href="#">衬衫</a>
+                        <a href="#">位移</a>
+                        <a href="#">情侣装</a>
+                        <a href="#">韩范儿T恤</a>
+                        <a href="#">小西装</a>
+                        <a href="#">马甲</a>
+                        <a href="#">外套</a>
+                    </p>
+                </li>
+                <li class="fl">
+                    <h3 class="fl">裙子</h3>
+                    <p class="fl">
+                        <a href="#">背心</a>
+                        <a href="#">针织衫</a>
+                        <a href="#">打底衫</a>
+                        <a href="#">衬衫</a>
+                        <a href="#">位移</a>
+                        <a href="#">情侣装</a>
+                        <a href="#">韩范儿T恤</a>
+                        <a href="#">小西装</a>
+                        <a href="#">马甲</a>
+                        <a href="#">外套</a>
+                    </p>
+                </li>
+                <li class="qunzi fl">
+                    <h3 class="fl">裤子</h3>
+                    <p class="fl">
+                        <a href="#">背心</a>
+                        <a href="#">针织衫</a>
+                        <a href="#">打底衫</a>
+                        <a href="#">衬衫</a>
+                        <a href="#">位移</a>
+                        <a href="#">情侣装</a>
+                        <a href="#">韩范儿T恤</a>
+                        <a href="#">小西装</a>
+                        <a href="#">马甲</a>
+                        <a href="#">外套</a>
+                    </p>
+                </li>
+            </ul>
+        </div>
+    	<div class="wrap3-shop fr">
+    		<div class="shop-top clearfix">
+        		<h3 class="fl">最热衣服好店</h3>
+            	<a href="#" class="fr">更多好店&gt;</a>
+        	</div>
+        	<ul>
+        	<li class="clearfix">
+            	<a href="#" class="fl">
+                	<img src="img/images/美丽说，发现、收藏、分享我的美丽点滴,让改变发生_03.png">
+                </a>
+                <p class="yj">
+                	<a href="#">妖精的衣橱</a>
+                </p>
+                <p>235件商品/总销量84572</p>
+            </li>
+            <li class="clearfix">
+            	<a href="#" class="fl">
+                	<img src="img/images/美丽说，发现、收藏、分享我的美丽点滴,让改变发生_03-02.png">
+                </a>
+                <p class="yj">
+                	<a href="#">妖精的衣橱</a>
+                </p>
+                <p>235件商品/总销量84572</p>
+            </li>
+            <li class="clearfix">
+            	<a href="#" class="fl">
+                	<img src="img/images/美丽说，发现、收藏、分享我的美丽点滴,让改变发生_03-03.png">
+                </a>
+                <p class="yj">
+                	<a href="#">妖精的衣橱</a>
+                </p>
+                <p>235件商品/总销量84572</p>
+            </li>
+            <li class="clearfix">
+            	<a href="#" class="fl">
+                	<img src="img/images/美丽说，发现、收藏、分享我的美丽点滴,让改变发生_03-04.png">
+                </a>
+                <p class="yj">
+                	<a href="#">妖精的衣橱</a>
+                </p>
+                <p>235件商品/总销量84572</p>
+            </li>
+            <li class="clearfix">
+            	<a href="#" class="fl">
+                	<img src="img/images/美丽说，发现、收藏、分享我的美丽点滴,让改变发生_03-05.png">
+                </a>
+                <p class="yj">
+                	<a href="#">妖精的衣橱</a>
+                </p>
+                <p>235件商品/总销量84572</p>
+            </li>
+            <li class="clearfix">
+            	<a href="#" class="fl">
+                	<img src="img/images/美丽说，发现、收藏、分享我的美丽点滴,让改变发生_03-06.png">
+                </a>
+                <p class="yj">
+                	<a href="#">妖精的衣橱</a>
+                </p>
+                <p>235件商品/总销量84572</p>
+            </li>
+            <li class="clearfix">
+            	<a href="#" class="fl">
+                	<img src="img/images/美丽说，发现、收藏、分享我的美丽点滴,让改变发生_03-07.png">
+                </a>
+                <p class="yj">
+                	<a href="#">妖精的衣橱</a>
+                </p>
+                <p>235件商品/总销量84572</p>
+            </li>
+            <li class="clearfix">
+            	<a href="#" class="fl">
+                <img src="img/images/美丽说，发现、收藏、分享我的美丽点滴,让改变发生_03-08.png">
+                </a>
+                <p class="yj">
+                	<a href="#">妖精的衣橱</a>
+                </p>
+                <p>235件商品/总销量84572</p>
+            </li>
+            <li class="ll clearfix">
+            	<a href="#" class="fl">
+                	<img src="img/images/美丽说，发现、收藏、分享我的美丽点滴,让改变发生_03-09.png">
+                </a>
+                <p class="yj">
+                	<a href="#">妖精的衣橱</a>
+                </p>
+                <p>235件商品/总销量84572</p>
+            </li>
+        </ul>
+    	</div>
+	</div>
+</div>
+
+<div class="wrap-4">
+	<div class="wrap4-top">
+    	<span class="s1">今日上新<span class="s2">4098</span>件</span>
+    	<a href="#">查看所有衣服&gt;</a>
+    </div>
+	<div class="wrap4-main clearfix">
+    	<div class="wrap4-left fl">
+    		<ul class="ul1 clearfix">
+        	<li>
+            	<a href="">
+                	<img src="img/美丽说，发现、收藏、分享我的美丽点滴,让改变发生_files/a0551a3ae3fbb1c7023dfcc8c4fa_640_900.cg.jpg_39c9e2b8_s2_180_255.jpg">
+                </a>
+            </li>
+            <li>
+            	<a href="">
+                	<img src="img/美丽说，发现、收藏、分享我的美丽点滴,让改变发生_files/ed0f7873c7a37b45d74eb5099eb3_640_960.cg.jpg_1d23e04d_s2_180_255.jpg">
+                </a>
+            </li>
+            <li>
+            	<a href="">
+                	<img src="img/美丽说，发现、收藏、分享我的美丽点滴,让改变发生_files/8fbaf4428e309073e20067b9b286_640_970.ch.jpg_96dd5903_s2_180_255.jpg">
+                </a>
+            </li>
+           <li>
+            	<a href="">
+                	<img src="img/美丽说，发现、收藏、分享我的美丽点滴,让改变发生_files/ed0f7873c7a37b45d74eb5099eb3_640_960.cg.jpg_1d23e04d_s2_180_255.jpg">
+                </a>
+            </li>
+            <li>
+            	<a href="">
+                	<img src="img/美丽说，发现、收藏、分享我的美丽点滴,让改变发生_files/799618c485f69b58a78f5ddf350a_640_900.cg.jpg_f5becd2e_s2_180_255.jpg">
+                </a>
+            </li>
+            
+            <li>
+            	<a href="">
+                	<img src="img/美丽说，发现、收藏、分享我的美丽点滴,让改变发生_files/ee5e00fd4055ef4dcb33d8047371_640_832.ch.jpg_6a3f3fb9_s2_180_255.jpg">
+                </a>
+            </li>
+            <li>
+            	<a href="">
+                	<img src="img/美丽说，发现、收藏、分享我的美丽点滴,让改变发生_files/ed0f7873c7a37b45d74eb5099eb3_640_960.cg.jpg_1d23e04d_s2_180_255.jpg">
+                </a>
+            </li>
+            <li>
+            	<a href="">
+                	<img src="img/美丽说，发现、收藏、分享我的美丽点滴,让改变发生_files/e4879a37946dca6e59c5426522a9_640_960.ch.jpg_b4669978_s2_180_255.jpg">
+                </a>
+            </li>
+            <li>
+            	<a href="">
+                	<img src="img/美丽说，发现、收藏、分享我的美丽点滴,让改变发生_files/2bb5a55edafe8bf25fd9d49a9c40_714_1000.ch.jpg_23b89cb3_s2_180_255.jpg">
+                </a>
+            </li>
+            <li>
+            	<a href="">
+                	<img src="img/美丽说，发现、收藏、分享我的美丽点滴,让改变发生_files/becad60780be065f9dfe25a80ac5_640_900.cg.jpg_97b3e1c8_s2_180_255.jpg">
+                </a>
+            </li>
+        </ul>
+        <ul class="ul2 clearfix">
+        	<li class="fl">
+            	<h3 class="fl">上新</h3>
+                <p class="fl">
+                	<a href="#">背心</a>
+                    <a href="#">针织衫</a>
+                    <a href="#">打底衫</a>
+                    <a href="#">衬衫</a>
+                    <a href="#">位移</a>
+                    <a href="#">情侣装</a>
+                    <a href="#">韩范儿T恤</a>
+                    <a href="#">小西装</a>
+                    <a href="#">马甲</a>
+                    <a href="#">外套</a>
+                </p>
+            </li>
+            <li class="fl">
+            	<h3 class="fl">裙子</h3>
+                <p class="fl">
+                	<a href="#">背心</a>
+                    <a href="#">针织衫</a>
+                    <a href="#">打底衫</a>
+                    <a href="#">衬衫</a>
+                    <a href="#">位移</a>
+                    <a href="#">情侣装</a>
+                    <a href="#">韩范儿T恤</a>
+                    <a href="#">小西装</a>
+                    <a href="#">马甲</a>
+                    <a href="#">外套</a>
+                </p>
+            </li>
+            <li class="qunzi fl">
+            	<h3 class="fl">裤子</h3>
+                <p class="fl">
+                	<a href="#">背心</a>
+                    <a href="#">针织衫</a>
+                    <a href="#">打底衫</a>
+                    <a href="#">衬衫</a>
+                    <a href="#">位移</a>
+                    <a href="#">情侣装</a>
+                    <a href="#">韩范儿T恤</a>
+                    <a href="#">小西装</a>
+                    <a href="#">马甲</a>
+                    <a href="#">外套</a>
+                </p>
+            </li>
+        </ul>
+    	</div>
+    	<div class="wrap4-shop fr">
+    	<div class="shop-top clearfix">
+        	<h3 class="fl">最热衣服好店</h3>
+            <a href="#" class="fr">更多好店&gt;</a>
+        </div>
+        <ul>
+        	<li class="clearfix">
+            	<a href="#" class="fl">
+                	<img src="img/images/美丽说，发现、收藏、分享我的美丽点滴,让改变发生_03.png">
+                </a>
+                <p class="yj">
+                	<a href="#">妖精的衣橱</a>
+                </p>
+                <p>235件商品/总销量84572</p>
+            </li>
+            <li class="clearfix">
+            	<a href="#" class="fl">
+                	<img src="img/images/美丽说，发现、收藏、分享我的美丽点滴,让改变发生_03-02.png">
+                </a>
+                <p class="yj">
+                	<a href="#">妖精的衣橱</a>
+                </p>
+                <p>235件商品/总销量84572</p>
+            </li>
+            <li class="clearfix">
+            	<a href="#" class="fl">
+                	<img src="img/images/美丽说，发现、收藏、分享我的美丽点滴,让改变发生_03-03.png">
+                </a>
+                <p class="yj">
+                	<a href="#">妖精的衣橱</a>
+                </p>
+                <p>235件商品/总销量84572</p>
+            </li>
+            <li class="clearfix">
+            	<a href="#" class="fl">
+                	<img src="img/images/美丽说，发现、收藏、分享我的美丽点滴,让改变发生_03-04.png">
+                </a>
+                <p class="yj">
+                	<a href="#">妖精的衣橱</a>
+                </p>
+                <p>235件商品/总销量84572</p>
+            </li>
+            <li class="clearfix">
+            	<a href="#" class="fl">
+                	<img src="img/images/美丽说，发现、收藏、分享我的美丽点滴,让改变发生_03-05.png">
+                </a>
+                <p class="yj">
+                	<a href="#">妖精的衣橱</a>
+                </p>
+                <p>235件商品/总销量84572</p>
+            </li>
+            <li class="clearfix">
+            	<a href="#" class="fl">
+                	<img src="img/images/美丽说，发现、收藏、分享我的美丽点滴,让改变发生_03-06.png">
+                </a>
+                <p class="yj">
+                	<a href="#">妖精的衣橱</a>
+                </p>
+                <p>235件商品/总销量84572</p>
+            </li>
+            <li class="clearfix">
+            	<a href="#" class="fl">
+                	<img src="img/images/美丽说，发现、收藏、分享我的美丽点滴,让改变发生_03-07.png">
+                </a>
+                <p class="yj">
+                	<a href="#">妖精的衣橱</a>
+                </p>
+                <p>235件商品/总销量84572</p>
+            </li>
+            <li class="clearfix">
+            	<a href="#" class="fl">
+                <img src="img/images/美丽说，发现、收藏、分享我的美丽点滴,让改变发生_03-08.png">
+                </a>
+                <p class="yj">
+                	<a href="#">妖精的衣橱</a>
+                </p>
+                <p>235件商品/总销量84572</p>
+            </li>
+            <li class="ll clearfix">
+            	<a href="#" class="fl">
+                	<img src="img/images/美丽说，发现、收藏、分享我的美丽点滴,让改变发生_03-09.png">
+                </a>
+                <p class="yj">
+                	<a href="#">妖精的衣橱</a>
+                </p>
+                <p>235件商品/总销量84572</p>
+            </li>
+        </ul>
+    </div>
+	</div>
+</div>
+
+<div class="wrap-5">
+	<div class="wrap5-top">
+    	<span class="s1">今日上新<span class="s2">4098</span>件</span>
+    	<a href="#">查看所有衣服&gt;</a>
+    </div>
+	<div class="wrap5-main clearfix">
+    	<div class="wrap5-left fl">
+    		<ul class="ul1 clearfix">
+        	<li>
+            	<a href="">
+                	<img src="img/美丽说，发现、收藏、分享我的美丽点滴,让改变发生_files/37f28d3f1569ccee51b54d688b41_640_832.cc.jpg_7aee466e_s2_180_255.jpg">
+                </a>
+            </li>
+            <li>
+            	<a href="">
+                	<img  src="img/美丽说，发现、收藏、分享我的美丽点滴,让改变发生_files/0c31f8935c1e8311cf083a124e78_640_832.cg.jpg_84c346e4_s2_180_255.jpg">
+                </a>
+            </li>
+            <li>
+            	<a href="">
+                	<img  src="img/美丽说，发现、收藏、分享我的美丽点滴,让改变发生_files/8372c56c4fa7bf471931bf269449_640_900.cf.jpg_ff089cb6_s2_180_255.jpg">
+                </a>
+            </li>
+            <li>
+            	<a href="">
+                	<img src="img/美丽说，发现、收藏、分享我的美丽点滴,让改变发生_files/37f28d3f1569ccee51b54d688b41_640_832.cc.jpg_7aee466e_s2_180_255.jpg">
+                </a>
+            </li>
+            <li>
+            	<a href="">
+                	<img src="img/美丽说，发现、收藏、分享我的美丽点滴,让改变发生_files/77090c057128180681938fa7959b_640_832.cf.jpg_4524279d_s2_180_255.jpg">
+                </a>
+            </li>
+            
+            <li>
+            	<a href="">
+                	<img  src="img/美丽说，发现、收藏、分享我的美丽点滴,让改变发生_files/384b42f88751f71a6be02425ef2d_640_900.cc.jpg_18e10ed9_s2_180_255.jpg">
+                </a>
+            </li>
+           <li>
+            	<a href="">
+                	<img src="img/美丽说，发现、收藏、分享我的美丽点滴,让改变发生_files/37f28d3f1569ccee51b54d688b41_640_832.cc.jpg_7aee466e_s2_180_255.jpg">
+                </a>
+            </li>
+            <li>
+            	<a href="">
+                	<img src="img/美丽说，发现、收藏、分享我的美丽点滴,让改变发生_files/dcf235c9af48627b2e540776d1bf_640_832.cg.jpg_a9cb84f9_s2_180_255.jpg">
+                </a>
+            </li>
+            <li>
+            	<a href="">
+                	<img src="img/美丽说，发现、收藏、分享我的美丽点滴,让改变发生_files/39085c4e0ab90293095a4e858e4f_640_832.cc.jpg_0d67eb72_s2_180_255.jpg">
+                </a>
+            </li>
+            <li>
+            	<a href="">
+                	<img src="img/美丽说，发现、收藏、分享我的美丽点滴,让改变发生_files/85a8b7c432346c7c1ae3ae92ae67_640_900.cf.jpg_33c090eb_s2_180_255.jpg">
+                </a>
+            </li>
+        </ul>
+        	<ul class="ul2 clearfix">
+        	<li class="fl">
+            	<h3 class="fl">上新</h3>
+                <p class="fl">
+                	<a href="#">背心</a>
+                    <a href="#">针织衫</a>
+                    <a href="#">打底衫</a>
+                    <a href="#">衬衫</a>
+                    <a href="#">位移</a>
+                    <a href="#">情侣装</a>
+                    <a href="#">韩范儿T恤</a>
+                    <a href="#">小西装</a>
+                    <a href="#">马甲</a>
+                    <a href="#">外套</a>
+                </p>
+            </li>
+            <li class="fl">
+            	<h3 class="fl">裙子</h3>
+                <p class="fl">
+                	<a href="#">背心</a>
+                    <a href="#">针织衫</a>
+                    <a href="#">打底衫</a>
+                    <a href="#">衬衫</a>
+                    <a href="#">位移</a>
+                    <a href="#">情侣装</a>
+                    <a href="#">韩范儿T恤</a>
+                    <a href="#">小西装</a>
+                    <a href="#">马甲</a>
+                    <a href="#">外套</a>
+                </p>
+            </li>
+            <li class="qunzi fl">
+            	<h3 class="fl">裤子</h3>
+                <p class="fl">
+                	<a href="#">背心</a>
+                    <a href="#">针织衫</a>
+                    <a href="#">打底衫</a>
+                    <a href="#">衬衫</a>
+                    <a href="#">位移</a>
+                    <a href="#">情侣装</a>
+                    <a href="#">韩范儿T恤</a>
+                    <a href="#">小西装</a>
+                    <a href="#">马甲</a>
+                    <a href="#">外套</a>
+                </p>
+            </li>
+        </ul>
+    	</div>
+    	<div class="wrap5-shop fr">
+    		<div class="shop-top clearfix">
+        		<h3 class="fl">最热衣服好店</h3>
+            	<a href="#" class="fr">更多好店&gt;</a>
+        	</div>
+       	    <ul>
+        	<li class="clearfix">
+            	<a href="#" class="fl">
+                	<img src="img/images/美丽说，发现、收藏、分享我的美丽点滴,让改变发生_03.png">
+                </a>
+                <p class="yj">
+                	<a href="#">妖精的衣橱</a>
+                </p>
+                <p>235件商品/总销量84572</p>
+            </li>
+            <li class="clearfix">
+            	<a href="#" class="fl">
+                	<img src="img/images/美丽说，发现、收藏、分享我的美丽点滴,让改变发生_03-02.png">
+                </a>
+                <p class="yj">
+                	<a href="#">妖精的衣橱</a>
+                </p>
+                <p>235件商品/总销量84572</p>
+            </li>
+            <li class="clearfix">
+            	<a href="#" class="fl">
+                	<img src="img/images/美丽说，发现、收藏、分享我的美丽点滴,让改变发生_03-03.png">
+                </a>
+                <p class="yj">
+                	<a href="#">妖精的衣橱</a>
+                </p>
+                <p>235件商品/总销量84572</p>
+            </li>
+            <li class="clearfix">
+            	<a href="#" class="fl">
+                	<img src="img/images/美丽说，发现、收藏、分享我的美丽点滴,让改变发生_03-04.png">
+                </a>
+                <p class="yj">
+                	<a href="#">妖精的衣橱</a>
+                </p>
+                <p>235件商品/总销量84572</p>
+            </li>
+            <li class="clearfix">
+            	<a href="#" class="fl">
+                	<img src="img/images/美丽说，发现、收藏、分享我的美丽点滴,让改变发生_03-05.png">
+                </a>
+                <p class="yj">
+                	<a href="#">妖精的衣橱</a>
+                </p>
+                <p>235件商品/总销量84572</p>
+            </li>
+            <li class="clearfix">
+            	<a href="#" class="fl">
+                	<img src="img/images/美丽说，发现、收藏、分享我的美丽点滴,让改变发生_03-06.png">
+                </a>
+                <p class="yj">
+                	<a href="#">妖精的衣橱</a>
+                </p>
+                <p>235件商品/总销量84572</p>
+            </li>
+            <li class="clearfix">
+            	<a href="#" class="fl">
+                	<img src="img/images/美丽说，发现、收藏、分享我的美丽点滴,让改变发生_03-07.png">
+                </a>
+                <p class="yj">
+                	<a href="#">妖精的衣橱</a>
+                </p>
+                <p>235件商品/总销量84572</p>
+            </li>
+            <li class="clearfix">
+            	<a href="#" class="fl">
+                <img src="img/images/美丽说，发现、收藏、分享我的美丽点滴,让改变发生_03-08.png">
+                </a>
+                <p class="yj">
+                	<a href="#">妖精的衣橱</a>
+                </p>
+                <p>235件商品/总销量84572</p>
+            </li>
+            <li class="ll clearfix">
+            	<a href="#" class="fl">
+                	<img src="img/images/美丽说，发现、收藏、分享我的美丽点滴,让改变发生_03-09.png">
+                </a>
+                <p class="yj">
+                	<a href="#">妖精的衣橱</a>
+                </p>
+                <p>235件商品/总销量84572</p>
+            </li>
+        </ul>
+    	</div>
+     </div>
+</div>
+
+<div class="wrap-6">
+	<div class="wrap6-top">
+    	<span class="s1">今日上新<span class="s2">4098</span>件</span>
+    	<a href="#">查看所有衣服&gt;</a>
+    </div>
+	<div class="wrap6-main clearfix">
+    	<div class="wrap6-left fl">
+    		<ul class="ul1 clearfix">
+        	
+           
+            <li>
+            	<a href="">
+                	<img src="img/美丽说，发现、收藏、分享我的美丽点滴,让改变发生_files/5c296c112b55410ab1163969f238_640_900.c8.jpg_27870047_s2_180_255.jpg">
+                </a>
+            </li>
+            <li>
+            	<a href="">
+                	<img src="img/美丽说，发现、收藏、分享我的美丽点滴,让改变发生_files/302bd8733a24db7a431e13424a71_450_600.cc.jpg_204a1e4e_s2_180_255.jpg">
+                </a>
+            </li>
+            <li>
+            	<a href="">
+                	<img src="img/美丽说，发现、收藏、分享我的美丽点滴,让改变发生_files/764b419a0edb64864088a2aac47c_640_832.cc.jpg_731ea054_s2_180_255.jpg">
+                </a>
+            </li>
+            <li>
+            	<a href="">
+                	<img src="img/美丽说，发现、收藏、分享我的美丽点滴,让改变发生_files/b91ee0320dbd23f738898e0cc044_640_832.cc.jpg_47b3a67f_s2_180_255.jpg">
+                </a>
+            </li>
+            <li>
+            	<a href="">
+                	<img src="img/美丽说，发现、收藏、分享我的美丽点滴,让改变发生_files/7c6a00ce33d4776ec49dce43a34e_450_585.cc.jpg_9c1d844c_s2_180_255.jpg">
+                </a>
+            </li>
+            
+            <li>
+            	<a href="">
+                	<img src="img/美丽说，发现、收藏、分享我的美丽点滴,让改变发生_files/5c296c112b55410ab1163969f238_640_900.c8.jpg_27870047_s2_180_255.jpg">
+                </a>
+            </li>
+            <li>
+            	<a href="">
+                	<img src="img/美丽说，发现、收藏、分享我的美丽点滴,让改变发生_files/302bd8733a24db7a431e13424a71_450_600.cc.jpg_204a1e4e_s2_180_255.jpg">
+                </a>
+            </li>
+            <li>
+            	<a href="">
+                	<img src="img/美丽说，发现、收藏、分享我的美丽点滴,让改变发生_files/764b419a0edb64864088a2aac47c_640_832.cc.jpg_731ea054_s2_180_255.jpg">
+                </a>
+            </li>
+            <li>
+            	<a href="">
+                	<img src="img/美丽说，发现、收藏、分享我的美丽点滴,让改变发生_files/b91ee0320dbd23f738898e0cc044_640_832.cc.jpg_47b3a67f_s2_180_255.jpg">
+                </a>
+            </li>
+            <li>
+            	<a href="">
+                	<img src="img/美丽说，发现、收藏、分享我的美丽点滴,让改变发生_files/7c6a00ce33d4776ec49dce43a34e_450_585.cc.jpg_9c1d844c_s2_180_255.jpg">
+                </a>
+            </li>
+        </ul>
+       	     <ul class="ul2 clearfix">
+        	<li class="fl">
+            	<h3 class="fl">上新</h3>
+                <p class="fl">
+                	<a href="#">背心</a>
+                    <a href="#">针织衫</a>
+                    <a href="#">打底衫</a>
+                    <a href="#">衬衫</a>
+                    <a href="#">位移</a>
+                    <a href="#">情侣装</a>
+                    <a href="#">韩范儿T恤</a>
+                    <a href="#">小西装</a>
+                    <a href="#">马甲</a>
+                    <a href="#">外套</a>
+                </p>
+            </li>
+            <li class="fl">
+            	<h3 class="fl">裙子</h3>
+                <p class="fl">
+                	<a href="#">背心</a>
+                    <a href="#">针织衫</a>
+                    <a href="#">打底衫</a>
+                    <a href="#">衬衫</a>
+                    <a href="#">位移</a>
+                    <a href="#">情侣装</a>
+                    <a href="#">韩范儿T恤</a>
+                    <a href="#">小西装</a>
+                    <a href="#">马甲</a>
+                    <a href="#">外套</a>
+                </p>
+            </li>
+            <li class="qunzi fl">
+            	<h3 class="fl">裤子</h3>
+                <p class="fl">
+                	<a href="#">背心</a>
+                    <a href="#">针织衫</a>
+                    <a href="#">打底衫</a>
+                    <a href="#">衬衫</a>
+                    <a href="#">位移</a>
+                    <a href="#">情侣装</a>
+                    <a href="#">韩范儿T恤</a>
+                    <a href="#">小西装</a>
+                    <a href="#">马甲</a>
+                    <a href="#">外套</a>
+                </p>
+            </li>
+        </ul>
+    	</div>
+    	<div class="wrap6-shop fr">
+    		<div class="shop-top clearfix">
+        		<h3 class="fl">最热衣服好店</h3>
+            	<a href="#" class="fr">更多好店&gt;</a>
+        	</div>
+        	<ul>
+        	<li class="clearfix">
+            	<a href="#" class="fl">
+                	<img src="img/images/美丽说，发现、收藏、分享我的美丽点滴,让改变发生_03.png">
+                </a>
+                <p class="yj">
+                	<a href="#">妖精的衣橱</a>
+                </p>
+                <p>235件商品/总销量84572</p>
+            </li>
+            <li class="clearfix">
+            	<a href="#" class="fl">
+                	<img src="img/images/美丽说，发现、收藏、分享我的美丽点滴,让改变发生_03-02.png">
+                </a>
+                <p class="yj">
+                	<a href="#">妖精的衣橱</a>
+                </p>
+                <p>235件商品/总销量84572</p>
+            </li>
+            <li class="clearfix">
+            	<a href="#" class="fl">
+                	<img src="img/images/美丽说，发现、收藏、分享我的美丽点滴,让改变发生_03-03.png">
+                </a>
+                <p class="yj">
+                	<a href="#">妖精的衣橱</a>
+                </p>
+                <p>235件商品/总销量84572</p>
+            </li>
+            <li class="clearfix">
+            	<a href="#" class="fl">
+                	<img src="img/images/美丽说，发现、收藏、分享我的美丽点滴,让改变发生_03-04.png">
+                </a>
+                <p class="yj">
+                	<a href="#">妖精的衣橱</a>
+                </p>
+                <p>235件商品/总销量84572</p>
+            </li>
+            <li class="clearfix">
+            	<a href="#" class="fl">
+                	<img src="img/images/美丽说，发现、收藏、分享我的美丽点滴,让改变发生_03-05.png">
+                </a>
+                <p class="yj">
+                	<a href="#">妖精的衣橱</a>
+                </p>
+                <p>235件商品/总销量84572</p>
+            </li>
+            <li class="clearfix">
+            	<a href="#" class="fl">
+                	<img src="img/images/美丽说，发现、收藏、分享我的美丽点滴,让改变发生_03-06.png">
+                </a>
+                <p class="yj">
+                	<a href="#">妖精的衣橱</a>
+                </p>
+                <p>235件商品/总销量84572</p>
+            </li>
+            <li class="clearfix">
+            	<a href="#" class="fl">
+                	<img src="img/images/美丽说，发现、收藏、分享我的美丽点滴,让改变发生_03-07.png">
+                </a>
+                <p class="yj">
+                	<a href="#">妖精的衣橱</a>
+                </p>
+                <p>235件商品/总销量84572</p>
+            </li>
+            <li class="clearfix">
+            	<a href="#" class="fl">
+                <img src="img/images/美丽说，发现、收藏、分享我的美丽点滴,让改变发生_03-08.png">
+                </a>
+                <p class="yj">
+                	<a href="#">妖精的衣橱</a>
+                </p>
+                <p>235件商品/总销量84572</p>
+            </li>
+            <li class="ll clearfix">
+            	<a href="#" class="fl">
+                	<img src="img/images/美丽说，发现、收藏、分享我的美丽点滴,让改变发生_03-09.png">
+                </a>
+                <p class="yj">
+                	<a href="#">妖精的衣橱</a>
+                </p>
+                <p>235件商品/总销量84572</p>
+            </li>
+        </ul>
+    	</div>
+	</div>
+</div>
+
+<div class="zz">
+	<div class="zz-top">
+    	<span class="s1">今日上新<span class="s2">4098</span>件</span>
+    	<a href="#">查看所有衣服&gt;</a>
+    </div>
+    <div class="zz-main">
+    	<ul class="clearfix">
+        	<li>
+            	<h3><a href="#">小女人有恋物癖</a></h3>
+                <a href="#"><img src="img/美丽说，发现、收藏、分享我的美丽点滴,让改变发生_files/eee2323884768bd34eab636cfe24.c6.jpg"></a>
+                <div class="fx clearfix">
+                	<span>2314个分享</span>
+                    <a href="#">去看看</a>
+                </div>
+            </li>
+            <li>
+            	<h3><a href="#">小女人有恋物癖</a></h3>
+                <a href="#"><img src="img/美丽说，发现、收藏、分享我的美丽点滴,让改变发生_files/1be246650a2fc47ad295dcb43477.cc.jpg"></a>
+                <div class="fx clearfix">
+                	<span>2314个分享</span>
+                    <a href="#">去看看</a>
+                </div>
+            </li>
+            <li>
+            	<h3><a href="#">小女人有恋物癖</a></h3>
+                <a href="#"><img src="img/美丽说，发现、收藏、分享我的美丽点滴,让改变发生_files/b2600b15bf399503fd22b04506b1.ch.jpg"></a>
+                <div class="fx clearfix">
+                	<span>2314个分享</span>
+                    <a href="#">去看看</a>
+                </div>
+            </li>
+            <li>
+            	<h3><a href="#">小女人有恋物癖</a></h3>
+                <a href="#"><img src="img/美丽说，发现、收藏、分享我的美丽点滴,让改变发生_files/45a17d8f352a772efe5a0708c94e.cg.jpg"></a>
+                <div class="fx clearfix">
+                	<span>2314个分享</span>
+                    <a href="#">去看看</a>
+                </div>
+            </li>
+            <li>
+            	<h3><a href="#">小女人有恋物癖</a></h3>
+                <a href="#"><img src="img/美丽说，发现、收藏、分享我的美丽点滴,让改变发生_files/eee2323884768bd34eab636cfe24.c6.jpg"></a>
+                <div class="fx clearfix">
+                	<span>2314个分享</span>
+                    <a href="#">去看看</a>
+                </div>
+            </li>
+           
+        </ul>
+    </div>
+</div>
+
+<div class="fotter">
+	<div class="f-main clearfix">
+    	<div class="dh fl">
+        	<p>
+            	<span>400-800-577</span><br>
+                <a href="#">美丽说客服热线</a></br>
+                <a href="#">周一至周日08:00-22:00</a>
+            </p>
+        </div>
+        <div class="yh fl">
+        	<h3><a href="#">用户帮助</a></h3>
+        	<ul>
+            	<li><a href="#">新手指南</a></li>
+                <li><a href="#">网站地图</a></li>
+                <li><a href="#">意见反馈</a></li>
+            </ul>
+        </div>
+		<div class="yh fl">
+        	<h3><a href="#">关于我们</a></h3>
+        	<ul>
+            	<li><a href="#">关于我们美丽说</a></li>
+                <li><a href="#">联系我们</a></li>
+                <li><a href="#">加入美丽说</a></li>
+				<li><a href="#">商家入驻</a></li>
+				<li><a href="#">商家推广</a></li>
+            </ul>
+        </div>
+		<div class="yh fl">
+        	<h3><a href="#">关注我们</a></h3>
+        	<ul>
+            	<li class="l1"><a  href="#">新浪微博</a></li>
+                <li class="l2"><a  href="#">QQ空间</a></li>
+                <li class="l3"><a  href="#">腾讯微博</a></li>
+            </ul>
+        </div>
+        <div class="yh fl">
+        	<h3><a href="#">美丽说微信服务号</a></h3>
+        	<a href="#"><img src="img/美丽说，发现、收藏、分享我的美丽点滴,让改变发生_files/qrcode-new.jpg"></a>
+        </div>
+        <div class="yh fr">
+        	<h3><a href="#">美丽说客户端下载</a></h3>
+        	<a href="#"><img src="img/img/khd.png"></a>
+        </div>
+        
+        <div class="lj">
+        	<p>
+        	<a href="#">友情链接：</a>
+            <a href="#">腾讯女性</a>
+            <a href="#">列表网</a>
+            <a href="#">腾讯女性</a>
+            <a href="#">列表网</a>
+            <a href="#">腾讯女性</a>
+            <a href="#">列表网</a>
+            <a href="#">腾讯女性</a>
+            <a href="#">列表网</a>
+            <a href="#">腾讯女性</a>
+            <a href="#">列表网</a>
+            <a href="#">腾讯女性</a>
+            <a href="#">列表网</a>
+            </p>
+        </div>
+        <div class="p">
+            <p>  
+                <a href="#">腾讯女性</a>
+                <a href="#">列表网</a>
+                <a href="#">腾讯女性</a>
+                <a href="#">列表网</a>
+                <a href="#">腾讯女性</a>
+                <a href="#">列表网</a>
+                <a href="#">腾讯女性</a>
+                <a href="#">列表网</a>
+                <a href="#">腾讯女性</a>
+                <a href="#">列表网</a>
+                <a href="#">腾讯女性</a>
+                <a href="#">列表网</a>
+                <a href="#">列表网</a>
+                <a href="#">腾讯女性</a>
+                <a href="#">列表网</a>
+                <a href="#">腾讯女性</a>
+                <a href="#">列表网</a>
+                <a href="#">列表网</a>
+                <a href="#">腾讯女性</a>
+                <a href="#">列表网</a>
+                <a href="#">腾讯女性</a>
+                <a href="#">列表网</a>
+                <a href="#">腾讯女性</a></p><p>
+                <a href="#">列表网</a>
+                <a href="#">腾讯女性</a>
+                <a href="#">列表网</a>
+                <a href="#">腾讯女性</a>
+                <a href="#">列表网</a>
+                <a href="#">腾讯女性</a>
+                <a href="#">列表网</a>
+                <a href="#">腾讯女性</a>
+                <a href="#">列表网</a>
+                <a href="#">腾讯女性</a>
+                <a href="#">列表网</a>
+                </p>
+           </div>
+    </div>
+</div>
+</body>
+</html>

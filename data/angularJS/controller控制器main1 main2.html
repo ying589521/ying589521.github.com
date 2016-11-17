@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html ng-app="index">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="angular.min.js"></script>
+    <script>
+        //获取模块
+        var mk = angular.module('index',[]);
+        //创建控制器
+        mk.controller('main1',function($scope){
+            $scope.a1 = 12;
+            $scope.alert = function(n1){
+                alert(n1);
+            };
+        });
+        mk.controller('main2',function($scope){
+            $scope.a2 = 24;
+            $scope.alert = function(n2){
+                alert(n2);
+            };
+        });
+
+    </script>
+</head>
+<body>
+<div ng-controller="main1">
+    <input type="button" value="第一弹" ng-click="alert(a1)"/>
+</div>
+<br>
+<div ng-controller="main2">
+    <input type="button" value="第二弹" ng-click="alert(a2)"/>
+</div>
+</body>
+</html>

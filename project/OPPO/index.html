@@ -1,0 +1,408 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+	*{ margin:0; padding:0;}  
+	.clearfix:after{ display:block; content:''; clear:both;}
+	.clearfix{ zoom:1;}
+	li{ list-style:none;}
+	.fl{ float:left;}
+	.fr{ float:right;}
+	.top{ width:100%; height:37px; border-top:3px solid #00925f; background:#2b2b2b; margin:0 auto;}
+	.t-left{ width:190px; height:25px; margin-left:70px; margin-top:6px; }
+	.t-left p{ color:#0d925f; line-height:25px; font-weight:bold;}
+	.t-right ul{ margin-top:10px; margin-right:25px;}
+	.t-right li{ float:left; padding-right:15px; border-right:1px solid #ccc; font-size:12px; padding-left:15px;}
+	.t-right a{ text-decoration:none; color:#b2b2b2;}
+	.t-right .lc{ border-right:none; background:url(img/images/logo_08.png) no-repeat; margin-left:25px;}
+	
+	.nav{ height:85px; width:100%; margin:0 auto; }
+	.logo{ margin-left:70px; }
+	.list{ margin-top:35px;}
+	.list li{ margin-right:35px; float:left;}
+	.list li a{ text-decoration:none; color:#2b2b2b; font-size:13px; font-weight:bold;}
+	.lyf{ margin:0 auto; width:100%; }
+	.lyf img{ display:block; width:100%;}
+	
+	.oppo{ height:110px; margin:0 auto; background:#f2f2f2; padding-top:60px;}
+	.o-top{ width:300px; height:95px; margin:0 545px 0 auto;}
+	.o-top p{ font-size:30px; text-align:center;}
+	.o-top span{ font-weight:bold; border-top:1px solid #dadada; border-bottom:1px solid #dadada; padding-top:5px; padding-bottom:5px;}
+	.o-top .p2{ font-size:12px; color:#878787; margin-top:25px; text-align:center;}
+	.o-top .p2 span{ border:none;}
+	.o-top .p2 a{ text-decoration:none; color:#58aa84; }
+	
+	.op{ height:630px; margin:0 auto; background:#f2f2f2;}
+	.op ul{ margin-left:70px; margin-right:-20px;}
+	.op ul li{ margin-right:20px; width:280px; height:560px; border-bottom:5px solid #dfdfdf; float:left;}
+	.op p{ text-align:center; margin-top:27px; }
+	.op .s1{ font-size:20px; padding-bottom:15px;}
+	.op .s2{ font-size:12px; color:#b4b4b4; padding-bottom:15px;}
+	.op .s3{ font-size:13px; color:#7db796;}
+	
+	.jx{ height:1070px; background:#f6f6f6; min-width:1333px; padding-left:70px; padding-right:70px; margin:0 auto;}
+	.jx-top{ height:135px; }
+	.jx-top p{ font-size:30px; text-align:center; padding-top:50px;}
+	.jx span{ font-weight:bold; border-top:1px solid #dadada; border-bottom:1px solid #dadada; padding-top:5px; padding-bottom:5px;}
+	
+	.main-left{ width:585px; height:875px; margin-right:20px;}
+	.l-top{ height:580px; margin-bottom:20px;}
+	.t-l{ width:280px; height:575px; border-bottom:5px solid #eaeaea; background-color:#fff;}
+	.main-left .t-l .s4{ display:block; font-size:14px; color:#a5a5a5; border:none; text-align:center; margin-top:30px;}
+	.main-left .t-l .s5{  display:block; font-size:20px; color:#545454; border:none; text-align:center;}
+	.main-left .t-l .s6{ display:block; font-size:12px; color:#60a68c; border:none; text-align:center;}
+	.r-1,.r-2{ width:281px; height:281px;}
+	.r-1{margin-bottom:22px;}
+	.r-1 img{ border:5px solid #eaeaea; }
+	.r-2 img{ border-bottom:5px solid #eaeaea;}
+	.bottom img{ border-bottom:5px solid #eaeaea;}
+	.main-right{ padding-right:140px;}
+	.m-top{ margin-bottom:20px;}
+	.main-right .m-top img{ border-bottom:5px solid #eaeae;}
+	
+	.wor{ height:750px; margin:0 auto; background:#eaeaea;}
+	.wor-top{ height:130px; border-top:3px solid #d9d9d9; }
+	.wor-top p{ font-size:30px; text-align:center; padding-top:50px;}
+	.wor span{ font-weight:bold; border-top:1px solid #dadada; border-bottom:1px solid #dadada; padding-top:5px; padding-bottom:5px;}
+	.last{ width:1185px; height:560px; margin:0 auto;}
+	.last-left{ width:786px; height:560px; }
+	.last-left ul{ margin-right:-20px;}
+	.last-left li{ float:left; margin-right:20px; margin-bottom:20px;}
+	.last-right{ width:380px; height:560px; background-color:#fff;}
+	.l-t{ width:380px; height:50px;}
+	.t-1{ width:190px; height:48px; border-top:2px solid #00925f; text-align:center; line-height:48px;}
+	.t-2{ width:190px; height:50px; background:#dadada; text-align:center; line-height:48px;}
+	.l-t a{ font-size:20px; color:#a7a7a7; text-decoration:none;}
+	.t-b ul{ margin:45px 30px 0;}
+	.t-b li{ width:320px; height:90px; background-color:#f6f6f6; margin-bottom:15px; overflow:hidden;}
+	.last-right .t-b li a{ font-size:12px; position:relative; left:20px; top:20px; text-decoration:none; color:#838383; margin-right:5px;}
+	.fotter{ height:365px; background-color:#fff;}
+	.fotter li{ float:left; height:50px; margin-right:75px;}
+	.ss1{ font-size:18px; color:#363636; font-weight:bold;}
+	.ss2{ font-size:12px; color:#b3b3b3;}
+	.fotter img{ margin-right:5px;}
+	.fotter p{ line-height:25px; height:30px;}
+	.f-top{ margin-left:70px; margin-top:50px; margin-right:70px; padding-bottom:40px; border-bottom:1px solid #eaeaea;}
+	.fotter2{ height:220px; margin:0 70px 0 70px; padding-top:30px;}
+	.fotter2 a{ text-decoration:none;}
+	.fotter2 h3{ margin-bottom:15px; font-size:15px;}
+	.fotter2 h3 a{ color:#373737;}
+	.fotter2 li{ float:none; height:15px; margin-bottom:10px; color:#838383; font-size:12px;}
+	.fotter2 li a{ color:#838383;}
+	.fotter2 ul{ margin-right:60px;}
+	.lx{  margin-left:-140px; }
+	.lx .sss1{ font-size:25px; color:#409f73;}
+	.sss2{ font-size:12px; color:#ccc;}
+	.lx li{ margin-bottom:50px;}
+	.fotter3{ height:70px; min-width:1333px; background:#2b2b2b; border-top:5px solid #000;}
+	.fotter3 a img{ margin:25px 0 0 60px;}
+	.fotter3 .aa{ font-size:12px; color:#828282; text-decoration:none; margin-top:30px; margin-left:20px; }
+	.fotter3 ul{ margin-top:25px; margin-left:132px;}
+	.fotter3 li{ float:left; }
+	.fotter3 li a{ text-decoration:none; color:#e2e2e2; font-size:10px;}
+</style>
+</head>
+
+<body>
+<div class="top clearfix">
+	<div class="t-left fl">
+    	<p>
+    	<img src="img/images/logo_03.png">
+        <img src="img/images/logo_06.png">
+        <span>4001-666-888</span>
+        </p>
+    </div>
+    <div class="t-right fr">
+    	<ul class="clearfix">
+        	<li><a href="#">登录</a></li>
+            <li><a href="#">注册</a></li>
+            <li><a href="#">积分兑换</a></li>
+            <li><a href="#">帮助中心</a></li>
+            <li class="lc"><a href="#">购物车</a></li>
+        </ul>
+    </div>
+</div>
+
+<div class="nav clearfix">
+	<div class="logo fl">
+    	<h1><a href="#"><img src="img/20141103155741_RL4uKj.png"></a></h1>
+    </div>
+    <div class="list fr">
+    	<ul class="clearfix">
+        	<li>
+            	<a href="#">首页</a>
+            </li>
+            <li>
+            	<a href="#">手机</a>
+            </li>
+            <li>
+            	<a href="#">配件</a>
+            </li>
+            <li>
+            	<a href="#">服务</a>
+            </li>
+            <li>
+            	<a href="#">体验店</a>
+            </li>
+            <li>
+            	<a href="#">软件商店</a>
+            </li>
+            <li>
+            	<a href="#">colorOS</a>
+            </li>
+            <li>
+            	<a href="#">社区</a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div class="lyf">
+	<a href="#"><img src="img/l.jpg"></a>
+</div>
+
+<div class="oppo">
+	<div class="o-top">
+    	<p>OPPO<span>STAR明</span>星机型</p>
+        <p class="p2">OPPO COLLECTION 2014&nbsp;<span><a href="#">全部手机</a></span></p>
+    </div>
+</div>
+
+<div class="op">
+	<ul class="clearfix">
+    	<li>
+        	<img src="img/images/oppo_03.png">
+            <p>
+            	<span class="s1">N3</span><br><br>
+                <span class="s2">1600万电动旋转摄像头</span><br>
+                <span class="s3">￥3999&nbsp;立即购买</span>
+            </p>
+        </li>
+        <li>
+        	<img src="img/images/oppo_05.png">
+            <p>
+            	<span class="s1">N3</span><br><br>
+                <span class="s2">1600万电动旋转摄像头</span><br>
+                <span class="s3">￥3999&nbsp;立即购买</span>
+            </p>
+        </li>
+        <li>
+        	<img src="img/images/oppo_07.png">
+            <p>
+            	<span class="s1">N3</span><br><br>
+                <span class="s2">1600万电动旋转摄像头</span><br>
+                <span class="s3">￥3999&nbsp;立即购买</span>
+            </p>
+        </li>
+        <li>
+        	<img src="img/images/oppo_09.png">
+            <p>
+            	<span class="s1">N3</span><br><br>
+                <span class="s2">1600万电动旋转摄像头</span><br>
+                <span class="s3">￥3999&nbsp;立即购买</span>
+            </p>
+        </li>
+    </ul>
+</div>
+
+<div class="jx">
+	<div class="jx-top">
+    	<p>OPPO<span>ACCESSORY</span>精选配件</p> 
+    </div>
+    <div class="jx-main clearfix">
+    	<div class="main-left fl">
+        	<div class="l-top clearfix">
+            	<div class="t-l fl"><img src="img/images/oppo_15.png">
+                	<span class="s4">可触摸视窗</span>
+                    <span class="s5">OPPO Find7视窗保护皮套</span>
+                    <span class="s6">￥198.00</span>
+                </div>
+                <div class="t-r fr">
+                	<div class="r-1"><img src="img/images/OPPO手机官网-OPPO智能手机,OPPO最新款智能手机在线订购_17-07.png"></div>
+                    <div class="r-2"><img src="img/images/OPPO手机官网-OPPO智能手机,OPPO最新款智能手机在线订购_17-08.png"></div>
+                </div>
+            </div>
+            <div class="bottom">
+            	<img src="img/images/OPPO手机官网-OPPO智能手机,OPPO最新款智能手机在线订购_17-11.png">
+            </div>
+        </div>
+        
+        <div class="main-right fr">
+        	<div class="m-top">
+            	<img src="img/images/OPPO手机官网-OPPO智能手机,OPPO最新款智能手机在线订购_17.png">
+            </div>
+            <div class="l-top clearfix">
+            	<div class="t-l fl"><img src="img/images/OPPO手机官网-OPPO智能手机,OPPO最新款智能手机在线订购_17-09.png"></div>
+                <div class="t-r fr">
+                	<div class="r-1"><img src="img/images/OPPO手机官网-OPPO智能手机,OPPO最新款智能手机在线订购_17-10.png"></div>
+                    <div class="r-2"><img src="img/images/OPPO手机官网-OPPO智能手机,OPPO最新款智能手机在线订购_17-12.png"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="wor">
+	<div class="wor-top">
+    	<p>OPPO<span>ACCESSORY</span>精选配件</p> 
+    </div>
+    <div class="last clearfix">
+        <div class="last-left fl">
+            <ul class="clearfix">
+                <li><a href="#"><img src="img/images/OPPO手机官网-OPPO智能手机,OPPO最新款智能手机在线订购_17-13.png"></a></li>
+                <li><a href="#"><img src="img/images/OPPO手机官网-OPPO智能手机,OPPO最新款智能手机在线订购_17-14.png"></a></li>
+                <li><a href="#"><img src="img/images/OPPO手机官网-OPPO智能手机,OPPO最新款智能手机在线订购_17-17.png"></a></li>
+                <li><a href="#"><img src="img/images/OPPO手机官网-OPPO智能手机,OPPO最新款智能手机在线订购_17-18.png"></a></li>
+            </ul>
+        </div>
+        <div class="last-right fr">
+            <div class="l-t clearfix">
+            	<div class="t-1 fl"><a href="#">新闻</a></div>
+                <div class="t-2 fr"><a href="#">微博</a></div>
+            </div>
+            <div class="t-b">
+            	<ul>
+                	<li class="clearfix">
+                    	<img class="fl" src="img/images/OPPO手机官网-OPPO智能手机,OPPO最新款智能手机在线订购_17-15.png">
+                       <a href="#">业界革命，OPPO发布全球最高灵<br>敏度平板周末耳机</a>
+                    </li>
+                    <li class="clearfix">
+                    	<img class="fl" src="img/images/OPPO手机官网-OPPO智能手机,OPPO最新款智能手机在线订购_17-16.png">
+                       <a href="#">业界革命，OPPO发布全球最高灵<br>敏度平板周末耳机</a>
+                    </li>
+                    <li class="clearfix">
+                    	<img class="fl" src="img/images/OPPO手机官网-OPPO智能手机,OPPO最新款智能手机在线订购_17-19.png">
+                      <a href="#">业界革命，OPPO发布全球最高灵<br>敏度平板周末耳机</a>
+                    </li>
+                    <li class="clearfix">
+                    	<img class="fl" src="img/images/OPPO手机官网-OPPO智能手机,OPPO最新款智能手机在线订购_17-20.png">
+                       <a href="#">业界革命，OPPO发布全球最高灵
+                       <br>敏度平板周末耳机</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="fotter">
+	<div class="f-top">
+    	<ul class="clearfix">
+        	<li class="clearfix">
+            	<img class="fl" src="img/images/OPPO手机官网-OPPO智能手机,OPPO最新款智能手机在线订购_17-21.png">
+                <p class="fr">
+                <span class="ss1">正品保障</span><br>
+                <span class="ss2">所有产品都是正品</span>
+                </p>
+            </li>
+            <li class="clearfix">
+            	<img class="fl" src="img/images/OPPO手机官网-OPPO智能手机,OPPO最新款智能手机在线订购_17-21.png">
+                <p class="fr">
+                <span class="ss1">正品保障</span><br>
+                <span class="ss2">所有产品都是正品</span>
+                </p>
+            </li>
+            <li class="clearfix">
+            	<img class="fl" src="img/images/OPPO手机官网-OPPO智能手机,OPPO最新款智能手机在线订购_17-21.png">
+                <p class="fr">
+                <span class="ss1">正品保障</span><br>
+                <span class="ss2">所有产品都是正品</span>
+                </p>
+            </li>
+            <li class="clearfix">
+            	<img class="fl" src="img/images/OPPO手机官网-OPPO智能手机,OPPO最新款智能手机在线订购_17-21.png">
+                <p class="fr">
+                <span class="ss1">正品保障</span><br>
+                <span class="ss2">所有产品都是正品</span>
+                </p>
+            </li>
+            <li class="clearfix">
+            	<img class="fl" src="img/images/OPPO手机官网-OPPO智能手机,OPPO最新款智能手机在线订购_17-21.png">
+                <p class="fr">
+                <span class="ss1">正品保障</span><br>
+                <span class="ss2">所有产品都是正品</span>
+                </p>
+            </li>
+        </ul>
+    </div>
+    
+    <div class="fotter2 clearfix ">
+    	<div class="ff-1 fl">
+        	<h3><a href="#">关于我们</a></h3>
+        	<ul>
+            	<li><a href="#">关于OPPO</a></li>
+                <li><a href="#">新闻中心</a></li>
+                <li><a href="#">人才招聘</a></li>
+            </ul>
+        </div>
+        <div class="ff-1 fl">
+        	<h3><a href="#">关于我们</a></h3>
+        	<ul>
+            	<li><a href="#">关于OPPO</a></li>
+                <li><a href="#">新闻中心</a></li>
+                <li><a href="#">人才招聘</a></li>
+            </ul>
+        </div>
+        <div class="ff-1 fl">
+        	<h3><a href="#">关于我们</a></h3>
+        	<ul>
+            	<li><a href="#">关于OPPO</a></li>
+                <li><a href="#">新闻中心</a></li>
+                <li><a href="#">人才招聘</a></li>
+            </ul>
+        </div>
+        <div class="ff-1 fl">
+        	<h3><a href="#">关于我们</a></h3>
+        	<ul>
+            	<li><a href="#">关于OPPO</a></li>
+                <li><a href="#">新闻中心</a></li>
+                <li><a href="#">人才招聘</a></li>
+            </ul>
+        </div>
+        <div class="ff-1 fl">
+        	<h3><a href="#">关于我们</a></h3>
+        	<ul>
+            	<li><a href="#">关于OPPO</a></li>
+                <li><a href="#">新闻中心</a></li>
+                <li><a href="#">人才招聘</a></li>
+            </ul>
+        </div>
+        
+        <div class="lx fr clearfix">
+        	<h3>联系我们</h3>
+            <ul>
+            	<li>
+                	<img class="fl" src="img/images/OPPO手机官网-OPPO智能手机,OPPO最新款智能手机在线订购_17-26.png">
+                    <p class="fr">
+                    	<span class="sss1">4001-666-888</span><br>
+                        <span class="sss2">24小时客服电话</span>
+                    </p>
+                </li>
+                <li>
+                	<img class="fl" src="img/images/OPPO手机官网-OPPO智能手机,OPPO最新款智能手机在线订购_17-27.png">
+                    <p class="fr">
+                    	<span class="sss1">在线客服</span><br>
+                        <span class="sss2">服务时段8:00-22:00</span>
+                    </p>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="fotter3 clearfix">
+    	<a class="fl" href="#"><img src="img/images/fotter.png"></a>
+        <a href="#" class="aa fl">@2005-2015东莞市永昌通信科技有限公司 版权所有（粤ICP备  08876879号）</a>
+        <ul class="clearfix fl">
+        	<li><a href="#">版权声明</a></li>
+            <li><a href="#">使用协议</a></li>
+            <li><a href="#">网站地图</a></li>
+            <li><a href="#">友情链接</a></li>
+            <li><a href="#">联系我们</a></li>
+        </ul>
+    </div>
+		
+</div>
+
+</body>
+</html>

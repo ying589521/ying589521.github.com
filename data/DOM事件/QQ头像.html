@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #face{
+            width: 100px;
+            height: 100px;
+            margin-right: 25px;
+            background: hotpink;
+        }
+        #info{
+            width: 200px;
+            height: 200px;
+            display: none;
+            background: greenyellow;
+        }
+        div{
+            float: left;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            var oFace = document.getElementById('face');
+            var oInfo = document.getElementById('info');
+            var timer = null;
+            oInfo.onmouseover=oFace.onmouseover = function(){
+                clearTimeout(timer);
+                timer = setTimeout(function(){
+                    oInfo.style.display = 'block';
+                },300)
+            };
+            oInfo.onmouseout=oFace.onmouseout = function(){
+                timer = setTimeout(function(){
+                    oInfo.style.display = 'none';
+                },300)
+            };
+//             = function(){
+//                clearTimeout(timer);
+//                timer = setTimeout(function(){
+//                    oInfo.style.display = 'block';
+//                },300)
+//            };
+//             = function(){
+//                timer = setTimeout(function(){
+//                    oInfo.style.display = 'none';
+//                },300)
+//            };
+        };
+    </script>
+</head>
+<body>
+<div id="face"></div>
+<div id="info"></div>
+</body>
+</html>

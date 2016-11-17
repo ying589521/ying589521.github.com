@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            background: #CCCCCC;
+        }
+    </style>
+    <script>
+
+            function setStyle(name,value){
+                var oDiv = document.getElementById('box');
+                oDiv.style[name] = value;
+            };   //不能写window.onload
+    </script>
+</head>
+<body>
+<input type="button" value="变宽" onclick="setStyle('width','300px')"/>
+<input type="button" value="变高" onclick="setStyle('height','300px')"/>
+<input type="button" value="变色" onclick="setStyle('background','red')"/>
+<div id="box"></div>
+</body>
+</html>

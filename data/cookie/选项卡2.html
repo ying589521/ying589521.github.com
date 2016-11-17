@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            background: greenyellow;
+            display: none;
+        }
+        div.on{
+            display: block;
+        }
+        input.on{
+            background: deeppink;
+        }
+    </style>
+    <script src="../js/cookie.js"></script>
+    <script>
+        window.onload =function(){
+            var aBtn = document.getElementsByTagName('input');
+            var aDiv = document.getElementsByTagName('div');
+            if(getCookie('hh')){
+                for(var i=0;i<aBtn.length;i++){
+                    aBtn[i].className = '';
+                    aDiv[i].className = '';
+                }
+                aBtn[getCookie('hh')].className = 'on';
+                aDiv[getCookie('hh')].className = 'on';
+            }
+            for(var i=0;i<aBtn.length;i++){
+                aBtn[i].index = i;
+                aBtn[i].onclick = function(){
+                    setCookie('hh',this.index,1);
+                    for(var i=0;i<aBtn.length;i++){
+                        aBtn[i].className = '';
+                        aDiv[i].className = '';
+                    }
+                    aDiv[this.index].className = 'on';
+                    aBtn[this.index].className = 'on';
+                };
+            }
+        };
+    </script>
+</head>
+<body>
+<input type="button" value="aaa" class="on"/>
+<input type="button" value="bbb"/>
+<input type="button" value="ccc"/>
+<div class="on">111</div>
+<div>222</div>
+<div>333</div>
+</body>
+</html>

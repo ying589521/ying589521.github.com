@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        body{
+            background: url("39n58PICFXx_1024.jpg") no-repeat;
+            background-position-x: 180px;
+        }
+        ul{
+            width: 493px;
+            overflow: hidden;
+            background: pink;
+            margin: 260px auto;
+            position: relative;
+        }
+        li{
+            width: 80px;
+            height: 40px;
+            border: 1px solid yellowgreen;
+            position: relative;
+            float: left;
+            text-align: center;
+            line-height: 40px;
+            z-index: 2;
+        }
+        #block_box{
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: darkorchid;
+            z-index: 1;
+        }
+    </style>
+    <script src="elasticMove.js"></script>
+    <script>
+        window.onload = function(){
+            var oUl = document.getElementsByTagName('ul')[0];
+            var aLi = oUl.children;
+            var oBlock = document.getElementById('block_box');
+            var iNow = 0;
+            for(var i=0;i<aLi.length-1;i++){
+                ;(function(index){
+                    aLi[i].onmouseover = function(){
+                        move(oBlock,index*aLi[0].offsetWidth);
+                    };
+                    aLi[i].onmouseout = function(){
+                        move(oBlock,iNow*aLi[0].offsetWidth);
+                    };
+                    aLi[i].onclick = function(){
+                        iNow = index;
+                    };
+                })(i)
+            }
+        };
+    </script>
+</head>
+<body>
+<ul>
+    <li>首页</li>
+    <li>CSS课程</li>
+    <li>JS课程</li>
+    <li>HTML5课程</li>
+    <li>视频教程</li>
+    <li>联系方式</li>
+    <li id="block_box"></li>
+</ul>
+</body>
+</html>

@@ -1,0 +1,139 @@
+//获取一层（一级）子元素
+    父级.children
+//获取一层（一级）父元素
+    obj.parentNode
+//获取body的父级
+    document.body.parentNode
+//下一个兄弟节点
+    var oNext =  obj.nextElementSibling||obj.nextSibling;
+//上一个兄弟节点
+    var oPre = obj.previousElementSibling||obj.previousSibling;
+//获取首节点
+    父级.firstChild
+    var oFirst = obj.firstElementChild||obj.firstChild
+    或者 var oFirst = obj.children[0]
+//获取尾节点
+    父级.lastChild
+    var oLast = obj.lastElementChild||obj.lastChild
+    或者 var oLast = obj.children[obj.children.length-1];
+
+
+//动态创建元素
+    var obj = document.createElement('标签名');
+//添加
+    父级.appendChild(要添加的);   往后面添加
+    父级.insertBefore(要添加的,谁的前面);    往前面添加
+//删除
+    父级.removeChild(要删除的)
+
+弹窗：
+    1.alert:直接弹
+    2.选择弹窗
+        var a = confirm('小灰灰老师漂亮么？');   //confirm选择弹窗 带确定 取消  有返回值
+        alert(a);       //如果上面选择的是确定（返回true）  取消（返回false）
+    3.对话框
+        var a = prompt('小灰灰老师漂亮么？');   //带文本输入框 有返回值（输入上面返回什么）
+        alert(a);    //输入 嘿嘿    就弹出 嘿嘿
+
+window.history   历史记录
+    window.history.forward()   前进
+    window.history.back()      后退
+    window.history.go(数字)    正数为前进  负数为后退  数字大小代表前进后退的页面的个数
+
+
+右下角悬浮窗
+    top = 可视区的高度 - div（物体）的高度  +  滚动条滚动的距离
+    body 简写：document.body
+    html 简写: document.documentElement
+    1.可视区的高度
+        document.documentElement.clientHeight;
+    2.div(物体的高度,盒子模型的高度)高度
+        obj.offsetHeight
+    3.滚动条滚动距离
+        var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        document.body.scrollTop
+        chrome   正常
+        ff  IE   不好使
+        document.documentElement.scrollTop
+        chrome   不好使
+        ff  IE    正常
+
+====================================================================
+
+1.childNode
+    父级.childNode  相比于  父级.children  会获取文本节点
+2.
+    offsetWidth         盒子模型的宽
+    offsetHeight        盒子模型的高
+
+    obj.offsetLeft      距离定位父级左边的距离
+    obj.offsetTop       距离定位父级上边的距离
+
+                            生效的样式的值   在style里面写的某个样式的值
+                            offsetWidth     getStyle
+        单位                没有单位（px）    有px(单位)
+        数据类型				number          string
+    对于display:none的元素	0                200px(原样式的值)
+
+父级：
+    parentNode     结构父级
+    offsetParent   定位父级（最高到body）
+
+图片延迟加载（网站优化）
+    1.一开始的时候没有加载
+    2.某个时机才开始加载
+                滚动距离     可视区高度       scrollHeight（相当于document.body.offsetHeight）
+        时机：当 scrollTop + clientHeight >= img绝对位置top的时候才加载
+    看图片是否加载：network;
+
+自定义属性
+    1）获取自定义属性
+        obj.getAttribute('属性')；
+    2）设置自定义属性
+        obj.setAttribute('属性名','属性值')；
+    3）删除自定义属性
+        obj.removeAttribute('属性名');
+***不光可以设置自定义属性，还可以设置已有的属性
+***用obj.setAttribute()设置的，必须用obj.getAttribute()获取
+
+瀑布流
+    1）宽度相等，高度相等
+    2）加载不完
+offsetHeight  盒子模型的高
+scrollHeight  内容的高
+    当scrollHeight>offsetHeight 的时候 显示内容的高
+
+关于父级：
+    定位父级：obj.offsetParent();  祖宗：body;
+    结构父级：obj.parentNode();    祖宗：document
+
+
+
+事件冒泡：
+    概念：给元素添加事件，元素会一层层的往上找，如果父级有 相同的事件 也会被触发
+        如果没有，就继续往上找 直到document
+阻止事件冒泡：
+    oEvent.cancelBubble = true;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

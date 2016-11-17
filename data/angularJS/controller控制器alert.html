@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html ng-app="index">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="angular.min.js"></script>
+    <script>
+        //获取模块
+        var mk = angular.module('index',[]);
+        //创建控制器
+        mk.controller('main',function($scope){
+            $scope.alert = function(n){
+                alert(n)
+            };;
+        })
+    </script>
+</head>
+<body ng-controller="main">
+<input type="button" value="弹" ng-click="alert(4)"/>
+</body>
+</html>

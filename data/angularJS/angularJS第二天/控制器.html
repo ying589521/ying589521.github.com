@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="angular.js"></script>
+    <script>
+        var app = angular.module('app',[]);
+        app.controller('main',function($scope){
+            $scope.a = 12;
+        })
+    </script>
+</head>
+<body ng-controller="main">
+{{a}}
+</body>
+</html>

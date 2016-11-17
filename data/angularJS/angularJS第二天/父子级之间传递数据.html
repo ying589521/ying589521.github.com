@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="angular.js"></script>
+    <script>
+        var app = angular.module('app',[]);
+        //父级
+        app.controller('aaa',function($scope){
+            $scope.a = 0;
+            //接收
+            $scope.$on('num',function(event,data){
+                $scope.a = data+1;
+            })
+        });
+        //子级
+        app.controller('bbb',function($scope){
+            $scope.a = 0;
+            $scope.change = function(){
+                //发送给父级
+                $scope.$emit('num',$scope.a);
+                //发送给子级
+                $scope.$broadcast('num_list',$scope.a)
+            };
+        });
+        //子级的子级
+        app.controller('ccc',function($scope){
+            $scope.a = 0;
+            //接收数据
+            $scope.$on('num_list',function(event,data){
+                $scope.a = data-1;
+            })
+        });
+    </script>
+</head>
+<body>
+<div ng-controller="aaa">
+    父级:{{a}}
+    <div ng-controller="bbb">
+        子级:
+        <input type="number" ng-model="a" ng-change="change()" />
+        {{a}}
+        <div ng-controller="ccc">
+            子级的子级:
+            {{a}}
+        </div>
+    </div>
+</div>
+</body>
+</html>

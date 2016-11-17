@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="angular.js"></script>
+    <script>
+        var app = angular.module('app',[]);
+        app.controller('main',function($scope){
+            $scope.arr = ['apple','pear','banana','orange','duck']
+        })
+    </script>
+</head>
+<body ng-controller="main">
+<ul>
+
+                            <!--arr中只能出现两项 ,每一项的值只留前三位 -->
+    <li ng-repeat="item in arr|limitTo:2">{{item|limitTo:3}}</li>
+</ul>
+</body>
+</html>

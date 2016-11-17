@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+<meta charset="UTF-8">
+<title></title>
+<style>
+    *{ margin:0; padding:0; list-style:none; font-family: "微软雅黑"}
+    body{
+        width: 100%;
+        height: 100%;
+        background: url("../img/bg.png") center center no-repeat
+    }
+    #login_box{
+        width:300px;
+        padding:10px;
+        background: #f8f7f7;
+        border-radius: 10px 10px;
+        border:1px solid #000;
+        margin:100px auto;
+    }
+</style>
+<script src="../js/jsonp.js"></script>
+<script src="../js/cookie.js"></script>
+<script>
+window.onload = function(){
+    var oUser = document.getElementById('user');
+    var oPass = document.getElementById('pass');
+    var oReg = document.getElementById('reg');
+    var oLogin = document.getElementById('login');
+    var URL = 'http://zhinengshe.com/exercise/im/api.php';
+    //注册
+    oReg.onclick=function(){
+        //?a=reg&user=用户名&pass=密码&face=头像ID&cb=xxx
+        jsonP({
+            url:URL,
+            data:{
+                a:'reg',
+                user:oUser.value,
+                pass:oPass.value,
+                face:1+Math.random()*(8-1)
+            },
+            success:function(json){
+                //{err: 0, msg: "注册成功"}
+                alert(json.msg);
+                if(json.err==0){
+                    alert(json.msg);
+                }else{
+                    alert(json.msg);
+                }
+            }
+        });
+    };
+    //登录
+    oLogin.onclick=function(){
+        //?a=lgn&user=用户名&pass=密码&cb=xxx
+        jsonP({
+            url:URL,
+            data:{
+                a:'lgn',
+                user: oUser.value,
+                pass: oPass.value
+            },
+            success:function(json){
+                //    {err: 0, msg: "登录成功", face: 头像ID, login_time: 上次登录时间, token: "token"}
+                if(json.err==0){
+                    //跳转页面
+                    //alert(json.token);//{13666022-D398-D647-70E2-2C247768EF04}
+                    setCookie('token',json.token,1);//存cookie
+                    setCookie('username',oUser.value,1);//存cookie
+                    window.location.href='chart.html'
+                }
+            }
+        });
+    };
+
+};
+</script>
+</head>
+<body>
+<div id="login_box">
+    用户名：<input id="user" type="text" value="" placeholder="请输入" /><br /><br>
+    密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码:<input id="pass" type="password" value="" /><br /><br />
+    <input id="login" type="button" value="登陆" />
+    <input id="reg" type="button" value="注册" />
+</div>
+</body>
+</html>

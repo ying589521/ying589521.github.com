@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="angular.js"></script>
+    <script>
+        function show(a,b){
+            alert('this=>'+this+',a=>'+a+',b=>'+b);
+        };
+
+        var fn = angular.bind(12,show,7,5);
+        fn();
+    </script>
+</head>
+<body>
+
+</body>
+</html>

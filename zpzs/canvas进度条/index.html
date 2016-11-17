@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+<meta charset="UTF-8">
+<title></title>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    body{
+        background: #000;
+        text-align: center;
+    }
+    canvas{
+        background: #ffffff;
+    }
+</style>
+<script>
+    function d2a(n){
+        return n*Math.PI/180;
+    }
+    function rnd(n,m){
+        return Math.floor(Math.random()*(m-n)+n);
+    }
+    window.onload = function(){
+        var oC = document.querySelector('#c1');
+        var gd = oC.getContext('2d');
+        var cx = oC.width/2,
+            cy = oC.height/ 2,
+            r= 100;
+        var loaded = 0;
+        var total = 100;
+
+        //渐变颜色
+        var lg = gd.createLinearGradient(300,200,500,400);
+        lg.addColorStop(0,'orange');
+        lg.addColorStop(0.5,'purple');
+        lg.addColorStop(1,'aqua');
+
+        var timer = setInterval(function(){
+            gd.clearRect(0,0,oC.width,oC.height);
+            loaded++;
+            var scale = loaded/total;
+
+            //文字
+            var str = (scale*100).toFixed(2)+'%';
+            //设置字体的大小及样式
+            gd.font = '30px 微软雅黑';
+
+            //文字水平垂直居中
+            gd.textAlign = 'center';
+            gd.textBaseline = 'middle';
+            gd.fillText(str,cx,cy);
+
+            //文字也渐变了
+            gd.fillStyle =  lg;
+
+
+
+
+            drawArc(scale*360,lg);
+            if(loaded==total){
+                clearInterval(timer);
+            }
+        },16);
+        function drawArc(e,color){
+            color = color||'black';
+            gd.beginPath();
+            gd.arc(cx,cy,r,d2a(0),d2a(e),false);
+            gd.lineWidth = 20;
+            gd.strokeStyle = color;
+            gd.stroke();
+        }
+
+    };
+</script>
+</head>
+<body>
+<canvas id="c1" width="800" height="600"></canvas>
+</body>
+</html>
+
+
+
+

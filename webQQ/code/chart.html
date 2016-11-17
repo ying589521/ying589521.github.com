@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+<meta charset="UTF-8">
+<title></title>
+<style>
+    *{ margin:0; padding:0; list-style:none; font-family: "微软雅黑","张海山锐线体简"}
+
+    #div1{ position: absolute;width:100%; height:99%;}
+    #left{ position:absolute;left:0;top:0;width:79%; height:100%; -background:yellow;}
+    #content{position:absolute;left:0;top:0;width:100%; height:79%; -background:pink;overflow-x:hidden;overflow-y:auto;}
+    #content dl{border-bottom:1px dashed #999; margin-bottom:0.2em;}
+    #content dl dt span{ font-size: 16px; font-weight:bold;}
+    #content dl dt strong{ font-weight:normal; font-size:12px;color:#999;}
+    #content dl dd{ padding-left:2em;font-size: 14px;}
+    #input_box{position:absolute;left:0;bottom:0;width:100%; height:20%; background:#ccc;border-top:10px solid #000;}
+    #input_box textarea{width:100%; height:100%; border:none; resize:none;}
+    #exit{position:absolute;right:5%; top:5%; padding:10px; font-weight:bold; z-index:99999999;}
+    #btn_send{ position:absolute;right:5%; bottom:30%; padding:10px; font-weight:bold;}
+
+    #right{ position:absolute;right:0;top:0;width:20%; height:100%; border-left:10px solid #000; background:green;
+        overflow-x:hidden;overflow-y:auto;
+
+    }
+    #right li{overflow:hidden; text-overflow:ellipsis; white-space:nowrap;margin: 2px;
+        background: #eee;padding:5px;}/* 文字超出显示省略号*/
+    #right li img{width:40px;vertical-align:middle;margin-right:20px;}
+</style>
+<script src="../js/jsonp.js"></script>
+<script src="../js/cookie.js"></script>
+<script>
+window.onload = function(){
+    var oBtnSend=document.getElementById('btn_send');
+    var oTxt=document.getElementById('txt1');
+    var oContent=document.getElementById('content');
+    var oRight=document.getElementById('right');
+    var oExit=document.getElementById('exit');
+
+    var URL='http://zhinengshe.com/exercise/im/api.php';
+
+    var toKenContent=getCookie('token');
+    var username=getCookie('username');
+    //发言
+    oBtnSend.onclick=function(){
+        //?a=snd_msg&content=内容&token=&cb=xxx
+        jsonP({
+            url:URL,
+            data:{
+                a:'snd_msg',
+                content:oTxt.value,
+                token:toKenContent    //取cookie
+            },
+            success:function(json){
+                //{err: 0, time: 发布时间, ID: 消息ID}
+                json.content=oTxt.value;
+                json.username=username;    //取cookie
+                //{err: 0, time: 发布时间, ID: 消息ID,content:xxx,username:xxx}
+                createDl(json);
+                oTxt.value='';
+            }
+        })
+    };
+
+    //完整获取聊天记录
+    jsonP({
+        url:URL,
+        data:{
+            a:'get_msg',
+            token:toKenContent
+        },
+        success:function(json){
+            //    {err: 0, data: [{ID: 消息ID, post_time: 消息时间,content: 消息内容,username: 发言用户},...]}
+            if(json.err==0){
+                var arr=json.data;
+                for(var i=0;i<arr.length;i++){
+                    createDl(arr[i]);
+                }
+            }
+        }
+    });
+
+    //获取用户列表
+    jsonP({
+        url:URL,
+        data:{
+            a:'get_user_list',
+            token:toKenContent
+        },
+        success:function(json){
+            //{err: 0, data: [{ID: 用户ID,username: 用户名,face: 用户头像}]}
+
+            if(json.err==0){
+                var arr=json.data;
+                for(var i=0;i<arr.length;i++){
+                    var oLi=document.createElement('li');
+
+                    if(arr[i].face<1) arr[i].face=1;
+                    if(arr[i].face>8) arr[i].face=8;
+
+                    oLi.innerHTML='<img src="images/face/'+arr[i].face+'.jpg" />'+arr[i].username;
+                    oRight.appendChild(oLi);
+                }
+            }
+        }
+    });
+
+    //退出登录
+    //?a=logout&token=&cb=xxx
+    oExit.onclick=function(){
+        jsonP({
+            url:URL,
+            data:{
+                a:'logout',
+                token:toKenContent
+            },
+            success:function(json){
+                //{err: 0, msg: "成功退出登录"}
+                if(json.err==0){
+                    window.location.href='login.html';
+                }else{
+                    alert('网断了')
+                }
+            }
+        });
+    };
+
+    //获取更新
+    // ?a=get_msg_n&n=消息ID&token=&cb=xxx
+    var lastId=0;
+    setInterval(updatMsg,1000);
+    function updatMsg(){
+        //console.log('请求:',lastId);
+        jsonP({
+            url:URL,
+            data:{
+                a:'get_msg_n',
+                n: lastId,//请求新信息的起始点
+                token:toKenContent
+            },
+            success:function(json){
+                //{err: 0, data: [{ID:'1',post_time:'1364873875',content:'asdfsdf',face:'1',username:'test',to:'发给谁'},...]}
+                if(json.err==0){
+                    var arr=json.data;
+                    for(var i=0;i<arr.length;i++){
+                        createDl(arr[i]);
+                    }
+                }
+            }
+        });
+    };
+    // 创建一条聊天记录
+    function createDl(json){
+        //{err: 0, time: 发布时间, ID: 消息ID,content:xxx,username:xxx}发言后返回的数据
+        //{ID: 消息ID, post_time: 消息时间,content: 消息内容,username: 发言用户}获取所有信息返回的
+        //{ID:'101',post_time:'1364873875',content:'asdfsdf',face:'1',username:'test',to:'发给谁'}实时更新返回的
+
+        lastId=json.ID;
+        //console.log('更新:',lastId)
+
+        //整理返回的时间
+        var time=json.time||json.post_time;
+
+        var oDl=document.createElement('dl');
+
+        var d=new Date();
+        d.setTime(time*1000)
+        oDl.innerHTML=
+                '<dt><span>'+json.username+'</span><strong>'+d+'</strong></dt>\
+                <dd>'+json.content+'</dd>';
+        oContent.appendChild(oDl);
+
+        //控制滚动条
+        //oContent.scrollTop=oContent.scrollHeight-oContent.offsetHeight;
+        oContent.scrollTop=oContent.scrollHeight;
+    }
+};
+</script>
+</head>
+<body>
+<div id="div1">
+    <div id="left">
+        <input type="button" id="exit" value="注销">
+        <div id="content">
+            <!--<dl>
+                <dt><span>昵称</span>   <strong>时间</strong></dt>
+                <dd>聊天内容</dd>
+            </dl>-->
+        </div>
+        <div id="input_box">
+            <textarea id="txt1"></textarea>
+            <input id="btn_send" type="button" value="发送" />
+
+        </div>
+    </div>
+    <ul id="right">
+        <!--<li><img src="images/face/1.jpg" />昵称</li>-->
+    </ul>
+</div>
+</body>
+</html>

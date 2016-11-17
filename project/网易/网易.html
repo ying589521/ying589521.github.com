@@ -1,0 +1,3816 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<link rel="stylesheet" href="base.css" />
+<style>
+/*头部*/
+.hd{
+	min-width:960px;
+	height:43px;
+	background:#333;
+	border-bottom:2px solid #606060;
+	font:12px/43px '微软雅黑';
+}
+.hd a{
+	color:#fff;	
+}
+.hd span{
+	border:4px solid transparent;
+	border-top:4px solid #c2c2c2;
+	margin-top:20px;	
+}
+.hd .hd_1{
+	margin:0 9px 0 13px;
+}
+.hd .hd_2{
+	margin-left:32px;	
+}
+.hd .hd_r1{
+	padding:0 21px;
+	height:49px;
+	background:url(images/logo_bg.png);
+}
+.hd .hd_r2{
+	margin:0 8px 0 13px;	
+}
+.hd .hd_r{
+	margin-right:13px;	
+}
+.hd_r_l{
+	border-right:1px solid #1f1f1f;	
+}
+.hd li{
+	padding:0 5px 0 8px;
+	border-left:1px solid #3f3f3f;
+	border-right:1px solid #1f1f1f;
+	height:43px;	
+}
+.hd li span{
+	margin-left:2px;	
+}
+.hd ul .a1{
+	width:56px;
+	height:13px;
+	background:url(images/nav_sprite_v28.png) -14px -399px;
+	margin-top:16px;	
+}
+.hd ul .a2{
+	width:25px;
+	height:15px;
+	background:url(images/nav_sprite_v28.png) -14px -27px;
+	margin-top:15px;	
+}
+.hd ul .a3{
+	width:25px;
+	height:17px;
+	background:url(images/nav_sprite_v28.png) -15px -48px;
+	margin-top:14px;	
+}
+.hd ul .a4{
+	width:25px;
+	height:17px;
+	background:url(images/nav_sprite_v28.png) -14px -96px;
+	margin-top:15px;	
+}
+.hd ul .a5{
+	width:25px;
+	height:21px;
+	background:url(images/nav_sprite_v28.png) -14px -478px;
+	margin-top:12px;	
+}
+.hd ul .a5{
+	width:50px;
+	height:13px;
+	background:url(images/nav_sprite_v28.png) -14px -120px;
+	margin-top:17px;	
+}
+.hd ul{
+	border-right:1px solid #3f3f3f;
+}
+/*logo*/
+.logo h1 a{
+	width:122px;
+	height:38px;
+	display:block;
+	background:url(images/logo.png);
+	text-indent:-999em;
+}
+.logo{
+	padding-bottom:15px;
+	margin-bottom:10px;
+	border-bottom:4px solid #206f96;
+}
+.logo h1{
+	margin-top:33px;	
+}
+.logo div{
+	margin-top:31px;	
+}
+.logo .img1{
+	margin-right:15px;	
+}
+/*toplist*/
+.toplist{
+	border-right:1px dashed #dcdddd;	
+}
+.toplist dl{
+	font:12px/22px '微软雅黑';
+	width:148px;
+}
+.toplist dt{
+	font-weight:bold;
+	margin:0 18px;	
+}
+.toplist dd{
+	margin-right:20px;	
+}
+.l1 dt{
+	margin-left:0;
+}
+.l1 dl{
+	width:173px;	
+}
+.toplistout .l2 dl{
+	padding-left:18px	
+}
+.toplistout .l3 dl{
+	width:160px;	
+}
+.toplistout .l6{
+	border-right:none;	
+}
+.toplistout .cen{
+	margin-right:0;
+}
+.toplistout{
+	width:980px;	
+}
+.toplist-w{
+	overflow:hidden;
+	margin-bottom:15px;	
+}
+/*topnews*/
+.topnews{
+	border:1px solid #dcdddd;
+	margin-bottom:20px;
+}
+.topnews_1 li{
+	margin:1px;	
+}
+.topnews_1 a{
+	width:18px;
+	font:12px/14px '微软雅黑';
+	padding:12px 0;
+	text-align:center;
+	background:#e6eaed;
+	color:#376a77;
+}
+.topnews_1 span{
+	border:4px solid transparent;
+	border-left:4px solid #d1dae1;
+	margin-top:24px;
+	display:none;	
+}
+.topnews_1 .cur a,.topnews_1 li:hover a{
+	background:#d1dae1;
+	color:#376a77;	
+}
+.topnews_1 .cur span,.topnews_1 li:hover span{
+	display:block;	
+}
+.topnews_2{
+	width:140px;
+	margin:7px 0;	
+}
+.topnews_2 a{
+	display:block;
+	font:12px/24px '微软雅黑';
+	color:#376a77;	
+}
+.topnews_3{
+	width:627px;
+	padding-top:10px;
+	padding-bottom:8px;	
+}
+.topnews_3 .mid{
+	position:absolute;
+	top:30px;
+	left:0;	
+}
+.topnews_3 div a{
+	margin-right:17px;
+	font:12px/20px '微软雅黑';
+	color:#376a77;	
+}
+.topnews_3 .in{
+	margin-top:100px;	
+}
+.topnews_4{
+	width:135px;
+	margin:7px 0;	
+}
+.topnews_4 a{
+	display:block;
+	font:12px/24px '微软雅黑';
+	color:#376a77;	
+}
+.topnews_5 span{
+	border-right:4px solid #d1dae1;
+	border-left:none;	
+}
+/*黄晓明和杨幂的故事*/
+.hxm{
+	width:660px;	
+}
+.hxm_l{
+	width:330px;	
+}
+.hxm_l1 p{
+	font:bold 14px/40px '微软雅黑';
+	padding-left:9px;
+	width:301px;
+	background:rgba(0,0,0,0.4);
+	position:absolute;
+	top:180px;
+	left:0;	
+}
+.hxm_l1 i{
+	width:19px;
+	height:33px;
+	background:url(images/icon_v9.png) 0 -1px;
+	position:absolute;
+	top:50%;
+	left:6px;
+	margin-top:-17px;
+}
+.hxm_l1 b{
+	width:19px;
+	height:33px;
+	background:url(images/icon_v9.png) -10px -45px;
+	position:absolute;
+	top:50%;
+	right:25px;
+	margin-top:-17px;
+}
+.hxm_l1 p a{
+	color:#fff;	
+}
+.hxm_l1 ul li{
+	width:24px;
+	height:5px;
+	background:#e4e4e4;
+	margin:0 4px;
+	cursor:pointer;	
+}
+.hxm_l1 ul{
+	margin:14px 0 26px 59px;
+}
+.hxm_l1 .cur,.hxm_l1 li:hover{
+	background:#206f96;
+}
+.hxm_l2 .nav{
+	border-top:2px solid #206f96;
+	width:310px;
+	margin-bottom:18px;
+}
+.hxm_l2 .nav a{
+	width:102px;
+	font:14px/29px '微软雅黑';
+	background:#f9f9f9;	
+	border-left:1px solid #cfcfcf;
+	border-bottom:1px solid #cfcfcf;
+	text-align:center;
+}
+.hxm_l2 .nav .last{
+	border-right:1px solid #cfcfcf;	
+}
+.hxm_l2 .nav .cur,.hxm_l2 .nav a:hover{
+	background:#fff;
+	border-bottom:none;
+	font-weight:bold;	
+}
+.hxm_l2 .vod p{
+	font:12px/30px '微软雅黑';	
+}
+.hxm_l2 .vod em{
+	width:37px;
+	height:37px;
+	background:url(images/youku.png) -59px -60px;
+	position:absolute;
+	top:-1px;
+	left:0;	
+}
+.hxm_l2 .vod strong{
+	width:15px;
+	height:15px;
+	background:url(images/icon_v9.png) -46px -90px;
+	position:absolute;
+	right:8px;
+	bottom:34px;	
+}
+.hxm_l2 .vod .vod1{
+	margin-right:40px;	
+}
+.hxm_l2{
+	margin-bottom:11px;	
+}
+.hxm_l3 li i{
+	width:3px;
+	height:3px;
+	background:#c5c5c5;
+	margin:11px 6px 0 0;	
+}
+.hxm_l3 li em{
+	width:15px;
+	height:15px;
+	background:url(images/icon_v9.png) -46px -90px;
+	margin:5px 4px 0 0;	
+}
+.hxm_l3 li a{
+	font:14px/27px '微软雅黑';	
+}
+.hxm_l3{
+	margin-bottom:16px;	
+}
+.hxm_l3_2{
+	margin-bottom:22px;		
+}
+.hxm_l4 .vod .opc{
+	width:130px;
+	background:rgba(0,0,0,0.8);
+	position:absolute;
+	left:0;
+	bottom:33px;	
+}
+.hxm_l4 .opc span{
+	font:12px/20px '微软雅黑';
+	color:#fff;
+	margin:0 8px 0 5px;	
+}
+.hxm_l4 .opc b{
+	width:10px;
+	height:10px;
+	background:url(images/icon_man.png);
+	margin-top:5px;	
+}
+.hxm_l4 .vod i{
+	font:12px/20px '微软雅黑';
+	color:#fff;
+	padding:0 6px;
+	background:#f44103;
+	position:absolute;
+	top:0;
+	right:0;	
+}
+.hxm_l4 .vod p{
+	font:12px/34px '微软雅黑';	
+}
+.hxm_l4 .vod1{
+	margin-right:40px;	
+}
+.hxm_l4{
+	margin-top:21px;	
+}
+/*hxm_c*/
+.hxm_c{
+	width:330px;	
+}
+.hxm_c1{
+	font:14px/27px '微软雅黑';
+	padding-top:10px;
+	margin-bottom:22px;	
+}
+.hxm_c1 b{
+	width:3px;
+	height:3px;
+	background:#c5c5c5;
+	margin:11px 6px 0 0;	
+}
+.hxm_c1 em{
+	width:92px;
+	height:18px;
+	background:url(images/taidu.png);	
+}
+.hxm_c1 i{
+	margin:0 10px;
+	color:#c1c1c1;	
+}
+.hxm_c1 .a1{
+	margin-right:8px;	
+}
+.hxm_l2 .nav .hotnews{
+	height:29px;
+	background:url(images/hotnews.png);
+	border-bottom:none;	
+}
+.scroll{
+	margin:16px 0 8px 52px;	
+}
+.scroll .s1{
+	width:8px;
+	height:12px;
+	background:url(images/icon_v9.png) 0 -805px;
+	margin-right:12px;
+	margin-top:0;	
+}
+.scroll .s2{
+	width:8px;
+	height:12px;
+	background:url(images/icon_v9.png) -10px -805px;
+	margin-left:12px;
+	margin-top:0;	
+}
+.scroll li{
+	width:24px;
+	height:5px;
+	background:#e4e4e4;
+	margin:4px 1px 3px 1px;	
+}
+.scroll .cur{
+	background:#206f96;	
+}
+.hxm_l3 b{
+	width:17px;
+	height:16px;
+	background:url(images/bobo.png);
+	margin:6px 7px 0 0;	
+}
+.hxm_l3 .bobo{
+	font-weight:bold;
+	margin-right:14px;	
+}
+.hxm_left{
+	width:660px;	
+}
+.boxnews{
+	border:1px solid #ddd;
+	margin-top:25px;
+	margin-bottom:12px;
+	padding:5px 0 6px 0;	
+}
+.boxnews li{
+	padding-left:10px;
+	width:309px;
+	font:14px/27px '微软雅黑';	
+}
+.boxnews li i{
+	width:3px;
+	height:3px;
+	background:#c5c5c5;
+	margin:10px 6px 0 0;	
+}
+.boxnews li .a1{
+	margin-right:8px;	
+}
+/*ym*/
+.ym{
+	width:300px;	
+}
+.ym_1 h3{
+	font:bold 14px/29px '微软雅黑';
+	padding-left:10px;
+	width:105px;
+	background:url(images/bd2.png);
+	border-top:2px solid #206f96;
+	border-left:1px solid #cfcfcf;
+	border-bottom:1px solid #cfcfcf;			
+}
+.ym_2{
+	font:12px/23px '微软雅黑';
+	border:1px solid #cfcfcf;
+	border-top:none;	
+}
+.ym_21 span{
+	width:21px;
+	height:17px;
+	background:url(images/icon_v9.png) -4px -180px;
+	position:absolute;
+	top:50%;
+	left:16px;
+	margin-top:-7px;	
+}
+.ym_21_in{
+	width:248px;
+	margin:20px 0 14px 50px;
+}
+.ym_21_in a{
+	margin-right:11px;	
+}
+.ym_22 span{
+	width:29px;
+	height:23px;
+	background:url(images/icon_v9.png) -2px -224px;
+	position:absolute;
+	top:50%;
+	left:16px;
+	margin-top:-7px;	
+}
+.ym_22{
+	background:#f7f7f7;	
+}
+.ym_2{
+	margin-bottom:12px;	
+}
+.ym_3{
+	margin-top:12px;
+	border:1px solid #cfcfcf;
+	font:14px/27px '微软雅黑';
+	padding:10px;
+	margin-bottom:12px;	
+}
+.ym_3_t h3{
+	font-weight:bold;
+	margin-left:8px;	
+}
+.ym_3_t i{
+	width:22px;
+	height:22px;
+	background:url(images/nav_sprite_v28.png) -14px -160px;
+	margin:3px 6px 0 20px;
+}
+.ym_3_b b{
+	width:3px;
+	height:3px;
+	background:#c5c5c5;
+	margin:12px 9px 0 0;	
+}
+.ym_4{
+	border:1px solid #e3e3e3;
+	background:#f9f9f9;	
+}
+.ym_4_t a{
+	width:73px;
+	font:13px/30px '微软雅黑';
+	text-align:center;
+	color:#376a77;
+	border-right:1px solid #e3e3e3;
+	border-bottom:1px solid #e3e3e3;	
+}
+.ym_4_t .last{
+	border-right:none;	
+}
+.ym_4_t .cur{
+	width:76px;	
+}
+.ym_4_t .cur,.ym_4_t a:hover{
+	border-bottom:none;
+	font-weight:bold;	
+}
+.ym_4_t{
+	margin-bottom:9px;	
+}
+.ym_4 img{
+	margin:0 0 8px 9px;
+}
+.ym_4_b b{
+	margin:12px 5px 0 13px;
+}
+.ym_4_b li{
+	font:12px/26px '微软雅黑';	
+}	
+.ym_4_b{
+	margin-bottom:5px;	
+}
+/*体育彩票*/
+.sport{
+	margin-top:10px;	
+}
+.sport_l{
+	width:660px;
+}
+.sport_l_l{
+	width:330px;	
+}
+.sport_l1 {
+	margin-bottom:9px;
+	border-bottom:1px dotted #c0c0c0;
+	margin-right:30px;
+}
+.sport_l1 .inleft{
+	width:140px;	
+}
+.inleft img{
+	margin-top:7px;	
+}
+.inleft .main{
+	font:12px/32px '微软雅黑';	
+}
+.inright{
+	font:12px/26px '微软雅黑';	
+}
+.inright b{
+	margin:12px 5px 0 0;	
+}
+.inright i{
+	width:15px;
+	height:15px;
+	background:url(images/icon_v9.png) -46px -90px;
+	margin:5px 4px 0 0;	
+}
+.sport_r{
+	width:300px;	
+}
+.sport_t{
+	border-top:2px solid #206f96;
+	border-left:1px solid #cfcfcf;
+	border-right:1px solid #cfcfcf;	
+}
+.sport_t a{
+	width:148px;
+	font:14px/29px '微软雅黑';
+	text-align:center;
+	border-bottom:1px solid #cfcfcf;
+	background:url(images/gezhongbeijingtu.png);		
+}
+.sport_t .cur{
+	border-right:1px solid #cfcfcf;	
+	width:149px;	
+}
+.sport_t .cur,.sport_t a:hover{
+	font-weight:bold;
+	border-bottom-color:#fff;
+	background:#fff;	
+}
+.sport_r1{
+	padding:21px 0 5px 13px;
+	border-left:1px solid #cfcfcf;
+	border-right:1px solid #cfcfcf;	
+}
+.sport_r1_l p{
+	font:12px/25px '微软雅黑';
+	padding-left:4px;
+	color:#fff;
+	width:126px;
+	background:rgba(0,0,0,0.6);
+	position:absolute;
+	left:0;
+	bottom:0;	
+}
+.sport_r1_r{
+	font:12px/25px '微软雅黑';
+	margin-left:10px;	
+}
+.sport_r1_r b{
+	margin:11px 5px 0 0;	
+}
+.sport_r2{
+	padding-top:3px;
+	border-left:1px solid #cfcfcf;
+	border-right:1px solid #cfcfcf;
+	border-bottom:1px dotted #cfcfcf;	
+}
+.sport_r2 .sport_r1_l{
+	margin:15px 0 15px 14px;
+}
+.sport_r3{
+	font:14px/27px '微软雅黑';
+	padding-top:6px;
+	padding-bottom:21px;
+	border:1px solid #cfcfcf;
+	border-top:none;
+}
+.sport_r3 b{
+	margin:13px 6px 0 13px;	
+}
+/*财经*/
+.economic{
+	margin-top:	
+}
+.sport_l_l .ineco{
+	font:12px/30px '微软雅黑';
+	margin-left:98px;
+	width:210px;	
+}
+.ineco a{
+	color:#666;	
+}
+.ineco span{
+	width:15px;
+	height:15px;
+	background:url(images/icon_v9.png) -46px -90px;
+	margin:8px 12px 0 5px;
+}
+.ineco .cent{
+	width:41px;
+	text-align:center;	
+}
+.ineco .last{
+	width:58px;
+	text-align:center;	
+}
+.refer{
+	margin-top:15px;
+	margin-left:72px;
+}
+.refer .an1{
+	border:1px solid #e3e3e3;
+	width:49px;
+	line-height:21px;
+	padding-left:9px;	
+}
+.refer img{
+	position:absolute;
+	top:0;
+	right:0;	
+}
+.refer .an2{
+	width:106px;
+	height:21px;
+	border:1px solid #e3e3e3;
+	margin:0 6px;
+	background:#f8f8f8;		
+}
+.refer .an3{
+	width:46px;
+	height:23px;
+	border:1px solid #e3e3e3;
+	background:#f8f8f8;	
+}
+.sport_r{
+	width:300px;	
+}
+.sport_r1_t a{
+	width:73px;
+	text-align:center;
+	font:14px/30px '微软雅黑';
+	color:#376a77;
+	border-left:1px solid #e3e3e3;
+	border-bottom:1px solid #e3e3e3;
+	background:#f9f9f9;	
+}
+.sport_r1_t{
+	border-top:1px solid #e3e3e3;
+	border-right:1px solid #e3e3e3;	
+}
+.sport_r_1 .cur{
+	width:76px;
+}
+.sport_r1_t .cur,.sport_r1_t a:hover{
+	border-bottom-color:#f9f9f9;
+	font-weight:bold;	
+}
+.sport_r1_up .dingwei img{
+	width:280px;
+	height:168px;
+	margin:18px 0 21px 9px;	
+}
+.sport_r1_up .dingwei p{
+	font:14px/30px '微软雅黑';
+	padding-left:9px;
+	color:#fff;
+	width:271px;
+	background:rgba(0,0,0,0.6);
+	position:absolute;
+	left:9px;
+	bottom:21px;	
+}
+.sport_r1_up .dingwei i{
+	width:19px;
+	height:34px;
+	background:url(images/icon_v9.png) 0 0;
+	position:absolute;
+	top:50%;
+	left:19px;
+	margin-top:-17px;	
+}
+.sport_r1_up .dingwei b{
+	width:19px;
+	height:34px;
+	background:url(images/icon_v9.png) -10px -45px;
+	position:absolute;
+	top:50%;
+	right:19px;
+	margin-top:-17px;	
+}
+.sport_r1_up .tiao{
+	margin:10px 0 5px 78px;	
+}
+.sport_r1_up .tiao a{
+	width:24px;
+	height:5px;
+	background:#e4e4e4;
+	margin:0 4px;	
+}
+.sport_r1_up .tiao .cur,.sport_r1_up .tiao a:hover{
+	background:#7bbedf;	
+}
+.sport_r1_up_b{
+	font:14px/23px '微软雅黑';	
+}
+.sport_r1_up_b i{
+	margin:10px 5px 0 9px;	
+}
+.sport_r1_up .jiu{
+	margin-left:9px;	
+}
+.sport_r1_up{
+	border:1px solid #e3e3e3;
+	border-top:none;
+	padding-bottom:9px;
+	background:#f9f9f9;	
+}
+/*汽车*/
+/*北京房产*/
+.wyshop{
+	border:1px solid #cfcfcf;
+	border-top:none;	
+}
+.wyshop .baijin{
+	margin:18px 0 7px 9px;
+}
+.wyshop .list{
+	width:276px;
+	margin:0 9px 0 10px;
+	border-top:1px dotted #c1c1c1;
+	font:12px/42px '微软雅黑';	
+}
+.wyshop .list a{
+	margin-right:17px;
+	corlor:#000;	
+}
+.wyshop .chexian{
+	margin:0 0 10px 9px;	
+}
+/*女人*/
+.game{
+	padding:18px 9px 0 13px;
+	border:1px solid #cfcfcf;
+	border-top:none;	
+}
+.game_c{
+	font:14px/27px '微软雅黑';
+	padding-top:6px;	
+}
+.game_c i{
+	width:3px;
+	height:3px;
+	background:#c5c5c5;
+	margin:11px 6px 0 0;
+}
+.game_b{
+	padding-bottom:22px;
+	font:12px/36px '微软雅黑';
+	margin-left:130px;	
+}
+.game_b a{
+	color:#666;	
+}
+.game_b em{
+	width:15px;
+	height:15px;
+	background:url(images/icon_v9.png) -45px -89px;
+	margin:10px 12px 0 5px;	
+}
+.game_b i{
+	margin-right:8px;	
+}
+/*博客*/
+.state{
+	border:1px solid #cfcfcf;
+	border-top:2px solid #206f96;		
+}
+.state_t{
+	font:14px/29px '微软雅黑';
+	background:url(images/last1.png);
+	border-bottom:1px solid #cfcfcf;
+	padding:0 10px;
+}
+.state_b{
+	padding:15px 0 22px 0;
+	font:14px/27px '微软雅黑';	
+}
+.state_b i{
+	margin:11px 7px 0 13px;	
+}
+/*footnav*/
+.footnav{
+	border-top:2px solid #206f96;
+	border-left:1px solid #cfcfcf;
+}
+.footnav a{
+	width:102px;
+	text-align:center;
+	font:14px/29px '微软雅黑';
+	color:#000;
+	border-right:1px solid #cfcfcf;
+	border-bottom:1px solid #cfcfcf;
+	background:url(images/footnav.png);	
+}
+.footnav .cur,.footnav a:hover{
+	font-weight:bold;
+	background:#fff;
+	border-bottom:none;	
+}
+.images{
+	margin:18px 0 96px 0;	
+}
+/*foot*/
+.ft_main{
+	min-width:960px;
+	background:#f6f6f6;
+	border-top:1px solid #ddd;
+	padding-top:28px;	
+}
+.ft_main .list_fnav{
+	width:138px;
+	height:150px;
+	padding-left:12px;
+	background:#e8e8e8;
+	margin:0 12px 12px 0;	
+}
+.ft_main .imgs{
+	background:#f6f6f6;
+}
+.ft_main .list_fnav .fs{
+	font:12px/26px '微软雅黑';
+	margin-top:5px;
+	color:#252525;	
+	font-weight:bold;
+	clear:right;
+	width:100px;
+}
+.ft_main .list_fnav li{
+	font:12px/24px '微软雅黑';
+	width:69px;	
+	float:left;
+}
+.ft_main .in{
+	width:990px;
+	margin:0 auto;
+	border-bottom:1px solid #ddd;
+}
+.ft_main .list_fnav:hover{
+	background:blue;	
+}
+.ft_main .list_fnav:hover a{
+	color:#fff;	
+}
+.ft_main .list_fnav li a:hover{
+	text-decoration:underline;	
+}
+.ft_main .haha:hover{
+	background:#f6f6f6;	
+}
+.wy_map{
+	margin-right:30px;	
+}
+.wy_map a{
+	font:12px/52px '微软雅黑';	
+}
+.wy_map span{
+	width:15px;
+	height:15px;
+	background:url(images/icon_v9.png) -46px -90px;
+	margin:18px 12px 0 5px;
+}
+.foot_c{
+	padding:39px 0 47px 0;
+	border-top:1px solid #fff;
+	font:12px/26px '微软雅黑';	
+}
+.foot_c ul{
+	margin-right:47px;	
+}
+/*over*/
+.over{
+	min-width:960px;
+	background:#333;
+	height:39px;	
+}
+.over_haha{
+	padding-top:14px;
+}
+.over_haha a{
+	font:12px '微软雅黑';
+	color:#fff;
+}
+.over_haha dt{
+	margin-right:14px;	
+}
+.over_haha dd{
+	width:73px;
+	text-align:center;
+	border-left:1px solid #616161;	
+}
+</style>
+</head>
+
+<body>
+	<!--头部-->
+    <div class="hd">
+    	<div class="w clearfix">
+            <a href="#" class="fl hd_1">首页</a>
+            <span class="fl"></span>
+            <a href="#" class="fl hd_2">设为首页</a>
+            <div class="fr clearfix">
+                <a href="#" class="fl hd_r1">登录</a>
+                <div class="fl clearfix hd_r_l">
+                    <a href="#" class="fl hd_r2">注册免费邮箱</a>
+                    <span class="fl hd_r"></span>
+                </div>
+                <ul class="clearfix fl">
+                	<li class="fl clearfix">
+                    	<a class="fl a1" href="#"></a>
+                        <span class="fl"></span>
+                    </li>
+                    <li class="fl clearfix">
+                    	<a class="fl a2" href="#"></a>
+                        <span class="fl"></span>
+                    </li>
+                    <li class="fl clearfix">
+                    	<a class="fl a3" href="#"></a>
+                        <span class="fl"></span>
+                    </li>
+                    <li class="fl clearfix">
+                    	<a class="fl a4" href="#"></a>
+                        <span class="fl"></span>
+                    </li>
+                    <li class="fl clearfix">
+                    	<a class="fl a5" href="#"></a>
+                        <span class="fl"></span>
+                    </li>
+                    <li class="fl clearfix">
+                    	<a class="fl a1" href="#"></a>
+                        <span class="fl"></span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--logo-->
+    <div class="w logo clearfix">
+    	<h1 class="fl"><a href="#">网易</a></h1>
+        <div class="fr">
+        	<a class="fl img1" href="#"><img src="images/top_ad1.png" /></a>
+            <a class="fl" href="#"><img src="images/top_ad2.png" /></a>
+        </div>
+    </div>
+    <!--toplist-->
+    <div class="w clearfix toplist-w">
+    	<div class="toplistout clearfix">
+            <div class="fl toplist l1">
+                <dl class="clearfix">
+                    <dt class="fl"><a href="#">新闻</a></dt>
+                    <dd class="fl"><a href="#">军事</a></dd>
+                    <dd class="fl"><a href="#">军事</a></dd>
+                    <dd class="fl cen"><a href="#">军事</a></dd>
+                </dl>
+                <dl class="clearfix">
+                    <dt class="fl"><a href="#">新闻</a></dt>
+                    <dd class="fl"><a href="#">军事</a></dd>
+                    <dd class="fl"><a href="#">军事</a></dd>
+                    <dd class="fl cen"><a href="#">军事</a></dd>
+                </dl>
+                <dl class="clearfix">
+                    <dt class="fl"><a href="#">新闻</a></dt>
+                    <dd class="fl"><a href="#">军事</a></dd>
+                    <dd class="fl"><a href="#">军事</a></dd>
+                    <dd class="fl cen"><a href="#">军事</a></dd>
+                </dl>
+            </div>
+            <div class="fl toplist l1 l2">
+                <dl class="clearfix">
+                    <dt class="fl"><a href="#">新闻</a></dt>
+                    <dd class="fl"><a href="#">军事</a></dd>
+                    <dd class="fl"><a href="#">军事</a></dd>
+                    <dd class="fl cen"><a href="#">军事</a></dd>
+                </dl>
+                <dl class="clearfix">
+                    <dt class="fl"><a href="#">新闻</a></dt>
+                    <dd class="fl"><a href="#">军事</a></dd>
+                    <dd class="fl"><a href="#">军事</a></dd>
+                    <dd class="fl cen"><a href="#">军事</a></dd>
+                </dl>
+                <dl class="clearfix">
+                    <dt class="fl"><a href="#">新闻</a></dt>
+                    <dd class="fl"><a href="#">军事</a></dd>
+                    <dd class="fl"><a href="#">军事</a></dd>
+                    <dd class="fl cen"><a href="#">军事</a></dd>
+                </dl>
+            </div>
+            <div class="fl toplist l3">
+                <dl class="clearfix">
+                    <dt class="fl"><a href="#">新闻</a></dt>
+                    <dd class="fl"><a href="#">军事</a></dd>
+                    <dd class="fl cen"><a href="#">智能硬件</a></dd>
+                </dl>
+                <dl class="clearfix">
+                    <dt class="fl"><a href="#">新闻</a></dt>
+                    <dd class="fl"><a href="#">军事</a></dd>
+                    <dd class="fl cen"><a href="#">手机库</a></dd>
+                </dl>
+                <dl class="clearfix">
+                    <dt class="fl"><a href="#">新闻</a></dt>
+                    <dd class="fl"><a href="#">军事</a></dd>
+                    <dd class="fl cen"><a href="#">军事</a></dd>
+                </dl>
+            </div>
+            <div class="fl toplist">
+                <dl class="clearfix">
+                    <dt class="fl"><a href="#">新闻</a></dt>
+                    <dd class="fl"><a href="#">军事</a></dd>
+                    <dd class="fl cen"><a href="#">军事</a></dd>
+                </dl>
+                <dl class="clearfix">
+                    <dt class="fl"><a href="#">新闻</a></dt>
+                    <dd class="fl"><a href="#">军事</a></dd>
+                    <dd class="fl cen"><a href="#">军事</a></dd>
+                </dl>
+                <dl class="clearfix">
+                    <dt class="fl"><a href="#">新闻</a></dt>
+                    <dd class="fl"><a href="#">军事</a></dd>
+                    <dd class="fl cen"><a href="#">军事</a></dd>
+                </dl>
+            </div>
+            <div class="fl toplist">
+                <dl class="clearfix">
+                    <dt class="fl"><a href="#">新闻</a></dt>
+                    <dd class="fl"><a href="#">军事</a></dd>
+                    <dd class="fl cen"><a href="#">军事</a></dd>
+                </dl>
+                <dl class="clearfix">
+                    <dt class="fl"><a href="#">新闻</a></dt>
+                    <dd class="fl"><a href="#">军事</a></dd>
+                    <dd class="fl cen"><a href="#">军事</a></dd>
+                </dl>
+                <dl class="clearfix">
+                    <dt class="fl"><a href="#">新闻</a></dt>
+                    <dd class="fl"><a href="#">军事</a></dd>
+                    <dd class="fl cen"><a href="#">军事</a></dd>
+                </dl>
+            </div>
+            <div class="fl toplist l6">
+                <dl class="clearfix">
+                    <dt class="fl"><a href="#">新闻</a></dt>
+                    <dd class="fl"><a href="#">军事</a></dd>
+                    <dd class="fl cen"><a href="#">军事</a></dd>
+                </dl>
+                <dl class="clearfix">
+                    <dt class="fl"><a href="#">新闻</a></dt>
+                    <dd class="fl"><a href="#">军事</a></dd>
+                    <dd class="fl cen"><a href="#">军事</a></dd>
+                </dl>
+                <dl class="clearfix">
+                    <dt class="fl"><a href="#">新闻</a></dt>
+                    <dd class="fl"><a href="#">军事</a></dd>
+                    <dd class="fl cen"><a href="#">军事</a></dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+    <!--topnews-->
+    <div class="w topnews clearfix">
+    	<ul class="fl topnews_1">
+        	<li class="clearfix cur">
+        		<a class="fl" href="#">教育</a>
+                <span class="fl"></span>
+            </li>
+            <li class="clearfix">
+        		<a class="fl" href="#">教育</a>
+                <span class="fl"></span>
+            </li>
+            <li class="clearfix">
+        		<a class="fl" href="#">教育</a>
+                <span class="fl"></span>
+            </li>
+        </ul>
+        <div class="topnews_2 fl">
+        	<a href="#">背单词上瘾？来试试！</a>
+            <a href="#">背单词上瘾？来试试！</a>
+            <a href="#">背单词上瘾？来试试！</a>
+            <a href="#">背单词上瘾？来试试！</a>
+            <a href="#">背单词上瘾？来试试！</a>
+            <a href="#">背单词上瘾？来试试！</a>
+        </div>
+        <div class="topnews_3 re fl">
+ 			<div class="clearfix">
+            	<a href="#" class="fl">英语四六级冲刺密卷</a>
+                <a href="#" class="fl">英语四六级冲刺密卷</a>
+                <a href="#" class="fl">英语四六级冲刺密卷</a>
+                <a href="#" class="fl">英语四六级冲刺密卷</a>
+            </div>
+            <a class="mid" href="#"><img src="images/meinv.png" /></a> 
+            <div class="clearfix in">
+            	<a href="#" class="fl">英语四六级冲刺密卷</a>
+                <a href="#" class="fl">英语四六级冲刺密卷</a>
+                <a href="#" class="fl">英语四六级冲刺密卷</a>
+                <a href="#" class="fl">英语四六级冲刺密卷</a>
+            </div>      	
+        </div>
+        <div class="topnews_4 fl">
+        	<a href="#">网易保定频道</a>
+            <a href="#">网易保定频道</a>
+            <a href="#">网易保定频道</a>
+            <a href="#">网易保定频道</a>
+            <a href="#">网易保定频道</a>
+            <a href="#">网易保定频道</a>
+        </div>
+        <ul class="fr topnews_1 topnews_5">
+        	<li class="clearfix cur">
+        		<a class="fr" href="#">教育</a>
+                <span class="fr"></span>
+            </li>
+            <li class="clearfix">
+        		<a class="fr" href="#">教育</a>
+                <span class="fr"></span>
+            </li>
+            <li class="clearfix">
+        		<a class="fr" href="#">教育</a>
+                <span class="fr"></span>
+            </li>
+        </ul>
+    </div>
+    <!--黄晓明和杨幂的故事-->
+    <div class="w clearfix">
+    	<div class="hxm fl clearfix">
+            <div class="fl clearfix hxm_left">
+                <div class="clearfix hxm_l_t">
+                    <div class="hxm_l fl">
+                        <div class="hxm_l1 re">
+                            <a href="#"><img src="images/0806_gc6d.jpg" /></a>
+                            <p><a href="#">看奥运会黄晓明和杨幂都不老实</a></p>
+                            <i></i>
+                            <b></b>
+                            <ul class="clearfix">
+                                <li class="fl"></li>
+                                <li class="fl"></li>
+                                <li class="fl cur"></li>
+                                <li class="fl"></li>
+                                <li class="fl"></li>
+                                <li class="fl"></li>
+                            </ul>
+                        </div>
+                        <div class="hxm_l2">
+                            <div class="nav clearfix">
+                                <a href="#" class="fl cur">视频</a>
+                                <a href="#" class="fl">资讯&nbsp;娱乐</a>
+                                <a href="#" class="fl last">资讯&nbsp;娱乐</a>
+                            </div>
+                            <div class="vod clearfix">
+                                <div class="vod1 fl re">
+                                    <a href="#"><img src="images/anchor_1449841098031_11041689.jpg" /></a>
+                                    <em></em>
+                                    <strong></strong>
+                                    <p><a href="#">宁为太平犬不做乱世人</a></p>
+                                </div>
+                                <div class="fl re">
+                                    <a href="#"><img src="images/anchor_1449841098031_11041689.jpg" /></a>
+                                    <em></em>
+                                    <strong></strong>
+                                    <p><a href="#">宁为太平犬不做乱世人</a></p>
+                                </div>
+                            </div>
+                        </div>
+                        <ul class="hxm_l3">
+                            <li class="clearfix">
+                                <i class="fl"></i>
+                                <em class="fl"></em>
+                                <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                            </li>
+                            <li class="clearfix">
+                                <i class="fl"></i>
+                                <em class="fl"></em>
+                                <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                            </li>
+                            <li class="clearfix">
+                                <i class="fl"></i>
+                                <em class="fl"></em>
+                                <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                            </li>
+                            <li class="clearfix">
+                                <i class="fl"></i>
+                                <em class="fl"></em>
+                                <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                            </li>
+                            <li class="clearfix">
+                                <i class="fl"></i>
+                                <em class="fl"></em>
+                                <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                            </li>
+                        </ul>
+                        <ul class="hxm_l3 hxm_l3_2">
+                            <li class="clearfix">
+                                <i class="fl"></i>
+                                <em class="fl"></em>
+                                <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                            </li>
+                            <li class="clearfix">
+                                <i class="fl"></i>
+                                <em class="fl"></em>
+                                <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                            </li>
+                            <li class="clearfix">
+                                <i class="fl"></i>
+                                <em class="fl"></em>
+                                <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                            </li>
+                            <li class="clearfix">
+                                <i class="fl"></i>
+                                <em class="fl"></em>
+                                <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                            </li>
+                            <li class="clearfix">
+                                <i class="fl"></i>
+                                <em class="fl"></em>
+                                <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                            </li>
+                            <li class="clearfix">
+                                <i class="fl"></i>
+                                <em class="fl"></em>
+                                <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                            </li>
+                            <li class="clearfix">
+                                <i class="fl"></i>
+                                <em class="fl"></em>
+                                <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                            </li>
+                            <li class="clearfix">
+                                <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                            </li>
+                            <li class="clearfix">
+                                <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                            </li>
+                        </ul>
+                        <div class="hxm_l4 clearfix">
+                            <div class="vod fl re vod1">
+                                <a href="#"><img src="images/anchor_1449841098031_11041689.jpg" /></a>
+                                <div class="clearfix opc">
+                                    <span class="fr">2016</span>
+                                    <b class=fr></b>
+                                </div>
+                                <i>直播</i>
+                                <p><a href="#">美的人已在剁手的路上</a></p>
+                            </div>
+                            <div class="vod fl re">
+                                <a href="#"><img src="images/anchor_1449841098031_11041689.jpg" /></a>
+                                <div class="clearfix opc">
+                                    <span class="fr">2016</span>
+                                    <b class=fr></b>
+                                </div>
+                                <i>直播</i>
+                                <p><a href="#">美的人已在剁手的路上</a></p>
+                            </div>
+                        </div>
+                        <a href="#"><img src="images/300x100.jpg" /></a>
+                    </div>
+                    <!--hxm_c-->
+                    <div class="hxm_c fl">
+                        <div class="hxm_l2">
+                            <div class="nav clearfix">
+                                <a href="#" class="fl cur">新闻</a>
+                                <a href="#" class="fl">图片</a>
+                                <a href="#" class="fl last">资讯</a>
+                            </div>
+                        </div>
+                        <ul class="hxm_l3">
+                            <li class="clearfix">
+                                <i class="fl"></i>
+                                <b><a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a></b>
+                            </li>
+                            <li class="clearfix">
+                                <i class="fl"></i>
+                                <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                            </li>
+                            <li class="clearfix">
+                                <i class="fl"></i>
+                                <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                            </li>
+                            <li class="clearfix">
+                                <i class="fl"></i>
+                                <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                            </li>
+                            <li class="clearfix">
+                                <i class="fl"></i>
+                                <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                            </li>
+                        </ul>
+                        <ul class="hxm_l3">
+                            <li class="clearfix">
+                                <i class="fl"></i>
+                                <b><a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a></b>
+                            </li>
+                            <li class="clearfix">
+                                <i class="fl"></i>
+                                <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                            </li>
+                            <li class="clearfix">
+                                <i class="fl"></i>
+                                <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                            </li>
+                            <li class="clearfix">
+                                <i class="fl"></i>
+                                <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                            </li>
+                            <li class="clearfix">
+                                <i class="fl"></i>
+                                <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                            </li>
+                            <li class="clearfix">
+                                <i class="fl"></i>
+                                <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                            </li>
+                            <li class="clearfix">
+                                <i class="fl"></i>
+                                <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                            </li>
+                        </ul>
+                        <ul class="hxm_l3">
+                            <li class="clearfix">
+                                <i class="fl"></i>
+                                <b><a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a></b>
+                            </li>
+                            <li class="clearfix">
+                                <i class="fl"></i>
+                                <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                            </li>
+                            <li class="clearfix">
+                                <i class="fl"></i>
+                                <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                            </li>
+                            <li class="clearfix">
+                                <i class="fl"></i>
+                                <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                            </li>
+                            <li class="clearfix">
+                                <i class="fl"></i>
+                                <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                            </li>
+                            <li class="clearfix">
+                                <i class="fl"></i>
+                                <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                            </li>
+                        </ul>
+                        <ol class="hxm_c1">
+                            <li class="clearfix">
+                                <em class="fl"></em>
+                                <p class="fl">读数</p>
+                                <i class="fl">|</i>
+                                <a href="#" class="fl a1">仲夏夜萤火梦</a>
+                            </li>
+                            <li class="clearfix">
+                                <b class="fl"></b>
+                                <p class="fl">读数</p>
+                                <i class="fl">|</i>
+                                <a href="#" class="fl a1">仲夏夜萤火梦</a>
+                                <a href="#" class="fl">彩色的记忆</a>
+                            </li>
+                            <li class="clearfix">
+                                <b class="fl"></b>
+                                <p class="fl">读数</p>
+                                <i class="fl">|</i>
+                                <a href="#" class="fl a1">仲夏夜萤火梦</a>
+                                <a href="#" class="fl">彩色的记忆</a>
+                            </li>
+                            <li class="clearfix">
+                                <b class="fl"></b>
+                                <p class="fl">读数</p>
+                                <i class="fl">|</i>
+                                <a href="#" class="fl a1">仲夏夜萤火梦</a>
+                                <a href="#" class="fl">彩色的记忆</a>
+                            </li>
+                            <li class="clearfix">
+                                <b class="fl"></b>
+                                <a href="#" class="fl a1">苹果转3.5耳机接口适配器曝光</a>
+                                <a href="#" class="fl">彩色的记忆</a>
+                            </li>
+                            <li class="clearfix">
+                                <b class="fl"></b>
+                                <p class="fl">读数</p>
+                                <i class="fl">|</i>
+                                <a href="#" class="fl a1">仲夏夜萤火梦</a>
+                                <a href="#" class="fl">彩色的记忆</a>
+                            </li>
+                            <li class="clearfix">
+                                <b class="fl"></b>
+                                <p class="fl">读数</p>
+                                <i class="fl">|</i>
+                                <a href="#" class="fl a1">仲夏夜萤火梦</a>
+                                <a href="#" class="fl">彩色的记忆</a>
+                            </li>
+                            <li class="clearfix">
+                                <b class="fl"></b>
+                                <p class="fl">读数</p>
+                                <i class="fl">|</i>
+                                <a href="#" class="fl a1">仲夏夜萤火梦</a>
+                                <a href="#" class="fl">彩色的记忆</a>
+                            </li>
+                            <li class="clearfix">
+                                <b class="fl"></b>
+                                <p class="fl">读数</p>
+                                <i class="fl">|</i>
+                                <a href="#" class="fl a1">仲夏夜萤火梦</a>
+                                <a href="#" class="fl">彩色的记忆</a>
+                            </li>
+                        </ol>
+                        <div class="hxm_l2">
+                            <div class="nav clearfix">
+                                <a href="#" class="fl hotnews"></a>
+                                <a href="#" class="fl">图片</a>
+                                <a href="#" class="fl last">资讯</a>
+                            </div>
+                        </div>
+                        <ul class="scroll clearfix">
+                            <li class="s1 fl"></li>
+                            <li class="fl"></li>
+                            <li class="fl"></li>
+                            <li class="fl cur"></li>
+                            <li class="fl"></li>
+                            <li class="fl"></li>
+                            <li class="fl"></li>
+                            <li class="s2 fl"></li>
+                        </ul>
+                        <ul class="hxm_l3">
+                            <li class="clearfix">
+                                <i class="fl"></i>
+                                <b><a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a></b>
+                            </li>
+                            <li class="clearfix">
+                                <i class="fl"></i>
+                                <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                            </li>
+                            <li class="clearfix">
+                                <i class="fl"></i>
+                                <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                            </li>
+                            <li class="clearfix">
+                                <i class="fl"></i>
+                                <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                            </li>
+                            <li class="clearfix">
+                                <i class="fl"></i>
+                                <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                            </li>
+                            <li class="clearfix">
+                                <b class="fl"></b>
+                                <a href="#" class="fl bobo">bobo直播</a>
+                                <a href="#" class="fl">个人未购万科股票 不合逻辑</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="hxm_l_b">
+                    <ul class="clearfix boxnews">
+                        <li class="clearfix fl">
+                            <i class="fl"></i>
+                            <a class="fl a1" href="#">网曝最霸气小学生情书</a>
+                            <a class="fl" href="#">高考状元拍卖笔记</a>
+                        </li>
+                        <li class="clearfix fl">
+                            <i class="fl"></i>
+                            <a class="fl a1" href="#">网曝最霸气小学生情书</a>
+                            <a class="fl" href="#">高考状元拍卖笔记</a>
+                        </li>
+                        <li class="clearfix fl">
+                            <i class="fl"></i>
+                            <a class="fl a1" href="#">网曝最霸气小学生情书</a>
+                            <a class="fl" href="#">高考状元拍卖笔记</a>
+                        </li>
+                        <li class="clearfix fl">
+                            <i class="fl"></i>
+                            <a class="fl a1" href="#">网曝最霸气小学生情书</a>
+                            <a class="fl" href="#">高考状元拍卖笔记</a>
+                        </li>
+                    </ul>
+                    <a href="#"><img src="images/children.png" /></a>
+                </div>
+            </div>
+        </div>
+        <div class="ym fl ">
+        	<div class="ym_1 clearfix">
+            	<h3 class="fl">网易产品</h3>
+                <a class="fl" href="#"><img src="images/cinwen.png" /></a>
+            </div>
+            <div class="ym_2">
+            	<div class="clearfix ym_21 re">
+                	<span class="fl"></span>
+                    <div class="fl clearfix ym_21_in">
+                        <a class="fl" href="#">免费邮</a>
+                        <a class="fl" href="#">免费邮</a>
+                        <a class="fl" href="#">免费邮</a>
+                        <a class="fl" href="#">免费邮</a>
+                        <a class="fl" href="#">免费邮</a>
+                    </div>
+                </div>
+                <div class="clearfix ym_22 re">
+                	<span class="fl"></span>
+                    <div class="fl clearfix ym_21_in">
+                        <a class="fl" href="#">免费邮</a>
+                        <a class="fl" href="#">免费邮</a>
+                        <a class="fl" href="#">免费邮</a>
+                        <a class="fl" href="#">免费邮</a>
+                        <a class="fl" href="#">免费邮</a>
+                        <a class="fl" href="#">免费邮</a>
+                        <a class="fl" href="#">免费邮</a>
+                        <a class="fl" href="#">免费邮</a>
+                        <a class="fl" href="#">免费邮</a>
+                        <a class="fl" href="#">免费邮</a>
+                        <a class="fl" href="#">免费邮</a>
+                        <a class="fl" href="#">免费邮</a>
+                        <a class="fl" href="#">免费邮</a>
+                        <a class="fl" href="#">免费邮</a>
+                        <a class="fl" href="#">免费邮</a>
+                        <a class="fl" href="#">免费邮</a>
+                        <a class="fl" href="#">免费邮</a>
+                        <a class="fl" href="#">免费邮</a>
+                        <a class="fl" href="#">免费邮</a>
+                        <a class="fl" href="#">免费邮</a>
+                    </div>
+                </div>
+                <div class="clearfix ym_21 re">
+                	<span class="fl"></span>
+                    <div class="fl clearfix ym_21_in">
+                        <a class="fl" href="#">免费邮</a>
+                        <a class="fl" href="#">免费邮</a>
+                        <a class="fl" href="#">免费邮</a>
+                        <a class="fl" href="#">免费邮</a>
+                        <a class="fl" href="#">免费邮</a>
+                        <a class="fl" href="#">免费邮</a>
+                        <a class="fl" href="#">免费邮</a>
+                        <a class="fl" href="#">免费邮</a>
+                        <a class="fl" href="#">免费邮</a>
+                        <a class="fl" href="#">免费邮</a>
+                    </div>
+                </div>
+                <div class="clearfix ym_22 re">
+                	<span class="fl"></span>
+                    <div class="fl clearfix ym_21_in">
+                        <a class="fl" href="#">免费邮</a>
+                        <a class="fl" href="#">免费邮</a>
+                        <a class="fl" href="#">免费邮</a>
+                        <a class="fl" href="#">免费邮</a>
+                        <a class="fl" href="#">免费邮</a>
+                        <a class="fl" href="#">免费邮</a>
+                        <a class="fl" href="#">免费邮</a>
+                        <a class="fl" href="#">免费邮</a>
+                        <a class="fl" href="#">免费邮</a>
+                        <a class="fl" href="#">免费邮</a>
+                        <a class="fl" href="#">免费邮</a>
+                        <a class="fl" href="#">免费邮</a>
+                        <a class="fl" href="#">免费邮</a>
+                        <a class="fl" href="#">免费邮</a>
+                        <a class="fl" href="#">免费邮</a>
+                        <a class="fl" href="#">免费邮</a>
+                        <a class="fl" href="#">免费邮</a>
+                        <a class="fl" href="#">免费邮</a>
+                        <a class="fl" href="#">免费邮</a>
+                        <a class="fl" href="#">免费邮</a>
+                    </div>
+                </div>
+            </div>
+            <a href="#"><img src="images/feike.png" /></a>
+            <div class="ym_3">
+            	<div class="ym_3_t clearfix">
+                	<h3 class="fl">工艺&nbsp;▪&nbsp;传媒</h3>
+                    <i class="fl"></i>
+                    <a class="fl" href="#">打年兽百万年兽抢回家</a>
+                </div>
+                <ul class="ym_3_b">
+                	<li class="clearfix">
+                    	<b class="fl"></b>
+                        <a href="#" class="fl">[公益]&nbsp;打工子弟新校园承载力逼近极限</a>
+                    </li>
+                    <li class="clearfix">
+                    	<b class="fl"></b>
+                        <a href="#" class="fl">[公益]&nbsp;打工子弟新校园承载力逼近极限</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="ym_4 mb12">
+            	<div class="ym_4_t clearfix">
+                	<a href="#" class="fl">习酒</a>
+                    <a href="#" class="fl cur">火车票</a>
+                    <a href="#" class="fl">习酒</a>
+                    <a href="#" class="fl last">习酒</a>
+                </div>
+                <a href="#"><img src="images/gohome1.png" /></a>
+                <ul class="ym_4_b">
+                	<li class="clearfix">
+                    	<b class="fl d3"></b>
+                        <a href="#" class="fl">2017春运抢票，就去火车站买买买</a>
+                    </li>
+                    <li class="clearfix">
+                    	<b class="fl d3"></b>
+                        <a href="#" class="fl">2017春运抢票，就去火车站买买买</a>
+                    </li>
+                </ul>
+            </div>
+            <a href="#"><img src="images/taobao1.png" /></a>
+        </div>
+    </div>
+    <!--体育彩票-->
+    <div class="w sport clearfix">
+    	<div class="sport_l fl clearfix">
+        	<div class="sport_l_l fl">
+            	<div class="hxm_l2 mb12">
+                    <div class="nav clearfix">
+                        <a href="#" class="fl cur">新闻</a>
+                        <a href="#" class="fl">图片</a>
+                        <a href="#" class="fl last">资讯</a>
+                    </div>
+               </div>
+                <div class="sport_l1 clearfix">
+                	<div class="fl inleft">
+                    	<a href="#"><img src="images/laowai1.png" /></a>
+                        <a class="main" href="#">伊莲娜抢体育画报学魁</a>
+                    </div>
+                    <ul class="inright fl">
+                    	<li class="clearfix">
+                        	<b class="fl d3"></b>
+                            <i class="fl"></i>
+                            <a href="#" class="fl">莎娃颠球技艺不逊梅西</a>
+                        </li>
+                        <li class="clearfix">
+                        	<b class="fl d3"></b>
+                            <i class="fl"></i>
+                            <a href="#" class="fl">莎娃颠球技艺不逊梅西</a>
+                        </li>
+                        <li class="clearfix">
+                        	<b class="fl d3"></b>
+                            <i class="fl"></i>
+                            <a href="#" class="fl">莎娃颠球技艺不逊梅西</a>
+                        </li>
+                        <li class="clearfix">
+                        	<b class="fl d3"></b>
+                            <i class="fl"></i>
+                            <a href="#" class="fl">莎娃颠球技艺不逊梅西</a>
+                        </li>
+                        <li class="clearfix">
+                        	<b class="fl d3"></b>
+                            <i class="fl"></i>
+                            <a href="#" class="fl">莎娃颠球技艺不逊梅西</a>
+                        </li>
+                    </ul>
+                </div>
+                <ul class="hxm_l3">
+                    <li class="clearfix">
+                        <i class="fl"></i>
+                        <b><a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a></b>
+                    </li>
+                    <li class="clearfix">
+                        <i class="fl"></i>
+                        <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                    </li>
+                    <li class="clearfix">
+                        <i class="fl"></i>
+                        <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                    </li>
+                    <li class="clearfix">
+                        <i class="fl"></i>
+                        <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                    </li>
+                    <li class="clearfix">
+                        <i class="fl"></i>
+                        <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                    </li>
+                </ul>
+                <ul class="hxm_l3">
+                    <li class="clearfix">
+                        <i class="fl"></i>
+                        <b><a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a></b>
+                    </li>
+                    <li class="clearfix">
+                        <i class="fl"></i>
+                        <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                    </li>
+                    <li class="clearfix">
+                        <i class="fl"></i>
+                        <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                    </li>
+                    <li class="clearfix">
+                        <i class="fl"></i>
+                        <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                    </li>
+                    <li class="clearfix">
+                        <i class="fl"></i>
+                        <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="sport_l_l fl">
+            	<div class="hxm_l2 mb12">
+                    <div class="nav clearfix">
+                        <a href="#" class="fl cur">新闻</a>
+                        <a href="#" class="fl">图片</a>
+                        <a href="#" class="fl last">资讯</a>
+                    </div>
+               </div>
+                <div class="sport_l1 clearfix">
+                	<div class="fl inleft">
+                    	<a href="#"><img src="images/laowai1.png" /></a>
+                        <a class="main" href="#">伊莲娜抢体育画报学魁</a>
+                    </div>
+                    <ul class="inright fl">
+                    	<li class="clearfix">
+                        	<b class="fl d3"></b>
+                            <i class="fl"></i>
+                            <a href="#" class="fl">莎娃颠球技艺不逊梅西</a>
+                        </li>
+                        <li class="clearfix">
+                        	<b class="fl d3"></b>
+                            <i class="fl"></i>
+                            <a href="#" class="fl">莎娃颠球技艺不逊梅西</a>
+                        </li>
+                        <li class="clearfix">
+                        	<b class="fl d3"></b>
+                            <i class="fl"></i>
+                            <a href="#" class="fl">莎娃颠球技艺不逊梅西</a>
+                        </li>
+                        <li class="clearfix">
+                        	<b class="fl d3"></b>
+                            <i class="fl"></i>
+                            <a href="#" class="fl">莎娃颠球技艺不逊梅西</a>
+                        </li>
+                        <li class="clearfix">
+                        	<b class="fl d3"></b>
+                            <i class="fl"></i>
+                            <a href="#" class="fl">莎娃颠球技艺不逊梅西</a>
+                        </li>
+                    </ul>
+                </div>
+                <ul class="hxm_l3">
+                    <li class="clearfix">
+                        <i class="fl"></i>
+                        <b><a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a></b>
+                    </li>
+                    <li class="clearfix">
+                        <i class="fl"></i>
+                        <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                    </li>
+                    <li class="clearfix">
+                        <i class="fl"></i>
+                        <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                    </li>
+                    <li class="clearfix">
+                        <i class="fl"></i>
+                        <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                    </li>
+                    <li class="clearfix">
+                        <i class="fl"></i>
+                        <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                    </li>
+                </ul>
+                <ul class="hxm_l3">
+                    <li class="clearfix">
+                        <i class="fl"></i>
+                        <b><a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a></b>
+                    </li>
+                    <li class="clearfix">
+                        <i class="fl"></i>
+                        <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                    </li>
+                    <li class="clearfix">
+                        <i class="fl"></i>
+                        <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                    </li>
+                    <li class="clearfix">
+                        <i class="fl"></i>
+                        <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                    </li>
+                    <li class="clearfix">
+                        <i class="fl"></i>
+                        <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="sport_r fl">
+        	<div class="sport_t clearfix">
+            	<a href="#" class="fl cur">时尚大家</a>
+                <a href="#" class="fl">时尚大家</a>
+            </div>
+            <div class="sport_r1 clearfix">
+            	<div class="fl re sport_r1_l">
+                	<a href="#"><img src="images/laowai1.png" /></a>
+                    <p>全球最有型的大叔们</p> 
+                </div>
+                <ul class="sport_r1_r fl">
+                	<li class="clearfix">
+                    	<b class="fl d3"></b>
+                        <a href="#" class="fl">2016春夏10大流行色</a>
+                    </li>
+                    <li class="clearfix">
+                    	<b class="fl d3"></b>
+                        <a href="#" class="fl">2016春夏10大流行色</a>
+                    </li>
+                    <li class="clearfix">
+                    	<b class="fl d3"></b>
+                        <a href="#" class="fl">2016春夏10大流行色</a>
+                    </li>
+                    <li class="clearfix">
+                    	<b class="fl d3"></b>
+                        <a href="#" class="fl">2016春夏10大流行色</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="sport_t clearfix">
+            	<a href="#" class="fl cur">时尚大家</a>
+                <a href="#" class="fl">时尚大家</a>
+            </div>
+            <div class="sport_r2 clearfix">
+            	<div class="fl re sport_r1_l">
+                	<a href="#"><img src="images/laowai1.png" /></a>
+                    <p>全球最有型的大叔们</p> 
+                </div>
+                <div class="fl re sport_r1_l">
+                	<a href="#"><img src="images/laowai1.png" /></a>
+                    <p>全球最有型的大叔们</p> 
+                </div>
+                <div class="fl re sport_r1_l">
+                	<a href="#"><img src="images/laowai1.png" /></a>
+                    <p>全球最有型的大叔们</p> 
+                </div>
+                <div class="fl re sport_r1_l">
+                	<a href="#"><img src="images/laowai1.png" /></a>
+                    <p>全球最有型的大叔们</p> 
+                </div>
+            </div>
+            <ul class="sport_r3">
+            	<li class="clearfix">
+                	<b class="fl d3"></b>
+                    <a href="#" class="fl"><strong>纪录片</strong>大练兵：中国导弹能否打到美国？</a>
+                </li>
+                <li class="clearfix">
+                	<b class="fl d3"></b>
+                    <a href="#" class="fl"><strong>纪录片</strong>大练兵：中国导弹能否打到美国？</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!--财经-->
+    <div class="w mt12 clearfix">
+    	<div class="sport_l fl clearfix">
+        	<a href="#"><img class="mb12" src="images/suningyigou.png" /></a>
+        	<div class="sport_l_l fl">
+            	<div class="hxm_l2 mb12">
+                    <div class="nav clearfix">
+                        <a href="#" class="fl cur">新闻</a>
+                        <a href="#" class="fl">图片</a>
+                        <a href="#" class="fl last">资讯</a>
+                    </div>
+                </div>
+                <div class="sport_l1 clearfix">
+                	<div class="fl inleft">
+                    	<a href="#"><img src="images/laowai1.png" /></a>
+                        <a class="main" href="#">伊莲娜抢体育画报学魁</a>
+                    </div>
+                    <ul class="inright fl">
+                    	<li class="clearfix">
+                        	<b class="fl d3"></b>
+                            <i class="fl"></i>
+                            <a href="#" class="fl">莎娃颠球技艺不逊梅西</a>
+                        </li>
+                        <li class="clearfix">
+                        	<b class="fl d3"></b>
+                            <i class="fl"></i>
+                            <a href="#" class="fl">莎娃颠球技艺不逊梅西</a>
+                        </li>
+                        <li class="clearfix">
+                        	<b class="fl d3"></b>
+                            <i class="fl"></i>
+                            <a href="#" class="fl">莎娃颠球技艺不逊梅西</a>
+                        </li>
+                        <li class="clearfix">
+                        	<b class="fl d3"></b>
+                            <i class="fl"></i>
+                            <a href="#" class="fl">莎娃颠球技艺不逊梅西</a>
+                        </li>
+                        <li class="clearfix">
+                        	<b class="fl d3"></b>
+                            <i class="fl"></i>
+                            <a href="#" class="fl">莎娃颠球技艺不逊梅西</a>
+                        </li>
+                    </ul>
+                </div>
+                <ul class="hxm_l3">
+                    <li class="clearfix">
+                        <i class="fl"></i>
+                        <b><a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a></b>
+                    </li>
+                    <li class="clearfix">
+                        <i class="fl"></i>
+                        <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                    </li>
+                    <li class="clearfix">
+                        <i class="fl"></i>
+                        <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                    </li>
+                    <li class="clearfix">
+                        <i class="fl"></i>
+                        <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                    </li>
+                    <li class="clearfix">
+                        <i class="fl"></i>
+                        <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                    </li>
+                    <li class="clearfix">
+                        <i class="fl"></i>
+                        <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                    </li>
+                    <li class="clearfix">
+                        <i class="fl"></i>
+                        <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                    </li>
+                </ul>
+                <ol class="hxm_c1">
+                    <li class="clearfix">
+                        <em class="fl"></em>
+                        <p class="fl">读数</p>
+                        <i class="fl">|</i>
+                        <a href="#" class="fl a1">仲夏夜萤火梦</a>
+                    </li>
+                    <li class="clearfix">
+                        <b class="fl"></b>
+                        <p class="fl">读数</p>
+                        <i class="fl">|</i>
+                        <a href="#" class="fl a1">仲夏夜萤火梦</a>
+                        <a href="#" class="fl">彩色的记忆</a>
+                    </li>
+                </ol>
+                <div class="ineco clearfix">
+                	<a class="fl" href="#">进入财经频道</a>
+                    <span class="fl"></span>
+                    <em class="fl">|</em>
+                    <a class="fl cent" href="#">行情</a>
+                    <em class="fl">|</em>
+                    <a class="fl last" href="#">财经视频</a>
+                </div>
+            </div>
+            <div class="sport_l_l fl">
+            	<div class="hxm_l2 mb12">
+                    <div class="nav clearfix">
+                        <a href="#" class="fl cur">新闻</a>
+                        <a href="#" class="fl">图片</a>
+                        <a href="#" class="fl last">资讯</a>
+                    </div>
+               </div>
+                <div class="sport_l1 clearfix">
+                	<div class="fl inleft">
+                    	<a href="#"><img src="images/laowai1.png" /></a>
+                        <a class="main" href="#">伊莲娜抢体育画报学魁</a>
+                    </div>
+                    <ul class="inright fl">
+                    	<li class="clearfix">
+                        	<b class="fl d3"></b>
+                            <i class="fl"></i>
+                            <a href="#" class="fl">莎娃颠球技艺不逊梅西</a>
+                        </li>
+                        <li class="clearfix">
+                        	<b class="fl d3"></b>
+                            <i class="fl"></i>
+                            <a href="#" class="fl">莎娃颠球技艺不逊梅西</a>
+                        </li>
+                        <li class="clearfix">
+                        	<b class="fl d3"></b>
+                            <i class="fl"></i>
+                            <a href="#" class="fl">莎娃颠球技艺不逊梅西</a>
+                        </li>
+                        <li class="clearfix">
+                        	<b class="fl d3"></b>
+                            <i class="fl"></i>
+                            <a href="#" class="fl">莎娃颠球技艺不逊梅西</a>
+                        </li>
+                        <li class="clearfix">
+                        	<b class="fl d3"></b>
+                            <i class="fl"></i>
+                            <a href="#" class="fl">莎娃颠球技艺不逊梅西</a>
+                        </li>
+                    </ul>
+                </div>
+                <ul class="hxm_l3">
+                    <li class="clearfix">
+                        <i class="fl"></i>
+                        <b><a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a></b>
+                    </li>
+                    <li class="clearfix">
+                        <i class="fl"></i>
+                        <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                    </li>
+                    <li class="clearfix">
+                        <i class="fl"></i>
+                        <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                    </li>
+                    <li class="clearfix">
+                        <i class="fl"></i>
+                        <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                    </li>
+                    <li class="clearfix">
+                        <i class="fl"></i>
+                        <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                    </li>
+                    <li class="clearfix">
+                        <i class="fl"></i>
+                        <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                    </li>
+                    <li class="clearfix">
+                        <i class="fl"></i>
+                        <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                    </li>
+                </ul>
+                <ol class="hxm_c1">
+                    <li class="clearfix">
+                        <b class="fl"></b>
+                        <p class="fl">读数</p>
+                        <i class="fl">|</i>
+                        <a href="#" class="fl a1">仲夏夜萤火梦</a>
+                        <a href="#" class="fl">彩色的记忆</a>
+                    </li>
+                    <li class="clearfix">
+                        <b class="fl"></b>
+                        <p class="fl">读数</p>
+                        <i class="fl">|</i>
+                        <a href="#" class="fl a1">仲夏夜萤火梦</a>
+                        <a href="#" class="fl">彩色的记忆</a>
+                    </li>
+                </ol>
+                <div class="refer clearfix">
+                	<div class="fl an1 re">
+                    	<input type="text" placeholder="全&nbsp;部" />
+                        <a href="#"><img src="images/anniu.png"  /></a>
+                    </div>
+                    <input class="an2 fl" type="text" placeholder="代码/拼音/名称" />
+                    <input class="an3 fl" type="button" value="查询" />
+                </div>
+            </div>
+        </div>
+        <div class="sport_r fl">
+        	<a href="#"><img class="mb12" src="images/taobaobao1.png" /></a>
+            <div class="sport_r_1">
+            	<div class="clearfix sport_r1_t">
+                	<a href="#" class="fl cur">酒香</a>
+                    <a href="#" class="fl">酒香</a>
+                    <a href="#" class="fl">酒香</a>
+                    <a href="#" class="fl">酒香</a>
+                </div>
+                <div class="sport_r1_up">
+                    <div class="dingwei re">
+                        <a href="#"><img src="images/2016080822293759f1f.jpg" /></a>
+                        <p>情人节怎么给妹子选酒</p>
+                        <i></i>
+                        <b></b>
+                    </div>
+                    <div class="tiao clearfix">
+                    	<a class="fl cur" href="#"></a>
+                        <a class="fl" href="#"></a>
+                        <a class="fl" href="#"></a>
+                        <a class="fl" href="#"></a>
+                    </div>
+                    <ul class="sport_r1_up_b">
+                    	<li class="clearfix">
+                        	<i class="fl d3"></i>
+                            <a href="#" class="fl">天天秒杀！五粮液酒5折！</a>
+                        </li>
+                        <li class="clearfix">
+                        	<i class="fl d3"></i>
+                            <a href="#" class="fl">天天秒杀！五粮液酒5折！</a>
+                        </li>
+                        <li class="clearfix">
+                        	<i class="fl d3"></i>
+                            <a href="#" class="fl">天天秒杀！五粮液酒5折！</a>
+                        </li>
+                    </ul>
+                    <a href="#"><img class="jiu" src="images/jiu.png" /></a>
+                </div>
+            </div>
+        </div>
+        <a href="#"><img class="mt12 mb12" src="images/jingdong1.png" /></a>
+    </div>
+    <!--汽车-->
+    <div class="w cars clearfix">
+    	<div class="sport_l fl clearfix">
+        	<div class="sport_l_l fl">
+            	<div class="hxm_l2 mb12">
+                    <div class="nav clearfix">
+                        <a href="#" class="fl cur">新闻</a>
+                        <a href="#" class="fl">图片</a>
+                        <a href="#" class="fl last">资讯</a>
+                    </div>
+                </div>
+                <div class="sport_l1 clearfix">
+                	<div class="fl inleft">
+                    	<a href="#"><img src="images/laowai1.png" /></a>
+                        <a class="main" href="#">伊莲娜抢体育画报学魁</a>
+                    </div>
+                    <ul class="inright fl">
+                    	<li class="clearfix">
+                        	<b class="fl d3"></b>
+                            <i class="fl"></i>
+                            <a href="#" class="fl">莎娃颠球技艺不逊梅西</a>
+                        </li>
+                        <li class="clearfix">
+                        	<b class="fl d3"></b>
+                            <i class="fl"></i>
+                            <a href="#" class="fl">莎娃颠球技艺不逊梅西</a>
+                        </li>
+                        <li class="clearfix">
+                        	<b class="fl d3"></b>
+                            <i class="fl"></i>
+                            <a href="#" class="fl">莎娃颠球技艺不逊梅西</a>
+                        </li>
+                        <li class="clearfix">
+                        	<b class="fl d3"></b>
+                            <i class="fl"></i>
+                            <a href="#" class="fl">莎娃颠球技艺不逊梅西</a>
+                        </li>
+                        <li class="clearfix">
+                        	<b class="fl d3"></b>
+                            <i class="fl"></i>
+                            <a href="#" class="fl">莎娃颠球技艺不逊梅西</a>
+                        </li>
+                    </ul>
+                </div>
+                <ul class="hxm_l3">
+                    <li class="clearfix">
+                        <i class="fl"></i>
+                        <b><a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a></b>
+                    </li>
+                    <li class="clearfix">
+                        <i class="fl"></i>
+                        <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                    </li>
+                    <li class="clearfix">
+                        <i class="fl"></i>
+                        <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                    </li>
+                    <li class="clearfix">
+                        <i class="fl"></i>
+                        <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                    </li>
+                    <li class="clearfix">
+                        <i class="fl"></i>
+                        <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                    </li>
+                    <li class="clearfix">
+                        <i class="fl"></i>
+                        <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                    </li>
+                </ul>
+                <div class="ineco clearfix">
+                	<a class="fl" href="#">进入财经频道</a>
+                    <span class="fl"></span>
+                    <em class="fl">|</em>
+                    <a class="fl cent" href="#">行情</a>
+                    <em class="fl">|</em>
+                    <a class="fl last" href="#">财经视频</a>
+                </div>
+            </div>
+            <div class="sport_l_l fl">
+            	<div class="hxm_l2 mb12">
+                    <div class="nav clearfix">
+                        <a href="#" class="fl cur">新闻</a>
+                        <a href="#" class="fl">图片</a>
+                        <a href="#" class="fl last">资讯</a>
+                    </div>
+               </div>
+                <div class="sport_l1 clearfix">
+                	<div class="fl inleft">
+                    	<a href="#"><img src="images/laowai1.png" /></a>
+                        <a class="main" href="#">伊莲娜抢体育画报学魁</a>
+                    </div>
+                    <ul class="inright fl">
+                    	<li class="clearfix">
+                        	<b class="fl d3"></b>
+                            <i class="fl"></i>
+                            <a href="#" class="fl">莎娃颠球技艺不逊梅西</a>
+                        </li>
+                        <li class="clearfix">
+                        	<b class="fl d3"></b>
+                            <i class="fl"></i>
+                            <a href="#" class="fl">莎娃颠球技艺不逊梅西</a>
+                        </li>
+                        <li class="clearfix">
+                        	<b class="fl d3"></b>
+                            <i class="fl"></i>
+                            <a href="#" class="fl">莎娃颠球技艺不逊梅西</a>
+                        </li>
+                        <li class="clearfix">
+                        	<b class="fl d3"></b>
+                            <i class="fl"></i>
+                            <a href="#" class="fl">莎娃颠球技艺不逊梅西</a>
+                        </li>
+                        <li class="clearfix">
+                        	<b class="fl d3"></b>
+                            <i class="fl"></i>
+                            <a href="#" class="fl">莎娃颠球技艺不逊梅西</a>
+                        </li>
+                    </ul>
+                </div>
+                <ul class="hxm_l3">
+                    <li class="clearfix">
+                        <i class="fl"></i>
+                        <b><a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a></b>
+                    </li>
+                    <li class="clearfix">
+                        <i class="fl"></i>
+                        <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                    </li>
+                    <li class="clearfix">
+                        <i class="fl"></i>
+                        <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                    </li>
+                    <li class="clearfix">
+                        <i class="fl"></i>
+                        <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                    </li>
+                    <li class="clearfix">
+                        <i class="fl"></i>
+                        <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                    </li>
+                    <li class="clearfix">
+                        <i class="fl"></i>
+                        <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                    </li>
+                </ul>
+                <div class="refer clearfix">
+                	<div class="fl an1 re">
+                    	<input type="text" placeholder="全&nbsp;部" />
+                        <a href="#"><img src="images/anniu.png"  /></a>
+                    </div>
+                    <input class="an2 fl" type="text" placeholder="代码/拼音/名称" />
+                    <input class="an3 fl" type="button" value="查询" />
+                </div>
+            </div>
+        </div>
+        <div class="fl">
+        	<a href="#"><img src="images/guanggap.png" /></a>
+        </div>
+    </div>
+    <!--科技-->
+    <div class="w mt12 clearfix">
+    	<div class="sport_l fl clearfix">
+        	<a href="#"><img class="mb12" src="images/weipinhui1.png" /></a>
+        	<div class="sport_l_l fl">
+            	<div class="hxm_l2 mb12">
+                    <div class="nav clearfix">
+                        <a href="#" class="fl cur">新闻</a>
+                        <a href="#" class="fl">图片</a>
+                        <a href="#" class="fl last">资讯</a>
+                    </div>
+                </div>
+                <div class="sport_l1 clearfix">
+                	<div class="fl inleft">
+                    	<a href="#"><img src="images/laowai1.png" /></a>
+                        <a class="main" href="#">伊莲娜抢体育画报学魁</a>
+                    </div>
+                    <ul class="inright fl">
+                    	<li class="clearfix">
+                        	<b class="fl d3"></b>
+                            <i class="fl"></i>
+                            <a href="#" class="fl">莎娃颠球技艺不逊梅西</a>
+                        </li>
+                        <li class="clearfix">
+                        	<b class="fl d3"></b>
+                            <i class="fl"></i>
+                            <a href="#" class="fl">莎娃颠球技艺不逊梅西</a>
+                        </li>
+                        <li class="clearfix">
+                        	<b class="fl d3"></b>
+                            <i class="fl"></i>
+                            <a href="#" class="fl">莎娃颠球技艺不逊梅西</a>
+                        </li>
+                        <li class="clearfix">
+                        	<b class="fl d3"></b>
+                            <i class="fl"></i>
+                            <a href="#" class="fl">莎娃颠球技艺不逊梅西</a>
+                        </li>
+                        <li class="clearfix">
+                        	<b class="fl d3"></b>
+                            <i class="fl"></i>
+                            <a href="#" class="fl">莎娃颠球技艺不逊梅西</a>
+                        </li>
+                    </ul>
+                </div>
+                <ul class="hxm_l3">
+                    <li class="clearfix">
+                        <i class="fl"></i>
+                        <b><a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a></b>
+                    </li>
+                    <li class="clearfix">
+                        <i class="fl"></i>
+                        <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                    </li>
+                    <li class="clearfix">
+                        <i class="fl"></i>
+                        <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                    </li>
+                    <li class="clearfix">
+                        <i class="fl"></i>
+                        <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                    </li>
+                    <li class="clearfix">
+                        <i class="fl"></i>
+                        <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                    </li>
+                </ul>
+                <ol class="hxm_c1">
+                    <li class="clearfix">
+                        <em class="fl"></em>
+                        <p class="fl">读数</p>
+                        <i class="fl">|</i>
+                        <a href="#" class="fl a1">仲夏夜萤火梦</a>
+                    </li>
+                    <li class="clearfix">
+                        <b class="fl"></b>
+                        <p class="fl">读数</p>
+                        <i class="fl">|</i>
+                        <a href="#" class="fl a1">仲夏夜萤火梦</a>
+                        <a href="#" class="fl">彩色的记忆</a>
+                    </li>
+                </ol>
+                <div class="ineco clearfix">
+                	<a class="fl" href="#">进入财经频道</a>
+                    <span class="fl"></span>
+                    <em class="fl">|</em>
+                    <a class="fl cent" href="#">行情</a>
+                    <em class="fl">|</em>
+                    <a class="fl last" href="#">财经视频</a>
+                </div>
+            </div>
+            <div class="sport_l_l fl">
+            	<div class="hxm_l2 mb12">
+                    <div class="nav clearfix">
+                        <a href="#" class="fl cur">新闻</a>
+                        <a href="#" class="fl">图片</a>
+                        <a href="#" class="fl last">资讯</a>
+                    </div>
+               </div>
+                <div class="sport_l1 clearfix">
+                	<div class="fl inleft">
+                    	<a href="#"><img src="images/laowai1.png" /></a>
+                        <a class="main" href="#">伊莲娜抢体育画报学魁</a>
+                    </div>
+                    <ul class="inright fl">
+                    	<li class="clearfix">
+                        	<b class="fl d3"></b>
+                            <i class="fl"></i>
+                            <a href="#" class="fl">莎娃颠球技艺不逊梅西</a>
+                        </li>
+                        <li class="clearfix">
+                        	<b class="fl d3"></b>
+                            <i class="fl"></i>
+                            <a href="#" class="fl">莎娃颠球技艺不逊梅西</a>
+                        </li>
+                        <li class="clearfix">
+                        	<b class="fl d3"></b>
+                            <i class="fl"></i>
+                            <a href="#" class="fl">莎娃颠球技艺不逊梅西</a>
+                        </li>
+                        <li class="clearfix">
+                        	<b class="fl d3"></b>
+                            <i class="fl"></i>
+                            <a href="#" class="fl">莎娃颠球技艺不逊梅西</a>
+                        </li>
+                        <li class="clearfix">
+                        	<b class="fl d3"></b>
+                            <i class="fl"></i>
+                            <a href="#" class="fl">莎娃颠球技艺不逊梅西</a>
+                        </li>
+                    </ul>
+                </div>
+                <ul class="hxm_l3">
+                    <li class="clearfix">
+                        <i class="fl"></i>
+                        <b><a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a></b>
+                    </li>
+                    <li class="clearfix">
+                        <i class="fl"></i>
+                        <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                    </li>
+                    <li class="clearfix">
+                        <i class="fl"></i>
+                        <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                    </li>
+                    <li class="clearfix">
+                        <i class="fl"></i>
+                        <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                    </li>
+                    <li class="clearfix">
+                        <i class="fl"></i>
+                        <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                    </li>
+                </ul>
+                <ol class="hxm_c1">
+                    <li class="clearfix">
+                        <b class="fl"></b>
+                        <p class="fl">读数</p>
+                        <i class="fl">|</i>
+                        <a href="#" class="fl a1">仲夏夜萤火梦</a>
+                        <a href="#" class="fl">彩色的记忆</a>
+                    </li>
+                    <li class="clearfix">
+                        <b class="fl"></b>
+                        <p class="fl">读数</p>
+                        <i class="fl">|</i>
+                        <a href="#" class="fl a1">仲夏夜萤火梦</a>
+                        <a href="#" class="fl">彩色的记忆</a>
+                    </li>
+                </ol>
+                <div class="ineco clearfix">
+                	<a class="fl" href="#">进入财经频道</a>
+                    <span class="fl"></span>
+                    <em class="fl">|</em>
+                    <a class="fl cent" href="#">行情</a>
+                    <em class="fl">|</em>
+                    <a class="fl last" href="#">财经视频</a>
+                </div>
+            </div>
+        </div>
+        <div class="fl">
+        	<a href="#"><img src="images/jiaoypu.png" /></a>
+        </div>
+    </div>
+    <!--北京房产-->
+    <div class="w mt12 clearfix">
+    	<div class="sport_l fl clearfix">
+        	<a href="#"><img class="mb12" src="images/jinlongyu1.png" /></a>
+        	<div class="sport_l_l fl">
+            	<div class="hxm_l2 mb12">
+                    <div class="nav clearfix">
+                        <a href="#" class="fl cur">新闻</a>
+                        <a href="#" class="fl">图片</a>
+                        <a href="#" class="fl last">资讯</a>
+                    </div>
+                </div>
+                <div class="sport_l1 clearfix">
+                	<div class="fl inleft">
+                    	<a href="#"><img src="images/laowai1.png" /></a>
+                        <a class="main" href="#">伊莲娜抢体育画报学魁</a>
+                    </div>
+                    <ul class="inright fl">
+                    	<li class="clearfix">
+                        	<b class="fl d3"></b>
+                            <i class="fl"></i>
+                            <a href="#" class="fl">莎娃颠球技艺不逊梅西</a>
+                        </li>
+                        <li class="clearfix">
+                        	<b class="fl d3"></b>
+                            <i class="fl"></i>
+                            <a href="#" class="fl">莎娃颠球技艺不逊梅西</a>
+                        </li>
+                        <li class="clearfix">
+                        	<b class="fl d3"></b>
+                            <i class="fl"></i>
+                            <a href="#" class="fl">莎娃颠球技艺不逊梅西</a>
+                        </li>
+                        <li class="clearfix">
+                        	<b class="fl d3"></b>
+                            <i class="fl"></i>
+                            <a href="#" class="fl">莎娃颠球技艺不逊梅西</a>
+                        </li>
+                        <li class="clearfix">
+                        	<b class="fl d3"></b>
+                            <i class="fl"></i>
+                            <a href="#" class="fl">莎娃颠球技艺不逊梅西</a>
+                        </li>
+                    </ul>
+                </div>
+                <ul class="hxm_l3">
+                    <li class="clearfix">
+                        <i class="fl"></i>
+                        <b><a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a></b>
+                    </li>
+                    <li class="clearfix">
+                        <i class="fl"></i>
+                        <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                    </li>
+                    <li class="clearfix">
+                        <i class="fl"></i>
+                        <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                    </li>
+                    <li class="clearfix">
+                        <i class="fl"></i>
+                        <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                    </li>
+                    <li class="clearfix">
+                        <i class="fl"></i>
+                        <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                    </li>
+                    <li class="clearfix">
+                        <i class="fl"></i>
+                        <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                    </li>
+                    <li class="clearfix">
+                        <i class="fl"></i>
+                        <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                    </li>
+                </ul>
+                <div class="ineco clearfix">
+                	<a class="fl" href="#">进入财经频道</a>
+                    <span class="fl"></span>
+                    <em class="fl">|</em>
+                    <a class="fl cent" href="#">行情</a>
+                    <em class="fl">|</em>
+                    <a class="fl last" href="#">财经视频</a>
+                </div>
+            </div>
+            <div class="sport_l_l fl">
+            	<div class="hxm_l2 mb12">
+                    <div class="nav clearfix">
+                        <a href="#" class="fl cur">新闻</a>
+                        <a href="#" class="fl">图片</a>
+                        <a href="#" class="fl last">资讯</a>
+                    </div>
+               </div>
+                <div class="sport_l1 clearfix">
+                	<div class="fl inleft">
+                    	<a href="#"><img src="images/laowai1.png" /></a>
+                        <a class="main" href="#">伊莲娜抢体育画报学魁</a>
+                    </div>
+                    <ul class="inright fl">
+                    	<li class="clearfix">
+                        	<b class="fl d3"></b>
+                            <i class="fl"></i>
+                            <a href="#" class="fl">莎娃颠球技艺不逊梅西</a>
+                        </li>
+                        <li class="clearfix">
+                        	<b class="fl d3"></b>
+                            <i class="fl"></i>
+                            <a href="#" class="fl">莎娃颠球技艺不逊梅西</a>
+                        </li>
+                        <li class="clearfix">
+                        	<b class="fl d3"></b>
+                            <i class="fl"></i>
+                            <a href="#" class="fl">莎娃颠球技艺不逊梅西</a>
+                        </li>
+                        <li class="clearfix">
+                        	<b class="fl d3"></b>
+                            <i class="fl"></i>
+                            <a href="#" class="fl">莎娃颠球技艺不逊梅西</a>
+                        </li>
+                        <li class="clearfix">
+                        	<b class="fl d3"></b>
+                            <i class="fl"></i>
+                            <a href="#" class="fl">莎娃颠球技艺不逊梅西</a>
+                        </li>
+                    </ul>
+                </div>
+                <ul class="hxm_l3">
+                    <li class="clearfix">
+                        <i class="fl"></i>
+                        <b><a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a></b>
+                    </li>
+                    <li class="clearfix">
+                        <i class="fl"></i>
+                        <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                    </li>
+                    <li class="clearfix">
+                        <i class="fl"></i>
+                        <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                    </li>
+                    <li class="clearfix">
+                        <i class="fl"></i>
+                        <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                    </li>
+                    <li class="clearfix">
+                        <i class="fl"></i>
+                        <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                    </li>
+                    <li class="clearfix">
+                        <i class="fl"></i>
+                        <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                    </li>
+                    <li class="clearfix">
+                        <i class="fl"></i>
+                        <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                    </li>
+                </ul>
+                <div class="ineco clearfix">
+                	<a class="fl" href="#">进入财经频道</a>
+                    <span class="fl"></span>
+                    <em class="fl">|</em>
+                    <a class="fl cent" href="#">行情</a>
+                    <em class="fl">|</em>
+                    <a class="fl last" href="#">财经视频</a>
+                </div>
+            </div>
+        </div>
+        <div class="fl bjhouse">
+        	<a href="#"><img src="images/guijinshu1.png" /></a>
+            <div class="sport_t clearfix mt12">
+            	<a href="#" class="fl cur">网易上城</a>
+                <a href="#" class="fl">彩票</a>
+            </div>
+            <div class="wyshop">
+            	<a href="#"><img class="baijin" src="images/guijinshu11.png" /></a>
+                <div class="clearfix list">
+                	<a href="#" class="fl">彩票</a>
+                    <a href="#" class="fl">彩票</a>
+                    <a href="#" class="fl">彩票</a>
+                    <a href="#" class="fl">电影</a>
+                    <a href="#" class="fl">电影票</a>
+                    <a href="#" class="fl">印象派</a>
+                </div>
+                <a href="#"><img class="chexian" src="images/aaaaa.png" /></a>
+            </div>
+        </div>
+    </div>
+    <!--女人-->
+    <div class="w mt12 clearfix">
+    	<div class="sport_l fl clearfix">
+        	<a href="#"><img class="mb12" src="images/shulihua.png" /></a>
+        	<div class="sport_l_l fl">
+            	<div class="hxm_l2 mb12">
+                    <div class="nav clearfix">
+                        <a href="#" class="fl cur">新闻</a>
+                        <a href="#" class="fl">图片</a>
+                        <a href="#" class="fl last">资讯</a>
+                    </div>
+                </div>
+                <div class="sport_l1 clearfix">
+                	<div class="fl inleft">
+                    	<a href="#"><img src="images/laowai1.png" /></a>
+                        <a class="main" href="#">伊莲娜抢体育画报学魁</a>
+                    </div>
+                    <ul class="inright fl">
+                    	<li class="clearfix">
+                        	<b class="fl d3"></b>
+                            <i class="fl"></i>
+                            <a href="#" class="fl">莎娃颠球技艺不逊梅西</a>
+                        </li>
+                        <li class="clearfix">
+                        	<b class="fl d3"></b>
+                            <i class="fl"></i>
+                            <a href="#" class="fl">莎娃颠球技艺不逊梅西</a>
+                        </li>
+                        <li class="clearfix">
+                        	<b class="fl d3"></b>
+                            <i class="fl"></i>
+                            <a href="#" class="fl">莎娃颠球技艺不逊梅西</a>
+                        </li>
+                        <li class="clearfix">
+                        	<b class="fl d3"></b>
+                            <i class="fl"></i>
+                            <a href="#" class="fl">莎娃颠球技艺不逊梅西</a>
+                        </li>
+                        <li class="clearfix">
+                        	<b class="fl d3"></b>
+                            <i class="fl"></i>
+                            <a href="#" class="fl">莎娃颠球技艺不逊梅西</a>
+                        </li>
+                    </ul>
+                </div>
+                <ul class="hxm_l3">
+                    <li class="clearfix">
+                        <i class="fl"></i>
+                        <b><a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a></b>
+                    </li>
+                    <li class="clearfix">
+                        <i class="fl"></i>
+                        <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                    </li>
+                    <li class="clearfix">
+                        <i class="fl"></i>
+                        <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                    </li>
+                    <li class="clearfix">
+                        <i class="fl"></i>
+                        <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                    </li>
+                    <li class="clearfix">
+                        <i class="fl"></i>
+                        <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                    </li>
+                    <li class="clearfix">
+                        <i class="fl"></i>
+                        <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                    </li>
+                </ul>
+                <div class="ineco clearfix">
+                	<a class="fl" href="#">进入财经频道</a>
+                    <span class="fl"></span>
+                    <em class="fl">|</em>
+                    <a class="fl cent" href="#">行情</a>
+                    <em class="fl">|</em>
+                    <a class="fl last" href="#">财经视频</a>
+                </div>
+                <a href="#"><img src="images/p123456.png" class="mb12" /></a>
+                <div class="hxm_l2 mb12">
+                    <div class="nav clearfix">
+                        <a href="#" class="fl cur">新闻</a>
+                        <a href="#" class="fl">图片</a>
+                        <a href="#" class="fl last">资讯</a>
+                    </div>
+               </div>
+                <div class="sport_l1 clearfix">
+                	<div class="fl inleft">
+                    	<a href="#"><img src="images/laowai1.png" /></a>
+                        <a class="main" href="#">伊莲娜抢体育画报学魁</a>
+                    </div>
+                    <ul class="inright fl">
+                    	<li class="clearfix">
+                        	<b class="fl d3"></b>
+                            <i class="fl"></i>
+                            <a href="#" class="fl">莎娃颠球技艺不逊梅西</a>
+                        </li>
+                        <li class="clearfix">
+                        	<b class="fl d3"></b>
+                            <i class="fl"></i>
+                            <a href="#" class="fl">莎娃颠球技艺不逊梅西</a>
+                        </li>
+                        <li class="clearfix">
+                        	<b class="fl d3"></b>
+                            <i class="fl"></i>
+                            <a href="#" class="fl">莎娃颠球技艺不逊梅西</a>
+                        </li>
+                        <li class="clearfix">
+                        	<b class="fl d3"></b>
+                            <i class="fl"></i>
+                            <a href="#" class="fl">莎娃颠球技艺不逊梅西</a>
+                        </li>
+                        <li class="clearfix">
+                        	<b class="fl d3"></b>
+                            <i class="fl"></i>
+                            <a href="#" class="fl">莎娃颠球技艺不逊梅西</a>
+                        </li>
+                    </ul>
+                </div>
+                <ul class="hxm_l3">
+                    <li class="clearfix">
+                        <i class="fl"></i>
+                        <b><a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a></b>
+                    </li>
+                    <li class="clearfix">
+                        <i class="fl"></i>
+                        <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                    </li>
+                    <li class="clearfix">
+                        <i class="fl"></i>
+                        <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                    </li>
+                    <li class="clearfix">
+                        <i class="fl"></i>
+                        <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                    </li>
+                    <li class="clearfix">
+                        <i class="fl"></i>
+                        <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                    </li>
+                    <li class="clearfix">
+                        <i class="fl"></i>
+                        <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                    </li>
+                </ul>
+                <div class="ineco clearfix">
+                	<a class="fl" href="#">进入财经频道</a>
+                    <span class="fl"></span>
+                    <em class="fl">|</em>
+                    <a class="fl cent" href="#">行情</a>
+                    <em class="fl">|</em>
+                    <a class="fl last" href="#">财经视频</a>
+                </div>
+            </div>
+            <div class="sport_l_l fl">
+            	<div class="hxm_l2 mb12">
+                    <div class="nav clearfix">
+                        <a href="#" class="fl cur">新闻</a>
+                        <a href="#" class="fl">图片</a>
+                        <a href="#" class="fl last">资讯</a>
+                    </div>
+               </div>
+                <div class="sport_l1 clearfix">
+                	<div class="fl inleft">
+                    	<a href="#"><img src="images/laowai1.png" /></a>
+                        <a class="main" href="#">伊莲娜抢体育画报学魁</a>
+                    </div>
+                    <ul class="inright fl">
+                    	<li class="clearfix">
+                        	<b class="fl d3"></b>
+                            <i class="fl"></i>
+                            <a href="#" class="fl">莎娃颠球技艺不逊梅西</a>
+                        </li>
+                        <li class="clearfix">
+                        	<b class="fl d3"></b>
+                            <i class="fl"></i>
+                            <a href="#" class="fl">莎娃颠球技艺不逊梅西</a>
+                        </li>
+                        <li class="clearfix">
+                        	<b class="fl d3"></b>
+                            <i class="fl"></i>
+                            <a href="#" class="fl">莎娃颠球技艺不逊梅西</a>
+                        </li>
+                        <li class="clearfix">
+                        	<b class="fl d3"></b>
+                            <i class="fl"></i>
+                            <a href="#" class="fl">莎娃颠球技艺不逊梅西</a>
+                        </li>
+                        <li class="clearfix">
+                        	<b class="fl d3"></b>
+                            <i class="fl"></i>
+                            <a href="#" class="fl">莎娃颠球技艺不逊梅西</a>
+                        </li>
+                    </ul>
+                </div>
+                <ul class="hxm_l3">
+                    <li class="clearfix">
+                        <i class="fl"></i>
+                        <b><a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a></b>
+                    </li>
+                    <li class="clearfix">
+                        <i class="fl"></i>
+                        <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                    </li>
+                    <li class="clearfix">
+                        <i class="fl"></i>
+                        <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                    </li>
+                    <li class="clearfix">
+                        <i class="fl"></i>
+                        <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                    </li>
+                    <li class="clearfix">
+                        <i class="fl"></i>
+                        <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                    </li>
+                    <li class="clearfix">
+                        <i class="fl"></i>
+                        <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                    </li>
+                </ul>
+                <div class="ineco clearfix">
+                	<a class="fl" href="#">进入财经频道</a>
+                    <span class="fl"></span>
+                    <em class="fl">|</em>
+                    <a class="fl cent" href="#">行情</a>
+                    <em class="fl">|</em>
+                    <a class="fl last" href="#">财经视频</a>
+                </div>
+                <a href="#"><img src="images/fangchuan4.png" class="mb12" /></a>
+                <div class="hxm_l2">
+                    <div class="nav clearfix">
+                        <a href="#" class="fl cur">新闻</a>
+                        <a href="#" class="fl">图片</a>
+                        <a href="#" class="fl last">资讯</a>
+                    </div>
+               </div>
+                <div class="sport_l1 clearfix">
+                	<div class="fl inleft">
+                    	<a href="#"><img src="images/laowai1.png" /></a>
+                        <a class="main" href="#">伊莲娜抢体育画报学魁</a>
+                    </div>
+                    <ul class="inright fl">
+                    	<li class="clearfix">
+                        	<b class="fl d3"></b>
+                            <i class="fl"></i>
+                            <a href="#" class="fl">莎娃颠球技艺不逊梅西</a>
+                        </li>
+                        <li class="clearfix">
+                        	<b class="fl d3"></b>
+                            <i class="fl"></i>
+                            <a href="#" class="fl">莎娃颠球技艺不逊梅西</a>
+                        </li>
+                        <li class="clearfix">
+                        	<b class="fl d3"></b>
+                            <i class="fl"></i>
+                            <a href="#" class="fl">莎娃颠球技艺不逊梅西</a>
+                        </li>
+                        <li class="clearfix">
+                        	<b class="fl d3"></b>
+                            <i class="fl"></i>
+                            <a href="#" class="fl">莎娃颠球技艺不逊梅西</a>
+                        </li>
+                        <li class="clearfix">
+                        	<b class="fl d3"></b>
+                            <i class="fl"></i>
+                            <a href="#" class="fl">莎娃颠球技艺不逊梅西</a>
+                        </li>
+                    </ul>
+                </div>
+                <ul class="hxm_l3">
+                    <li class="clearfix">
+                        <i class="fl"></i>
+                        <b><a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a></b>
+                    </li>
+                    <li class="clearfix">
+                        <i class="fl"></i>
+                        <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                    </li>
+                    <li class="clearfix">
+                        <i class="fl"></i>
+                        <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                    </li>
+                    <li class="clearfix">
+                        <i class="fl"></i>
+                        <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                    </li>
+                    <li class="clearfix">
+                        <i class="fl"></i>
+                        <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                    </li>
+                    <li class="clearfix">
+                        <i class="fl"></i>
+                        <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                    </li>
+                </ul>
+                <div class="ineco clearfix">
+                	<a class="fl" href="#">进入财经频道</a>
+                    <span class="fl"></span>
+                    <em class="fl">|</em>
+                    <a class="fl cent" href="#">行情</a>
+                    <em class="fl">|</em>
+                    <a class="fl last" href="#">财经视频</a>
+                </div>
+            </div>
+        </div>
+        <div class="fl bjhouse">
+        	<a href="#"><img src="images/wangyiyunyinyue.png" /></a>
+            <div class="sport_t clearfix mt12">
+            	<a href="#" class="fl cur">网易上城</a>
+                <a href="#" class="fl">彩票</a>
+            </div>
+            <div class="game">
+            	<div class="clearfix mb12 bdb pb12">
+                    <div class="fl re sport_r1_l">
+                        <a href="#"><img src="images/laowai1.png" /></a>
+                        <p>全球最有型的大叔们</p> 
+                    </div>
+                    <ul class="sport_r1_r fl">
+                        <li class="clearfix">
+                            <b class="fl d3"></b>
+                            <a href="#" class="fl">2016春夏10大流行色</a>
+                        </li>
+                        <li class="clearfix">
+                            <b class="fl d3"></b>
+                            <a href="#" class="fl">2016春夏10大流行色</a>
+                        </li>
+                        <li class="clearfix">
+                            <b class="fl d3"></b>
+                            <a href="#" class="fl">2016春夏10大流行色</a>
+                        </li>
+                        <li class="clearfix">
+                            <b class="fl d3"></b>
+                            <a href="#" class="fl">2016春夏10大流行色</a>
+                        </li>
+                        <li class="clearfix">
+                            <b class="fl d3"></b>
+                            <a href="#" class="fl">2016春夏10大流行色</a>
+                        </li>
+                    </ul>
+                </div>
+                <ul class="game_c">
+                    <li class="clearfix">
+                        <i class="fl"></i>
+                        <b><a href="#" class="fl">孙宏斌：融创和个人未购万科股票</a></b>
+                    </li>
+                    <li class="clearfix">
+                        <i class="fl"></i>
+                        <a href="#" class="fl">孙宏斌：融创和个人未购万科股票</a>
+                    </li>
+                    <li class="clearfix">
+                        <i class="fl"></i>
+                        <a href="#" class="fl">孙宏斌：融创和个人未购万科股票</a>
+                    </li>
+                    <li class="clearfix">
+                        <i class="fl"></i>
+                        <a href="#" class="fl">孙宏斌：融创和个人未购万科股票</a>
+                    </li>
+                    <li class="clearfix">
+                        <i class="fl"></i>
+                        <a href="#" class="fl">孙宏斌：融创和个人未购万科股票</a>
+                    </li>
+                    <li class="clearfix">
+                        <i class="fl"></i>
+                        <a href="#" class="fl">孙宏斌：融创和个人未购万科股票</a>
+                    </li>
+                    <li class="clearfix">
+                        <i class="fl"></i>
+                        <a href="#" class="fl">孙宏斌：融创和个人未购万科股票</a>
+                    </li>
+                    <li class="clearfix">
+                        <i class="fl"></i>
+                        <a href="#" class="fl">孙宏斌：融创和个人未购万科股票</a>
+                    </li>
+                </ul>
+                <div class="game_b clearfix">
+                	<a href="#" class="fl">进入游戏频道</a>
+                    <em class="fl"></em>
+                    <i class="fl">|</i>
+                    <a class="fl" href="#">新游</a>
+                </div>
+            </div>
+        </div>
+        <a href="#"><img class="mt12 mb12" src="images/jingdongdatu.png" /></a>
+    </div>
+    <!--博客-->
+    <div class="w blogs clearfix">
+    	<div class="sport_l_l fl">
+            <div class="hxm_l2 mb12">
+                <div class="nav clearfix">
+                    <a href="#" class="fl cur">新闻</a>
+                    <a href="#" class="fl">图片</a>
+                    <a href="#" class="fl last">资讯</a>
+                </div>
+            </div>
+            <div class="sport_l1 clearfix">
+                <div class="fl inleft">
+                    <a href="#"><img src="images/laowai1.png" /></a>
+                    <a class="main" href="#">伊莲娜抢体育画报学魁</a>
+                </div>
+                <ul class="inright fl">
+                    <li class="clearfix">
+                        <b class="fl d3"></b>
+                        <i class="fl"></i>
+                        <a href="#" class="fl">莎娃颠球技艺不逊梅西</a>
+                    </li>
+                    <li class="clearfix">
+                        <b class="fl d3"></b>
+                        <i class="fl"></i>
+                        <a href="#" class="fl">莎娃颠球技艺不逊梅西</a>
+                    </li>
+                    <li class="clearfix">
+                        <b class="fl d3"></b>
+                        <i class="fl"></i>
+                        <a href="#" class="fl">莎娃颠球技艺不逊梅西</a>
+                    </li>
+                    <li class="clearfix">
+                        <b class="fl d3"></b>
+                        <i class="fl"></i>
+                        <a href="#" class="fl">莎娃颠球技艺不逊梅西</a>
+                    </li>
+                    <li class="clearfix">
+                        <b class="fl d3"></b>
+                        <i class="fl"></i>
+                        <a href="#" class="fl">莎娃颠球技艺不逊梅西</a>
+                    </li>
+                </ul>
+            </div>
+            <ul class="hxm_l3">
+                <li class="clearfix">
+                    <i class="fl"></i>
+                    <b><a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a></b>
+                </li>
+                <li class="clearfix">
+                    <i class="fl"></i>
+                    <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                </li>
+                <li class="clearfix">
+                    <i class="fl"></i>
+                    <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                </li>
+                <li class="clearfix">
+                    <i class="fl"></i>
+                    <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                </li>
+                <li class="clearfix">
+                    <i class="fl"></i>
+                    <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                </li>
+                <li class="clearfix">
+                    <i class="fl"></i>
+                    <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                </li>
+            </ul>
+            <div class="ineco clearfix">
+                <a class="fl" href="#">进入财经频道</a>
+                <span class="fl"></span>
+                <em class="fl">|</em>
+                <a class="fl cent" href="#">行情</a>
+                <em class="fl">|</em>
+                <a class="fl last" href="#">财经视频</a>
+            </div>
+            <div class="hxm_l2 mb12 mt12">
+                <div class="nav clearfix">
+                    <a href="#" class="fl cur">新闻</a>
+                    <a href="#" class="fl">图片</a>
+                    <a href="#" class="fl last">资讯</a>
+                </div>
+           </div>
+            <div class="sport_l1 clearfix">
+                <div class="fl inleft">
+                    <a href="#"><img src="images/laowai1.png" /></a>
+                    <a class="main" href="#">伊莲娜抢体育画报学魁</a>
+                </div>
+                <ul class="inright fl">
+                    <li class="clearfix">
+                        <b class="fl d3"></b>
+                        <i class="fl"></i>
+                        <a href="#" class="fl">莎娃颠球技艺不逊梅西</a>
+                    </li>
+                    <li class="clearfix">
+                        <b class="fl d3"></b>
+                        <i class="fl"></i>
+                        <a href="#" class="fl">莎娃颠球技艺不逊梅西</a>
+                    </li>
+                    <li class="clearfix">
+                        <b class="fl d3"></b>
+                        <i class="fl"></i>
+                        <a href="#" class="fl">莎娃颠球技艺不逊梅西</a>
+                    </li>
+                    <li class="clearfix">
+                        <b class="fl d3"></b>
+                        <i class="fl"></i>
+                        <a href="#" class="fl">莎娃颠球技艺不逊梅西</a>
+                    </li>
+                    <li class="clearfix">
+                        <b class="fl d3"></b>
+                        <i class="fl"></i>
+                        <a href="#" class="fl">莎娃颠球技艺不逊梅西</a>
+                    </li>
+                </ul>
+            </div>
+            <ul class="hxm_l3">
+                <li class="clearfix">
+                    <i class="fl"></i>
+                    <b><a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a></b>
+                </li>
+                <li class="clearfix">
+                    <i class="fl"></i>
+                    <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                </li>
+                <li class="clearfix">
+                    <i class="fl"></i>
+                    <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                </li>
+                <li class="clearfix">
+                    <i class="fl"></i>
+                    <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                </li>
+                <li class="clearfix">
+                    <i class="fl"></i>
+                    <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                </li>
+                <li class="clearfix">
+                    <i class="fl"></i>
+                    <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                </li>
+            </ul>
+            <div class="ineco clearfix">
+                <a class="fl" href="#">进入财经频道</a>
+                <span class="fl"></span>
+                <em class="fl">|</em>
+                <a class="fl cent" href="#">行情</a>
+                <em class="fl">|</em>
+                <a class="fl last" href="#">财经视频</a>
+            </div>
+            <div class="hxm_l2 mb12 mt12">
+                <div class="nav clearfix">
+                    <a href="#" class="fl cur">新闻</a>
+                    <a href="#" class="fl">图片</a>
+                    <a href="#" class="fl last">资讯</a>
+                </div>
+           </div>
+            <div class="sport_l1 clearfix">
+                <div class="fl inleft">
+                    <a href="#"><img src="images/laowai1.png" /></a>
+                    <a class="main" href="#">伊莲娜抢体育画报学魁</a>
+                </div>
+                <ul class="inright fl">
+                    <li class="clearfix">
+                        <b class="fl d3"></b>
+                        <i class="fl"></i>
+                        <a href="#" class="fl">莎娃颠球技艺不逊梅西</a>
+                    </li>
+                    <li class="clearfix">
+                        <b class="fl d3"></b>
+                        <i class="fl"></i>
+                        <a href="#" class="fl">莎娃颠球技艺不逊梅西</a>
+                    </li>
+                    <li class="clearfix">
+                        <b class="fl d3"></b>
+                        <i class="fl"></i>
+                        <a href="#" class="fl">莎娃颠球技艺不逊梅西</a>
+                    </li>
+                    <li class="clearfix">
+                        <b class="fl d3"></b>
+                        <i class="fl"></i>
+                        <a href="#" class="fl">莎娃颠球技艺不逊梅西</a>
+                    </li>
+                    <li class="clearfix">
+                        <b class="fl d3"></b>
+                        <i class="fl"></i>
+                        <a href="#" class="fl">莎娃颠球技艺不逊梅西</a>
+                    </li>
+                </ul>
+            </div>
+            <ul class="hxm_l3">
+                <li class="clearfix">
+                    <i class="fl"></i>
+                    <b><a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a></b>
+                </li>
+                <li class="clearfix">
+                    <i class="fl"></i>
+                    <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                </li>
+                <li class="clearfix">
+                    <i class="fl"></i>
+                    <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                </li>
+                <li class="clearfix">
+                    <i class="fl"></i>
+                    <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                </li>
+                <li class="clearfix">
+                    <i class="fl"></i>
+                    <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                </li>
+                <li class="clearfix">
+                    <i class="fl"></i>
+                    <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                </li>
+            </ul>
+            <div class="ineco clearfix">
+                <a class="fl" href="#">进入财经频道</a>
+                <span class="fl"></span>
+                <em class="fl">|</em>
+                <a class="fl cent" href="#">行情</a>
+                <em class="fl">|</em>
+                <a class="fl last" href="#">财经视频</a>
+            </div>
+        </div>
+    	<div class="sport_l_l fl">
+            <div class="hxm_l2 mb12">
+                <div class="nav clearfix">
+                    <a href="#" class="fl cur">新闻</a>
+                    <a href="#" class="fl">图片</a>
+                    <a href="#" class="fl last">资讯</a>
+                </div>
+            </div>
+            <div class="sport_l1 clearfix">
+                <div class="fl inleft">
+                    <a href="#"><img src="images/laowai1.png" /></a>
+                    <a class="main" href="#">伊莲娜抢体育画报学魁</a>
+                </div>
+                <ul class="inright fl">
+                    <li class="clearfix">
+                        <b class="fl d3"></b>
+                        <i class="fl"></i>
+                        <a href="#" class="fl">莎娃颠球技艺不逊梅西</a>
+                    </li>
+                    <li class="clearfix">
+                        <b class="fl d3"></b>
+                        <i class="fl"></i>
+                        <a href="#" class="fl">莎娃颠球技艺不逊梅西</a>
+                    </li>
+                    <li class="clearfix">
+                        <b class="fl d3"></b>
+                        <i class="fl"></i>
+                        <a href="#" class="fl">莎娃颠球技艺不逊梅西</a>
+                    </li>
+                    <li class="clearfix">
+                        <b class="fl d3"></b>
+                        <i class="fl"></i>
+                        <a href="#" class="fl">莎娃颠球技艺不逊梅西</a>
+                    </li>
+                    <li class="clearfix">
+                        <b class="fl d3"></b>
+                        <i class="fl"></i>
+                        <a href="#" class="fl">莎娃颠球技艺不逊梅西</a>
+                    </li>
+                </ul>
+            </div>
+            <ul class="hxm_l3">
+                <li class="clearfix">
+                    <i class="fl"></i>
+                    <b><a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a></b>
+                </li>
+                <li class="clearfix">
+                    <i class="fl"></i>
+                    <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                </li>
+                <li class="clearfix">
+                    <i class="fl"></i>
+                    <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                </li>
+                <li class="clearfix">
+                    <i class="fl"></i>
+                    <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                </li>
+                <li class="clearfix">
+                    <i class="fl"></i>
+                    <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                </li>
+                <li class="clearfix">
+                    <i class="fl"></i>
+                    <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                </li>
+            </ul>
+            <div class="ineco clearfix">
+                <a class="fl" href="#">进入财经频道</a>
+                <span class="fl"></span>
+                <em class="fl">|</em>
+                <a class="fl cent" href="#">行情</a>
+                <em class="fl">|</em>
+                <a class="fl last" href="#">财经视频</a>
+            </div>
+            <div class="hxm_l2 mb12 mt12">
+                <div class="nav clearfix">
+                    <a href="#" class="fl cur">新闻</a>
+                    <a href="#" class="fl">图片</a>
+                    <a href="#" class="fl last">资讯</a>
+                </div>
+            </div>
+            <div class="sport_l1 clearfix">
+                <div class="fl inleft">
+                    <a href="#"><img src="images/laowai1.png" /></a>
+                    <a class="main" href="#">伊莲娜抢体育画报学魁</a>
+                </div>
+                <ul class="inright fl">
+                    <li class="clearfix">
+                        <b class="fl d3"></b>
+                        <i class="fl"></i>
+                        <a href="#" class="fl">莎娃颠球技艺不逊梅西</a>
+                    </li>
+                    <li class="clearfix">
+                        <b class="fl d3"></b>
+                        <i class="fl"></i>
+                        <a href="#" class="fl">莎娃颠球技艺不逊梅西</a>
+                    </li>
+                    <li class="clearfix">
+                        <b class="fl d3"></b>
+                        <i class="fl"></i>
+                        <a href="#" class="fl">莎娃颠球技艺不逊梅西</a>
+                    </li>
+                    <li class="clearfix">
+                        <b class="fl d3"></b>
+                        <i class="fl"></i>
+                        <a href="#" class="fl">莎娃颠球技艺不逊梅西</a>
+                    </li>
+                    <li class="clearfix">
+                        <b class="fl d3"></b>
+                        <i class="fl"></i>
+                        <a href="#" class="fl">莎娃颠球技艺不逊梅西</a>
+                    </li>
+                </ul>
+            </div>
+            <ul class="hxm_l3">
+                <li class="clearfix">
+                    <i class="fl"></i>
+                    <b><a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a></b>
+                </li>
+                <li class="clearfix">
+                    <i class="fl"></i>
+                    <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                </li>
+                <li class="clearfix">
+                    <i class="fl"></i>
+                    <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                </li>
+                <li class="clearfix">
+                    <i class="fl"></i>
+                    <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                </li>
+                <li class="clearfix">
+                    <i class="fl"></i>
+                    <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                </li>
+                <li class="clearfix">
+                    <i class="fl"></i>
+                    <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                </li>
+            </ul>
+            <div class="ineco clearfix">
+                <a class="fl" href="#">进入财经频道</a>
+                <span class="fl"></span>
+                <em class="fl">|</em>
+                <a class="fl cent" href="#">行情</a>
+                <em class="fl">|</em>
+                <a class="fl last" href="#">财经视频</a>
+            </div>
+            <div class="hxm_l2 mb12 mt12">
+                <div class="nav clearfix">
+                    <a href="#" class="fl cur">新闻</a>
+                    <a href="#" class="fl">图片</a>
+                    <a href="#" class="fl last">资讯</a>
+                </div>
+            </div>
+            <div class="sport_l1 clearfix">
+                <div class="fl inleft">
+                    <a href="#"><img src="images/laowai1.png" /></a>
+                    <a class="main" href="#">伊莲娜抢体育画报学魁</a>
+                </div>
+                <ul class="inright fl">
+                    <li class="clearfix">
+                        <b class="fl d3"></b>
+                        <i class="fl"></i>
+                        <a href="#" class="fl">莎娃颠球技艺不逊梅西</a>
+                    </li>
+                    <li class="clearfix">
+                        <b class="fl d3"></b>
+                        <i class="fl"></i>
+                        <a href="#" class="fl">莎娃颠球技艺不逊梅西</a>
+                    </li>
+                    <li class="clearfix">
+                        <b class="fl d3"></b>
+                        <i class="fl"></i>
+                        <a href="#" class="fl">莎娃颠球技艺不逊梅西</a>
+                    </li>
+                    <li class="clearfix">
+                        <b class="fl d3"></b>
+                        <i class="fl"></i>
+                        <a href="#" class="fl">莎娃颠球技艺不逊梅西</a>
+                    </li>
+                    <li class="clearfix">
+                        <b class="fl d3"></b>
+                        <i class="fl"></i>
+                        <a href="#" class="fl">莎娃颠球技艺不逊梅西</a>
+                    </li>
+                </ul>
+            </div>
+            <ul class="hxm_l3">
+                <li class="clearfix">
+                    <i class="fl"></i>
+                    <b><a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a></b>
+                </li>
+                <li class="clearfix">
+                    <i class="fl"></i>
+                    <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                </li>
+                <li class="clearfix">
+                    <i class="fl"></i>
+                    <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                </li>
+                <li class="clearfix">
+                    <i class="fl"></i>
+                    <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                </li>
+                <li class="clearfix">
+                    <i class="fl"></i>
+                    <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                </li>
+                <li class="clearfix">
+                    <i class="fl"></i>
+                    <a href="#" class="fl">孙宏斌：融创和个人未购万科股票 不合逻辑</a>
+                </li>
+            </ul>
+            <div class="ineco clearfix">
+                <a class="fl" href="#">进入财经频道</a>
+                <span class="fl"></span>
+                <em class="fl">|</em>
+                <a class="fl cent" href="#">行情</a>
+                <em class="fl">|</em>
+                <a class="fl last" href="#">财经视频</a>
+            </div>
+        </div>
+        <div class="fl">
+        	<a href="#"><img src="images/交易.png"/></a>
+            <div class="sport_t clearfix mt12">
+            	<a href="#" class="fl cur">海外房产</a>
+                <a href="#" class="fl">投资移民</a>
+            </div>
+            <div class="game">
+            	<div class="clearfix mb12 bdb pb12">
+                    <div class="fl re sport_r1_l">
+                        <a href="#"><img src="images/laowai1.png" /></a>
+                        <p>全球最有型的大叔们</p> 
+                    </div>
+                    <div class="fl re sport_r1_l ml15">
+                        <a href="#"><img src="images/laowai1.png" /></a>
+                        <p>全球最有型的大叔们</p> 
+                    </div>
+                </div>
+                <ul class="game_c">
+                    <li class="clearfix">
+                        <i class="fl"></i>
+                        <b><a href="#" class="fl">孙宏斌：融创和个人未购万科股票</a></b>
+                    </li>
+                    <li class="clearfix">
+                        <i class="fl"></i>
+                        <a href="#" class="fl">孙宏斌：融创和个人未购万科股票</a>
+                    </li>
+                    <li class="clearfix">
+                        <i class="fl"></i>
+                        <a href="#" class="fl">孙宏斌：融创和个人未购万科股票</a>
+                    </li>
+                    <li class="clearfix">
+                        <i class="fl"></i>
+                        <a href="#" class="fl">孙宏斌：融创和个人未购万科股票</a>
+                    </li>
+                    <li class="clearfix">
+                        <i class="fl"></i>
+                        <a href="#" class="fl">孙宏斌：融创和个人未购万科股票</a>
+                    </li>
+                    <li class="clearfix">
+                        <i class="fl"></i>
+                        <a href="#" class="fl">孙宏斌：融创和个人未购万科股票</a>
+                    </li>
+                    <li class="clearfix">
+                        <i class="fl"></i>
+                        <a href="#" class="fl">孙宏斌：融创和个人未购万科股票</a>
+                    </li>
+                    <li class="clearfix">
+                        <i class="fl"></i>
+                        <a href="#" class="fl">孙宏斌：融创和个人未购万科股票</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="state mt12">
+            	<div class="clearfix state_t">
+            		<h3 class="fl">网易动态</h3>
+                    <p class="fr">NTES:&nbsp;<em class="hot">116.07</em>&nbsp;<i class="hot">1.06%</i></p>
+                </div>
+                <ul class="state_b">
+                	<li class="clearfix">
+                    	<i class="fl d3"></i>
+                        <a class="fl" href="#">网易公布2014年Q4季度财务报表</a>
+                    </li>
+                    <li class="clearfix">
+                    	<i class="fl d3"></i>
+                        <a class="fl" href="#">网易公布2014年Q4季度财务报表</a>
+                    </li>
+                    <li class="clearfix">
+                    	<i class="fl d3"></i>
+                        <a class="fl" href="#">网易公布2014年Q4季度财务报表</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--footnav-->
+    <div class="w footnav mt12 clearfix">
+    	<a href="#" class="fl cur">懂生活</a>
+        <a href="#" class="fl">懂生活</a>
+        <a href="#" class="fl">懂生活</a>
+        <a href="#" class="fl">懂生活</a>
+        <a href="#" class="fl">懂生活</a>
+        <a href="#" class="fl">懂生活</a>
+        <a href="#" class="fl">懂生活</a>
+        <a href="#" class="fl">懂生活</a>
+        <a href="#" class="fl">懂生活</a>
+    </div>
+    <div class="w">
+    	<a href="#"><img class="images" src="images/foot111.png" /></a>
+    </div>
+    <!--foot-->
+    <div class="ft_main clearfix">
+        <div class="w">
+            <div class="in clearfix">
+                <ul class="imgs fl haha list_fnav">
+                    <li>
+                        <img class="fl" src="images/wangyi.png" />
+                    </li>
+                </ul>
+                <ul class="clearfix fl list_fnav">
+                    <li class="fs"><a href="#">新闻</a></li>
+                    <li><a href="#">国内</a></li>
+                    <li><a href="#">国内</a></li>
+                    <li><a href="#">国内</a></li>
+                    <li><a href="#">国内</a></li>
+                    <li><a href="#">国内</a></li>
+                    <li><a href="#">国内</a></li>
+                    <li><a href="#">国内</a></li>
+                    <li><a href="#">国内</a></li>
+                </ul>
+                <ul class="clearfix fl list_fnav">
+                    <li class="fs"><a href="#">新闻</a></li>
+                    <li><a href="#">国内</a></li>
+                    <li><a href="#">国内</a></li>
+                    <li><a href="#">国内</a></li>
+                    <li><a href="#">国内</a></li>
+                    <li><a href="#">国内</a></li>
+                    <li><a href="#">国内</a></li>
+                    <li><a href="#">国内</a></li>
+                    <li><a href="#">国内</a></li>
+                </ul>
+                <ul class="clearfix fl blue list_fnav">
+                    <li class="fs"><a href="#">新闻</a></li>
+                    <li><a href="#">国内</a></li>
+                    <li><a href="#">国内</a></li>
+                    <li><a href="#">国内</a></li>
+                    <li><a href="#">国内</a></li>
+                    <li><a href="#">国内</a></li>
+                    <li><a href="#">国内</a></li>
+                    <li><a href="#">国内</a></li>
+                    <li><a href="#">国内</a></li>
+                </ul>
+                <ul class="clearfix fl list_fnav">
+                    <li class="fs"><a href="#">新闻</a></li>
+                    <li><a href="#">国内</a></li>
+                    <li><a href="#">国内</a></li>
+                    <li><a href="#">国内</a></li>
+                    <li><a href="#">国内</a></li>
+                    <li><a href="#">国内</a></li>
+                    <li><a href="#">国内</a></li>
+                    <li><a href="#">国内</a></li>
+                    <li><a href="#">国内</a></li>
+                </ul>
+                <ul class="clearfix fl list_fnav">
+                    <li class="fs"><a href="#">新闻</a></li>
+                    <li><a href="#">国内</a></li>
+                    <li><a href="#">国内</a></li>
+                    <li><a href="#">国内</a></li>
+                    <li><a href="#">国内</a></li>
+                    <li><a href="#">国内</a></li>
+                    <li><a href="#">国内</a></li>
+                    <li><a href="#">国内</a></li>
+                    <li><a href="#">国内</a></li>
+                </ul>
+                <ul class="clearfix fl list_fnav">
+                    <li class="fs"><a href="#">新闻</a></li>
+                    <li><a href="#">国内</a></li>
+                    <li><a href="#">国内</a></li>
+                    <li><a href="#">国地内</a></li>
+                    <li><a href="#">国内</a></li>
+                    <li><a href="#">国内</a></li>
+                    <li><a href="#">国刚内</a></li>
+                    <li><a href="#">国内</a></li>
+                    <li><a href="#">国内</a></li>
+                </ul>
+                <ul class="clearfix fl list_fnav">
+                    <li class="fs"><a href="#">新闻</a></li>
+                    <li><a href="#">国内</a></li>
+                    <li><a href="#">国内</a></li>
+                    <li><a href="#">国内</a></li>
+                    <li><a href="#">国内</a></li>
+                    <li><a href="#">国内</a></li>
+                    <li><a href="#">国内</a></li>
+                    <li><a href="#">国内</a></li>
+                    <li><a href="#">国内</a></li>
+                </ul>
+                <ul class="clearfix fl list_fnav">
+                    <li class="fs"><a href="#">新闻</a></li>
+                    <li><a href="#">国内</a></li>
+                    <li><a href="#">国内</a></li>
+                    <li><a href="#">国内</a></li>
+                    <li><a href="#">国内</a></li>
+                    <li><a href="#">国内</a></li>
+                    <li><a href="#">国内</a></li>
+                    <li><a href="#">国内</a></li>
+                    <li><a href="#">国内</a></li>
+                </ul>
+                <ul class="clearfix fl list_fnav">
+                    <li class="fs"><a href="#">新闻</a></li>
+                    <li><a href="#">国内</a></li>
+                    <li><a href="#">国内</a></li>
+                    <li><a href="#">国内</a></li>
+                    <li><a href="#">国内</a></li>
+                    <li><a href="#">国内</a></li>
+                    <li><a href="#">国内</a></li>
+                    <li><a href="#">国内</a></li>
+                    <li><a href="#">国内</a></li>
+                </ul>
+                <ul class="clearfix fl list_fnav">
+                    <li class="fs"><a href="#">新闻</a></li>
+                    <li><a href="#">国内</a></li>
+                    <li><a href="#">国内</a></li>
+                    <li><a href="#">国内</a></li>
+                    <li><a href="#">国内</a></li>
+                    <li><a href="#">国内</a></li>
+                    <li><a href="#">国内</a></li>
+                    <li><a href="#">国内</a></li>
+                    <li><a href="#">国内</a></li>
+                </ul>
+                <ul class="clearfix fl list_fnav">
+                    <li class="fs"><a href="#">新闻</a></li>
+                    <li><a href="#">国内</a></li>
+                    <li><a href="#">国内</a></li>
+                    <li><a href="#">国内</a></li>
+                    <li><a href="#">国内</a></li>
+                    <li><a href="#">国内</a></li>
+                    <li><a href="#">国内</a></li>
+                    <li><a href="#">国内</a></li>
+                    <li><a href="#">国内</a></li>
+                </ul>
+                <div class="wy_map fr">
+                    <a class="fl" href="#">网易地图</a>
+                    <span class="fl"></span>
+                </div>
+            </div>
+            <div class="clearfix foot_c">
+                <ul class="fl a1">
+                    <li><a href="#">ICP证粤B2-20090191 信用中国</a></li>
+                    <li><a href="#">ICP证粤B2-20090191 信用中国</a></li>
+                    <li><a href="#">ICP证粤B2-20090191 信用中国</a></li>
+                    <li><a href="#">ICP证粤B2-20090191 信用中国</a></li>
+                    <li><a href="#">ICP证粤B2-20090191 信用中国</a></li>
+                </ul>
+                <ul class="fl a1">
+                    <li><a href="#">ICP证粤B2-20090191 信用中国</a></li>
+                    <li><a href="#">ICP证粤B2-20090191 信用中国</a></li>
+                    <li><a href="#">ICP证粤B2-20090191 信用中国</a></li>
+                    <li><a href="#">ICP证粤B2-20090191 信用中国</a></li>
+                    <li><a href="#">ICP证粤B2-20090191 信用中国</a></li>
+                </ul>
+                <ul class="fl a1">
+                    <li><a href="#">ICP证粤B2-20090191 信用中国</a></li>
+                    <li><a href="#">ICP证粤B2-20090191 信用中国</a></li>
+                    <li><a href="#">ICP证粤B2-20090191 信用中国</a></li>
+                    <li><a href="#">ICP证粤B2-20090191 信用中国</a></li>
+                    <li><a href="#">ICP证粤B2-20090191 信用中国</a></li>
+                </ul>
+                <ul class="fl a1">
+                    <li><a href="#">ICP证粤B2-20090191 信用中国</a></li>
+                    <li><a href="#">ICP证粤B2-20090191 信用中国</a></li>
+                    <li><a href="#">ICP证粤B2-20090191 信用中国</a></li>
+                    <li><a href="#">ICP证粤B2-20090191 信用中国</a></li>
+                    <li><a href="#">ICP证粤B2-20090191 信用中国</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--over-->
+    <div class="over">
+    	<dl class="over_haha clearfix w">
+        	<dt class="fl"><a href="#">京公网安备 11000002000013号</a></dt>
+            <dd class="fl"><a href="#">公司介绍</a></dd>
+            <dd class="fl"><a href="#">公司介绍</a></dd>
+            <dd class="fl"><a href="#">公司介绍</a></dd>
+            <dd class="fl"><a href="#">公司介绍</a></dd>
+            <dd class="fl"><a href="#">公司介绍</a></dd>
+            <dd class="fl"><a href="#">公司介绍</a></dd>
+            <dd class="fl"><a href="#">公司介绍</a></dd>
+            <dd class="fl"><a href="#">公司介绍</a></dd>
+            <dd class="fl"><a href="#">公司介绍</a></dd>
+        </dl>
+    </div>
+</body>
+</html>

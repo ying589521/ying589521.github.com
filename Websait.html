@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body{
+            background: url("img/103cc936-0bf1-4890-92fc-5f3cfa2b5e6d1477793905118.jpg") no-repeat #ad8dbf;
+            background-size: 100%;
+            list-style: none;
+        }
+        #box{
+            width: 300px;
+            height: 300px;
+            margin: 100px auto;
+            position: relative;
+            -webkit-transform-style: preserve-3d;
+            -webkit-transform: perspective(800px) translate(0) rotateX(0deg) rotateY(0);
+            -webkit-transition: 1s all ease;
+        }
+        #box li{
+            width: 100%;
+            height: 100%;
+            font-size: 60px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            text-align: center;
+            line-height: 300px;
+            background:-webkit-radial-gradient(rgba(171,140,184,1),rgba(228,195,212,1));
+            opacity: 0;
+            border-radius:20px;
+            list-style: none;
+        }
+        #box li a{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+            text-decoration: none;
+            text-align: center;
+            line-height: 300px;
+            color: #000;
+        }
+        #box li:nth-child(1) a{
+            background: url("project/小米官网/img/logo.png") no-repeat center;
+            background-size: 100%;
+        }
+        #box li:nth-child(2) a{
+            background: url("project/360官网/logo.png") no-repeat center;
+            background-size: 100%;
+        }
+        #box li:nth-child(3) a{
+            background: url("project/京东/img/jdlogo.png") no-repeat center;
+            background-size: 100%;
+        }
+        #box li:nth-child(4) a{
+            background: url("project/美丽说/img/img/logo_n4.png") no-repeat center;
+            background-size: 100%;
+        }
+        #box li:nth-child(5) a{
+            background: url("project/爱奇艺/img/logo108x35_black.png") no-repeat center;
+            background-size: 100%;
+        }
+        #box li:nth-child(6) a{
+            background: url("project/灵魂回响/img/logo.gif") no-repeat center;
+            background-size: 100%;
+        }
+        #box li:nth-child(7) a{
+            text-align: center;
+            line-height: inherit;
+        }
+        #box li:nth-child(8) a{
+
+        }
+        #box li:nth-child(9) a{
+            background: url("project/二手车/img/273二手车网.png") no-repeat center;
+            background-size: 100%;
+        }
+        #box li:nth-child(10) a{
+            background: url("project/网易/images/logo.png") no-repeat center;
+            background-size: 100%;
+        }
+
+        #box .l2{
+            opacity: 0;
+            z-index: 3;
+            -webkit-transform: translate(-280px) rotateY(45deg);
+        }
+        #box .l1{
+            opacity: 1;
+            z-index: 4;
+            -webkit-transform: translate(-220px) rotateY(45deg);
+        }
+        #box .cur{
+            opacity: 1;
+            z-index: 4;
+            -webkit-transform: translateZ(10px);
+        }
+        #box .r1{
+            opacity: 1;
+            z-index: 4;
+            -webkit-transform: translate(220px) rotateY(-45deg);
+        }
+        #box .r2{
+            opacity: 0;
+            z-index: 3;
+            -webkit-transform: translate(280px) rotateY(-45deg);
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            var oPre = document.querySelector('.pre');
+            var oNext = document.querySelector('.next');
+            var aLi = document.querySelectorAll('ul li');
+            var aClass = [];
+            var bOk = false;
+            for(var i=0;i<aLi.length;i++){
+                aClass[i] = aLi[i].className;
+            }
+            oNext.onclick = function(){
+                if(bOk)return;
+                bOk = true;
+                aClass.unshift(aClass.pop());
+                change();
+            };
+            oPre.onclick = function(){
+                if(bOk)return;
+                bOk = true;
+                aClass.push(aClass.shift());
+                change();
+            };
+            function change(){
+                for(var i=0;i<aLi.length;i++){
+                    aLi[i].style.WebkitTransition = '.5s all ease';
+                    aLi[i].className = aClass[i];
+                }
+                var oCur = document.querySelector('.cur');
+                function tranEnd(){
+                    oCur.removeEventListener('transitionend',tranEnd,false);
+                    bOk = false;
+                }
+                oCur.addEventListener('transitionend',tranEnd,false);
+            };
+
+        };
+    </script>
+</head>
+<body>
+<div>
+    <input type="button" value="←" class="pre"/>
+    <input type="button" value="→" class="next"/>
+    <ul id="box">
+        <li class="l2"><a href="project/小米官网/小米官网.html" target="_blank" title="小米官网"></a></li>
+        <li class="l1"><a href="project/360官网/index.html" target="_blank" title="360官网"></a></li>
+        <li class="cur"><a href="project/京东/code/京东.html" target="_blank" title="京东"></a></li>
+        <li class="r1"><a href="project/美丽说/index.html" target="_blank" title="美丽说"></a></li>
+        <li class="r2"><a href="project/爱奇艺/index.html" target="_blank" title="爱奇艺"></a></li>
+        <li><a href="project/灵魂回响/code/index.html" target="_blank" title="灵魂回响"></a></li>
+        <li><a href="project/博客/博客页.html" target="_blank" title="博客">博客页</a></li>
+        <li><a href="project/OPPO/index.html" target="_blank" title="OPPO">OPPO</a></li>
+        <li><a href="project/二手车/code/index.html" target="_blank" title="二手车"></a></li>
+        <li><a href="project/网易/网易.html" target="_blank" title="网易"></a></li>
+    </ul>
+</div>
+</body>
+</html>

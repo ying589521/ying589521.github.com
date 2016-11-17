@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        window.onload = function(){
+            var k;
+            var str = '';
+            //被乘数
+            for(var i=1;i<10;i++){
+                //乘数
+                for(var j=1;j<=i;j++){
+                    k=i*j;
+                    str += j + '*' + i + '=' + k;
+                    str+='&nbsp;';
+                }
+                str+='<br>';
+            }
+            document.write(str);
+        };
+    </script>
+</head>
+<body>
+
+</body>
+</html>

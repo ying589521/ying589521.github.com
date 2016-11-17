@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .box div{
+            width: 200px;
+            height: 200px;
+            display: none;
+            border: 1px solid #CCCCCC;
+        }
+        .on{
+            background: pink;
+        }
+
+    </style>
+    <script>
+            function setStyle(id,shijian){
+                var oBox = document.getElementById(id);
+                var aBtn = oBox.getElementsByTagName('input');
+                var aDiv = oBox.getElementsByTagName('div');
+                for(var i=0;i<aBtn.length;i++){
+                    (function(index){
+                        aBtn[i][shijian] = function(){
+                            for(var i=0;i<aBtn.length;i++){
+                                aBtn[i].className = '';
+                                aDiv[i].style.display = 'none';
+                            }
+                            this.className = 'on';
+                            aDiv[index].style.display = 'block';
+                        };
+                    })(i);
+                }
+            };
+            window.onload = function(){
+                setStyle('box','onclick');
+                setStyle('box1','onmouseover');
+            };
+    </script>
+</head>
+<body>
+<div id="box" class="box">
+    <input type="button" value="aaa" class="on"/>
+    <input type="button" value="bbb"/>
+    <input type="button" value="ccc"/>
+
+    <div style="display: block;">111</div>
+    <div>222</div>
+    <div>333</div>
+</div>
+<div id="box1" class="box">
+    <input type="button" value="aaa" class="on"/>
+    <input type="button" value="bbb"/>
+    <input type="button" value="ccc"/>
+
+    <div style="display: block;">111</div>
+    <div>222</div>
+    <div>333</div>
+</div>
+</body>
+</html>

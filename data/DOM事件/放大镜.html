@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #small{
+            width: 200px;
+            height: 200px;
+            position: absolute;
+
+        }
+        #small img{
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        #big{
+            width: 200px;
+            height: 200px;
+            display: none;
+            overflow: hidden;
+            position: absolute;
+            left: 220px;
+            top: 0;
+        }
+        #big img{
+            width: 400px;
+            height: 400px;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        span{
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            background: yellow;
+            opacity: .5;
+            display: none;
+        }
+    </style>
+    <script>
+         window.onload = function(){
+             var oBig = document.getElementById('big');
+             var oSmall = document.getElementById('small');
+             var oS = document.getElementsByTagName('span')[0];
+             var oImg = oBig.children[0];
+             oSmall.onmouseover = function(){
+                 oS.style.display = 'block';
+                 oBig.style.display = 'block';
+             };
+             oSmall.onmouseout = function(){
+                 oS.style.display = 'none';
+                 oBig.style.display = 'none';
+             };
+             oSmall.onmousemove = function(ev){
+                 var oEvent = ev || event;
+                 var left = oEvent.clientX - oS.offsetWidth/2;
+                 var top = oEvent.clientY - oS.offsetHeight/2;
+                 if(left<0){
+                     left=0;
+                 }
+                 if(left>oSmall.offsetWidth-oS.offsetLeft){
+                     left=oSmall.offsetWidth-oS.offsetLeft;
+                 }
+                 if(top<0){
+                     top=0;
+                 }
+                 if(top>oSmall.offsetHeight-oS.offsetTop){
+                     top=oSmall.offsetHeight-oS.offsetTop;
+                 }
+                 oS.style.left = left+'px';
+                 oS.style.top = top+'px';
+                 oImg.style.left = -left/(oSmall.offsetWidth-oS.offsetWidth)*(oImg.offsetWidth-oBig.offsetWidth)+'px';
+                 oImg.style.top = -top/(oSmall.offsetHeight-oS.offsetHeight)*(oImg.offsetHeight-oBig.offsetHeight)+'px';
+             }
+         }
+    </script>
+</head>
+<body>
+<div id="box">
+    <div id="small">
+        <img src="img/2.jpg">
+        <span></span>
+    </div>
+    <div id="big">
+        <img src="img/1.jpg">
+    </div>
+</div>
+</body>
+</html>

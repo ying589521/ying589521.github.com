@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            width: 800px;
+            height: 358px;
+            border: 1px solid #CCCCCC;
+            margin: 10px auto;
+            overflow: hidden;
+            position: relative;
+        }
+        ul{
+            position: absolute;
+            /*left: 0;*/
+            top: 25%;
+        }
+        li{
+            list-style: none;
+            width: 260px;
+            height: 179px;
+            float: left;
+            position: relative;
+        }
+        /*img本身的width:520px; height:158px;*/
+        li img{
+            width: 260px;
+            height: 179px;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            var oBox = document.getElementById('box');
+            var aLi = document.getElementsByTagName('li');
+            var aImg = document.getElementsByTagName('img');
+            var oUl = document.getElementsByTagName('ul')[0];
+            oUl.style.width = aLi[0].offsetWidth*aLi.length+'px';
+            var divcenterline = oBox.offsetWidth/2;
+            oUl.style.left = divcenterline - (1-0.5)*aLi[0].offsetWidth+'px';
+            oBox.onmousedown = function(ev){
+                var oEvent =  ev||event;
+                var disX = oEvent.clientX-oUl.offsetLeft;
+                document.onmousemove = function(ev){
+                    var oEvent = ev||event;
+                    var l = oEvent.clientX-disX;
+                    if(l>divcenterline - (1-0.5)*aLi[0].offsetWidth){
+                        l = divcenterline - (1-0.5)*aLi[0].offsetWidth;
+                    }
+                    if(l<divcenterline - (8-0.5)*aLi[0].offsetWidth){
+                        l = divcenterline - (8-0.5)*aLi[0].offsetWidth;
+                    }
+                    oUl.style.left = l+'px';
+                    setSize();
+                };
+                document.onmouseup = function(){
+                    document.onmousemove = null;
+                    document.onmouseup = null;
+                    oBox.releaseCapture&&oBox.releaseCapture();
+                };
+                oBox.setCapture&&oBox.setCapture();
+                return false;
+            };
+            setSize();
+            function setSize(){
+                for(var i=0;i<aLi.length;i++){
+                    var c = divcenterline-(oUl.offsetLeft+aLi[i].offsetLeft+aLi[i].offsetWidth/2);
+                    c = Math.abs(c);
+                    var scale = 1 - c/500;
+                    scale<0.5&&(scale=0.5);
+                    aImg[i].style.width = scale*520+'px';
+                    aImg[i].style.height = scale*358+'px';
+                    aImg[i].style.marginLeft = -(scale*520-260)/2+'px';
+                    aImg[i].style.marginTop = -(scale*358-179)/2+'px';
+                    aLi[i].style.zIndex = scale*1000;
+                }
+            };
+        };
+    </script>
+</head>
+<body>
+<div id="box">
+    <ul>
+        <li><img src="../img3/1.jpg" alt=""/></li>
+        <li><img src="../img3/2.jpg" alt=""/></li>
+        <li><img src="../img3/3.jpg" alt=""/></li>
+        <li><img src="../img3/4.jpg" alt=""/></li>
+        <li><img src="../img3/5.jpg" alt=""/></li>
+        <li><img src="../img3/6.jpg" alt=""/></li>
+        <li><img src="../img3/7.jpg" alt=""/></li>
+        <li><img src="../img3/8.jpg" alt=""/></li>
+    </ul>
+</div>
+</body>
+</html>

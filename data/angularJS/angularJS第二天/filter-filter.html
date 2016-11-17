@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="angular.js"></script>
+    <script>
+        var app = angular.module('app',[]);
+        app.controller('main',function($scope){
+            $scope.arr = ['banana','pear','apple','orange','dog','duck','pen'];
+        });
+    </script>
+</head>
+
+<body ng-controller="main">
+<input type="text" ng-model="a" />
+<ul>
+    <li ng-repeat="item in arr|filter:a">{{item}}</li>
+</ul>
+</body>
+</html>

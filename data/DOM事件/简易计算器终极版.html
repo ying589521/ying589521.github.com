@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        window.onload = function(){
+            var oTx1 = document.getElementById('text1');
+            var oTx2 = document.getElementById('text2');
+            var oTx3 = document.getElementById('text3');
+            var oBtn = document.getElementById('btn');
+            var oSe = document.getElementById('se');
+            oBtn.onclick = function(){
+                var t1 = Number(oTx1.value);
+                var t2 = Number(oTx2.value);
+                if(isNaN(t1)&&isNaN(t2)){
+                    alert('都错了');
+                }else if(isNaN(t1)){
+                    alert('第一个错了');
+                }else if(isNaN(t2)){
+                    alert('第二个错了');
+                }else{
+                    switch(oSe.value){
+                        case '+':
+                            oTx3.value = t1+t2;
+                            break;
+                        case '-':
+                            oTx3.value = t1-t2;
+                            break;
+                        case '*':
+                            oTx3.value = t1*t2;
+                            break;
+                        case '/':
+                            oTx3.value = t1/t2;
+                            break;
+                        case '%':
+                            oTx3.value = t1%t2;
+                            break;
+                    }
+                }
+            };
+
+        };
+    </script>
+</head>
+<body>
+<input type="text" id="text1"/>
+<select id="se">
+    <option>+</option>
+    <option>-</option>
+    <option>*</option>
+    <option>/</option>
+    <option>%</option>
+</select>
+<input type="text" id="text2"/>
+<input type="button" value="=" id="btn"/>
+<input type="text" id="text3"/>
+</body>
+</html>

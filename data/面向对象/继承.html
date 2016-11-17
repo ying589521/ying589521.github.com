@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        function Person(name,age){
+            this.age = age;
+            this.name = name;
+        };
+        Person.prototype.showName = function(){
+            return this.name;
+        };
+        Person.prototype.showAge = function(){
+            return this.age;
+        };
+        function Worker(name,age,job){
+            Person.apply(this,arguments);    //属性的继承
+            this.job = job;
+        };
+        Worker.prototype = new Person();    //方法的继承   子类.prototype = new 父类;
+        Worker.prototype.constructor = Worker; //方法的继承  子类.prototype.constructor = 子类；
+        Worker.prototype.showJob = function(){
+            return this.job;
+        };
+        window.onload = function(){
+            var p1 = new Person('李四',18);
+            var w1 = new Worker('张三',16,'程序员');
+            document.write(w1.showJob());
+        };
+    </script>
+</head>
+<body>
+
+</body>
+</html>
